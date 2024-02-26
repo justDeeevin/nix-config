@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  rust-overlay,
   ...
 }: {
   imports = [
@@ -18,9 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "devin-pc"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.hostName = "devin-pc"; # Define your hostname. networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -134,4 +133,6 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  nixpkgs.overlays = [ rust-overlay.overlays.default ];
 }
