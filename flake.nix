@@ -32,13 +32,6 @@
           })
         ];
       };
-
-      wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/wsl/configuration.nix
-        ];
-      };
     };
   };
 }
