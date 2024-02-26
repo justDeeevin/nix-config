@@ -51,6 +51,7 @@
     cargo-nextest
     cargo-release
     cargo-udeps
+    clippy
     flip-link
     gh
     pkg-config
