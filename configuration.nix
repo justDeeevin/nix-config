@@ -5,7 +5,6 @@
   config,
   pkgs,
   inputs,
-  rust-overlay,
   ...
 }: {
   imports = [
@@ -134,5 +133,4 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  nixpkgs.overlays = [ rust-overlay.overlays.default ];
 }

@@ -25,6 +25,9 @@
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+        })
       ];
     };
   };
