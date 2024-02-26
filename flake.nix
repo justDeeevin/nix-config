@@ -20,16 +20,25 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-        inputs.home-manager.nixosModules.default
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [ rust-overlay.overlays.default ];
-          environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-        })
-      ];
+    nixosConfigurations = {
+      devin-pc = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/desktop/configuration.nix
+          inputs.home-manager.nixosModules.default
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          })
+        ];
+      };
+
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/wsl/configuration.nix
+        ];
+      };
     };
   };
 }
