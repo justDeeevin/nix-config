@@ -109,3 +109,4 @@ $env.CHROMIUM_FLAGS = "--disable-gpu-compositing"
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib"
 $env.NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so"
+$env.LD_LIBRARY_PATH = $env.NIX_LD_LIBRARY_PATH
