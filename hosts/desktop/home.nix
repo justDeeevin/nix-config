@@ -3,10 +3,7 @@
   pkgs,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
-
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  nixpkgs.config.allowUnfree = true; # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "devin";
   home.homeDirectory = "/home/devin";
 
@@ -33,7 +30,6 @@
     lazygit
     bat
     nushell
-    starship
     vesktop
     steam
     fnm
@@ -112,5 +108,32 @@
   programs.git = {
     userName = "Devin Droddy";
     userEmail = "devin.droddy@gmail.com";
+  };
+
+  programs.nushell = {
+    configFile.source = ./config.nu;
+    envFile.source = ./env.nu;
+  };
+    programs.starship = {
+      enable = true;
+      settings = {
+        format = "[┌<$all](bold green)";
+        character = {
+          success_symbol = "[└>](bold green)";
+          error_symbol = "[└>](bold red)";
+        };
+        cmd_duration.min_time = 0;
+      };
+    };
+
+  programs.bacon = {
+    settings = {
+      keybindings = {
+        g = "scroll-to-top";
+        j = "scroll-lines(1)";
+        k = "scroll-lines(-1)";
+        shift-g = "scroll-to-bottom";
+      };
+    };
   };
 }
