@@ -101,8 +101,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    openssl.dev
-    xorg.libX11.dev
+    vim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -138,7 +137,7 @@
     enable = true;
     libraries = with pkgs; [
       stdenv.cc.cc.lib
-      openssl
+      openssl.dev
       xorg.libX11.dev
     ];
   };
