@@ -50,7 +50,6 @@
     clippy
     flip-link
     gh
-    pkg-config
     thefuck
     clang
     nix-index
