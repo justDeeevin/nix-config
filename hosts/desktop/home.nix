@@ -103,7 +103,7 @@
   #  /etc/profiles/per-user/devin/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    HELLO = "hi";
   };
 
   # Let Home Manager install and manage itself.
