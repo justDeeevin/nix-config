@@ -48,6 +48,7 @@
     cargo-release
     cargo-udeps
     clippy
+    pkg-config
     flip-link
     gh
     thefuck
