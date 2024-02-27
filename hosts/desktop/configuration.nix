@@ -133,4 +133,12 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      openssl
+      xorg.libX11.dev
+    ];
+  };
 }
