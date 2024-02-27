@@ -106,27 +106,31 @@
   programs.home-manager.enable = true;
 
   programs.git = {
+    enable = true;
     userName = "Devin Droddy";
     userEmail = "devin.droddy@gmail.com";
   };
 
   programs.nushell = {
+    enable = true;
     configFile.source = ./config.nu;
     envFile.source = ./env.nu;
   };
-    programs.starship = {
-      enable = true;
-      settings = {
-        format = "[┌<$all](bold green)";
-        character = {
-          success_symbol = "[└>](bold green)";
-          error_symbol = "[└>](bold red)";
-        };
-        cmd_duration.min_time = 0;
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      format = "[┌<$all](bold green)";
+      character = {
+        success_symbol = "[└>](bold green)";
+        error_symbol = "[└>](bold red)";
       };
+      cmd_duration.min_time = 0;
     };
+  };
 
   programs.bacon = {
+    enable = true;
     settings = {
       keybindings = {
         g = "scroll-to-top";
