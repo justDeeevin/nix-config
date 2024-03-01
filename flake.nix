@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-21.11";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -15,14 +16,16 @@
     self,
     nixpkgs,
     rust-overlay,
+    nixpkgs-stable,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in {
     nixosConfigurations = {
       devin-pc = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs; inherit pkgs; inherit pkgs-stable;};
         modules = [
           ./hosts/desktop/configuration.nix
           inputs.home-manager.nixosModules.default

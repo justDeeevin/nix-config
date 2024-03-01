@@ -1,5 +1,5 @@
 {
-  pkgs,
+  pkgs-stable,
   ...
 }: {
   nixpkgs.config.allowUnfree = true; # Home Manager needs a bit of information about you and the paths it should manage.
@@ -17,7 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
+  home.packages = with pkgs-stable; [
     git
     firefox
     xdg-desktop-portal-gnome

@@ -4,6 +4,7 @@
 {
   pkgs,
   inputs,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -88,7 +89,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs; inherit pkgs-stable;};
     users = {
       "devin" = import ./home.nix;
     };

@@ -41,16 +41,32 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1709152982,
-        "narHash": "sha256-/Rr4QcY/fDSrYbLGH5DoL+khCPNLdA+UFym5G83GPao=",
+        "lastModified": 1709150264,
+        "narHash": "sha256-HofykKuisObPUfj0E9CJVfaMhawXkYx3G8UIFR/XQ38=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fe1445a3797773a1612e72533cfa9dd55e4475f5",
+        "rev": "9099616b93301d5cf84274b184a3a5ec69e94e08",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-23.11",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1679048363,
+        "narHash": "sha256-afY4G9yA0MD/wxfAd7kks2yaCUOMuDtiwecDYIVxYfY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2766f77c32e171a04d59b636a91083bae862274e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "release-21.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -75,6 +91,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-stable": "nixpkgs-stable",
         "rust-overlay": "rust-overlay"
       }
     },
