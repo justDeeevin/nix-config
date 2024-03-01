@@ -1,4 +1,4 @@
-{ pkgs-stable
+{ pkgs
 , ...
 }: {
   nixpkgs.config.allowUnfree = true; # Home Manager needs a bit of information about you and the paths it should manage.
@@ -16,8 +16,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs-stable; [
-    git
+  home.packages = with pkgs.nix-stable; [
     firefox
     xdg-desktop-portal-gnome
     xdg-desktop-portal
@@ -27,13 +26,11 @@
     alejandra
     lazygit
     bat
-    nushell
     vesktop
     steam
     fnm
     zoxide
     neovim
-    bacon
     probe-rs
     cargo-binstall
     cargo-edit
@@ -105,18 +102,21 @@
   programs.home-manager.enable = true;
 
   programs.git = {
+    package = pkgs.nix-stable.git;
     enable = true;
     userName = "Devin Droddy";
     userEmail = "devin.droddy@gmail.com";
   };
 
   programs.nushell = {
+    package = pkgs.nix-stable.nushell;
     enable = true;
     configFile.source = ./config.nu;
     envFile.source = ./env.nu;
   };
 
   programs.starship = {
+    package = pkgs.nix-stable.starship;
     enable = true;
     settings = {
       format = "[┌<$all](bold green)";

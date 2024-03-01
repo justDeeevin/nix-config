@@ -15,26 +15,16 @@
   outputs =
     { self
     , nixpkgs
-    , rust-overlay
     , nixpkgs-stable
     , ...
     } @ inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
-      pkgs-stable = import nixpkgs-stable { inherit system; config.allowUnfree = true; };
-    in
     {
       nixosConfigurations = {
         devin-pc = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; inherit pkgs; inherit pkgs-stable; };
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/desktop/configuration.nix
             inputs.home-manager.nixosModules.default
-            ({ pkgs, ... }: {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
-              environment.systemPackages = [ pkgs.rust-bin.nighty.latest.default ];
-            })
           ];
         };
       };

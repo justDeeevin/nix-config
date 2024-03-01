@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 { pkgs
 , inputs
-, pkgs-stable
 , ...
 }: {
   imports = [
@@ -47,8 +46,8 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -87,21 +86,26 @@
     shell = pkgs.nushell;
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; inherit pkgs-stable; };
-    users = {
-      "devin" = import ./home.nix;
-    };
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.overlays = [ (final: prev: { nix-stable = (import inputs.nixpkgs-stable { config.allowUnfree = true; system = "x86_64-linux"; }); }) inputs.rust-overlay.overlays.default ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    rust-bin.beta.latest.default
   ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "devin" = import ./home.nix;
+    };
+    useGlobalPkgs = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
