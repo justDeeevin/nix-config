@@ -51,6 +51,7 @@
     nix-index
     ntfs3g
     neofetch
+    # unstable used because stable electron is insecure on unstable nixos
     pkgs.youtube-music
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
