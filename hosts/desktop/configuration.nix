@@ -1,11 +1,10 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  inputs,
-  pkgs-stable,
-  ...
+{ pkgs
+, inputs
+, pkgs-stable
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -84,12 +83,12 @@
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.nushell;
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs; inherit pkgs-stable;};
+    extraSpecialArgs = { inherit inputs; inherit pkgs-stable; };
     users = {
       "devin" = import ./home.nix;
     };
@@ -131,7 +130,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.nix-ld = {
     enable = true;

@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
@@ -14,38 +15,43 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/75a44bee-3f43-4e67-bc74-87d0c780d511";
+    {
+      device = "/dev/disk/by-uuid/75a44bee-3f43-4e67-bc74-87d0c780d511";
       fsType = "ext4";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/87f8dceb-01a5-480a-903e-1706b00a1d7e";
+    {
+      device = "/dev/disk/by-uuid/87f8dceb-01a5-480a-903e-1706b00a1d7e";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8564-8B12";
+    {
+      device = "/dev/disk/by-uuid/8564-8B12";
       fsType = "vfat";
     };
 
   fileSystems."/mnt/win-c" =
-    { device = "/dev/disk/by-uuid/5068ED0668ECEC22";
+    {
+      device = "/dev/disk/by-uuid/5068ED0668ECEC22";
       fsType = "ntfs3";
     };
 
   fileSystems."/mnt/crucial" =
-    { device = "/dev/disk/by-uuid/F05892C15892864E";
+    {
+      device = "/dev/disk/by-uuid/F05892C15892864E";
       fsType = "ntfs3";
     };
 
   fileSystems."/mnt/wd-black" =
-    { device = "/dev/disk/by-uuid/CC12485A12484C20";
+    {
+      device = "/dev/disk/by-uuid/CC12485A12484C20";
       fsType = "ntfs3";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/45a0e426-3fde-4dd0-9e8d-ac21638bcdce"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/45a0e426-3fde-4dd0-9e8d-ac21638bcdce"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
