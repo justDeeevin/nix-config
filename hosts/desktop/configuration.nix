@@ -148,4 +148,8 @@
       xorg.libX11.dev
     ];
   };
+
+  hardware.bluetooth.enable = true;
+
+  hardware.xpadneo.enable = true;
 }
