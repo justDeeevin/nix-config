@@ -27,7 +27,6 @@
     lazygit
     bat
     vesktop
-    steam
     fnm
     zoxide
     neovim

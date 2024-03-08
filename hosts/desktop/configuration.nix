@@ -152,4 +152,6 @@
   hardware.bluetooth.enable = true;
 
   hardware.xpadneo.enable = true;
+
+  programs.steam.enable = true;
 }
