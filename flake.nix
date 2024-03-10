@@ -12,21 +12,20 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-stable
-    , ...
-    } @ inputs:
-    {
-      nixosConfigurations = {
-        devin-pc = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/desktop/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    ...
+  } @ inputs: {
+    nixosConfigurations = {
+      devin-pc = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/desktop/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
       };
     };
+  };
 }
