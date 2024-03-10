@@ -42,10 +42,10 @@
     fsType = "ntfs-3g";
   };
 
-  fileSystems."/mnt/win-c" = {
-    device = "/dev/nvme0n1p4";
-    fsType = "ntfs-3g";
-  };
+  # fileSystems."/mnt/win-c" = {
+  #   device = "/dev/nvme0n1p4";
+  #   fsType = "ntfs-3g";
+  # };
 
   swapDevices = [];
 
