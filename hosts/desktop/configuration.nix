@@ -14,10 +14,12 @@
   ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "devin-pc"; # Define your hostname. networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
