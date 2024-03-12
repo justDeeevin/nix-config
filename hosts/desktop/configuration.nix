@@ -104,6 +104,7 @@
       };
     })
     inputs.rust-overlay.overlays.default
+    inputs.neovim-nightly-overlay.overlay
   ];
 
   # List packages installed in system profile. To search, run:

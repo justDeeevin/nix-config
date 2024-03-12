@@ -27,7 +27,6 @@
     vesktop
     fnm
     zoxide
-    neovim
     probe-rs
     cargo-binstall
     cargo-edit
@@ -50,6 +49,7 @@
     neofetch
     # unstable used because stable electron is insecure on unstable nixos
     pkgs.youtube-music
+    pkgs.neovim-nightly
     wl-clipboard
     mangohud
     just
