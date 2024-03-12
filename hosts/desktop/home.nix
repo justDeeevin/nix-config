@@ -28,17 +28,17 @@
     fnm
     zoxide
     probe-rs
-    cargo-binstall
-    cargo-edit
-    cargo-dist
-    cargo-expand
-    cargo-generate
-    cargo-info
-    cargo-msrv
-    cargo-nextest
-    cargo-release
-    cargo-udeps
-    clippy
+    # cargo-binstall
+    # cargo-edit
+    # cargo-dist
+    # cargo-expand
+    # cargo-generate
+    # cargo-info
+    # cargo-msrv
+    # cargo-nextest
+    # cargo-release
+    # cargo-udeps
+    # clippy
     pkg-config
     flip-link
     gh
