@@ -103,7 +103,6 @@
         system = "x86_64-linux";
       };
     })
-    inputs.rust-overlay.overlays.default
     inputs.neovim-nightly-overlay.overlay
   ];
 
@@ -111,7 +110,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
-    rust-bin.beta.latest.default
   ];
 
   home-manager = {

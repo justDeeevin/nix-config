@@ -9,7 +9,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rust-overlay.url = "github:oxalica/rust-overlay";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
