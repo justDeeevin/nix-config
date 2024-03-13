@@ -24,7 +24,7 @@
     alejandra
     lazygit
     bat
-    vesktop
+    pkgs.vesktop
     fnm
     zoxide
     probe-rs
