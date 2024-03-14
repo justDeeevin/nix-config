@@ -14,7 +14,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs.nix-stable; [
+  home.packages = with pkgs; [
     firefox
     xdg-desktop-portal-gnome
     xdg-desktop-portal
@@ -24,7 +24,7 @@
     alejandra
     lazygit
     bat
-    pkgs.vesktop
+    vesktop
     fnm
     zoxide
     probe-rs
@@ -37,8 +37,8 @@
     ntfs3g
     neofetch
     # unstable used because stable electron is insecure on unstable nixos
-    pkgs.youtube-music
-    pkgs.neovim-nightly
+    youtube-music
+    neovim-nightly
     wl-clipboard
     mangohud
     just
