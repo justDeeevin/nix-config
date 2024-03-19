@@ -89,9 +89,6 @@
   #
   #  /etc/profiles/per-user/devin/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    HELLO = "hi";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
