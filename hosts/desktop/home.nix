@@ -45,6 +45,13 @@
     ripgrep
     cargo
     cargo-generate
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+    }))
+    mako
+    libnotify
+    swww
+    rofi-wayland
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -72,6 +79,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config" = {
+      source = ./.config;
+      recursive = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through
