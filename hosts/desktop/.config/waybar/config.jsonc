@@ -1,0 +1,13 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": [
+        "tray"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "include": [
+        "~/.config/waybar/modules.json"
+    ]
+}
