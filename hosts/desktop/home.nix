@@ -50,10 +50,11 @@
     }))
     mako
     libnotify
-    swww
     rofi-wayland
     playerctl
     dunst
+    hyprpaper
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -83,6 +84,11 @@
     # '';
     ".config" = {
       source = ./.config;
+      recursive = true;
+    };
+
+    "Pictures" = {
+      source = ./Pictures;
       recursive = true;
     };
   };
