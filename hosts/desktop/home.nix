@@ -48,9 +48,7 @@
     ripgrep
     cargo
     cargo-generate
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    }))
+    eww
     rofi-wayland
     playerctl
     dunst
