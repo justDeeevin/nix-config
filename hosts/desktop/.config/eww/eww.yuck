@@ -34,7 +34,7 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
+    (metric :label "${volume == 0 ? "󰕿" : volume <= 50 ? "󰖀" : "󰕾"}"
             :value volume
             :onchange "amixer set Master {}%")
     (metric :label "󰍛"
