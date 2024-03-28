@@ -1,0 +1,67 @@
+$bar: #06061a;
+$text: #6d7275;
+$highlight1: #9dfff9;
+$highlight2: #a80874;
+$hover: #131353;
+
+.bar {
+  background-color: $bar;
+  color: $text;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Jetbrains Mono";
+}
+
+.bubble {
+  margin: 5px;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: $highlight1;
+}
+
+.workspace-entry:hover {
+  background-color: $hover;
+}
+
+.workspace-entry.current {
+  background-color: $highlight2;
+}
+
+.workspace-entry.occupied {
+  color: $highlight1;
+}
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: #d35d6e;
+  color: #000000;
+  border-radius: 10px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.metric scale trough highlight {
+  all: unset;
+  background-color: $highlight1;
+  border-radius: 10px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}

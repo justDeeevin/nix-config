@@ -1,0 +1,141 @@
+(defwindow bar
+    :monitor "S34J55x"
+    :geometry (geometry
+        :x "0%"
+        :y "0%"
+        :width "100%"
+        :anchor "top center"
+    )
+    :stacking "overlay"
+    :exclusive true
+    :focusable false
+    (bar)
+)
+
+(defwindow bar2
+    :monitor "LG FULL HD"
+    :geometry (geometry
+        :x "0%"
+        :y "0%"
+        :width "100%"
+        :anchor "top center"
+    )
+    :stacking "overlay"
+    :exclusive true
+    :focusable false
+    (bar)
+)
+
+(defwidget bar []
+  (centerbox :orientation "h" :class "bar"
+    (workspaces)
+    (music)
+    (sidestuff)))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "🔊"
+            :value volume
+            :onchange "amixer set Master {}%")
+    (metric :label "󰍛"
+            :value {EWW_RAM.used_mem_perc}
+            :onchange "")
+    (clock)))
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "󰎆 ${music}" : ""}))
+
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll volume :interval "1s"
+  `amixer get Master | awk -F '[^0-9]+' '/Left:/{print $3}'`)
+
+(defwidget clock []
+    (box
+        :halign "center"
+        :space-evenly false
+
+         (clock_icon) "${hour}:${minute} ${am}"
+    )
+)
+
+(defwidget clock_icon []
+    "${hour == "12" && minute < 30 ? "🕛" : 
+        hour == 12 && minute >= 30 ? "🕧" :
+        hour == 1 && minute < 30 ? "🕐" :
+        hour == 1 && minute >= 30 ? "🕜" : hour == 2 && minute < 30 ? "🕑" :
+        hour == 2 && minute >= 30 ? "🕜" :
+        hour == 3 && minute < 30 ? "🕒" :
+        hour == 3 && minute >= 30 ? "🕞" :
+        hour == 4 && minute < 30 ? "🕓" :
+        hour == 4 && minute >= 30 ? "🕟" :
+        hour == 5 && minute < 30 ? "🕔" :
+        hour == 5 && minute >= 30 ? "🕠" :
+        hour == 6 && minute < 30 ? "🕕" :
+        hour == 6 && minute >= 30 ? "🕡" :
+        hour == 7 && minute < 30 ? "🕖" :
+        hour == 7 && minute >= 30 ? "🕢" :
+        hour == 8 && minute < 30 ? "🕗" :
+        hour == 8 && minute >= 30 ? "🕣" :
+        hour == 9 && minute < 30 ? "🕘" :
+        hour == 9 && minute >= 30 ? "🕤" :
+        hour == 10 && minute < 30 ? "🕙" :
+        hour == 10 && minute >= 30 ? "🕥" :
+        hour == 11 && minute < 30 ? "🕚" :
+        "🕦"}"
+)
+
+(defpoll minute
+    :interval "1s"
+
+    `date +%M`
+)
+
+(defpoll hour
+    :interval "1s"
+
+    `date +%I`
+)
+
+(defpoll am
+    :interval "1s"
+
+    `date +%p`
+)
+
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(defwidget workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :space-evenly true
+      (label :text "${workspaces}${current_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (eventbox :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}")
+            )
+          )
+        )
+      )
+    )
+  )
+
