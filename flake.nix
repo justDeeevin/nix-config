@@ -11,6 +11,8 @@
     };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    hyprswitch.url = "github:justdeeevin/hyprswitch";
   };
 
   outputs = {

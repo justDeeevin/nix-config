@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true; # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "devin";
   home.homeDirectory = "/home/devin";
@@ -51,6 +55,7 @@
     playerctl
     dunst
     hyprpaper
+    inputs.hyprswitch.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
