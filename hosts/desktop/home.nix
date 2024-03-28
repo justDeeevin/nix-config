@@ -48,8 +48,6 @@
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
-    mako
-    libnotify
     rofi-wayland
     playerctl
     dunst
