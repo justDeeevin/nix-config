@@ -40,7 +40,9 @@
     (metric :label "󰍛"
             :value {EWW_RAM.used_mem_perc}
             :onchange "")
-    (clock)))
+    (clock)
+  )
+)
 
 (defwidget music []
   (box :class "music"
