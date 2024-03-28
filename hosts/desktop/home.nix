@@ -36,7 +36,6 @@
     nix-index
     ntfs3g
     neofetch
-    # unstable used because stable electron is insecure on unstable nixos
     youtube-music
     neovim-nightly
     wl-clipboard
