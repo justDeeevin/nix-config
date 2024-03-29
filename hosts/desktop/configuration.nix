@@ -190,7 +190,6 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    jetbrains-mono
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "JetBrainsMono"];})
   ];
 }
