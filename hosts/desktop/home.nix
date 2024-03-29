@@ -113,21 +113,18 @@
   programs.home-manager.enable = true;
 
   programs.git = {
-    package = pkgs.nix-stable.git;
     enable = true;
     userName = "Devin Droddy";
     userEmail = "devin.droddy@gmail.com";
   };
 
   programs.nushell = {
-    package = pkgs.nix-stable.nushell;
     enable = true;
     configFile.source = ./config.nu;
     envFile.source = ./env.nu;
   };
 
   programs.starship = {
-    package = pkgs.nix-stable.starship;
     enable = true;
     settings = {
       format = "[┌<$all](bold green)";
