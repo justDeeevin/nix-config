@@ -20,20 +20,13 @@
   # environment.
   home.packages = with pkgs; [
     firefox
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal
-    gnome.gnome-tweaks
     _1password-gui
     kitty
     alejandra
     lazygit
     bat
     vesktop
-    fnm
     zoxide
-    probe-rs
-    pkg-config
-    flip-link
     gh
     thefuck
     clang
