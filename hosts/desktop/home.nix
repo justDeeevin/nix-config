@@ -21,7 +21,6 @@
   home.packages = with pkgs; [
     firefox
     _1password-gui
-    kitty
     alejandra
     lazygit
     bat
@@ -170,4 +169,13 @@
     "https://cdn.discordapp.com/attachments/698251081569927191/1222751288941477978/posy-s-cursor.tar.xz?ex=66175ae0&is=6604e5e0&hm=6d2fdd7ce1c7b41cb56845093e2c0b9c7360cc8b29681d3da17c62c8ca162bc1&"
     "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E="
     "Posy";
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+      name = "JetBrainsMono Nerd Font";
+    };
+    theme = "Dark Pastel";
+  };
 }
