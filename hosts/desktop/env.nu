@@ -101,7 +101,6 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/go/bin')
-fnm env --shell power-shell | fnm-nushell | from json | load-env
 $env.OPENAI_API_KEY = "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"
 $env.GTK_IM_MODULE = "ibus"
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/usr/games')
