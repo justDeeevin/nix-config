@@ -1,5 +1,16 @@
 {
     "clock": {
-        "format": "{:%a %Y-%m-%d | %I:%M %p}"
+        "format": "{:%a %Y-%m-%d | %I:%M %p}",
+        "on-click": "sleep 0.1 && nu ~/.config/waybar/scripts/toggle_window.nu calendar1"
+    },
+    "mpris": {
+        "format": "{player_icon} {artist} • {title}",
+        "player-icons": {
+            "chromium": "󰐌",
+            "firefox": "󰈹",
+            "default": ""
+        },
+        "on-click": "sleep 0.1 && nu ~/.config/waybar/scripts/toggle_window.nu music",
+        "tooltip": false
     }
 }

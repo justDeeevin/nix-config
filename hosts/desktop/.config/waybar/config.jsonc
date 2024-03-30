@@ -5,6 +5,9 @@
         "tray"
     ],
     "modules-center": [
+        "mpris"
+    ],
+    "modules-right": [
         "clock"
     ],
     "include": [

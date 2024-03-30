@@ -79,17 +79,25 @@
 
 
 
+;; ** Windows *************************************************************************
 
-;; ******** DASHBOARD ********************************************************************
-(defwidget dashboard []
+(defwindow music0 :stacking "fg" :focusable "false" :monitor 0 :geometry (geometry :anchor "top center" :x 0 :y 0)
+ (box :class "background" :space-evenly "false" :orientation "v" :spacing 15 :width 400
+  (music)))
+
+(defwindow music1 :stacking "fg" :focusable "false" :monitor 1 :geometry (geometry :anchor "top center" :x 0 :y 0)
   (box :class "background" :space-evenly "false" :orientation "v" :spacing 15 :width 400
-    (system)
-    (music)
+  (music)))
+
+
+(defwindow calendar0 :stacking "fg" :focusable "false" :monitor 0 :geometry (geometry :anchor "top right" :x 0 :y 0)
+ (box :class "background" :space-evenly "false" :orientation "v" :spacing 15 :width 400
+  (cal)
+ )
+)
+
+(defwindow calendar1 :stacking "fg" :focusable "false" :monitor 1 :geometry (geometry :anchor "top right" :x 0 :y 0)
+  (box :class "background" :space-evenly "false" :orientation "v" :spacing 15 :width 400
     (cal)
   )
 )
-
-;; ** Windows *************************************************************************
-
-(defwindow dashboard :stacking "fg" :focusable "false" :monitor 1 :geometry (geometry :anchor "top right" :x 5 :y 5)
-  (dashboard))
