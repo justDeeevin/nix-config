@@ -59,6 +59,7 @@
     ffmpeg-full
     swaynotificationcenter
     swww
+    cinnamon.nemo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -183,5 +184,11 @@
       name = "JetBrainsMono Nerd Font";
     };
     theme = "Dark Pastel";
+  };
+
+  gtk.enable = true;
+  gtk.iconTheme = {
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
   };
 }
