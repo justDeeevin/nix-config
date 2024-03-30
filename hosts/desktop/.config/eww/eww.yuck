@@ -40,7 +40,7 @@
 ;; Power Button
 (defwidget powerbutton []
   (box :class "genwin" :vexpand "false" :hexpand "true" :width 60
-	(button :class "btn_poweroff" :onclick "nu ./scripts/powermenu.nu" "")))
+	(button :class "btn_poweroff" :onclick "nu ./scripts/powermenu.nu &" "")))
 
 ;; ** Widgets **************************************************************************
 
