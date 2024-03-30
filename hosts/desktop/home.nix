@@ -58,7 +58,7 @@
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
     ffmpeg-full
-    swaybg
+    swww
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
