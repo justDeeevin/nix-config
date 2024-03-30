@@ -15,6 +15,7 @@
     },
     "custom/system": {
         "format": "",
-        "on-click": "sleep 0.1 && nu ~/.config/waybar/scripts/toggle_window.nu system"
+        "on-click": "sleep 0.1 && nu ~/.config/waybar/scripts/toggle_window.nu system",
+        "tooltip": false
     }
 }
