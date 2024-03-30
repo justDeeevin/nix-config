@@ -1,0 +1,11 @@
+font="JetBrains Mono Nerd Font"
+
+clock
+timestr=%-I:%M:%S %p
+datestr=%A, %B %-d
+
+effect-pixelate=5
+
+screenshots
+
+indicator
