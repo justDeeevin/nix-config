@@ -43,7 +43,6 @@
     eww
     rofi-wayland
     playerctl
-    dunst
     libnotify
     hyprpaper
     hyprpicker
@@ -58,6 +57,7 @@
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
     ffmpeg-full
+    swaynotificationcenter
     swww
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
