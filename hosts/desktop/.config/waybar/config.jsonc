@@ -8,7 +8,8 @@
         "mpris"
     ],
     "modules-right": [
-        "clock"
+        "clock",
+        "custom/system"
     ],
     "include": [
         "~/.config/waybar/modules.jsonc"

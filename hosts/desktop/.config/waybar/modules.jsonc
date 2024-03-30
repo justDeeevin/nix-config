@@ -12,5 +12,9 @@
         },
         "on-click": "sleep 0.1 && nu ~/.config/waybar/scripts/toggle_window.nu music",
         "tooltip": false
+    },
+    "custom/system": {
+        "format": "",
+        "on-click": "sleep 0.1 && nu ~/.config/waybar/scripts/toggle_window.nu system"
     }
 }
