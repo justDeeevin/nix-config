@@ -191,10 +191,4 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "JetBrainsMono"];})
   ];
-
-  security.pam.services.swaylock = {
-    text = ''
-      auth include login
-    '';
-  };
 }

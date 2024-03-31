@@ -55,7 +55,6 @@
     swaynotificationcenter
     swww
     cinnamon.nemo
-    swaylock-effects
     hypridle
     copyq
 
