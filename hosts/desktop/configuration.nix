@@ -156,15 +156,6 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      stdenv.cc.cc.lib
-      openssl.dev
-      xorg.libX11.dev
-    ];
-  };
-
   hardware.bluetooth.enable = true;
 
   hardware.xpadneo.enable = true;
