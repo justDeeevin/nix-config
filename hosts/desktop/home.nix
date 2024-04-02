@@ -36,7 +36,6 @@
     ripgrep
     cargo
     cargo-generate
-    hyprpicker
     python3
     vlc
     nodejs_21
