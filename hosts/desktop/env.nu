@@ -99,14 +99,7 @@ $env.NU_PLUGIN_DIRS = [
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
-$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
-$env.PATH = ($env.PATH | split row (char esep) | prepend '~/go/bin')
 $env.OPENAI_API_KEY = "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"
 $env.GTK_IM_MODULE = "ibus"
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/usr/games')
 $env.CHROMIUM_FLAGS = "--disable-gpu-compositing"
-$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
-$env.NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib"
-$env.NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so"
-$env.LD_LIBRARY_PATH = $env.NIX_LD_LIBRARY_PATH
-$env.PKG_CONFIG_PATH = $"($env.NIX_LD_LIBRARY_PATH)/pkgconfig"

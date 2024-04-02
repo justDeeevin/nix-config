@@ -36,27 +36,11 @@
     ripgrep
     cargo
     cargo-generate
-    eww
-    rofi-wayland
-    playerctl
-    libnotify
-    hyprpaper
     hyprpicker
     python3
-    socat
-    jq
     vlc
     nodejs_21
-    xdg-desktop-portal-hyprland
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    }))
     ffmpeg-full
-    swaynotificationcenter
-    swww
-    cinnamon.nemo
-    hypridle
-    copyq
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -85,15 +69,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config" = {
-      source = ./.config;
-      recursive = true;
-    };
-
-    "Pictures" = {
-      source = ./Pictures;
-      recursive = true;
-    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -181,11 +156,5 @@
       name = "JetBrainsMono Nerd Font";
     };
     theme = "Dark Pastel";
-  };
-
-  gtk.enable = true;
-  gtk.iconTheme = {
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
   };
 }

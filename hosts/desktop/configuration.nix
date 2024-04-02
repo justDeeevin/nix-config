@@ -54,6 +54,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -162,11 +163,6 @@
 
   programs.steam.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -175,11 +171,10 @@
   };
 
   environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 }
