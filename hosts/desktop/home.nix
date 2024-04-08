@@ -16,7 +16,6 @@
   # environment.
   home.packages = with pkgs; [
     firefox
-    _1password-gui
     alejandra
     lazygit
     bat
