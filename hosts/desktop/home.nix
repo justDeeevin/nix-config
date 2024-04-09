@@ -17,7 +17,6 @@
   home.packages = with pkgs; [
     firefox
     alejandra
-    lazygit
     bat
     vesktop
     zoxide
@@ -154,5 +153,35 @@
       name = "JetBrainsMono Nerd Font";
     };
     theme = "Dark Pastel";
+  };
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      keybinding = {
+        universal = {
+          prevItem-alt = "e";
+          nextItem-alt = "n";
+          prevBlock-alt = "m";
+          nextBlock-alt = "i";
+          scrollUpMain-alt1 = "E";
+          scrollDownMain-alt1 = "N";
+          scrollLeft = "M";
+          scrollRight = "I";
+        };
+        files = {
+          ignoreFile = "<disabled>";
+        };
+        branches = {
+          viewGitFlowOptions = "<disabled>";
+        };
+        submodules = {
+          init = "<disabled>";
+        };
+        commits = {
+          startInteractiveRebase = "<disabled>";
+        };
+      };
+    };
   };
 }
