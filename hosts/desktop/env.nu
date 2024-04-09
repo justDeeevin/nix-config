@@ -103,3 +103,4 @@ $env.OPENAI_API_KEY = "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"
 $env.GTK_IM_MODULE = "ibus"
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/usr/games')
 $env.CHROMIUM_FLAGS = "--disable-gpu-compositing"
+$env.COLEMAK = 1
