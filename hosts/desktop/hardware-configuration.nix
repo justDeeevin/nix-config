@@ -32,20 +32,23 @@
     fsType = "ext4";
   };
 
-  # fileSystems."/mnt/crucial" = {
-  #   device = "/dev/nvme1n1p2";
-  #   fsType = "ntfs-3g";
-  # };
+  fileSystems."/mnt/crucial" = {
+    device = "/dev/disk/by-uuid/F05892C15892864E";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
 
-  # fileSystems."/mnt/wd-black" = {
-  #   device = "/dev/sda2";
-  #   fsType = "ntfs-3g";
-  # };
+  fileSystems."/mnt/wd-black" = {
+    device = "/dev/disk/by-uuid/CC12485A12484C20";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
 
-  # fileSystems."/mnt/win-c" = {
-  #   device = "/dev/nvme0n1p4";
-  #   fsType = "ntfs-3g";
-  # };
+  fileSystems."/mnt/win-c" = {
+    device = "/dev/disk/by-uuid/5068ED0668ECEC22";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
 
   swapDevices = [];
 
