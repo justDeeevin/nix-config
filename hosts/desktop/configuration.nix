@@ -88,7 +88,7 @@
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "adbusers"];
     shell = pkgs.nushell;
   };
 
@@ -184,4 +184,6 @@
     enable = true;
     polkitPolicyOwners = ["devin"];
   };
+
+  programs.adb.enable = true;
 }
