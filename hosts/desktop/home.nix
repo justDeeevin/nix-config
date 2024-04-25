@@ -156,6 +156,9 @@
       name = "JetBrainsMono Nerd Font";
     };
     theme = "Dark Pastel";
+    settings = {
+      enabled_layouts = "tall";
+    };
   };
 
   programs.lazygit = {
