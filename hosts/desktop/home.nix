@@ -36,7 +36,7 @@
     cargo-generate
     python3
     vlc
-    nodejs_21
+    nodejs_20
     ffmpeg-full
     ttyper
     sidequest
