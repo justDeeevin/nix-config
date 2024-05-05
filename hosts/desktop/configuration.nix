@@ -95,7 +95,7 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      nix-stable = import inputs.nixpkgs-stable {
+      nix-master = import inputs.nixpkgs-master {
         config.allowUnfree = true;
         system = "x86_64-linux";
       };
@@ -174,7 +174,8 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    nix-master.monaspace
   ];
 
   programs._1password.enable = true;

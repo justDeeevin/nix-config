@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/release-23.11";
+    # for monaspace v1.1. Will remove once v1.1 is in unstable.
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -16,7 +17,7 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
+    nixpkgs-master,
     ...
   } @ inputs: {
     nixosConfigurations = {

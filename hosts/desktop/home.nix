@@ -157,12 +157,13 @@
   programs.kitty = {
     enable = true;
     font = {
-      package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nix-master.monaspace;
+      name = "Monaspace Neon";
     };
     theme = "Dark Pastel";
     settings = {
       enabled_layouts = "tall";
+      font_features = "MonaspaceNeon-Regular +calt +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +ss08 +liga";
     };
   };
 
