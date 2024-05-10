@@ -157,7 +157,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      package = pkgs.nix-master.monaspace;
+      package = pkgs.monaspace;
       name = "Monaspace Neon";
     };
     theme = "Dark Pastel";

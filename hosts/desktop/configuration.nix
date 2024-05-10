@@ -94,12 +94,6 @@
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.overlays = [
-    (final: prev: {
-      nix-master = import inputs.nixpkgs-master {
-        config.allowUnfree = true;
-        system = "x86_64-linux";
-      };
-    })
     inputs.neovim-nightly-overlay.overlay
   ];
 
@@ -175,7 +169,7 @@
 
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    nix-master.monaspace
+    monaspace
   ];
 
   programs._1password.enable = true;
