@@ -182,4 +182,7 @@
 
   programs.alvr.enable = true;
   programs.alvr.openFirewall = true;
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [];
 }
