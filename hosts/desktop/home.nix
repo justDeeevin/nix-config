@@ -32,8 +32,6 @@
     mangohud
     just
     ripgrep
-    cargo
-    cargo-generate
     python3
     vlc
     nodejs_20
