@@ -47,6 +47,7 @@
     osu-lazer-bin
     prismlauncher
     bun
+    godot_4
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
