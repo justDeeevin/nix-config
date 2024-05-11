@@ -101,6 +101,9 @@
     enable = true;
     userName = "Devin Droddy";
     userEmail = "devin.droddy@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 
   programs.nushell = {
