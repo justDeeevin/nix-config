@@ -94,7 +94,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.overlays = [
-    inputs.neovim-nightly-overlay.overlay
+    # inputs.neovim-nightly-overlay.overlay
   ];
 
   # List packages installed in system profile. To search, run:

@@ -27,7 +27,7 @@
     ntfs3g
     neofetch
     youtube-music
-    neovim-nightly
+    # neovim-nightly
     wl-clipboard
     mangohud
     just
@@ -48,6 +48,7 @@
     godot_4
     obs-studio
     yt-dlp
+    neovim
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
