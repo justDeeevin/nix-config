@@ -86,7 +86,7 @@
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
-    extraGroups = ["networkmanager" "wheel" "adbusers"];
+    extraGroups = ["networkmanager" "wheel" "adbusers" "input"];
     shell = pkgs.nushell;
   };
 
