@@ -16,7 +16,6 @@
   # environment.
   home.packages = with pkgs; [
     firefox
-    alejandra
     bat
     vesktop
     zoxide
