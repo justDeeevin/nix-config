@@ -26,7 +26,7 @@
     ntfs3g
     neofetch
     youtube-music
-    # neovim-nightly
+    neovim-nightly
     wl-clipboard
     mangohud
     just
@@ -47,7 +47,6 @@
     godot_4
     obs-studio
     yt-dlp
-    neovim
     obsidian
     wineWowPackages.waylandFull
     chromium
