@@ -1,10 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -22,7 +21,7 @@
     gfxmodeEfi = "1024x768";
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "devin-pc"; # Define your hostname. networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # Configure network proxy if necessary
@@ -86,7 +85,7 @@
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
-    extraGroups = ["networkmanager" "wheel" "adbusers" "input"];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "input" ];
     shell = pkgs.nushell;
   };
 
@@ -94,7 +93,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.overlays = [
-    inputs.neovim-nightly-overlay.overlay
+    # inputs.neovim-nightly-overlay.overlay
   ];
 
   # List packages installed in system profile. To search, run:
@@ -104,7 +103,7 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "devin" = import ./home.nix;
     };
@@ -148,7 +147,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   hardware.bluetooth.enable = true;
 
@@ -168,14 +167,14 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     monaspace
   ];
 
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = ["devin"];
+    polkitPolicyOwners = [ "devin" ];
   };
 
   programs.adb.enable = true;
@@ -184,5 +183,5 @@
   programs.alvr.openFirewall = true;
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
+  programs.nix-ld.libraries = [ ];
 }
