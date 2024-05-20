@@ -25,7 +25,6 @@
     nix-index
     ntfs3g
     youtube-music
-    # neovim-nightly
     wl-clipboard
     mangohud
     just
