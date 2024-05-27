@@ -104,3 +104,5 @@ $env.GTK_IM_MODULE = "ibus"
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/usr/games')
 $env.CHROMIUM_FLAGS = "--disable-gpu-compositing"
 $env.COLEMAK = 1
+
+fastfetch
