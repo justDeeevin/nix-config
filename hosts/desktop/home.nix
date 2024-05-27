@@ -50,7 +50,6 @@
     chromium
     unzip
     libreoffice
-    neovim
     tree-sitter
     magic-wormhole
 
@@ -215,5 +214,10 @@
   programs.fastfetch = {
     enable = true;
     settings = builtins.fromJSON (builtins.readFile ./home-config/fastfetch.json);
+  };
+
+  programs.neovim = {
+    enable = true;
+    extraLuaPackages = ps: [ps.magick];
   };
 }
