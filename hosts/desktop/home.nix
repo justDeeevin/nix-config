@@ -51,7 +51,6 @@
     unzip
     libreoffice
     neovim
-    fastfetch
     tree-sitter
     magic-wormhole
 
@@ -82,6 +81,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    "Pictures" = {
+      recursive = true;
+      source = ./Pictures;
+    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -207,5 +210,10 @@
         };
       };
     };
+  };
+
+  programs.fastfetch = {
+    enable = true;
+    settings = builtins.fromJSON (builtins.readFile ./home-config/fastfetch.json);
   };
 }
