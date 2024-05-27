@@ -3,8 +3,8 @@
   "logo": {
     "type": "kitty-direct",
     "source": "~/Pictures/nixos-logo.png",
-    "width": 40,
-    "height": 20
+    "width": 66,
+    "height": 33
   },
   "display": {
     "separator": " -> "
@@ -32,7 +32,7 @@
     },
     {
       "type": "os",
-      "key": " OS",
+      "key": " OS",
       "keyColor": "yellow"
     },
     {
