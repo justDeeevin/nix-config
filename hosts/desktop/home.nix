@@ -85,6 +85,10 @@
       recursive = true;
       source = ./Pictures;
     };
+    ".config/nushell" = {
+      recursive = true;
+      source = ./nu;
+    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -117,8 +121,8 @@
 
   programs.nushell = {
     enable = true;
-    configFile.source = ./config.nu;
-    envFile.source = ./env.nu;
+    configFile.source = ./nu/config.nu;
+    envFile.source = ./nu/env.nu;
   };
 
   programs.starship = {

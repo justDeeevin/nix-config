@@ -105,4 +105,6 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '/usr/games')
 $env.CHROMIUM_FLAGS = "--disable-gpu-compositing"
 $env.COLEMAK = 1
 
+source ~/.config/nushell/git-completions.nu
+
 fastfetch
