@@ -52,6 +52,7 @@
     libreoffice
     tree-sitter
     magic-wormhole
+    btop
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
