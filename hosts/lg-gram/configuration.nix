@@ -159,4 +159,6 @@
     enable = true;
     polkitPolicyOwners = [ "devin" ];
   };
+
+  programs.steam.enable = true;
 }
