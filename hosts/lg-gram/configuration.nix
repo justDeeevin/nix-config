@@ -157,6 +157,4 @@
     enable = true;
     polkitPolicyOwners = [ "devin" ];
   };
-
-  
 }
