@@ -25,6 +25,13 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+      devin-gram = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+	modules = [
+	  ./hosts/lg-gram/configuration.nix
+	  inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }

@@ -10,23 +10,20 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     firefox
     bat
-    vesktop
     zoxide
     gh
     thefuck
     clang
-    nix-index
     ntfs3g
     youtube-music
     wl-clipboard
-    mangohud
     just
     ripgrep
     python3
@@ -40,16 +37,12 @@
     gradle
     zoom-us
     osu-lazer-bin
-    prismlauncher
     bun
     godot_4
     obs-studio
     yt-dlp
-    obsidian
     wineWowPackages.waylandFull
     chromium
-    unzip
-    libreoffice
     tree-sitter
     magic-wormhole
     btop
@@ -82,13 +75,14 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    "Pictures" = {
-      recursive = true;
-      source = ./Pictures;
-    };
     ".config/nushell" = {
       recursive = true;
       source = ../../common-config/nu;
+    };
+
+    "Pictures" = {
+      recursive = true;
+      source = ./Pictures;
     };
   };
 
@@ -149,24 +143,24 @@
     indicator = true;
   };
 
-  home.pointerCursor =
-    let
-      getFrom = url: hash: name: {
-        gtk.enable = true;
-        name = name;
-        package = pkgs.runCommand "moveUp" { } ''
-          mkdir -p $out/share/icons
-          ln -s ${pkgs.fetchzip {
-            url = url;
-            hash = hash;
-          }} $out/share/icons/${name}
-        '';
-      };
-    in
-    getFrom
-      "https://cdn.discordapp.com/attachments/698251081569927191/1222751288941477978/posy-s-cursor.tar.xz?ex=66175ae0&is=6604e5e0&hm=6d2fdd7ce1c7b41cb56845093e2c0b9c7360cc8b29681d3da17c62c8ca162bc1&"
-      "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E="
-      "Posy";
+  #home.pointerCursor =
+  #  let
+  #    getFrom = url: hash: name: {
+  #      gtk.enable = true;
+  #      name = name;
+  #      package = pkgs.runCommand "moveUp" { } ''
+  #        mkdir -p $out/share/icons
+  #        ln -s ${pkgs.fetchzip {
+  #          url = url;
+  #          hash = hash;
+  #        }} $out/share/icons/${name}
+  #      '';
+  #    };
+  #  in
+  #  getFrom
+  #    "https://cdn.discordapp.com/attachments/698251081569927191/1222751288941477978/posy-s-cursor.tar.xz?ex=66175ae0&is=6604e5e0&hm=6d2fdd7ce1c7b41cb56845093e2c0b9c7360cc8b29681d3da17c62c8ca162bc1&"
+  #    "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E="
+  #    "Posy";
 
   programs.kitty = {
     enable = true;
