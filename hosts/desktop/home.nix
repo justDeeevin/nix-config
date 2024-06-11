@@ -45,11 +45,9 @@
     godot_4
     obs-studio
     yt-dlp
-    obsidian
     wineWowPackages.waylandFull
     chromium
     unzip
-    libreoffice
     tree-sitter
     magic-wormhole
     btop
