@@ -144,24 +144,24 @@
     indicator = true;
   };
 
-  #home.pointerCursor =
-  #  let
-  #    getFrom = url: hash: name: {
-  #      gtk.enable = true;
-  #      name = name;
-  #      package = pkgs.runCommand "moveUp" { } ''
-  #        mkdir -p $out/share/icons
-  #        ln -s ${pkgs.fetchzip {
-  #          url = url;
-  #          hash = hash;
-  #        }} $out/share/icons/${name}
-  #      '';
-  #    };
-  #  in
-  #  getFrom
-  #    "https://cdn.discordapp.com/attachments/698251081569927191/1222751288941477978/posy-s-cursor.tar.xz?ex=66175ae0&is=6604e5e0&hm=6d2fdd7ce1c7b41cb56845093e2c0b9c7360cc8b29681d3da17c62c8ca162bc1&"
-  #    "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E="
-  #    "Posy";
+  home.pointerCursor =
+   let
+     getFrom = url: hash: name: {
+       gtk.enable = true;
+       name = name;
+       package = pkgs.runCommand "moveUp" { } ''
+         mkdir -p $out/share/icons
+         ln -s ${pkgs.fetchzip {
+           url = url;
+           hash = hash;
+         }} $out/share/icons/${name}
+       '';
+     };
+   in
+   getFrom
+     "https://cdn.discordapp.com/attachments/698251081569927191/1222751288941477978/posy-s-cursor.tar.xz?ex=6669c0a0&is=66686f20&hm=5216a32cd2d9cb0b883cba580f409c0cf3a1853d5a2d3bb29acc35e852be6942&"
+     "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E="
+     "Posy";
 
   programs.kitty = {
     enable = true;
