@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   nixpkgs.config.allowUnfree = true; # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "devin";
   home.homeDirectory = "/home/devin";
@@ -52,6 +52,7 @@
     magic-wormhole
     btop
     nushell
+    inputs.drg-mod-manager.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -216,6 +217,6 @@
 
   programs.neovim = {
     enable = true;
-    extraLuaPackages = ps: [ps.magick];
+    extraLuaPackages = ps: [ ps.magick ];
   };
 }
