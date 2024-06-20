@@ -191,4 +191,6 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [ ];
+
+  services.flatpak.enable = true;
 }
