@@ -43,7 +43,6 @@
     prismlauncher
     bun
     godot_4
-    obs-studio
     yt-dlp
     wineWowPackages.waylandFull
     chromium
@@ -218,5 +217,13 @@
   programs.neovim = {
     enable = true;
     extraLuaPackages = ps: [ ps.magick ];
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-pipewire-audio-capture
+    ];
   };
 }
