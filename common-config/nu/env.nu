@@ -108,3 +108,5 @@ $env.COLEMAK = 1
 source ~/.config/nushell/git-completions.nu
 
 fastfetch
+
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.bun/bin')
