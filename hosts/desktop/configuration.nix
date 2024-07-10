@@ -181,6 +181,15 @@
     enable = true;
     polkitPolicyOwners = [ "devin" ];
   };
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        firefox
+        chromium
+      '';
+      mode = "0755";
+    };
+  };
 
   programs.adb.enable = true;
 
