@@ -20,7 +20,7 @@
     vesktop
     zoxide
     gh
-    # thefuck
+    thefuck
     clang
     nix-index
     ntfs3g
@@ -48,7 +48,7 @@
     chromium
     unzip
     tree-sitter
-    # magic-wormhole
+    magic-wormhole
     btop
     nushell
     inputs.drg-mod-manager.packages.x86_64-linux.default
