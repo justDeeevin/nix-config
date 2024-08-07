@@ -200,4 +200,6 @@
   programs.nix-ld.libraries = [ ];
 
   services.flatpak.enable = true;
+
+  virtualisation.docker.enable = true;
 }
