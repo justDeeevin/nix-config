@@ -45,7 +45,7 @@
     godot_4
     yt-dlp
     wineWowPackages.waylandFull
-    chromium
+    ungoogled-chromium
     unzip
     tree-sitter
     magic-wormhole
