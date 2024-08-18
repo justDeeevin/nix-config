@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./nvidia.nix
     inputs.home-manager.nixosModules.default
+    ./bind
   ];
 
   # Bootloader.
