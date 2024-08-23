@@ -10,7 +10,7 @@
     };
 
     nixvim = {
-      url = "github:justdeeevin/nvim-config/nixvim";
+      url = "github:justdeeevin/nvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
