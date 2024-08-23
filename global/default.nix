@@ -8,9 +8,8 @@
   boot.loader.grub = {
     enable = true;
     device = "nodev";
-    efiSupport = true;
     useOSProber = true;
-    gfxmodeEfi = "1024x768";
+    efiSupport = true;
   };
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
