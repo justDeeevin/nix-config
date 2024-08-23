@@ -24,22 +24,21 @@
     { self
     , nixpkgs
     , ...
-    } @ inputs: {
+    } @ inputs:
+    let
+      mkSystem = configPath: stateVersion: nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; inherit stateVersion; };
+        modules = [
+          configPath
+          ./global
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+    in
+    {
       nixosConfigurations = {
-        devin-pc = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/desktop/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-        };
-        devin-gram = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/lg-gram/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-        };
+        devin-pc = mkSystem ./hosts/desktop/configuration.nix "23.11";
+        devin-gram = mkSystem ./hosts/lg-gram/configuration.nix "24.05";
       };
     };
 }

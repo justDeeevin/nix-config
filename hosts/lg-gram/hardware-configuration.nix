@@ -5,28 +5,32 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4d263dbf-d6a3-4e05-8f66-731f3e381dd4";
+    {
+      device = "/dev/disk/by-uuid/4d263dbf-d6a3-4e05-8f66-731f3e381dd4";
+      fsType = "ext4";
+    };
+
+  fileSystems."/home" =
+    {
+      device = "/dev/disk/by-uuid/72343c57-75ad-4d9e-a02f-5c10bcd31c83";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/EF2D-19A7";
+    {
+      device = "/dev/disk/by-uuid/6835-FB90";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/72343c57-75ad-4d9e-a02f-5c10bcd31c83";
-      fsType = "ext4";
     };
 
   swapDevices = [ ];
