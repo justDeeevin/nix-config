@@ -8,7 +8,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    firefox
     bat
     vesktop
     zoxide
@@ -38,7 +37,6 @@
     godot_4
     yt-dlp
     wineWowPackages.waylandFull
-    ungoogled-chromium
     unzip
     tree-sitter
     magic-wormhole
@@ -53,6 +51,7 @@
     slack
     zed-editor
     inputs.nixvim.packages.x86_64-linux.default
+    inputs.zen-browser.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

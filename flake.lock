@@ -323,11 +323,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1724529685,
-        "narHash": "sha256-+1OmV3/v3TwOQrvCX1vLsNF5OWGlIbjM9VQcOncK6Yo=",
+        "lastModified": 1724626604,
+        "narHash": "sha256-+To3aHvqTW2bY3lUpwp0eRXpYM5IBXY6vg1hRowXMQI=",
         "owner": "justdeeevin",
         "repo": "nvim-config",
-        "rev": "3c7b36e7c9a3a65a3040612664069952e44eb228",
+        "rev": "32ecf23c61253743d9bfabd1b6487c00b9d42f93",
         "type": "github"
       },
       "original": {
@@ -390,7 +390,8 @@
         "drg-mod-manager": "drg-mod-manager",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-overlay": {
@@ -461,6 +462,26 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724518795,
+        "narHash": "sha256-no9r2yJ61kWx6RN8vqaIhZaXi4/HPwUiON5M+VhpAMg=",
+        "owner": "marcecoll",
+        "repo": "zen-browser-flake",
+        "rev": "dc0a13e833b2bb1529d2348fa1b97b6220f9e899",
+        "type": "github"
+      },
+      "original": {
+        "owner": "marcecoll",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
