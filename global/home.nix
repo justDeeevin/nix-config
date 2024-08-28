@@ -58,6 +58,7 @@
     inputs.nixvim.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.default
     obsidian
+    chromium
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
