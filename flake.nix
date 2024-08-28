@@ -25,25 +25,39 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , ...
-    } @ inputs:
-    let
-      mkSystem = configPath: stateVersion: nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; inherit stateVersion; };
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    mkSystem = {
+      configPath,
+      stateVersion,
+      extraHome ? null,
+    }:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit stateVersion;
+          inherit extraHome;
+        };
         modules = [
           configPath
           ./global
           inputs.home-manager.nixosModules.default
         ];
       };
-    in
-    {
-      nixosConfigurations = {
-        devin-pc = mkSystem ./hosts/desktop/configuration.nix "23.11";
-        devin-gram = mkSystem ./hosts/lg-gram/configuration.nix "24.05";
+  in {
+    nixosConfigurations = {
+      devin-pc = mkSystem {
+        configPath = ./hosts/desktop/configuration.nix;
+        stateVersion = "23.11";
+        extraHome = ./hosts/desktop/home.nix;
+      };
+      devin-gram = mkSystem {
+        configPath = ./hosts/lg-gram/configuration.nix;
+        stateVersion = "24.05";
       };
     };
+  };
 }

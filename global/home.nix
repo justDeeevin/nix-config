@@ -2,8 +2,12 @@
   pkgs,
   inputs,
   stateVersion,
+  extraHome,
+  lib,
   ...
 }: {
+  imports = lib.optionals (extraHome != null) [extraHome];
+
   nixpkgs.config.allowUnfree = true; # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "devin";
   home.homeDirectory = "/home/devin";
@@ -20,23 +24,18 @@
     thefuck
     clang
     nix-index
-    ntfs3g
     youtube-music
     wl-clipboard
-    mangohud
     just
     ripgrep
     python3
     vlc
     nodejs_20
     ffmpeg-full
-    ttyper
-    sidequest
     kdePackages.kalk
     jdk
     gradle
     zoom-us
-    osu-lazer-bin
     prismlauncher
     bun
     godot_4
@@ -47,12 +46,9 @@
     magic-wormhole
     btop
     nushell
-    inputs.drg-mod-manager.packages.x86_64-linux.default
     kdePackages.kdenlive
-    BeatSaberModManager
     gzdoom
     libreoffice
-    clonehero
     slack
     zed-editor
     inputs.nixvim.packages.x86_64-linux.default
