@@ -33,26 +33,29 @@
     mkSystem = {
       configPath,
       stateVersion,
-      extraHome ? null,
+      home ? null,
+      modules ? [],
     }:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           inherit stateVersion;
-          inherit extraHome;
+          inherit home;
         };
-        modules = [
-          configPath
-          ./global
-          inputs.home-manager.nixosModules.default
-        ];
+        modules =
+          [
+            configPath
+            ./global
+            inputs.home-manager.nixosModules.default
+          ]
+          ++ modules;
       };
   in {
     nixosConfigurations = {
       devin-pc = mkSystem {
         configPath = ./hosts/desktop/configuration.nix;
         stateVersion = "23.11";
-        extraHome = ./hosts/desktop/home.nix;
+        home = ./hosts/desktop/home.nix;
       };
       devin-gram = mkSystem {
         configPath = ./hosts/lg-gram/configuration.nix;

@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   stateVersion,
-  extraHome,
+  home,
   ...
 }: {
   imports = [
@@ -116,7 +116,7 @@
     extraSpecialArgs = {
       inherit inputs;
       inherit stateVersion;
-      inherit extraHome;
+      inherit home;
     };
     users = {
       "devin" = ./home.nix;
