@@ -11,5 +11,6 @@
     BeatSaberModManager
     clonehero
     osu-lazer-bin
+    slack
   ];
 }

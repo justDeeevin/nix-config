@@ -49,7 +49,6 @@
     kdePackages.kdenlive
     gzdoom
     libreoffice
-    slack
     zed-editor
     inputs.nixvim.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.default
