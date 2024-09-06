@@ -142,6 +142,12 @@
         k = "scroll-lines(-1)";
         shift-g = "scroll-to-bottom";
       };
+      default_job = "clippy";
+      jobs = {
+        clippy = {
+          command = ["cargo" "clippy" "--all-targets" "--all-features" "--color" "always"];
+        };
+      };
     };
   };
 
