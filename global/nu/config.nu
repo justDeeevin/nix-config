@@ -767,3 +767,5 @@ source ~/.zoxide.nu
 alias cd = z
 
 alias fuck = thefuck $"(history | last 1 | get command | get 0)"
+
+alias dev = nix develop . --command nu
