@@ -118,6 +118,7 @@
     userEmail = "devin.droddy@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
+      pull.rebase = true;
     };
   };
 
