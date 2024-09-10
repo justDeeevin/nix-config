@@ -8,15 +8,13 @@
   programs.alvr.enable = true;
   programs.alvr.openFirewall = true;
 
-  virtualisation.docker.enable = true;
-
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
   environment.etc."archon/bootstrap.json" = {
     enable = true;
-    text  = builtins.toJSON {
+    text = builtins.toJSON {
       nodes = [
         {
           name = "devin-pc";

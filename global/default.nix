@@ -193,4 +193,6 @@
   services.flatpak.enable = true;
 
   security.sudo.extraConfig = "Defaults pwfeedback";
+
+  virtualisation.docker.enable = true;
 }
