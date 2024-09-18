@@ -21,9 +21,7 @@
     vesktop
     zoxide
     gh
-    thefuck
     clang
-    nix-index
     youtube-music
     wl-clipboard
     just
@@ -49,7 +47,6 @@
     kdePackages.kdenlive
     gzdoom
     libreoffice
-    zed-editor
     inputs.nixvim.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.default
     obsidian
