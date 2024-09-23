@@ -14,12 +14,15 @@
 
   home.stateVersion = stateVersion;
 
+  home.sessionPath = [
+    "~/.bun/bin"
+  ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     bat
     vesktop
-    zoxide
     gh
     clang
     youtube-music
@@ -43,7 +46,6 @@
     tree-sitter
     magic-wormhole
     btop
-    nushell
     kdePackages.kdenlive
     gzdoom
     libreoffice
@@ -83,10 +85,6 @@
     "Pictures" = {
       recursive = true;
       source = ./Pictures;
-    };
-    ".config/nushell" = {
-      recursive = true;
-      source = ./nu;
     };
   };
 
@@ -129,6 +127,7 @@
       };
       cmd_duration.min_time = 0;
     };
+    enableNushellIntegration = true;
   };
 
   programs.bacon = {
@@ -247,5 +246,26 @@
       wlrobs
       obs-pipewire-audio-capture
     ];
+  };
+
+  programs.nushell = {
+    enable = true;
+    # extraConfig is placed before shellAliases
+    extraConfig = ''
+      source ${./nu/git-completions.nu}
+      $env.config.cursor_shape.emacs = "line"
+    '';
+    shellAliases = {
+      dev = "nix develop . --command nu";
+      cd = "z";
+    };
+    extraEnv = ''
+      fastfetch
+    '';
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableNushellIntegration = true;
   };
 }
