@@ -254,6 +254,7 @@
     extraConfig = ''
       source ${./nu/git-completions.nu}
       $env.config.cursor_shape.emacs = "line"
+      $env.config.show_banner = false
     '';
     shellAliases = {
       dev = "nix develop . --command nu";
