@@ -12,5 +12,6 @@
     clonehero
     osu-lazer-bin
     slack
+    davinci-resolve
   ];
 }
