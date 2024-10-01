@@ -53,7 +53,6 @@
     obsidian
     chromium
     mindustry
-    freecad
     inputs.nuhxboard.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
