@@ -65,6 +65,7 @@
       devin-gram = mkSystem {
         configPath = ./hosts/lg-gram/configuration.nix;
         stateVersion = "24.05";
+        home = ./hosts/lg-gram/home.nix;
       };
     };
   };

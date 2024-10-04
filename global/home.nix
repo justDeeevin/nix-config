@@ -171,11 +171,6 @@
     "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E="
     "Posy";
 
-  programs.wezterm = {
-    enable = true;
-    extraConfig = builtins.readFile ./wezterm.lua;
-  };
-
   programs.lazygit = {
     enable = true;
     settings = {
