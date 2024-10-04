@@ -217,8 +217,38 @@
   programs.nushell = {
     enable = true;
     # extraConfig is placed before shellAliases
-    extraConfig = ''
-      source ${./nu/git-completions.nu}
+    extraConfig = let
+      gitCompletions = builtins.readFile (pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/git/git-completions.nu";
+        hash = "sha256-iz840LwqUhkFNHnzNGZFPSUtd9JbJQCEIiz+ogZz9bY=";
+      });
+      justCompletions = builtins.readFile (pkgs.fetchurl {
+        url = "https://github.com/nushell/nu_scripts/raw/refs/heads/main/custom-completions/just/just-completions.nu";
+        hash = "sha256-U8eQ6we+wy7aG6VacYKcyTXGEJYzwNs5UPvUyV9HCUo=";
+      });
+      nixCompleetions = builtins.readFile (pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/nix/nix-completions.nu";
+        hash = "sha256-sKyBJETVwlRBccEbQicoVg/7/hDV9hrT9jT8hlwVWAs=";
+      });
+      cargoCompletions = builtins.readFile (pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/cargo/cargo-completions.nu";
+        hash = "sha256-aGgoPgq4Zaj+eKu67fxnpTMm6lOvaaZ6j6cYxvWJ41M=";
+      });
+      batCompletions = builtins.readFile (pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/bat/bat-completions.nu";
+        hash = "sha256-awl7UD1B8lgYeOZ9Rj9KK4arlpuX5Sx+SanlOM70ZRE=";
+      });
+    in ''
+      ${gitCompletions}
+
+      ${justCompletions}
+
+      ${nixCompleetions}
+
+      ${cargoCompletions}
+
+      ${batCompletions}
+
       $env.config.cursor_shape.emacs = "line"
       $env.config.show_banner = false
     '';
