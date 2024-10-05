@@ -915,11 +915,11 @@
         "sss": "sss"
       },
       "locked": {
-        "lastModified": 1728093341,
-        "narHash": "sha256-23UpkzfCcqB7WOh5UhVVoln5qLa0+Wi+CHqYbpqG5m4=",
+        "lastModified": 1728103638,
+        "narHash": "sha256-phZjtVLDllqV0ltPtIL5yGa4Ebri2RttpUXUAFbhPZw=",
         "owner": "justdeeevin",
         "repo": "nvim-config",
-        "rev": "26937726057869d002c0c3b7142904b3eee6edf5",
+        "rev": "f8dde8e179fdfb56fd492b2b5799c0d20c919558",
         "type": "github"
       },
       "original": {

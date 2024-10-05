@@ -171,38 +171,9 @@
     "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E="
     "Posy";
 
-  programs.kitty = {
+  programs.wezterm = {
     enable = true;
-    font = {
-      package = pkgs.monaspace;
-      name = "Monaspace Neon";
-    };
-    settings = {
-      enabled_layouts = "tall";
-      font_features = "MonaspaceNeon-Regular +calt +ss01 +ss02 +ss03 +ss04 +ss05 +ss07 +ss08 +ss09 +liga";
-      background = "#16181a";
-      foreground = "#ffffff";
-      cursor = "#ffffff";
-      cursor_text_color = "#16181a";
-      selection_background = "#3c4048";
-      color0 = "#16181a";
-      color8 = "#3c4048";
-      color1 = "#ff6e5e";
-      color9 = "#ff6e5e";
-      color2 = "#5eff6c";
-      color10 = "#5eff6c";
-      color3 = "#f1ff5e";
-      color11 = "#f1ff5e";
-      color4 = "#5ea1ff";
-      color12 = "#5ea1ff";
-      color5 = "#bd5eff";
-      color13 = "#bd5eff";
-      color6 = "#5ef1ff";
-      color14 = "#5ef1ff";
-      color7 = "#ffffff";
-      color15 = "#ffffff";
-      selection_foreground = "#ffffff";
-    };
+    extraConfig = builtins.readFile ./wezterm.lua;
   };
 
   programs.lazygit = {
