@@ -11,7 +11,7 @@
 
     nixvim = {
       url = "github:justdeeevin/nvim-config";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     drg-mod-manager = {
