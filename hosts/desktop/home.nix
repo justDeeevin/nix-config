@@ -17,6 +17,10 @@
 
   programs.wezterm = {
     enable = true;
-    extraConfig = builtins.readFile ./wezterm.lua;
+    extraConfig = ''
+      ${builtins.readFile ../../global/wezterm.lua}
+      config.front_end = "WebGpu"
+      return config
+    '';
   };
 }

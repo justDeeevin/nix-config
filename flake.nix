@@ -28,6 +28,11 @@
       url = "github:justdeeevin/nuhxboard";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wezterm = {
+      url = "github:wez/wezterm/main?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

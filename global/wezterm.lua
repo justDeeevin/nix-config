@@ -9,8 +9,6 @@ config.font = wezterm.font({
 	harfbuzz_features = { "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss07", "ss08", "ss09", "liga" },
 })
 
-config.front_end = "WebGpu"
-
 config.keys = {
 	{
 		key = "Enter",
@@ -46,5 +44,3 @@ config.keys = {
 
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 bar.apply_to_config(config)
-
-return config
