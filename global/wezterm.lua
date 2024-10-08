@@ -16,6 +16,11 @@ config.keys = {
 		action = wezterm.action.SplitHorizontal({}),
 	},
 	{
+		key = "Enter",
+		mods = "CTRL|ALT",
+		action = wezterm.action.SplitVertical({}),
+	},
+	{
 		key = "i",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Right"),
