@@ -238,6 +238,10 @@
         url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/bat/bat-completions.nu";
         hash = "sha256-awl7UD1B8lgYeOZ9Rj9KK4arlpuX5Sx+SanlOM70ZRE=";
       });
+      ghCompletions = builtins.readFile (pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/gh/gh-completions.nu";
+        hash = "sha256-c2E+XAARdyLtZGhh7Stk6PjUwc77nJdC3q5OTIJjA60=";
+      });
     in ''
       ${gitCompletions}
 
@@ -248,6 +252,8 @@
       ${cargoCompletions}
 
       ${batCompletions}
+
+      ${ghCompletions}
 
       $env.config.cursor_shape.emacs = "line"
       $env.config.show_banner = false
