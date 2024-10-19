@@ -24,36 +24,26 @@
     bat
     vesktop
     gh
-    clang
     youtube-music
     wl-clipboard
     just
-    ripgrep
-    python3
     vlc
-    nodejs_20
     ffmpeg-full
     kdePackages.kalk
     jdk
     gradle
     zoom-us
     prismlauncher
-    bun
-    godot_4
-    yt-dlp
     wineWowPackages.waylandFull
     unzip
     tree-sitter
     magic-wormhole
     btop
-    gzdoom
     libreoffice
     inputs.nixvim.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.default
     obsidian
     chromium
-    mindustry
-    inputs.nuhxboard.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
