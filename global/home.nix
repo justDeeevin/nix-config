@@ -3,10 +3,9 @@
   inputs,
   stateVersion,
   home,
-  lib,
   ...
 }: {
-  imports = lib.optionals (home != null) [home];
+  imports = [home];
 
   home.username = "devin";
   home.homeDirectory = "/home/devin";
