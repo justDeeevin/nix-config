@@ -23,11 +23,6 @@
       url = "github:marcecoll/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nuhxboard = {
-      url = "github:justdeeevin/nuhxboard";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
