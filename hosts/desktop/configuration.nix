@@ -1,5 +1,5 @@
 {
-  imports = [./bind.nix ./hardware-configuration.nix];
+  imports = [./hardware-configuration.nix];
 
   networking.hostName = "devin-pc"; # Define your hostname. networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
