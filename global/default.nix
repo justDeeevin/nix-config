@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./nvidia.nix
-    inputs.home-manager.nixosModules.default
   ];
 
   # Bootloader.
