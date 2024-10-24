@@ -822,11 +822,11 @@
         "sss": "sss"
       },
       "locked": {
-        "lastModified": 1729378529,
-        "narHash": "sha256-HQvcOkxMU3jTJAeJLVijZR2v3jCRDpOEvyIQeX3zZ/0=",
+        "lastModified": 1729781457,
+        "narHash": "sha256-NR/UnHsc+z0rPusQ+tNW+cAMPRrnbKf8/5SFZU+iRbU=",
         "owner": "justdeeevin",
         "repo": "nvim-config",
-        "rev": "e7e705a089c71473c85e8f850848bda124bb325d",
+        "rev": "0a8ea67510c512dd85f6b55c6d56d0bd82289dde",
         "type": "github"
       },
       "original": {
