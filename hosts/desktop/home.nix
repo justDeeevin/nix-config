@@ -1,13 +1,13 @@
 {
   pkgs,
-  inputs,
+  # inputs,
   ...
 }: {
   home.packages = with pkgs; [
     ntfs3g
     mangohud
     sidequest
-    inputs.drg-mod-manager.packages.x86_64-linux.default
+    # inputs.drg-mod-manager.packages.x86_64-linux.default
     BeatSaberModManager
     slack
   ];

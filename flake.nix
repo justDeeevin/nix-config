@@ -14,10 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    drg-mod-manager = {
-      url = "github:trumank/mint";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # drg-mod-manager = {
+    #   url = "github:trumank/mint";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     zen-browser = {
       url = "github:marcecoll/zen-browser-flake";
