@@ -129,6 +129,7 @@
         j = "scroll-lines(1)";
         k = "scroll-lines(-1)";
         shift-g = "scroll-to-bottom";
+        c = "job:clippy";
       };
       default_job = "clippy";
       jobs = {
