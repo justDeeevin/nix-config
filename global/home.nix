@@ -134,7 +134,7 @@
       default_job = "clippy";
       jobs = {
         clippy = {
-          command = ["cargo" "clippy" "--all-targets" "--all-features" "--color" "always"];
+          command = ["cargo" "clippy" "--all-targets" "--color" "always"];
         };
       };
     };
