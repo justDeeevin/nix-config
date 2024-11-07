@@ -767,11 +767,11 @@
         "sss": "sss"
       },
       "locked": {
-        "lastModified": 1730870039,
-        "narHash": "sha256-LVXUAHGnnst8qAYJk1zuxM9c6f40crbKo/LSie04i8w=",
+        "lastModified": 1731020986,
+        "narHash": "sha256-UMB8w9VpIvNDFaOznZ/fogGCTYKHl93WzD0vZmeVbZg=",
         "owner": "justdeeevin",
         "repo": "nvim-config",
-        "rev": "9032e83374fdfcbf0056a3d3a0f30adb64e1a439",
+        "rev": "a7edea6768030167bdd4e0e77edcd2d5aeb3ab41",
         "type": "github"
       },
       "original": {
