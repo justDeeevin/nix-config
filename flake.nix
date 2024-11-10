@@ -23,6 +23,11 @@
       url = "github:marcecoll/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    posting = {
+      url = "github:justdeeevin/posting/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
