@@ -219,7 +219,7 @@
         url = "https://github.com/nushell/nu_scripts/raw/refs/heads/main/custom-completions/just/just-completions.nu";
         hash = "sha256-U8eQ6we+wy7aG6VacYKcyTXGEJYzwNs5UPvUyV9HCUo=";
       });
-      nixCompleetions = builtins.readFile (pkgs.fetchurl {
+      nixCompletions = builtins.readFile (pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/nix/nix-completions.nu";
         hash = "sha256-sKyBJETVwlRBccEbQicoVg/7/hDV9hrT9jT8hlwVWAs=";
       });
@@ -240,7 +240,7 @@
 
       ${justCompletions}
 
-      ${nixCompleetions}
+      ${nixCompletions}
 
       ${cargoCompletions}
 
