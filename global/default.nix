@@ -116,7 +116,6 @@
     users = {
       "devin" = ./home.nix;
     };
-    useGlobalPkgs = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -190,8 +189,4 @@
   security.sudo.extraConfig = "Defaults pwfeedback";
 
   virtualisation.docker.enable = true;
-
-  nixpkgs.overlays = [
-    inputs.posting.overlays.default
-  ];
 }
