@@ -898,11 +898,11 @@
         "textual-autocomplete": "textual-autocomplete"
       },
       "locked": {
-        "lastModified": 1731268293,
-        "narHash": "sha256-/uVOVlmZU52ExCyUyWS5TFWO82y+mMX0nlI9xmANyJY=",
+        "lastModified": 1731437862,
+        "narHash": "sha256-fLBqHeq5dii3jwZ5QFzRpRg2uqyehkt42HF5ZZjqwUE=",
         "owner": "justdeeevin",
         "repo": "posting",
-        "rev": "4c2acebce52ed3ce89e832f8bf160d18885b95f1",
+        "rev": "0a4cd649ddf8f159294413ce670db2496e616e3e",
         "type": "github"
       },
       "original": {
@@ -1127,11 +1127,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731268161,
-        "narHash": "sha256-tWVwdgdq+jfeiywoNhYPJVaKbU8tkWg5btk17dQ6b/o=",
+        "lastModified": 1731426947,
+        "narHash": "sha256-jL5ky4serO7oTOlR5T+8ghDY9IoveoeTNPEtxDEO/nY=",
         "owner": "justdeeevin",
         "repo": "textual-autocomplete",
-        "rev": "bb127cc993a4d4e20e53dea05908a5e273a5fce9",
+        "rev": "67968c8280ed10b3f5317f57e946571461d00769",
         "type": "github"
       },
       "original": {

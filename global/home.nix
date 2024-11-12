@@ -5,7 +5,10 @@
   home,
   ...
 }: {
-  imports = [home];
+  imports = [
+    home
+    inputs.posting.modules.homeManager.default
+  ];
 
   home.username = "devin";
   home.homeDirectory = "/home/devin";
@@ -45,7 +48,6 @@
     quickemu
     kdenlive
     mattermost-desktop
-    inputs.posting.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -263,5 +265,12 @@
   programs.zoxide = {
     enable = true;
     enableNushellIntegration = true;
+  };
+
+  programs.posting = {
+    enable = true;
+    settings = {
+      animation = "full";
+    };
   };
 }

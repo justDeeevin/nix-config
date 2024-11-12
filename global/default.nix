@@ -101,10 +101,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [
-    # inputs.neovim-nightly-overlay.overlay
-  ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -194,4 +190,8 @@
   security.sudo.extraConfig = "Defaults pwfeedback";
 
   virtualisation.docker.enable = true;
+
+  nixpkgs.overlays = [
+    inputs.posting.overlays.default
+  ];
 }
