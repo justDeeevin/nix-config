@@ -898,11 +898,11 @@
         "textual-autocomplete": "textual-autocomplete"
       },
       "locked": {
-        "lastModified": 1731437862,
-        "narHash": "sha256-fLBqHeq5dii3jwZ5QFzRpRg2uqyehkt42HF5ZZjqwUE=",
+        "lastModified": 1731456895,
+        "narHash": "sha256-DTiW3OcR2lswAEaedMIOLDqu4OQxKK8RZxMpTb8/zIw=",
         "owner": "justdeeevin",
         "repo": "posting",
-        "rev": "0a4cd649ddf8f159294413ce670db2496e616e3e",
+        "rev": "169b271cf9c9324127a3ecb1b74174a7719b00e7",
         "type": "github"
       },
       "original": {
