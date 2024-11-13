@@ -10,6 +10,8 @@
     inputs.posting.modules.homeManager.default
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home.username = "devin";
   home.homeDirectory = "/home/devin";
 
