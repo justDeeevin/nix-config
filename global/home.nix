@@ -50,6 +50,19 @@
     quickemu
     kdenlive
     mattermost-desktop
+    (sm64ex.override {
+      # You love to see this
+      callPackage = path: args: (pkgs.callPackage path (args
+        // {
+          callPackage = path: args: (pkgs.callPackage path (args
+            // {
+              baseRom = pkgs.fetchurl {
+                url = "https://github.com/jb1361/Super-Mario-64-AI/raw/refs/heads/development/Super%20Mario%2064%20(USA).z64";
+                hash = "sha256-F84Hc0PGEz+Mny1tbZpKtiyM0qpXxArqH0kLTIuyHZE=";
+              };
+            }));
+        }));
+    })
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
