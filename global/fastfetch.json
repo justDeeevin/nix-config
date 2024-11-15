@@ -4,7 +4,7 @@
     "type": "kitty-direct",
     "source": "~/Pictures/nixos-logo.png",
     "width": 66,
-    "height": 33
+    "height": 31
   },
   "display": {
     "separator": " -> "
