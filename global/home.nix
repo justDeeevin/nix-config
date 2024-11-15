@@ -8,6 +8,7 @@
   imports = [
     home
     inputs.posting.modules.homeManager.default
+    inputs.nix-index-database.hmModules.nix-index
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -310,4 +311,6 @@
       }
     ];
   };
+
+  programs.nix-index-database.comma.enable = true;
 }
