@@ -9,6 +9,7 @@
     home
     inputs.posting.modules.homeManager.default
     inputs.nix-index-database.hmModules.nix-index
+    ./plasma.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
