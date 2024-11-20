@@ -941,11 +941,11 @@
         "textual-autocomplete": "textual-autocomplete"
       },
       "locked": {
-        "lastModified": 1732112370,
-        "narHash": "sha256-S7pfHRfD03y3Ehvawk5bGCb/DuCIS6YMneiEOXmFYOk=",
+        "lastModified": 1732116251,
+        "narHash": "sha256-YFxuFpZjTkvpyRC6n9VWOCEE3/nBH5Qog4wECvY3kn0=",
         "owner": "justdeeevin",
         "repo": "posting",
-        "rev": "7c304de67c3075b0827bffb158891efef67ad36c",
+        "rev": "a91db75ff0d9426b6cb10e42a8d6121a9a8648b4",
         "type": "github"
       },
       "original": {
