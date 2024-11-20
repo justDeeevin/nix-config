@@ -292,9 +292,8 @@
       animation = "full";
       theme = "oxocarbon";
     };
-    themes = [
-      {
-        name = "oxocarbon";
+    themes = {
+      oxocarbon = {
         # base08
         primary = "#3ddbd9";
         # base0F
@@ -311,8 +310,8 @@
         success = "#42be65";
         # base0E
         warning = "#be95ff";
-      }
-    ];
+      };
+    };
   };
 
   programs.nix-index-database.comma.enable = true;
