@@ -40,7 +40,7 @@
     mkSystem = {
       configPath,
       stateVersion,
-      home ? null,
+      home ? {},
       modules ? [],
     }:
       nixpkgs.lib.nixosSystem {
