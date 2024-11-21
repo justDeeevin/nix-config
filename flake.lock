@@ -847,11 +847,11 @@
         "sss": "sss"
       },
       "locked": {
-        "lastModified": 1731020986,
-        "narHash": "sha256-UMB8w9VpIvNDFaOznZ/fogGCTYKHl93WzD0vZmeVbZg=",
+        "lastModified": 1732222761,
+        "narHash": "sha256-8qR2WI0CBByB6SYdL8RJt0sG0l32T89XjDSCnEPskMc=",
         "owner": "justdeeevin",
         "repo": "nvim-config",
-        "rev": "a7edea6768030167bdd4e0e77edcd2d5aeb3ab41",
+        "rev": "7cf9fdc37d71c9fdc3c257b061d95e591e085f8e",
         "type": "github"
       },
       "original": {
