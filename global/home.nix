@@ -96,8 +96,8 @@
     # '';
     "Pictures/nixos-logo.png" = {
       source = pkgs.fetchurl {
-        url = "https://static-00.iconduck.com/assets.00/nixos-icon-2048x1776-8czr8nir.png";
-        hash = "sha256-GX9Zv+Pf3BdrdvtqJ1PlnW+gkAMuC9H8YCq05sDmWMI=";
+        url = "https://upload.wikimedia.org/wikipedia/commons/3/35/Nix_Snowflake_Logo.svg";
+        hash = "sha256-SCuQlSPB14GFTq4XvExJ0QEuK2VIbrd5YYKHLRG/q5I=";
       };
     };
   };
