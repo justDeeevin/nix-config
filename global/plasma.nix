@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [inputs.plasma-manager.homeManagerModules.plasma-manager];
   programs.plasma = {
     enable = true;
@@ -44,9 +40,6 @@
           {
             iconTasks.launchers = ["applications:systemsettings.desktop" "applications:org.kde.dolphin.desktop" "applications:zen.desktop" "applications:youtube-music.desktop" "applications:org.wezfurlong.wezterm.desktop"];
           }
-          "org.kde.plasma.marginseparator"
-          # Correct?
-          "org.kde.plasma.plasmusictoolbar"
           {
             systemTray.items = {
               shown = [
@@ -60,7 +53,6 @@
             };
           }
           "org.kde.plasma.digitalclock"
-          # Correct?
           "org.kde.plasma.colorpicker"
           "org.kde.plasma.showdesktop"
         ];
