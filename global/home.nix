@@ -96,8 +96,8 @@
     # '';
     "Pictures/nixos-logo.png" = {
       source = pkgs.fetchurl {
-        url = "https://upload.wikimedia.org/wikipedia/commons/3/35/Nix_Snowflake_Logo.svg";
-        hash = "sha256-SCuQlSPB14GFTq4XvExJ0QEuK2VIbrd5YYKHLRG/q5I=";
+        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Nix_snowflake.svg/1200px-Nix_snowflake.svg.png";
+        hash = "sha256-1LolYJ2W+4SxCXC0O0430nKCbAcsUyaCksRPc3xYWZ0=";
       };
     };
   };
