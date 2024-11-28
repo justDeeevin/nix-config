@@ -208,7 +208,7 @@
       });
       justCompletions = builtins.readFile (pkgs.fetchurl {
         url = "https://github.com/nushell/nu_scripts/raw/refs/heads/main/custom-completions/just/just-completions.nu";
-        hash = "sha256-U8eQ6we+wy7aG6VacYKcyTXGEJYzwNs5UPvUyV9HCUo=";
+        hash = "sha256-IAdjn93e/IiZmGL1PFPuJ6vTkWREaDfH/gs9L6l46qg=";
       });
       nixCompletions = builtins.readFile (pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/nix/nix-completions.nu";
