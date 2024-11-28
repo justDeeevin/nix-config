@@ -58,6 +58,8 @@ in {
         ", Xf86AudioPlay, exec, ${playerctl} play-pause"
         ", Xf86AudioNext, exec, ${playerctl} next"
         ", Xf86AudioPrev, exec, ${playerctl} previous"
+
+        "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
       ];
 
       exec-once = [

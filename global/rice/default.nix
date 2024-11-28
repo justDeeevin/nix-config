@@ -4,5 +4,6 @@
     # ./plasma.nix
     ./waybar.nix
     ./stylix.nix
+    ./tofi.nix
   ];
 }
