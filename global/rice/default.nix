@@ -4,6 +4,13 @@
     # ./plasma.nix
     ./waybar.nix
     ./stylix.nix
-    ./tofi.nix
   ];
+
+  programs.tofi = {
+    enable = true;
+    settings = {
+      width = "50%";
+      height = "50%";
+    };
+  };
 }
