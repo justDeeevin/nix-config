@@ -53,10 +53,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -100,12 +100,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
 
   home-manager = {
     extraSpecialArgs = {
@@ -153,10 +147,6 @@
 
   hardware.xpadneo.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -172,13 +162,11 @@
     enable = true;
     polkitPolicyOwners = ["devin"];
   };
-  environment.etc = {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-        .zen-wrapped
-      '';
-      mode = "0755";
-    };
+  environment.etc."1password/custom_allowed_browsers" = {
+    text = ''
+      .zen-wrapped
+    '';
+    mode = "0755";
   };
 
   programs.nix-ld.enable = true;

@@ -1,0 +1,13 @@
+.module {
+  background-color: @base00;
+  border-radius: 15px;
+  padding: 0 10px;
+}
+
+#clock {
+  padding: 0 10px;
+}
+
+tooltip {
+  background-color: @base00;
+}

@@ -6,12 +6,4 @@
     BeatSaberModManager
     slack
   ];
-
-  programs.wezterm = {
-    enable = true;
-    extraConfig = ''
-      ${builtins.readFile ../../global/wezterm.lua}
-      return config
-    '';
-  };
 }
