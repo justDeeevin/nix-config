@@ -63,6 +63,7 @@
     layout = "us";
     variant = "colemak_dh";
   };
+  i18n.consoleUseXkbConfig = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
