@@ -53,10 +53,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
   # services.desktopManager.plasma6.enable = true;
+  services.displayManager.ly.enable = true;
   programs.hyprland.enable = true;
+  environment.systemPackages = with pkgs; [xdg-desktop-portal-hyprland];
 
   # Configure keymap in X11
   services.xserver.xkb = {
