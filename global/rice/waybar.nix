@@ -9,7 +9,6 @@
         modules-left = ["tray" "hyprland/workspaces"];
         modules-center = ["clock"];
         modules-right = ["mpris"];
-        height = 25;
         spacing = 5;
 
         "hyprland/workspaces" = {
