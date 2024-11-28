@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   playerctl = "${pkgs.playerctl}/bin/playerctl";
 in {
   wayland.windowManager.hyprland = {
@@ -61,6 +65,7 @@ in {
 
         "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
         "$mod, P, exec, nu ${./scripts/power-list.nu}"
+        ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
       ];
 
       exec-once = [
