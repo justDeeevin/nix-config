@@ -60,6 +60,7 @@ in {
         ", Xf86AudioPrev, exec, ${playerctl} previous"
 
         "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
+        "$mod, P, exec, nu ${./scripts/power-list.nu}"
       ];
 
       exec-once = [

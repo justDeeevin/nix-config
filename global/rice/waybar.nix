@@ -8,7 +8,7 @@
         position = "top";
         modules-left = ["tray" "hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["mpris"];
+        modules-right = ["mpris" "custom/power"];
         spacing = 5;
 
         "hyprland/workspaces" = {
@@ -42,6 +42,12 @@
           };
           dynamic-order = ["title" "artist"];
           title-len = 30;
+        };
+
+        "custom/power" = {
+          format = "";
+          on-click = "nu ${./scripts/power-list.nu}";
+          tooltip = false;
         };
       };
     };

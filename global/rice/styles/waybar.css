@@ -8,6 +8,7 @@
   padding: 0 10px;
 }
 #clock:hover,
+#custom-power:hover,
 #mpris:hover {
   background-color: @base01;
 }
