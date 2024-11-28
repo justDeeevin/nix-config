@@ -65,7 +65,7 @@ in {
         "waybar"
         "wezterm"
         "${pkgs.playerctl}/bin/playerctld"
-        "sleep 1; ${pkgs.swaybg}/bin/swaybg -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
+        "${pkgs.swaybg}/bin/swaybg -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
       ];
 
       input = {
