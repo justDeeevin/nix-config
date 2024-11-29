@@ -27,7 +27,6 @@ in {
         "$mod, Q, killactive"
         "$mod, D, exit"
 
-        # Vim-like focus + window movement (mind you, this is Colemak-DH)
         "$mod, M, movefocus, l"
         "$mod SHIFT, M, swapwindow, l"
         "$mod, N, movefocus, d"
@@ -37,6 +36,10 @@ in {
         "$mod, I, movefocus, r"
         "$mod SHIFT, I, swapwindow, r"
 
+        "$mod ALT, M, workspace, -1"
+        "$mod ALT SHIFT, M, movetoworkspace, -1"
+        "$mod ALT, I, workspace, +1"
+        "$mod ALT SHIFT, I, movetoworkspace, +1"
         "$mod, KP_End, workspace, 1"
         "$mod SHIFT, KP_End, movetoworkspace, 1"
         "$mod, KP_Down, workspace, 2"
@@ -57,6 +60,8 @@ in {
         "$mod SHIFT, KP_Prior, movetoworkspace, 9"
         "$mod, KP_Insert, workspace, 10"
         "$mod SHIFT, KP_Insert, movetoworkspace, 10"
+        "$mod, KP_Enter, togglespecialworkspace"
+        "$mod SHIFT, KP_Enter, movetoworkspace, special"
 
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", Xf86AudioPlay, exec, ${playerctl} play-pause"
