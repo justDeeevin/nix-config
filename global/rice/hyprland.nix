@@ -12,13 +12,14 @@ in {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
       ];
 
       monitor = [
         # "DP-1, highres@highrr, "
         "HDMI-A-1, highres@highrr, 0x0, 1, transform, 3"
       ];
+
+      general.gaps_out = "0,20,20,20";
 
       "$mod" = "SUPER";
 
