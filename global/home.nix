@@ -150,11 +150,6 @@
     };
   };
 
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
-
   programs.lazygit = {
     enable = true;
     settings = {
