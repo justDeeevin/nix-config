@@ -72,6 +72,10 @@ in {
         "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
         "$mod, P, exec, nu ${./scripts/power-list.nu}"
         ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
+
+        "CTRL SHIFT, SPACE, exec, 1password --quick-access"
+        "CTRL SHIFT, BACKSLASH, exec, 1password"
+        "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
       ];
 
       exec-once = [
