@@ -64,6 +64,8 @@ in {
         "$mod, KP_Enter, togglespecialworkspace"
         "$mod SHIFT, KP_Enter, movetoworkspace, special"
 
+        ", F11, fullscreen"
+
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", Xf86AudioPlay, exec, ${playerctl} play-pause"
         ", Xf86AudioNext, exec, ${playerctl} next"
@@ -76,6 +78,13 @@ in {
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"
         "CTRL SHIFT, BACKSLASH, exec, 1password"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
+      ];
+
+      bindm = "$mod, mouse:272, movewindow";
+
+      windowrulev2 = [
+        "suppressevent maximize, class:.*"
+        "suppressevent fullscreen, class:.*"
       ];
 
       exec-once = [
