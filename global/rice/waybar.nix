@@ -19,6 +19,7 @@
             "class<org.wezfurlong.wezterm>" = "";
             "class<YouTube Music>" = "";
             "class<vesktop>" = "";
+            "class<steam>" = "";
           };
         };
 
