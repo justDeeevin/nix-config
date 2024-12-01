@@ -8,7 +8,7 @@
         position = "top";
         modules-left = ["tray" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["clock"];
-        modules-right = ["mpris" "custom/power"];
+        modules-right = ["mpris" "custom/sink" "custom/power"];
         spacing = 5;
 
         "hyprland/workspaces" = {
@@ -49,6 +49,14 @@
           format = "";
           on-click = "nu ${./scripts/power-list.nu}";
           tooltip = false;
+        };
+
+        "custom/sink" = {
+          exec = "nu ${./scripts/audio-sink.nu} current";
+          on-click = "nu ${./scripts/audio-sink.nu} tofi";
+          signal = 1;
+          exec-on-event = false;
+          format = " {}";
         };
       };
     };
