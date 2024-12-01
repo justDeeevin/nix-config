@@ -6,7 +6,7 @@
       topBar = {
         layer = "top";
         position = "top";
-        modules-left = ["tray" "hyprland/workspaces"];
+        modules-left = ["tray" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["clock"];
         modules-right = ["mpris" "custom/power"];
         spacing = 5;
