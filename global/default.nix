@@ -161,4 +161,6 @@
   security.sudo.extraConfig = "Defaults pwfeedback";
 
   virtualisation.docker.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
 }
