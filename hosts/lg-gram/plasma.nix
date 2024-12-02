@@ -54,5 +54,11 @@
         }
       ];
     };
+
+    workspace = {
+      wallpaper = ../../global/rice/scp_3001_by_sunnyclockwork.jpg;
+      wallpaperFillMode = "pad";
+      wallpaperBackground.color = "1,1,1";
+    };
   };
 }

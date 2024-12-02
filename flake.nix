@@ -38,7 +38,7 @@
     };
 
     plasma-manager = {
-      url = "github:nix-community/plasma-manager";
+      url = "github:HeitorAugustoLN/plasma-manager/wallpaper-image-wallpaperbackground";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
