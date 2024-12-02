@@ -22,4 +22,6 @@
     };
     path = [pkgs.alsa-tools];
   };
+
+  services.desktopManager.plasma6.enable = true;
 }
