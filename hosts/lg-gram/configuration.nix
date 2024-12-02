@@ -18,7 +18,7 @@
       User = "root";
       Group = "root";
       RemainAfterExit = "yes";
-      ExecStart = "${script}";
+      ExecStart = script;
     };
     path = [pkgs.alsa-tools];
   };
