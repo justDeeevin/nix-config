@@ -57,6 +57,7 @@
           signal = 1;
           exec-on-event = false;
           format = " {}";
+          tooltip = false;
         };
       };
     };
