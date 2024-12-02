@@ -14,11 +14,6 @@ in {
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
 
-      monitor = [
-        # "DP-1, highres@highrr, "
-        "HDMI-A-1, highres@highrr, 0x0, 1, transform, 3"
-      ];
-
       general.gaps_out = "0,20,20,20";
 
       "$mod" = "SUPER";
