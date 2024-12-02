@@ -36,6 +36,14 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -69,6 +77,7 @@
       devin-gram = mkSystem {
         configPath = ./hosts/lg-gram/configuration.nix;
         stateVersion = "24.05";
+        home = ./hosts/lg-gram/home.nix;
       };
     };
   };
