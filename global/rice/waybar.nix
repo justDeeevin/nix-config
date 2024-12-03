@@ -56,8 +56,7 @@
           on-click = "nu ${./scripts/audio-sink.nu} tofi";
           signal = 1;
           exec-on-event = false;
-          format = " {}";
-          tooltip = false;
+          return-type = "json";
         };
       };
     };

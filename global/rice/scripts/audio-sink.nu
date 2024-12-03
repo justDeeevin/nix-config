@@ -22,8 +22,8 @@ def sinks [] {
   })
 }
 
-def current_name [] {
-  (sinks | where selected == true).0.name
+def current [] {
+  (sinks | where selected == true).0
 }
 
 def "main tofi" [] {
@@ -39,7 +39,14 @@ def "main tofi" [] {
 }
 
 def "main current" [] {
-  print (current_name)
+  let current = current
+  print (
+    {
+      text: $" ($current.name)"
+      tooltip: ($"Volume: ($current.volume)" + (if $current.muted {" (muted)"} else {""}))
+    }
+    | to json -r
+  )
 }
 
 def main [] {}
