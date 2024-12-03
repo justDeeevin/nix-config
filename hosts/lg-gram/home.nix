@@ -1,18 +1,4 @@
 {
-  pkgs,
-  lib,
-  ...
-}: {
-  wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "${lib.getExe pkgs.networkmanagerapplet}"
-    ];
-
-    input.touchpad = {
-      natural_scroll = true;
-      scroll_factor = 0.65;
-    };
-  };
-
+  imports = [./hyprland.nix];
   programs.waybar.settings.topBar.modules-left = ["battery"];
 }
