@@ -10,10 +10,16 @@ def sinks [] {
   let sources_index = ($audio | enumerate | find -r `Sources:$`).index.0
   let sinks = $audio | drop nth ($sources_index - 1)..
 
-  let sinks = $sinks | parse -r ` │ *(?<selected>\*)? *(?<id>[0-9]*)\. (?<name>.*) \[vol: 1\.00\]`
-  let sinks = $sinks | each {|sink| mut newSink = $sink; $newSink.selected = $sink.selected != ''; return $newSink}
-  let sinks = $sinks | each {|sink| mut newSink = $sink; $newSink.name = $sink.name | str trim; return $newSink}
-  return $sinks
+  let sinks = $sinks | parse -r ` │ *(?<selected>\*)? *(?<id>[0-9]*)\. (?<name>.*) \[vol: (?<volume>[0-1]\.[0-9]{2})(?<muted> MUTED)?]`
+  return ($sinks | each { |sink|
+    mut newSink = $sink
+    $newSink.selected = $sink.selected != ''
+    $newSink.id = $sink.id | str trim | into int
+    $newSink.name = $sink.name | str trim
+    $newSink.muted = $sink.muted != ''
+    $newSink.volume = $sink.volume | str trim | into float
+    return $newSink
+  })
 }
 
 def current_name [] {
