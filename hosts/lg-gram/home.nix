@@ -13,4 +13,6 @@
       scroll_factor = 0.65;
     };
   };
+
+  programs.waybar.settings.topBar.modules-left = ["battery"];
 }
