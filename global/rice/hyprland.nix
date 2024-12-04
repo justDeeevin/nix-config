@@ -8,10 +8,7 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = with pkgs.hyprlandPlugins; [
-      hypr-dynamic-cursors
-      hyprspace
-    ];
+    plugins = [pkgs.hyprlandPlugins.hypr-dynamic-cursors];
 
     settings = {
       decoration.rounding = 8;
@@ -29,6 +26,7 @@ in {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "XCURSOR_SIZE,32"
       ];
 
       general.gaps_out = "0,20,20,20";
@@ -75,9 +73,6 @@ in {
         "$mod SHIFT, KP_Insert, movetoworkspace, 10"
         "$mod, KP_Enter, togglespecialworkspace"
         "$mod SHIFT, KP_Enter, movetoworkspace, special"
-
-        "$mod ALT, E, overview:toggle"
-        "$mod ALT, N, overview:close"
 
         ", F11, fullscreen"
 
