@@ -7,8 +7,24 @@
 in {
   wayland.windowManager.hyprland = {
     enable = true;
+
+    plugins = with pkgs.hyprlandPlugins; [
+      hypr-dynamic-cursors
+      hyprspace
+    ];
+
     settings = {
       decoration.rounding = 8;
+
+      plugin = {
+        dynamic-cursors = {
+          enabled = true;
+          shake.enabled = true;
+          mode = "tilt";
+          tilt.limit = 2000;
+        };
+      };
+
       cursor.no_hardware_cursors = true;
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
@@ -59,6 +75,9 @@ in {
         "$mod SHIFT, KP_Insert, movetoworkspace, 10"
         "$mod, KP_Enter, togglespecialworkspace"
         "$mod SHIFT, KP_Enter, movetoworkspace, special"
+
+        "$mod ALT, E, overview:toggle"
+        "$mod ALT, N, overview:close"
 
         ", F11, fullscreen"
 
