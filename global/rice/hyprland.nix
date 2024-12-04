@@ -8,8 +8,8 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = [
-      (lib.overrideDerivation pkgs.hyprlandPlugins.hypr-dynamic-cursors (oldAttrs: {
+    plugins = with pkgs.hyprlandPlugins; [
+      (lib.overrideDerivation hypr-dynamic-cursors (oldAttrs: {
         src = pkgs.fetchFromGitHub {
           owner = "VirtCode";
           repo = "hypr-dynamic-cursors";
@@ -17,6 +17,7 @@ in {
           hash = "sha256-3SDwq2i2QW9nu7HBCPuDtLmrwLt2kajzImBsawKRZ+s=";
         };
       }))
+      hyprspace
     ];
 
     settings = {
@@ -82,6 +83,9 @@ in {
         "$mod SHIFT, KP_Insert, movetoworkspace, 10"
         "$mod, KP_Enter, togglespecialworkspace"
         "$mod SHIFT, KP_Enter, movetoworkspace, special"
+
+        "$mod ALT, E, overview:toggle"
+        "$mod ALT, N, overview:close"
 
         ", F11, fullscreen"
 
