@@ -8,7 +8,16 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = [pkgs.hyprlandPlugins.hypr-dynamic-cursors];
+    plugins = [
+      (lib.overrideDerivation pkgs.hyprlandPlugins.hypr-dynamic-cursors (oldAttrs: {
+        src = pkgs.fetchFromGitHub {
+          owner = "VirtCode";
+          repo = "hypr-dynamic-cursors";
+          rev = "81f4b964f997a3174596ef22c7a1dee8a5f616c7";
+          hash = "sha256-3SDwq2i2QW9nu7HBCPuDtLmrwLt2kajzImBsawKRZ+s=";
+        };
+      }))
+    ];
 
     settings = {
       decoration.rounding = 8;
