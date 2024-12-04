@@ -1,0 +1,9 @@
+#battery.discharging.warning {
+  color: @base0A;
+}
+#battery.discharging.critical {
+  color: @base08;
+}
+#battery.charging {
+  color: @base0D;
+}
