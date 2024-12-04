@@ -8,6 +8,7 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      decoration.rounding = 8;
       cursor.no_hardware_cursors = true;
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
