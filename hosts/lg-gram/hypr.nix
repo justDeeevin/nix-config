@@ -8,6 +8,8 @@
       "${lib.getExe pkgs.networkmanagerapplet}"
     ];
 
+    monitor = ",preferred,auto,1.333333";
+
     input.touchpad = {
       natural_scroll = true;
       scroll_factor = 0.65;
