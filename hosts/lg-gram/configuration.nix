@@ -23,4 +23,5 @@
     path = [pkgs.alsa-tools];
   };
 
+  security.pam.services.hyprlock = {};
 }

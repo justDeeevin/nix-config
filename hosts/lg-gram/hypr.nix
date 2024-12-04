@@ -18,4 +18,16 @@
       workspace_swipe = true;
     };
   };
+
+  programs.hyprlock = {
+    enable = true;
+  };
+
+  services.hypridle = {
+    enable = true;
+    settings.general = {
+      lock_cmd = "hyprlock";
+      before_sleep_cmd = "loginctl lock-session";
+    };
+  };
 }
