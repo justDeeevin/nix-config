@@ -128,6 +128,7 @@ in {
       input = {
         kb_layout = "us";
         kb_variant = "colemak_dh";
+        numlock_by_default = true;
       };
     };
   };
