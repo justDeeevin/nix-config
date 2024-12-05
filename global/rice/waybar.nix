@@ -26,11 +26,11 @@
         format = "{:%I:%M %p}";
         tooltip-format = "<tt><small>{calendar}</small></tt>";
         calendar.format = {
-          months = "<span class='month'><b>{}</b></span>";
-          weeks = "<span class='week'><b>{}</b></span>";
-          weekdays = "<span class='weekday'><b>{}</b></span>";
-          days = "<span class='day'><b>{}</b></span>";
-          today = "<span class='today'><b><u>{}</u></b></span>";
+          months = "<b>{}</b>";
+          weeks = "<b>{}</b>";
+          weekdays = "<b>{}</b>";
+          days = "<b>{}</b>";
+          today = ''<span color="#ff7eb6"><b>{}</b></span>'';
         };
       };
 
