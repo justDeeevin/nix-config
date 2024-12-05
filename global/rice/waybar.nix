@@ -63,6 +63,7 @@
         on-click = "nu ${./scripts/audio-sink.nu} tofi";
         format = "{volume}%  {desc}";
         format-muted = "{volume}%  {desc}";
+        tooltip = false;
       };
     };
   };
