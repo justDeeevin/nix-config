@@ -57,6 +57,8 @@
         tooltip = false;
       };
 
+      battery.interval = 5;
+
       pulseaudio = {
         on-click = "nu ${./scripts/audio-sink.nu} tofi";
         format = "{volume}%  {desc}";
