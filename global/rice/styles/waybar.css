@@ -11,6 +11,7 @@
 }
 #clock:hover,
 #custom-power:hover,
+#pulseaudio:hover,
 #mpris:hover {
   background-color: @base01;
 }
