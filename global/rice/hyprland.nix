@@ -103,6 +103,11 @@ in {
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
       ];
 
+      binde = [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
+
       bindm = "$mod, mouse:272, movewindow";
 
       windowrulev2 = [

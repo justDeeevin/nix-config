@@ -7,7 +7,7 @@
       position = "top";
       modules-left = ["tray" "hyprland/workspaces" "hyprland/window"];
       modules-center = ["clock"];
-      modules-right = ["mpris" "custom/sink" "custom/power"];
+      modules-right = ["mpris" "pulseaudio" "custom/power"];
       spacing = 5;
 
       "hyprland/workspaces" = {
@@ -57,12 +57,10 @@
         tooltip = false;
       };
 
-      "custom/sink" = {
-        exec = "nu ${./scripts/audio-sink.nu} current";
+      pulseaudio = {
         on-click = "nu ${./scripts/audio-sink.nu} tofi";
-        signal = 1;
-        exec-on-event = false;
-        return-type = "json";
+        format = "{volume}%  {desc}";
+        format-muted = "{volume}%  {desc}";
       };
     };
   };

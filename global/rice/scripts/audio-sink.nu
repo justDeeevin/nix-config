@@ -29,24 +29,13 @@ def current [] {
 def "main tofi" [] {
   let selection = (sinks).name | str join "\n" | tofi
   match $selection {
-    (current_name) => {},
-    _ => {
+    (current).name | "" => {},
+    _  => {
       let id = (sinks | where name == $selection).0.id
       wpctl set-default $id
       ^kill -SIGRTMIN+1 (pgrep waybar)
     }
   }
-}
-
-def "main current" [] {
-  let current = current
-  print (
-    {
-      text: $" ($current.name)"
-      tooltip: ($"Volume: ($current.volume)" + (if $current.muted {" (muted)"} else {""}))
-    }
-    | to json -r
-  )
 }
 
 def main [] {}
