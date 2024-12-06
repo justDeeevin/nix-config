@@ -7,7 +7,7 @@
       position = "top";
       modules-left = ["tray" "hyprland/workspaces" "hyprland/window"];
       modules-center = ["clock"];
-      modules-right = ["mpris" "pulseaudio" "custom/power"];
+      modules-right = ["mpris" "pulseaudio" "custom/swaync" "privacy" "custom/power"];
       spacing = 5;
 
       "hyprland/workspaces" = {
@@ -64,6 +64,27 @@
         format = "{volume}%  {desc}";
         format-muted = "{volume}%  {desc}";
         tooltip = false;
+      };
+
+      "custom/swaync" = {
+        tooltip = false;
+        format = "{} {icon}";
+        "format-icons" = {
+          notification = "󱅫";
+          none = "";
+          "dnd-notification" = " ";
+          "dnd-none" = "󰂛";
+          "inhibited-notification" = " ";
+          "inhibited-none" = "";
+          "dnd-inhibited-notification" = " ";
+          "dnd-inhibited-none" = " ";
+        };
+        "return-type" = "json";
+        "exec-if" = "which swaync-client";
+        exec = "swaync-client -swb";
+        "on-click" = "swaync-client -t";
+        "on-click-right" = "swaync-client -d";
+        escape = true;
       };
     };
   };

@@ -9,9 +9,11 @@
 #clock {
   padding: 0 15px;
 }
+
 #clock:hover,
 #custom-power:hover,
 #pulseaudio:hover,
+#custom-swaync:hover,
 #mpris:hover {
   background-color: @base01;
 }
