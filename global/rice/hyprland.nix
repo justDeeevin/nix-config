@@ -121,7 +121,6 @@ in {
         "wezterm"
         "${pkgs.playerctl}/bin/playerctld"
         "${lib.getExe pkgs.swaybg} -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
-        "${lib.getExe pkgs.swaynotificationcenter}"
         "systemctl --user start hyprpolkitagent"
       ];
 
