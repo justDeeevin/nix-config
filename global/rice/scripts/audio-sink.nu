@@ -26,8 +26,8 @@ def current [] {
   (sinks | where selected == true).0
 }
 
-def "main tofi" [] {
-  let selection = (sinks).name | str join "\n" | tofi
+def "main dmenu" [] {
+  let selection = (sinks).name | str join "\n" | fuzzel -d
   match $selection {
     (current).name | "" => {},
     _  => {

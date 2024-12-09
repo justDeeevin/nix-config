@@ -1,4 +1,4 @@
-let selection = echo "Shut Down\nReboot\nSleep" | tofi
+let selection = echo "Shut Down\nReboot\nSleep" | fuzzel -d
 
 match $selection {
   "Shut Down" => {systemctl poweroff},

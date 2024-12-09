@@ -87,7 +87,7 @@ in {
         ", Xf86AudioNext, exec, ${playerctl} next"
         ", Xf86AudioPrev, exec, ${playerctl} previous"
 
-        "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
+        "$mod, SPACE, exec, fuzzel"
         "$mod, P, exec, nu ${./scripts/power-list.nu}"
         ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
 

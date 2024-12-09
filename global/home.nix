@@ -289,4 +289,6 @@
   };
 
   services.swaync.enable = true;
+
+  programs.fuzzel.enable = true;
 }

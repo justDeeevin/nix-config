@@ -60,7 +60,7 @@
       battery.interval = 5;
 
       pulseaudio = {
-        on-click = "nu ${./scripts/audio-sink.nu} tofi";
+        on-click = "nu ${./scripts/audio-sink.nu} dmenu";
         format = "{volume}%  {desc}";
         format-muted = "{volume}%  {desc}";
         tooltip = false;
