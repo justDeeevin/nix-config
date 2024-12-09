@@ -88,7 +88,7 @@ in {
         ", Xf86AudioPrev, exec, ${playerctl} previous"
 
         "$mod, SPACE, exec, fuzzel"
-        "$mod, P, exec, nu ${./scripts/power-list.nu}"
+        "$mod, P, exec, syspower"
         ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
 
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"

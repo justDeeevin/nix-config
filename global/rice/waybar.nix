@@ -53,7 +53,7 @@
 
       "custom/power" = {
         format = "";
-        on-click = "nu ${./scripts/power-list.nu}";
+        on-click = "syspower";
         tooltip = false;
       };
 

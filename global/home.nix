@@ -9,6 +9,7 @@
     home
     inputs.posting.modules.homeManager.default
     inputs.nix-index-database.hmModules.nix-index
+    inputs.syspower.modules.homeManager.default
     ./rice
   ];
 
@@ -291,4 +292,6 @@
   services.swaync.enable = true;
 
   programs.fuzzel.enable = true;
+
+  programs.syspower.enable = true;
 }
