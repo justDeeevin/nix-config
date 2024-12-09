@@ -1390,17 +1390,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1733759945,
-        "narHash": "sha256-HZkS5GOJlrRiD8AJt7dNrxJPmBqdhNxYbj0YUNmoAbM=",
+        "lastModified": 1733777345,
+        "narHash": "sha256-SVhjefm1vrM1KP7vrnky4yvYJbodqFfJ2unQKihxNZw=",
         "owner": "justdeeevin",
-        "repo": "syspower",
-        "rev": "1be1d0fcd5bdb2bba395650b999b5af0400c13e4",
+        "repo": "syspower-flake",
+        "rev": "d340eb7c2643b021406f633316eaa0be091e3b01",
         "type": "github"
       },
       "original": {
         "owner": "justdeeevin",
-        "ref": "flake",
-        "repo": "syspower",
+        "repo": "syspower-flake",
         "type": "github"
       }
     },

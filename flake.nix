@@ -51,7 +51,7 @@
     };
 
     syspower = {
-      url = "github:justdeeevin/syspower/flake";
+      url = "github:justdeeevin/syspower-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
