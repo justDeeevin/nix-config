@@ -94,6 +94,8 @@ in {
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"
         "CTRL SHIFT, BACKSLASH, exec, 1password"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
+
+        "$mod, v, exec, wezterm start --class clipse -- ${lib.getExe pkgs.clipse}"
       ];
 
       binde = [
@@ -106,6 +108,9 @@ in {
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "suppressevent fullscreen, class:.*"
+
+        "float, class:(clipse)"
+        "size 622 652, class:(clipse)"
       ];
 
       exec-once = [
@@ -115,6 +120,7 @@ in {
         "${pkgs.playerctl}/bin/playerctld"
         "${lib.getExe pkgs.swaybg} -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
         "systemctl --user start hyprpolkitagent"
+        "${lib.getExe pkgs.clipse} -listen"
       ];
 
       input = {

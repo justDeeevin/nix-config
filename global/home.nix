@@ -89,6 +89,9 @@
         hash = "sha256-1LolYJ2W+4SxCXC0O0430nKCbAcsUyaCksRPc3xYWZ0=";
       };
     };
+    ".config/clipse/config.json".text = builtins.toJSON {
+      imageDisplay.type = "kitty";
+    };
   };
 
   # Home Manager can also manage your environment variables through
