@@ -48,7 +48,7 @@
           stopped = "";
         };
         dynamic-order = ["title" "artist"];
-        title-len = 30;
+        title-len = 20;
       };
 
       "custom/power" = {
@@ -64,6 +64,7 @@
         format = "{volume}%  {desc}";
         format-muted = "{volume}%  {desc}";
         tooltip = false;
+        max-length = 30;
       };
 
       "custom/swaync" = {
