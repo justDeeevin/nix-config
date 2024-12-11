@@ -48,5 +48,6 @@ config.keys = {
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 bar.apply_to_config(config)
 
+config.window_background_opacity = 0.5
 
 return config
