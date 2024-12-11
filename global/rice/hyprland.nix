@@ -95,7 +95,7 @@ in {
         "CTRL SHIFT, BACKSLASH, exec, 1password"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
 
-        "$mod, v, exec, wezterm start --class clipse -- ${lib.getExe pkgs.clipse}"
+        "$mod, v, exec, wezterm --config enable_tab_bar=false start --class clipse -- ${lib.getExe pkgs.clipse}"
       ];
 
       binde = [
