@@ -1207,17 +1207,16 @@
         "textual-autocomplete": "textual-autocomplete"
       },
       "locked": {
-        "lastModified": 1732291437,
-        "narHash": "sha256-wWNulTWny2Ga5CFipGz4VxuN9HG51sT4k7vu7Z0+oMA=",
+        "lastModified": 1733933512,
+        "narHash": "sha256-22LebUmCHhDAh1usTOme4YNhoUwC7OmRlzHbcKUxvZM=",
         "owner": "justdeeevin",
-        "repo": "posting",
-        "rev": "05fc6c1835909da18838ab35f52d01db54eba0c9",
+        "repo": "posting-flake",
+        "rev": "99c80cc34e20ff3ad549c92285f01c142932a66f",
         "type": "github"
       },
       "original": {
         "owner": "justdeeevin",
-        "ref": "flake",
-        "repo": "posting",
+        "repo": "posting-flake",
         "type": "github"
       }
     },
@@ -1547,17 +1546,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1732111306,
-        "narHash": "sha256-ftgjl5wjvLDLA0OPcAu948wGtFqZKc4MzgJFzXrSdyk=",
+        "lastModified": 1733933416,
+        "narHash": "sha256-WPqb8+TJtawlLVYCeoC1xTUyqJTFbe6o6SMfXE/YvHk=",
         "owner": "justdeeevin",
-        "repo": "textual-autocomplete",
-        "rev": "bddf68aa96b41d47db625547622d3c564bc6e198",
+        "repo": "textual-autocomplete-flake",
+        "rev": "4eea65411ed86ce7094d9fa96c37fb0a4eccd110",
         "type": "github"
       },
       "original": {
         "owner": "justdeeevin",
-        "ref": "flake",
-        "repo": "textual-autocomplete",
+        "repo": "textual-autocomplete-flake",
         "type": "github"
       }
     },

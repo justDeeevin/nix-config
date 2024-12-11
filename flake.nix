@@ -20,7 +20,7 @@
     };
 
     posting = {
-      url = "github:justdeeevin/posting/flake";
+      url = "github:justdeeevin/posting-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
