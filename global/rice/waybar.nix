@@ -14,7 +14,7 @@
         format = "{icon} - {windows}";
         window-rewrite-default = "";
         window-rewrite = {
-          "class<zen-alpha>" = "󰈹";
+          "class<zen-beta>" = "󰈹";
           "class<org.wezfurlong.wezterm>" = "";
           "class<YouTube Music>" = "";
           "class<vesktop>" = "";
