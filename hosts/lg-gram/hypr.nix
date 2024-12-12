@@ -8,6 +8,11 @@
       "${lib.getExe pkgs.networkmanagerapplet}"
     ];
 
+    bind = [
+      ", xf86monbrightnessup, exec, ${lib.getExe pkgs.brightnessctl} set 10%+"
+      ", xf86monbrightnessdown, exec, ${lib.getExe pkgs.brightnessctl} set 10%-"
+    ];
+
     monitor = ",preferred,auto,1.333333";
 
     input.touchpad = {
