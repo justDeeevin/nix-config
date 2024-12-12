@@ -96,6 +96,7 @@ in {
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
 
         "$mod, v, exec, wezterm --config enable_tab_bar=false start --class clipse -- ${lib.getExe pkgs.clipse}"
+        ''$mod, PERIOD, exec, nu ${./scripts/emoji-list.nu} ${lib.getExe pkgs.wtype}''
       ];
 
       binde = [
