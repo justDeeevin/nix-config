@@ -11,8 +11,12 @@
       spacing = 5;
 
       "hyprland/workspaces" = {
-        format = "{icon} - {windows}";
+        format = "{icon}|{windows}";
+        format-icons = {
+          special = "🫥";
+        };
         window-rewrite-default = "";
+        show-special = true;
         window-rewrite = {
           "class<zen-beta>" = "󰈹";
           "class<org.wezfurlong.wezterm>" = "";
