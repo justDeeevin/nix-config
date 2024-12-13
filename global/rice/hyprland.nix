@@ -90,11 +90,9 @@ in {
         "$mod, SPACE, exec, fuzzel"
         "$mod, P, exec, syspower"
         ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
-
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"
         "CTRL SHIFT, BACKSLASH, exec, 1password"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
-
         "$mod, v, exec, wezterm --config enable_tab_bar=false start --class clipse -- ${lib.getExe pkgs.clipse}"
         ''$mod, PERIOD, exec, nu ${./scripts/emoji-list.nu} ${lib.getExe pkgs.wtype}''
       ];
