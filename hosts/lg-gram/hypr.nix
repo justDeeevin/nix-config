@@ -11,6 +11,7 @@
     bind = [
       ", xf86monbrightnessup, exec, ${lib.getExe pkgs.brightnessctl} set 10%+"
       ", xf86monbrightnessdown, exec, ${lib.getExe pkgs.brightnessctl} set 10%-"
+      "$mod, L, exec, loginctl lock-session"
     ];
 
     monitor = ",preferred,auto,1.333333";
