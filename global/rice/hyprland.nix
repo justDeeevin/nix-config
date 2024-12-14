@@ -105,9 +105,6 @@ in {
       bindm = "$mod, mouse:272, movewindow";
 
       windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "suppressevent fullscreen, class:.*"
-
         "float, class:(clipse)"
         "size 622 652, class:(clipse)"
       ];
