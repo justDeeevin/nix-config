@@ -257,7 +257,9 @@
       cd = "z";
     };
     extraEnv = ''
-      fastfetch
+      if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
+        fastfetch
+      }
     '';
   };
 
