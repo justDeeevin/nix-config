@@ -58,10 +58,10 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     mkSystem = {
-      configPath,
+      config ? {},
       stateVersion,
       home ? {},
-      modules ? [],
+      hostName,
     }:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -69,23 +69,30 @@
           inherit stateVersion;
           inherit home;
         };
-        modules =
-          [
-            configPath
-            ./global
-            inputs.home-manager.nixosModules.default
-          ]
-          ++ modules;
+        modules = [
+          {
+            networking.hostName = hostName;
+          }
+          config
+          ./global
+          inputs.home-manager.nixosModules.default
+        ];
       };
+    mkSystems = hosts:
+      nixpkgs.lib.mapAttrs' (name: value: {
+        inherit name;
+        value = mkSystem (value // {hostName = name;});
+      })
+      hosts;
   in {
-    nixosConfigurations = {
-      devin-pc = mkSystem {
-        configPath = ./hosts/desktop/configuration.nix;
+    nixosConfigurations = mkSystems {
+      devin-pc = {
+        config = ./hosts/desktop/configuration.nix;
         stateVersion = "23.11";
         home = ./hosts/desktop/home.nix;
       };
-      devin-gram = mkSystem {
-        configPath = ./hosts/lg-gram/configuration.nix;
+      devin-gram = {
+        config = ./hosts/lg-gram/configuration.nix;
         stateVersion = "24.05";
         home = ./hosts/lg-gram/home.nix;
       };

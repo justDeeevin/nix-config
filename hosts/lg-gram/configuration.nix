@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [./hardware-configuration.nix ./nvidia-prime.nix];
-  networking.hostName = "devin-gram"; # Define your hostname.
 
   # Fix for internal speakers. See https://forums.fedoraforum.org/showthread.php?331130-Fixing-ALC298-audio-(no-sound-from-speakers)
   systemd.services.speakerVerbs = let
