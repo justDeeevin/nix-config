@@ -258,6 +258,8 @@
     };
     extraEnv = ''
       if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
+        # allows the window to get properly sized before the fastfetch image is rendered
+        sleep 33ms
         fastfetch
       }
     '';
