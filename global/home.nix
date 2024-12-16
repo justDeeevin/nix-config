@@ -95,6 +95,12 @@
         scaleX = 18;
         scaleY = 20;
       };
+      keyBindings = {
+        prevPage = "m";
+        down = "n";
+        up = "e";
+        nextPage = "i";
+      };
     };
   };
 
