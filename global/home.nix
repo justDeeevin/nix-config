@@ -90,7 +90,11 @@
       };
     };
     ".config/clipse/config.json".text = builtins.toJSON {
-      imageDisplay.type = "kitty";
+      imageDisplay = {
+        type = "kitty";
+        scaleX = 18;
+        scaleY = 20;
+      };
     };
   };
 
