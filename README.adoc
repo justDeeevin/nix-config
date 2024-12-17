@@ -6,7 +6,7 @@ This repo contains the NixOS system configurations for my desktop and laptop Nix
 
 == The Rice
 
-The system is themed mostly via https://github.com/danth/stylix[Stylix], using https://github.com/nyoom-engineering/base16-oxocarbon[Oxocarbon] for colors, https://www.michieldb.nl/other/cursors/[Posy's cursor], https://next.github.com/monaspace[GitHub Monaspace] Neon for monospace text, and https://www.deviantart.com/sunnyclockwork/art/SCP-3001-678884225[this piece by SunnyClockwork] for the wallpaper. It uses Waybar, `swaybg`, `swaynotificationclient`, and `swaylock` (on the laptop only).
+The system is themed mostly via https://github.com/danth/stylix[Stylix], using https://github.com/nyoom-engineering/base16-oxocarbon[Oxocarbon] for colors, https://www.michieldb.nl/other/cursors/[Posy's cursor], https://monaspace.githubnext.com/[GitHub Monaspace] Neon for monospace text, and https://www.deviantart.com/sunnyclockwork/art/SCP-3001-678884225[this piece by SunnyClockwork] for the wallpaper. It uses Waybar, `swaybg`, `swaynotificationclient`, and `swaylock` (on the laptop only).
 
 == Screenshots
 
