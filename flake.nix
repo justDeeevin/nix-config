@@ -50,10 +50,10 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     mkSystem = {
-      config ? {},
-      stateVersion,
-      home ? {},
       hostName,
+      stateVersion,
+      config ? {},
+      home ? {},
     }:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -62,10 +62,10 @@
           inherit home;
         };
         modules = [
-          {networking.hostName = hostName;}
-          config
-          ./global
           inputs.home-manager.nixosModules.default
+          {networking.hostName = hostName;}
+          ./global
+          config
         ];
       };
     mkSystems = hosts:
