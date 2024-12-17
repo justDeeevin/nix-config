@@ -70,9 +70,7 @@
           inherit home;
         };
         modules = [
-          {
-            networking.hostName = hostName;
-          }
+          {networking.hostName = hostName;}
           config
           ./global
           inputs.home-manager.nixosModules.default
