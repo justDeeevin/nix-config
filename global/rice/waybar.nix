@@ -1,4 +1,8 @@
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.waybar = {
     enable = true;
     style = builtins.readFile ./styles/waybar.css;
@@ -64,7 +68,7 @@
       battery.interval = 5;
 
       pulseaudio = {
-        on-click = "nu ${./scripts/audio-sink.nu} dmenu";
+        on-click = "${lib.getExe pkgs.bun} ${./scripts/audio-sink.ts}";
         format = "{volume}%  {desc}";
         format-muted = "{volume}%  {desc}";
         tooltip = false;
