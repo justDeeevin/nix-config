@@ -37,14 +37,6 @@
       };
     };
 
-    plasma-manager = {
-      url = "github:HeitorAugustoLN/plasma-manager/";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
-
     wezterm = {
       url = "github:wez/wezterm/main?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
