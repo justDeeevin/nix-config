@@ -10,6 +10,7 @@
     enable = true;
 
     image = ./scp_3001_by_sunnyclockwork.jpg;
+    imageScalingMode = "center";
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
 
