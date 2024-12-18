@@ -93,7 +93,7 @@ in {
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"
         "CTRL SHIFT, BACKSLASH, exec, 1password"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
-        "$mod, v, exec, wezterm --config enable_tab_bar=false start --class clipse -- ${lib.getExe pkgs.clipse}"
+        "$mod, v, exec, wezterm start --class clipse -- ${lib.getExe pkgs.clipse}"
         ''$mod, PERIOD, exec, nu ${./scripts/emoji-list.nu} ${lib.getExe pkgs.wtype} ${pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/muan/emojilib/v4.0.0/dist/emoji-en-US.json";
             hash = "sha256-IoU9ZPCqvSPX4DmfC+r5MiglhFc41XMRrbJRL9ZNrvs=";
