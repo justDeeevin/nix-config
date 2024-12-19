@@ -10,6 +10,7 @@
     inputs.posting.modules.homeManager.default
     inputs.nix-index-database.hmModules.nix-index
     inputs.syspower.modules.homeManager.default
+    ./nixvim
     ./rice
   ];
 
@@ -46,7 +47,6 @@
     magic-wormhole
     btop
     libreoffice
-    inputs.nixvim.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.default
     obsidian
     chromium

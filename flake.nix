@@ -10,7 +10,25 @@
     };
 
     nixvim = {
-      url = "github:justdeeevin/nvim-config";
+      url = "github:nix-community/nixvim";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
+    codeshot-nvim = {
+      url = "github:sergioribera/codeshot.nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sss = {
+      url = "github:sergioribera/sss/sss_cli/v0.1.5";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
