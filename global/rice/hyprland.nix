@@ -87,6 +87,9 @@ in {
         ", Xf86AudioNext, exec, ${playerctl} next"
         ", Xf86AudioPrev, exec, ${playerctl} previous"
 
+        ", XF86Calculator, exec, kalk"
+        ", XF86Mail, exec, wezterm"
+
         "$mod, SPACE, exec, fuzzel"
         "$mod, P, exec, syspower"
         ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
