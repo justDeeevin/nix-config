@@ -64,6 +64,11 @@
       url = "github:justdeeevin/syspower-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland-qtutils = {
+      url = "github:hyprwm/hyprland-qtutils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
