@@ -30,6 +30,8 @@ const selection =
   (await $`echo ${sinks.map((sink) => sink.name).join("\n")} | fuzzel -d`.text()) as string;
 
 if (selection !== "") {
-  const id = sinks.find((sink) => sink.name === selection)?.id as number;
-  await $`wpctl set-default ${id}`.quiet();
+  const id = sinks.find((sink) => sink.name === selection.trim())?.id as number;
+  if (!sinks.find((sink) => sink.id === id && sink.selected)) {
+    await $`wpctl set-default ${id}`.quiet();
+  }
 }
