@@ -108,7 +108,7 @@ in {
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
-      bindm = "$mod, mouse:272, movewindow";
+      bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];
 
       windowrulev2 = [
         "float, class:(clipse)"
