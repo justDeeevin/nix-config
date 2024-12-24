@@ -3,6 +3,7 @@
   inputs,
   stateVersion,
   home,
+  lib,
   ...
 }: {
   imports = [
@@ -309,7 +310,18 @@
 
   services.swaync.enable = true;
 
-  programs.fuzzel.enable = true;
+  programs.fuzzel = {
+    enable = true;
+    settings.colors = lib.mkForce rec {
+      background = "161616ff";
+      text = "ffffffff";
+      match = "ee5396ff";
+      selection-match = match;
+      selection = "262626ff";
+      selection-text = "33b1ffff";
+      border = "525252ff";
+    };
+  };
 
   programs.syspower.enable = true;
 }
