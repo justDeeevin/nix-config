@@ -80,6 +80,7 @@ in {
         "$mod ALT, E, overview:toggle"
         "$mod ALT, N, overview:close"
 
+        ", F10, togglefloating"
         ", F11, fullscreen"
 
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
