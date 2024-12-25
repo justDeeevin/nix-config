@@ -13,6 +13,7 @@
     inputs.syspower.modules.homeManager.default
     ./nixvim
     ./rice
+    inputs.ghostty-hm.homeModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -325,4 +326,43 @@
   };
 
   programs.syspower.enable = true;
+
+  programs.ghostty = {
+    enable = true;
+    settings = let
+      iterm2-color-schemes = pkgs.fetchFromGitHub {
+        owner = "mbadolato";
+        repo = "iterm2-color-schemes";
+        rev = "9526f1299da83c1cc83cd0236bf7d24e65731a79";
+        hash = "sha256-QcNPobeVC7+VOFJlhKE3KB48nV6GipyTDdn+y0Gxz2Y=";
+      };
+    in {
+      theme = "${iterm2-color-schemes}/ghostty/Oxocarbon";
+
+      font-family = "Monaspace Neon";
+      font-feature = [
+        "calt"
+        "ss01"
+        "ss02"
+        "ss03"
+        "ss04"
+        "ss05"
+        "ss07"
+        "ss08"
+        "ss09"
+        "liga"
+      ];
+
+      # Check to see if hyrpland does this by default
+      # mouse-hide-while-typing = true;
+
+      background-opacity = 0.5;
+      background-blur-radius = 20;
+
+      # `ask` by default. Check to see if nvim can `"+p` without asking
+      # clipboard-read = "allow";
+
+      auto-update = "off";
+    };
+  };
 }

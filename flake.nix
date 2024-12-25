@@ -74,6 +74,8 @@
       url = "github:justdeeevin/nuhxboard";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty-hm.url = "github:clo4/ghostty-hm-module";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
