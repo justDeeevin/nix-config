@@ -117,7 +117,6 @@ in {
       ];
 
       exec-once = [
-        "zen"
         "waybar"
         "${pkgs.playerctl}/bin/playerctld"
         "${lib.getExe pkgs.swaybg} -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
