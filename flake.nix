@@ -55,11 +55,6 @@
       };
     };
 
-    wezterm = {
-      url = "github:wez/wezterm/main?dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     syspower = {
       url = "github:justdeeevin/syspower-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -76,6 +71,11 @@
     };
 
     ghostty-hm.url = "github:clo4/ghostty-hm-module";
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

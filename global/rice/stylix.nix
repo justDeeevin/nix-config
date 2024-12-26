@@ -35,7 +35,6 @@
 
     targets = {
       nixvim.enable = false;
-      wezterm.enable = false;
       hyprpaper.enable = lib.mkForce false;
     };
     opacity.desktop = 0.0;

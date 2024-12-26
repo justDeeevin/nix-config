@@ -23,7 +23,7 @@
         show-special = true;
         window-rewrite = {
           "class<zen-beta>" = "󰈹";
-          "class<org.wezfurlong.wezterm>" = "";
+          "class<com.mitchellh.ghostty>" = "";
           "class<YouTube Music>" = "";
           "class<vesktop>" = "";
           "class<steam>" = "";

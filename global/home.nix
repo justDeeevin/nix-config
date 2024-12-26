@@ -304,12 +304,6 @@
 
   programs.nix-index-database.comma.enable = true;
 
-  programs.wezterm = {
-    enable = true;
-    package = inputs.wezterm.packages.x86_64-linux.default;
-    extraConfig = builtins.readFile ./wezterm.lua;
-  };
-
   services.swaync.enable = true;
 
   programs.fuzzel = {
@@ -329,6 +323,7 @@
 
   programs.ghostty = {
     enable = true;
+    package = inputs.ghostty.packages.x86_64-linux.default;
     settings = let
       iterm2-color-schemes = pkgs.fetchFromGitHub {
         owner = "mbadolato";
@@ -353,14 +348,12 @@
         "liga"
       ];
 
-      # Check to see if hyrpland does this by default
-      # mouse-hide-while-typing = true;
+      window-decoration = false;
+
+      mouse-hide-while-typing = true;
 
       background-opacity = 0.5;
       background-blur-radius = 20;
-
-      # `ask` by default. Check to see if nvim can `"+p` without asking
-      # clipboard-read = "allow";
 
       auto-update = "off";
     };

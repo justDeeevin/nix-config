@@ -37,7 +37,7 @@ in {
       "$mod" = "SUPER";
 
       bind = [
-        "$mod, T, exec, wezterm"
+        "$mod, T, exec, ghostty"
         "$mod, Q, killactive"
         "$mod, D, exit"
 
@@ -89,7 +89,7 @@ in {
         ", Xf86AudioPrev, exec, ${playerctl} previous"
 
         ", XF86Calculator, exec, kalk"
-        ", XF86Mail, exec, wezterm"
+        ", XF86Mail, exec, ghostty"
 
         "$mod, SPACE, exec, fuzzel"
         "$mod, P, exec, syspower"
@@ -119,7 +119,6 @@ in {
       exec-once = [
         "zen"
         "waybar"
-        "wezterm"
         "${pkgs.playerctl}/bin/playerctld"
         "${lib.getExe pkgs.swaybg} -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
         "systemctl --user start hyprpolkitagent"
