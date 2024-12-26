@@ -49,7 +49,7 @@
     magic-wormhole
     btop
     libreoffice
-    inputs.zen-browser.packages.x86_64-linux
+    inputs.zen-browser.packages.x86_64-linux.default
     obsidian
     chromium
     quickemu
