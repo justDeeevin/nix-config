@@ -7,6 +7,7 @@
     plugins.lsp = {
       enable = true;
       servers = {
+        nixd.enable = true;
         ts_ls = {
           enable = true;
           filetypes = [
@@ -35,7 +36,6 @@
           package = pkgs.vue-language-server;
         };
         lua_ls.enable = true;
-        nil_ls.enable = true;
         bashls.enable = true;
         jdtls.enable = true;
         jsonls.enable = true;
