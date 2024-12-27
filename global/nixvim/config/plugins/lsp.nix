@@ -16,6 +16,7 @@
             "javascriptreact"
             "vue"
           ];
+          rootDir = "require('lspconfig').util.root_pattern('package.json')";
           extraOptions = {
             init_options = {
               plugins = [
@@ -26,6 +27,7 @@
                 }
               ];
             };
+            single_file_support = false;
           };
         };
         volar = {
@@ -39,6 +41,10 @@
         jsonls.enable = true;
         svelte.enable = true;
         html.enable = true;
+        denols = {
+          enable = true;
+          rootDir = "require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')";
+        };
       };
     };
 
