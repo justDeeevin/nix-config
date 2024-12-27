@@ -97,7 +97,7 @@ in {
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"
         "CTRL SHIFT, BACKSLASH, exec, 1password"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
-        "$mod, v, exec, wezterm start --class clipse -- ${lib.getExe pkgs.clipse}"
+        "$mod, v, exec, ghostty --class=ghostty.clipse -e ${lib.getExe pkgs.clipse}"
         ''$mod, PERIOD, exec, nu ${./scripts/emoji-list.nu} ${lib.getExe pkgs.wtype} ${pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/muan/emojilib/v4.0.0/dist/emoji-en-US.json";
             hash = "sha256-IoU9ZPCqvSPX4DmfC+r5MiglhFc41XMRrbJRL9ZNrvs=";
@@ -112,8 +112,8 @@ in {
       bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];
 
       windowrulev2 = [
-        "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
+        "float, class:(ghostty.clipse)"
+        "size 622 652, class:(ghostty.clipse)"
       ];
 
       exec-once = [
