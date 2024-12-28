@@ -324,15 +324,8 @@
   programs.ghostty = {
     enable = true;
     package = inputs.ghostty.packages.x86_64-linux.default;
-    settings = let
-      iterm2-color-schemes = pkgs.fetchFromGitHub {
-        owner = "mbadolato";
-        repo = "iterm2-color-schemes";
-        rev = "9526f1299da83c1cc83cd0236bf7d24e65731a79";
-        hash = "sha256-QcNPobeVC7+VOFJlhKE3KB48nV6GipyTDdn+y0Gxz2Y=";
-      };
-    in {
-      theme = "${iterm2-color-schemes}/ghostty/Oxocarbon";
+    settings = {
+      theme = "Oxocarbon";
 
       font-family = "Monaspace Neon";
       font-feature = [
