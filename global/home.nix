@@ -52,13 +52,14 @@
     inputs.zen-browser.packages.x86_64-linux.default
     obsidian
     chromium
-    quickemu
+    # quickemu
     kdenlive
     mattermost-desktop
     nh
     hyprpolkitagent
     (inputs.hyprland-qtutils.packages.x86_64-linux.default.override {hyprutils = pkgs.hyprutils;})
     inputs.nuhxboard.packages.x86_64-linux.default
+    ghostty
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -323,7 +324,6 @@
 
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty.packages.x86_64-linux.default;
     settings = {
       theme = "Oxocarbon";
 
