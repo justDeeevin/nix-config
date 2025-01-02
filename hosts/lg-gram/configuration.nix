@@ -18,6 +18,8 @@
       Group = "root";
       RemainAfterExit = "yes";
       ExecStart = script;
+      Restart = "on-failure";
+      RestartSec = "5s";
     };
     path = [pkgs.alsa-tools];
   };
