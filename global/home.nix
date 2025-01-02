@@ -13,7 +13,6 @@
     inputs.syspower.modules.homeManager.default
     ./nixvim
     ./rice
-    inputs.ghostty-hm.homeModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
