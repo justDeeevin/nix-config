@@ -59,6 +59,7 @@
     (inputs.hyprland-qtutils.packages.x86_64-linux.default.override {hyprutils = pkgs.hyprutils;})
     inputs.nuhxboard.packages.x86_64-linux.default
     ghostty
+    telegram-desktop
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
