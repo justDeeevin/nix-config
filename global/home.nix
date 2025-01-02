@@ -321,14 +321,7 @@
 
   programs.syspower = {
     enable = true;
-    package = pkgs.syspower.overrideDerivation (old: {
-      src = pkgs.fetchFromGitHub {
-        owner = "justdeeevin";
-        repo = "syspower";
-        rev = "9eab210ac2615516df00026007032b2310497d23";
-        hash = "sha256-Qqia7JXM0LauadYoD8OCw/Yva2M+TZrhMSE8HRo8LTY=";
-      };
-    });
+    package = inputs.syspower.packages.x86_64-linux.default;
   };
 
   programs.ghostty = {
