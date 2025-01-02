@@ -36,6 +36,7 @@
     targets = {
       nixvim.enable = false;
       hyprpaper.enable = lib.mkForce false;
+      ghostty.enable = false;
     };
     opacity.desktop = 0.0;
   };
