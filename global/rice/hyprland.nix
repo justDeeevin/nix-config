@@ -123,6 +123,7 @@ in {
         "systemctl --user start hyprpolkitagent"
         "${lib.getExe pkgs.clipse} -listen"
         (lib.getExe pkgs.syshud)
+        "${pkgs.blueman}/bin/blueman-applet"
       ];
 
       input = {
