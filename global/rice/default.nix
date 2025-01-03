@@ -1,7 +1,8 @@
 {
   imports = [
     ./hyprland.nix
-    ./waybar.nix
+    # ./waybar.nix
     ./stylix.nix
+    ./hyprpanel
   ];
 }

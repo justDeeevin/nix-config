@@ -3,8 +3,12 @@
   inputs,
   lib,
   ...
-}: {
-  imports = [inputs.stylix.homeManagerModules.stylix];
+}: let
+  scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+in {
+  imports = [inputs.stylix.homeManagerModules.stylix inputs.base16.homeManagerModule];
+
+  inherit scheme;
 
   stylix = {
     enable = true;
@@ -12,7 +16,7 @@
     image = ./scp_3001_by_sunnyclockwork.jpg;
     imageScalingMode = "center";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+    base16Scheme = scheme;
 
     fonts = {
       monospace = {

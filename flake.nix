@@ -69,6 +69,13 @@
       url = "github:justdeeevin/nuhxboard";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprpanel = {
+      url = "github:jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    base16.url = "github:senchopens/base16.nix";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

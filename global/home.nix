@@ -305,7 +305,7 @@
 
   programs.nix-index-database.comma.enable = true;
 
-  services.swaync.enable = true;
+  # services.swaync.enable = true;
 
   programs.fuzzel = {
     enable = true;
