@@ -69,6 +69,7 @@
 
       pulseaudio = {
         on-click = "${lib.getExe pkgs.bun} ${./scripts/audio-sink.ts}";
+        on-click-right = "wpctl set-mute @DEFAULT_SINK@ toggle";
         format = "{volume}%  {desc}";
         format-muted = "{volume}%  {desc}";
         tooltip = false;
