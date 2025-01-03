@@ -131,6 +131,8 @@ in {
         kb_variant = "colemak_dh";
         numlock_by_default = true;
       };
+
+      misc.focus_on_activate = true;
     };
   };
 }
