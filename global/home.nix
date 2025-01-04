@@ -13,6 +13,7 @@
     inputs.syspower.modules.homeManager.default
     ./nixvim
     ./rice
+    inputs.ags.homeManagerModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -305,7 +306,6 @@
 
   programs.nix-index-database.comma.enable = true;
 
-  services.swaync.enable = true;
 
   programs.fuzzel = {
     enable = true;
@@ -353,5 +353,15 @@
 
       auto-update = "off";
     };
+  };
+
+  programs.ags = {
+    enable = true;
+
+    configDir = ./ags;
+
+    systemd.enable = true;
+
+    extraPackages = with inputs.ags.packages.x86_64-linux; [notifd hyprland];
   };
 }

@@ -1,3 +1,3 @@
 {
-  imports = [./hypr.nix ./waybar.nix ./swaylock.nix];
+  imports = [./hypr.nix ./swaylock.nix];
 }

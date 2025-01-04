@@ -117,13 +117,11 @@ in {
       ];
 
       exec-once = [
-        "waybar"
         "${pkgs.playerctl}/bin/playerctld"
         "${lib.getExe pkgs.swaybg} -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
         "systemctl --user start hyprpolkitagent"
         "${lib.getExe pkgs.clipse} -listen"
         (lib.getExe pkgs.syshud)
-        "${pkgs.blueman}/bin/blueman-applet"
       ];
 
       input = {
