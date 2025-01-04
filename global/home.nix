@@ -306,7 +306,6 @@
 
   programs.nix-index-database.comma.enable = true;
 
-
   programs.fuzzel = {
     enable = true;
     settings.colors = lib.mkForce rec {
@@ -362,6 +361,6 @@
 
     systemd.enable = true;
 
-    extraPackages = with inputs.ags.packages.x86_64-linux; [notifd hyprland];
+    extraPackages = with inputs.ags.packages.x86_64-linux; [notifd hyprland tray mpris];
   };
 }
