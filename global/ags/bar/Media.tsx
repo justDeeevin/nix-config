@@ -21,7 +21,7 @@ export default () => {
                 (cover) => `background-image: url('${cover}');`,
               )}
             />
-            <label label={label()} />
+            <label label={label()} truncate />
           </box>
         ) : (
           "Nothing Playing"
