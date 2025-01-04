@@ -85,12 +85,18 @@ window.bar {
     border-radius: $radius;
   }
 
-  .media .cover {
-    min-height: 1.2em;
-    min-width: 1.2em;
+  .media {
+    background-color: $bg;
     border-radius: $radius;
-    background-position: center;
-    background-size: contain;
+
+    .cover {
+      min-height: 1.2em;
+      min-width: 1.2em;
+      border-radius: $radius;
+      background-position: center;
+      background-size: contain;
+      margin-left: 4px;
+    }
   }
 
   .battery label {

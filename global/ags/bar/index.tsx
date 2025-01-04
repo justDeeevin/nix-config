@@ -3,6 +3,7 @@ import Tray from "./Tray";
 import Workspaces from "./Workspaces";
 import WindowTitle from "./WindowTitle";
 import Clock from "./Clock";
+import Media from "./Media";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -23,7 +24,9 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box>
           <Clock />
         </box>
-        <box hexpand halign={Gtk.Align.END}></box>
+        <box hexpand halign={Gtk.Align.END}>
+          <Media />
+        </box>
       </centerbox>
     </window>
   );
