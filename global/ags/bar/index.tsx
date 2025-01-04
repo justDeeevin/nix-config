@@ -1,5 +1,6 @@
 import { Astal, Gdk, Gtk } from "astal/gtk3";
 import Tray from "./Tray";
+import Workspaces from "./Workspaces";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -14,6 +15,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       <centerbox>
         <box hexpand halign={Gtk.Align.START}>
           <Tray />
+          <Workspaces monitor={gdkmonitor} />
         </box>
         <box />
         <box hexpand halign={Gtk.Align.END}></box>
