@@ -1,5 +1,5 @@
 import { Gtk } from "astal/gtk3";
-import { bind } from "astal";
+import { bind, Variable } from "astal";
 import Mpris from "gi://AstalMpris";
 
 export default () => {
@@ -7,8 +7,12 @@ export default () => {
 
   return (
     <box className="media">
-      {bind(mpris, "players").as((ps) =>
-        ps[0] ? (
+      {bind(mpris, "players").as((ps) => {
+        const label = Variable.derive(
+          [bind(ps[0], "title"), bind(ps[0], "artist")],
+          (title: string, artist: string) => `${title} - ${artist}`,
+        );
+        return ps[0] ? (
           <box>
             <box
               className="cover"
@@ -16,17 +20,13 @@ export default () => {
               css={bind(ps[0], "coverArt").as(
                 (cover) => `background-image: url('${cover}');`,
               )}
-            />{" "}
-            <label
-              label={bind(ps[0], "title").as(
-                (title) => `${title} - ${ps[0].artist}`,
-              )}
             />
+            <label label={label()} />
           </box>
         ) : (
           "Nothing Playing"
-        ),
-      )}
+        );
+      })}
     </box>
   );
 };
