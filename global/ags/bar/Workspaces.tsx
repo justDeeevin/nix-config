@@ -14,7 +14,7 @@ export default ({ monitor }: { monitor: Gdk.Monitor }) => {
               !(ws.id >= -99 && ws.id <= -2) &&
               ws.monitor.id === getMonitorId(monitor),
           )
-          .reverse()
+          .sort((a, b) => a.id - b.id)
           .map((ws) => (
             <button
               className={bind(hyprland, "focusedWorkspace").as((fw) =>
