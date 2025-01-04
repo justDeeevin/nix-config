@@ -32,6 +32,9 @@ window.bar {
   .workspaces {
     background-color: $bg;
     border-radius: $radius;
+
+    margin-right: 8px;
+
     button {
       all: unset;
       background-color: transparent;
@@ -71,8 +74,10 @@ window.bar {
     }
   }
 
-  .focused-client {
+  .window-title {
     color: $accent;
+    background: $bg;
+    border-radius: $radius;
   }
 
   .media .cover {
