@@ -17,7 +17,7 @@ window.bar {
   background: transparent;
 
   > centerbox {
-    margin: 8px;
+    margin-bottom: 8px;
   }
 
   button {
@@ -27,6 +27,11 @@ window.bar {
 
   label {
     margin: 0 8px;
+  }
+
+  .time {
+    border-radius: $radius;
+    background-color: $bg;
   }
 
   .workspaces {

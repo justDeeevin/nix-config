@@ -2,6 +2,7 @@ import { Astal, Gdk, Gtk } from "astal/gtk3";
 import Tray from "./Tray";
 import Workspaces from "./Workspaces";
 import WindowTitle from "./WindowTitle";
+import Clock from "./Clock";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -19,7 +20,9 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <Workspaces monitor={gdkmonitor} />
           <WindowTitle />
         </box>
-        <box />
+        <box>
+          <Clock />
+        </box>
         <box hexpand halign={Gtk.Align.END}></box>
       </centerbox>
     </window>
