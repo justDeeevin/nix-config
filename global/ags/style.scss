@@ -3,19 +3,3 @@ $bg-color: #{"@theme_bg_color"};
 
 @use "./style/notifications.scss";
 @use "./style/bar.scss";
-
-window.Bar {
-  background: transparent;
-  color: $fg-color;
-  font-weight: bold;
-
-  > centerbox {
-    border-radius: 10px;
-    margin: 8px;
-  }
-
-  button {
-    border-radius: 8px;
-    margin: 2px;
-  }
-}

@@ -6,7 +6,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
-      className="Bar"
+      className="bar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}

@@ -8,22 +8,34 @@ $fg: #f1f1f1;
 $accent: #378df7;
 $radius: 7px;
 
-window.Bar {
+window.bar {
   border: none;
   box-shadow: none;
-  background-color: $bg;
   color: $fg;
   font-size: 1.1em;
   font-weight: bold;
+  background: transparent;
+
+  > centerbox {
+    margin: 8px;
+  }
+
+  button {
+    border-radius: $radius - 2px;
+    margin: 2px;
+  }
 
   label {
     margin: 0 8px;
   }
 
-  .Workspaces {
+  .workspaces {
+    background-color: $bg;
+    border-radius: $radius;
     button {
       all: unset;
       background-color: transparent;
+      border-radius: calc($radius - 2px);
 
       &:hover label {
         background-color: color.adjust($fg, $alpha: -0.84);
@@ -56,15 +68,14 @@ window.Bar {
 
     button {
       padding: 0 4px;
-      border-radius: calc($radius - 2px);
     }
   }
 
-  .FocusedClient {
+  .focused-client {
     color: $accent;
   }
 
-  .Media .Cover {
+  .media .cover {
     min-height: 1.2em;
     min-width: 1.2em;
     border-radius: $radius;
@@ -72,12 +83,12 @@ window.Bar {
     background-size: contain;
   }
 
-  .Battery label {
+  .battery label {
     padding-left: 0;
     margin-left: 0;
   }
 
-  .AudioSlider {
+  .audio-slider {
     * {
       all: unset;
     }
