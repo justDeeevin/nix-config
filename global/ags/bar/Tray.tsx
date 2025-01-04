@@ -12,6 +12,7 @@ export default () => {
             tooltipMarkup={bind(item, "tooltipMarkup")}
             usePopover={false}
             menuModel={bind(item, "menuModel")}
+            actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
           >
             <icon gicon={bind(item, "gicon")} />
           </menubutton>
