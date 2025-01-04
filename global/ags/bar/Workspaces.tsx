@@ -2,9 +2,11 @@ import Hyprland from "gi://AstalHyprland";
 import { bind } from "astal";
 import { Gdk } from "astal/gtk3";
 import { getMonitorId } from "../lib";
+import Apps from "gi://AstalApps";
 
 export default ({ monitor }: { monitor: Gdk.Monitor }) => {
   const hyprland = Hyprland.get_default();
+
   return (
     <box className="workspaces">
       {bind(hyprland, "workspaces").as((wss) =>
@@ -22,14 +24,12 @@ export default ({ monitor }: { monitor: Gdk.Monitor }) => {
               )}
               onClicked={() => ws.focus()}
             >
-              <label
-                label={bind(ws, "clients").as(
-                  (clients) =>
-                    ws.id.toString() +
-                    "|" +
-                    clients.map((client) => getIcon(client)).join(" "),
+              <box>
+                {`${ws.id}|`}
+                {bind(ws, "clients").as((c) =>
+                  c.map((c) => <icon icon={getIcon(c)} />),
                 )}
-              />
+              </box>
             </button>
           )),
       )}
@@ -38,18 +38,8 @@ export default ({ monitor }: { monitor: Gdk.Monitor }) => {
 };
 
 function getIcon(client: Hyprland.Client) {
-  switch (client.initial_class) {
-    case "zen-beta":
-      return "󰈹";
-    case "com.mitchellh.ghostty":
-      return "";
-    case "YouTube Music":
-      return "";
-    case "vesktop":
-      return "";
-    case "steam":
-      return "";
-    default:
-      return "";
-  }
+  const apps = new Apps.Apps();
+
+  const results = apps.fuzzy_query(client.initial_title);
+  return results[0]?.icon_name ?? "Window";
 }

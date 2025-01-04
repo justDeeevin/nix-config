@@ -361,6 +361,6 @@
 
     systemd.enable = true;
 
-    extraPackages = with inputs.ags.packages.x86_64-linux; [notifd hyprland tray mpris];
+    extraPackages = with inputs.ags.packages.x86_64-linux; [notifd hyprland tray mpris apps];
   };
 }

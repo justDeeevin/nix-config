@@ -45,17 +45,17 @@ window.bar {
       background-color: transparent;
       border-radius: calc($radius - 2px);
 
-      &:hover label {
+      &:hover box {
         background-color: color.adjust($fg, $alpha: -0.84);
         border-color: color.adjust($accent, $alpha: -0.8);
       }
 
-      &:active label {
+      &:active box {
         background-color: color.adjust($fg, $alpha: -0.8);
       }
     }
 
-    label {
+    box {
       transition: 200ms;
       padding: 0 8px;
       margin: 2px;
@@ -63,7 +63,7 @@ window.bar {
       border: 1pt solid transparent;
     }
 
-    .focused label {
+    .focused box {
       color: $accent;
       border-color: $accent;
     }
