@@ -10,8 +10,12 @@ export default () => {
       {bind(mpris, "players").as((ps) => {
         const label = Variable.derive(
           [bind(ps[0], "title"), bind(ps[0], "artist")],
-          (title: string, artist: string) => `${title} - ${artist}`,
+          (title: string, artist: string) =>
+            title
+              ? `${title}${artist ? ` - ${artist}` : ""}`
+              : "Nothing Playing",
         );
+
         return ps[0] ? (
           <box>
             <box
