@@ -9,22 +9,47 @@ export default () => {
     <box className="media">
       {bind(mpris, "players").as((ps) => {
         const label = Variable.derive(
-          [bind(ps[0], "title"), bind(ps[0], "artist")],
-          (title: string, artist: string) =>
-            title
-              ? `${title}${artist ? ` - ${artist}` : ""}`
-              : "Nothing Playing",
+          [
+            bind(ps[0], "title"),
+            bind(ps[0], "artist"),
+            bind(ps[0], "playback_status"),
+          ],
+          (
+            title: string,
+            artist: string,
+            playback_status: Mpris.PlaybackStatus,
+          ) => {
+            const { PLAYING, PAUSED, STOPPED } = Mpris.PlaybackStatus;
+            let status: string;
+            switch (playback_status) {
+              case PLAYING:
+                status = "";
+                break;
+              case PAUSED:
+                status = "";
+                break;
+              case STOPPED:
+                status = "";
+                break;
+            }
+
+            return title
+              ? `${status} ${title}${artist ? ` - ${artist}` : ""}`
+              : "Nothing Playing";
+          },
         );
 
         return ps[0] ? (
           <box>
-            <box
-              className="cover"
-              valign={Gtk.Align.CENTER}
-              css={bind(ps[0], "coverArt").as(
-                (cover) => `background-image: url('${cover}');`,
-              )}
-            />
+            {ps[0] && ps[0].title && (
+              <box
+                className="cover"
+                valign={Gtk.Align.CENTER}
+                css={bind(ps[0], "coverArt").as(
+                  (cover) => `background-image: url('${cover}');`,
+                )}
+              />
+            )}
             <label label={label()} truncate />
           </box>
         ) : (
