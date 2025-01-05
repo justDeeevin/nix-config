@@ -48,7 +48,7 @@ export default function Notification(notif: Notifd.Notification) {
             halign={END}
             label={time(notif.time)}
           />
-          <button onClick={() => notif.dismiss()} cursor="pointer">
+          <button onClicked={() => notif.dismiss()} cursor="pointer">
             <icon icon="window-close-symbolic" />
           </button>
         </box>
@@ -92,7 +92,11 @@ export default function Notification(notif: Notifd.Notification) {
         {notif.get_actions().length > 0 && (
           <box className="actions">
             {notif.get_actions().map(({ label, id }) => (
-              <button hexpand onClick={() => notif.invoke(id)} cursor="pointer">
+              <button
+                hexpand
+                onClicked={() => notif.invoke(id)}
+                cursor="pointer"
+              >
                 <label label={label} halign={CENTER} hexpand />
               </button>
             ))}

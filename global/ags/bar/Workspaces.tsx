@@ -23,7 +23,7 @@ export default ({ monitor }: { monitor: Gdk.Monitor }) => {
               className={bind(hyprland, "focusedWorkspace").as((fw) =>
                 ws === fw ? "focused" : "",
               )}
-              onClick={() => ws.focus()}
+              onClicked={() => ws.focus()}
             >
               <box>
                 {`${ws.id}|`}

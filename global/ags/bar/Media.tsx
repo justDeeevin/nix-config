@@ -1,4 +1,4 @@
-import { Astal, Gdk, Gtk } from "astal/gtk3";
+import { Gtk } from "astal/gtk3";
 import { bind, Variable } from "astal";
 import Mpris from "gi://AstalMpris";
 
@@ -22,7 +22,7 @@ export default () => {
     return p ? (
       <box>
         {p && p.title && (
-          <button onClick={() => p.play_pause()} cursor="pointer">
+          <button onClicked={() => p.play_pause()} cursor="pointer">
             <label
               label={bind(p, "playback_status").as((s) => {
                 const { PLAYING, PAUSED, STOPPED } = Mpris.PlaybackStatus;
