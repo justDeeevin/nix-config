@@ -40,6 +40,11 @@ export default ({ monitor }: { monitor: Gdk.Monitor }) => {
 function getIcon(client: Hyprland.Client) {
   const apps = new Apps.Apps();
 
-  const results = apps.fuzzy_query(client.title);
-  return results[0]?.icon_name ?? "Window";
+  return (
+    apps.fuzzy_query(client.initial_title)[0]?.icon_name ??
+    apps.fuzzy_query(client.title)[0]?.icon_name ??
+    apps.fuzzy_query(client.initial_class)[0]?.icon_name ??
+    apps.fuzzy_query(client.class)[0]?.icon_name ??
+    "Window"
+  );
 }
