@@ -3,7 +3,6 @@
   lib,
   ...
 }: let
-  playerctl = "${pkgs.playerctl}/bin/playerctl";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -84,9 +83,9 @@ in {
         ", F11, fullscreen"
 
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", Xf86AudioPlay, exec, ${playerctl} play-pause"
-        ", Xf86AudioNext, exec, ${playerctl} next"
-        ", Xf86AudioPrev, exec, ${playerctl} previous"
+        ", Xf86AudioPlay, exec, ags request 'media play'"
+        ", Xf86AudioNext, exec, ags request 'media next'"
+        ", Xf86AudioPrev, exec, ags request 'media previous'"
 
         ", XF86Calculator, exec, kalk"
         ", XF86Mail, exec, ghostty"
