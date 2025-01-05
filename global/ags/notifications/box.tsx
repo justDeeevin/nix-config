@@ -1,6 +1,5 @@
 import { GLib } from "astal";
 import { Gtk, Astal } from "astal/gtk3";
-import { type EventBox } from "astal/gtk3/widget";
 import Notifd from "gi://AstalNotifd";
 
 const isIcon = (icon: string) => !!Astal.Icon.lookup_icon(icon);
@@ -12,7 +11,6 @@ const time = (time: number, format = "%H:%M") =>
 
 const urgency = (n: Notifd.Notification) => {
   const { LOW, NORMAL, CRITICAL } = Notifd.Urgency;
-  // match operator when?
   switch (n.urgency) {
     case LOW:
       return "low";
@@ -24,54 +22,50 @@ const urgency = (n: Notifd.Notification) => {
   }
 };
 
-type Props = {
-  onHoverLost(self: EventBox): void;
-  notification: Notifd.Notification;
-};
-
-export default function Notification(props: Props) {
-  const { notification: n, onHoverLost } = props;
+export default function Notification(notif: Notifd.Notification) {
   const { START, CENTER, END } = Gtk.Align;
 
   return (
-    <eventbox
-      className={`Notification ${urgency(n)}`}
-      onHoverLost={onHoverLost}
-    >
+    <eventbox className={`Notification ${urgency(notif)}`}>
       <box vertical>
         <box className="header">
-          {(n.appIcon || n.desktopEntry) && (
+          {(notif.appIcon || notif.desktopEntry) && (
             <icon
               className="app-icon"
-              visible={Boolean(n.appIcon || n.desktopEntry)}
-              icon={n.appIcon || n.desktopEntry}
+              visible={Boolean(notif.appIcon || notif.desktopEntry)}
+              icon={notif.appIcon || notif.desktopEntry}
             />
           )}
           <label
             className="app-name"
             halign={START}
             truncate
-            label={n.appName || "Unknown"}
+            label={notif.appName || "Unknown"}
           />
-          <label className="time" hexpand halign={END} label={time(n.time)} />
-          <button onClicked={() => n.dismiss()}>
+          <label
+            className="time"
+            hexpand
+            halign={END}
+            label={time(notif.time)}
+          />
+          <button onClick={() => notif.dismiss()} cursor="pointer">
             <icon icon="window-close-symbolic" />
           </button>
         </box>
         <Gtk.Separator visible />
         <box className="content">
-          {n.image && fileExists(n.image) && (
+          {notif.image && fileExists(notif.image) && (
             <box
               valign={START}
               className="image"
               css={`
-                background-image: url("${n.image}");
+                background-image: url("${notif.image}");
               `}
             />
           )}
-          {n.image && isIcon(n.image) && (
+          {notif.image && isIcon(notif.image) && (
             <box expand={false} valign={START} className="icon-image">
-              <icon icon={n.image} expand halign={CENTER} valign={CENTER} />
+              <icon icon={notif.image} expand halign={CENTER} valign={CENTER} />
             </box>
           )}
           <box vertical>
@@ -79,10 +73,10 @@ export default function Notification(props: Props) {
               className="summary"
               halign={START}
               xalign={0}
-              label={n.summary}
+              label={notif.summary}
               truncate
             />
-            {n.body && (
+            {notif.body && (
               <label
                 className="body"
                 wrap
@@ -90,15 +84,15 @@ export default function Notification(props: Props) {
                 halign={START}
                 xalign={0}
                 justifyFill
-                label={n.body}
+                label={notif.body}
               />
             )}
           </box>
         </box>
-        {n.get_actions().length > 0 && (
+        {notif.get_actions().length > 0 && (
           <box className="actions">
-            {n.get_actions().map(({ label, id }) => (
-              <button hexpand onClicked={() => n.invoke(id)}>
+            {notif.get_actions().map(({ label, id }) => (
+              <button hexpand onClick={() => notif.invoke(id)} cursor="pointer">
                 <label label={label} halign={CENTER} hexpand />
               </button>
             ))}

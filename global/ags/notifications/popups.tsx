@@ -29,13 +29,7 @@ class NotifiationMap implements Subscribable {
     const notifd = Notifd.get_default();
 
     notifd.connect("notified", (_, id) => {
-      this.set(
-        id,
-        Notification({
-          notification: notifd.get_notification(id)!,
-          onHoverLost: () => this.delete(id),
-        }),
-      );
+      this.set(id, Notification(notifd.get_notification(id)!));
     });
 
     notifd.connect("resolved", (_, id) => {
