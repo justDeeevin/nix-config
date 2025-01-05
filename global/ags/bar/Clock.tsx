@@ -8,7 +8,11 @@ export default () => {
   );
 
   return (
-    <button className="time" onClicked={() => App.toggle_window("calendar")}>
+    <button
+      className="time"
+      onClicked={() => App.toggle_window("calendar")}
+      cursor="pointer"
+    >
       <label label={time()} onDestroy={() => time.drop()} />
     </button>
   );
