@@ -31,9 +31,14 @@ window.bar {
     margin: 0 8px;
   }
 
-  .time {
-    border-radius: $radius;
+  .tray {
     background-color: $bg;
+    margin-right: 8px;
+    border-radius: $radius;
+
+    button {
+      padding: 0 4px;
+    }
   }
 
   .workspaces {
@@ -71,20 +76,16 @@ window.bar {
     }
   }
 
-  .tray {
-    background-color: $bg;
-    margin-right: 8px;
-    border-radius: $radius;
-
-    button {
-      padding: 0 4px;
-    }
-  }
-
   .window-title {
     color: $accent;
     background: $bg;
     border-radius: $radius;
+  }
+
+  .time {
+    border-radius: $radius;
+    background-color: $bg;
+    margin: 0 8px;
   }
 
   .media {
@@ -97,8 +98,13 @@ window.bar {
       border-radius: $radius;
       background-position: center;
       background-size: contain;
-      margin-left: 4px;
     }
+  }
+
+  .audio {
+    background-color: $bg;
+    border-radius: $radius;
+    margin-left: 8px;
   }
 
   .battery label {
