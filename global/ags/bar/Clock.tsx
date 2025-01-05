@@ -1,4 +1,5 @@
 import { GLib, Variable } from "astal";
+import { App } from "astal/gtk3";
 
 export default () => {
   const time = Variable("").poll(
@@ -7,8 +8,8 @@ export default () => {
   );
 
   return (
-    <box className="time">
+    <button className="time" onClicked={() => App.toggle_window("calendar")}>
       <label label={time()} onDestroy={() => time.drop()} />
-    </box>
+    </button>
   );
 };

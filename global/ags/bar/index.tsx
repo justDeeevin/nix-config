@@ -15,6 +15,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}
+      layer={Astal.Layer.TOP}
     >
       <centerbox>
         <box hexpand halign={Gtk.Align.START}>
