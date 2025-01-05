@@ -93,7 +93,7 @@ export default () => {
             {">"}
           </button>
         </box>
-        <Month month={month()} year={year()} />
+        <Month month={month} year={year} />
       </box>
     </window>
   );

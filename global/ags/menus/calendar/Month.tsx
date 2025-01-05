@@ -1,14 +1,12 @@
-import { Binding, Variable } from "astal";
+import { Variable } from "astal";
 
 type Props = {
-  month: number | Binding<number>;
-  year: number | Binding<number>;
+  month: Variable<number>;
+  year: Variable<number>;
 };
 export default ({ month, year }: Props) => {
   const now = new Date();
-  const m = month instanceof Binding ? month : Variable(month)();
-  const y = year instanceof Binding ? year : Variable(year)();
-  const days = Variable.derive([m, y], (month, year) => {
+  const days = Variable.derive([month(), year()], (month, year) => {
     const days = new Array<string[]>(7).fill([]);
     days.forEach((_, i) => (days[i] = new Array(6).fill("")));
 
@@ -55,20 +53,18 @@ export default ({ month, year }: Props) => {
                   />
                 );
               }
-              // This derive isn't necessary for reactivity, but rather because `m` and `y` are bindings and not variables, so I can't use `get()` on them
-              let css = Variable.derive(
-                [m, y],
-                (month, year) => `
-                  ${
-                    d === now.getDate().toString() &&
-                    month - 1 === now.getMonth() &&
-                    year === now.getFullYear()
+              return (
+                <label
+                  label={d.toString()}
+                  css={`
+                    ${d === now.getDate().toString() &&
+                    month.get() - 1 === now.getMonth() &&
+                    year.get() === now.getFullYear()
                       ? "color: #42be65"
-                      : ""
-                  }
-                `,
+                      : ""}
+                  `}
+                />
               );
-              return <label label={d.toString()} css={css()} />;
             })}
           </box>
         )),

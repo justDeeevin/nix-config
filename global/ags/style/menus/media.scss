@@ -1,0 +1,19 @@
+@use "sass:string";
+
+$fg: #{"@theme_fg_color"};
+$bg: #{"@theme_bg_color"};
+$radius: 7px;
+
+@function gtkalpha($c, $a) {
+  @return string.unquote("alpha(#{$c},#{$a})");
+}
+
+window.media > box {
+  background-color: gtkalpha($bg, 0.8);
+  background-blend-mode: multiply;
+  background-size: cover;
+  color: $fg;
+  font-size: 1.1em;
+  border-radius: $radius;
+  padding: 15px;
+}

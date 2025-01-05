@@ -5,8 +5,12 @@ import WindowTitle from "./WindowTitle";
 import Clock from "./Clock";
 import Media from "./Media";
 import Audio from "./Audio";
+import { Variable } from "astal";
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export default function Bar(
+  gdkmonitor: Gdk.Monitor,
+  player_i: Variable<number>,
+) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
   return (
@@ -27,7 +31,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <Clock />
         </box>
         <box hexpand halign={Gtk.Align.END}>
-          <Media />
+          <Media index={player_i} />
           <Audio />
         </box>
       </centerbox>
