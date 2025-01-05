@@ -12,7 +12,7 @@ export default () => {
       bind(speaker, "description"),
     ],
     (volume, muted, description) =>
-      `${volume * 100}% ${muted ? "" : ""} ${description}`,
+      `${volume * 100}% ${muted ? "󰝟" : "󰕾"} ${description}`,
   );
 
   return (
