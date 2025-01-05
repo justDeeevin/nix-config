@@ -37,14 +37,24 @@ export default ({ monitor }: { monitor: Gdk.Monitor }) => {
   );
 };
 
-function getIcon(client: Hyprland.Client) {
+export function getIcon(client: Hyprland.Client) {
   const apps = new Apps.Apps();
 
   return (
+    iconQuirks(client) ??
     apps.fuzzy_query(client.initial_title)[0]?.icon_name ??
     apps.fuzzy_query(client.title)[0]?.icon_name ??
     apps.fuzzy_query(client.initial_class)[0]?.icon_name ??
     apps.fuzzy_query(client.class)[0]?.icon_name ??
     "Window"
   );
+}
+
+function iconQuirks(client: Hyprland.Client) {
+  const apps = new Apps.Apps();
+
+  if (client.initial_class === "com.mitchellh.ghostty")
+    return apps.exact_query("Ghostty")[0].icon_name;
+  else if (client.initial_class === "com.obsproject.Studio")
+    return apps.exact_query("OBS Studio")[0].icon_name;
 }
