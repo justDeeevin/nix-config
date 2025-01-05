@@ -19,10 +19,11 @@ export default ({ monitor }: { monitor: Gdk.Monitor }) => {
           .sort((a, b) => a.id - b.id)
           .map((ws) => (
             <button
+              cursor="pointer"
               className={bind(hyprland, "focusedWorkspace").as((fw) =>
                 ws === fw ? "focused" : "",
               )}
-              onClicked={() => ws.focus()}
+              onClick={() => ws.focus()}
             >
               <box>
                 {`${ws.id}|`}

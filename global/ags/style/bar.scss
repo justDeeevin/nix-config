@@ -25,6 +25,14 @@ window.bar {
   button {
     border-radius: $radius - 2px;
     margin: 2px;
+
+    &:hover {
+      background-color: gtkalpha($fg, 0.16);
+    }
+
+    &:active {
+      background-color: gtkalpha($fg, 0.2);
+    }
   }
 
   label {

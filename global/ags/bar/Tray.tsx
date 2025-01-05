@@ -10,6 +10,7 @@ export default () => {
         items.map((item) => (
           <menubutton
             tooltipMarkup={bind(item, "tooltipMarkup")}
+            cursor="pointer"
             usePopover={false}
             menuModel={bind(item, "menuModel")}
             actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
