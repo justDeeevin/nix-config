@@ -41,7 +41,6 @@
     kdePackages.kalk
     jdk
     gradle
-    zoom-us
     prismlauncher
     wineWowPackages.waylandFull
     unzip
