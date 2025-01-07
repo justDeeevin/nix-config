@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [./hardware-configuration.nix];
 
   programs.adb.enable = true;
@@ -24,4 +24,6 @@
   };
 
   services.hardware.openrgb.enable = true;
+
+  services.udev.packages = [pkgs.qmk-udev-rules];
 }
