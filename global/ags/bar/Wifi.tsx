@@ -6,7 +6,11 @@ export default () => {
   const wifi = bind(network, "wifi");
 
   return (
-    <button className="wifi" cursor="pointer" visible={wifi.as(Boolean)}>
+    <button
+      className="wifi"
+      cursor="pointer"
+      visible={wifi.as((w?) => w?.state === Network.DeviceState.ACTIVATED)}
+    >
       {wifi.as(
         (wifi) =>
           wifi && (
