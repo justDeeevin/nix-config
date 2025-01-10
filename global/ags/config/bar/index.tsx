@@ -1,17 +1,27 @@
 import { Astal, Gdk, Gtk } from "astal/gtk3";
+import GLib from "gi://GLib?version=2.0";
 import Tray from "./Tray";
 import Workspaces from "./Workspaces";
 import WindowTitle from "./WindowTitle";
 import Clock from "./Clock";
 import Media from "./Media";
 import Audio from "./Audio";
-import { Variable } from "astal";
+import Wifi from "./Wifi";
+import { readFile, Variable } from "astal";
+
+type Modules = {
+  wifi: boolean;
+  battery: boolean;
+};
 
 export default function Bar(
   gdkmonitor: Gdk.Monitor,
   player_i: Variable<number>,
 ) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
+  const { wifi, battery } = JSON.parse(
+    readFile(`${GLib.get_home_dir()}/.config/bar-modules.json`),
+  ) as Modules;
 
   return (
     <window
@@ -33,6 +43,7 @@ export default function Bar(
         <box hexpand halign={Gtk.Align.END}>
           <Media index={player_i} />
           <Audio />
+          {wifi && <Wifi />}
         </box>
       </centerbox>
     </window>
