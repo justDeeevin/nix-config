@@ -1,23 +1,17 @@
-import { bind, Variable } from "astal";
+import { bind } from "astal";
 import Wp from "gi://AstalWp";
 
 export default () => {
   const wp = Wp.get_default()!;
   const speaker = wp.audio.default_speaker;
 
-  const label = Variable.derive(
-    [
-      bind(speaker, "volume"),
-      bind(speaker, "mute"),
-      bind(speaker, "description"),
-    ],
-    (volume, muted, description) =>
-      `${Math.trunc(volume * 100)}% ${muted ? "󰝟" : "󰕾"} ${description}`,
-  );
-
   return (
     <box className="audio">
-      <label truncate label={label()} />
+      <label
+        label={bind(speaker, "volume").as((v) => `${Math.trunc(v * 100)}%`)}
+      />
+      <icon icon={bind(speaker, "volumeIcon")} />
+      <label truncate label={bind(speaker, "description")} />
     </box>
   );
 };
