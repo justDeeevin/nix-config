@@ -25,4 +25,6 @@
   };
 
   security.pam.services.swaylock = {};
+
+  services.upower.enable = true;
 }

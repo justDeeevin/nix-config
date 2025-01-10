@@ -90,8 +90,7 @@ export default (index: Variable<number>) => {
       application={App}
       visible={false}
       layer={Astal.Layer.TOP}
-      // TODO: appear near cursor position
-      anchor={Astal.WindowAnchor.TOP}
+      anchor={Astal.WindowAnchor.NONE}
     >
       {inner}
     </window>

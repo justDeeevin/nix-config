@@ -121,9 +121,10 @@ window.bar {
     margin-left: 8px;
   }
 
-  .battery label {
-    padding-left: 0;
-    margin-left: 0;
+  .battery {
+    background-color: $bg;
+    border-radius: $radius;
+    margin-left: 4px;
   }
 
   .audio-slider {

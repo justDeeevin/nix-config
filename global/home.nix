@@ -14,7 +14,6 @@
     ./nixvim
     ./rice
     inputs.ags.homeManagerModules.default
-    ./ags
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -352,5 +351,24 @@
 
       auto-update = "off";
     };
+  };
+
+  programs.ags = {
+    enable = true;
+
+    configDir = ./ags;
+
+    systemd.enable = true;
+
+    extraPackages = with inputs.ags.packages.x86_64-linux; [
+      notifd
+      hyprland
+      tray
+      mpris
+      apps
+      wireplumber
+      network
+      battery
+    ];
   };
 }
