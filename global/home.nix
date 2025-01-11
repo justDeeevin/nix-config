@@ -277,7 +277,7 @@
   };
 
   programs.posting = {
-    enable = true;
+    # enable = true;
     settings = {
       animation = "full";
       theme = "oxocarbon";
