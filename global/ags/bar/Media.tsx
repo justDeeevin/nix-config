@@ -22,55 +22,49 @@ export default ({ index }: { index: Variable<number> }) => {
         "artist",
       ];
 
-      const exists = Variable.derive(
+      const visible = Variable.derive(
         properties_to_check.map((key) => bind(p, key)),
-        (...props) => props.find((v) => v !== null && v !== "") !== undefined,
+        (...props) => props.every((v) => v !== null && v !== ""),
       );
 
       return (
-        <box>
-          {exists().as((e) =>
-            e ? (
+        <box className="media" visible={visible()}>
+          <box>
+            <button onClicked={() => p.play_pause()} cursor="pointer">
+              <label
+                label={bind(p, "playback_status").as((s) => {
+                  const { PLAYING, PAUSED, STOPPED } = Mpris.PlaybackStatus;
+                  switch (s) {
+                    case PLAYING:
+                      return "󰏤";
+                    case PAUSED:
+                      return "󰐊";
+                    case STOPPED:
+                      return "󰓛";
+                  }
+                })}
+              />
+            </button>
+            <button
+              onClicked={() => App.toggle_window("media")}
+              cursor="pointer"
+            >
               <box>
-                <button onClicked={() => p.play_pause()} cursor="pointer">
-                  <label
-                    label={bind(p, "playback_status").as((s) => {
-                      const { PLAYING, PAUSED, STOPPED } = Mpris.PlaybackStatus;
-                      switch (s) {
-                        case PLAYING:
-                          return "󰏤";
-                        case PAUSED:
-                          return "󰐊";
-                        case STOPPED:
-                          return "󰓛";
-                      }
-                    })}
-                  />
-                </button>
-                <button
-                  onClicked={() => App.toggle_window("media")}
-                  cursor="pointer"
-                >
-                  <box>
-                    <box
-                      className="cover"
-                      valign={Gtk.Align.CENTER}
-                      css={bind(p, "coverArt").as(
-                        (cover) => `background-image: url('${cover}');`,
-                      )}
-                    />
-                    <label label={label()} truncate />
-                  </box>
-                </button>
+                <box
+                  className="cover"
+                  valign={Gtk.Align.CENTER}
+                  css={bind(p, "coverArt").as(
+                    (cover) => `background-image: url('${cover}');`,
+                  )}
+                />
+                <label label={label()} truncate />
               </box>
-            ) : (
-              "Nothing Playing"
-            ),
-          )}
+            </button>
+          </box>
         </box>
       );
     },
   );
 
-  return <box className="media">{inner()}</box>;
+  return <box>{inner()}</box>;
 };
