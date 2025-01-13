@@ -12,6 +12,7 @@ export default () => {
       cursor="pointer"
       visible={wifi.as((w?) => w?.state === Network.DeviceState.ACTIVATED)}
       onClicked={() => App.toggle_window("wifi")}
+      tooltipText={bind(network.wifi.active_access_point, "ssid").as(String)}
     >
       {wifi.as(
         (wifi) =>

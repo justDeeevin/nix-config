@@ -7,7 +7,7 @@ import WindowTitle from "./WindowTitle";
 import Clock from "./Clock";
 import Media from "./Media";
 import Audio from "./Audio";
-import Wifi from "./Wifi";
+// import Wifi from "./Wifi";
 import Battery from "./Battery";
 
 export default function Bar(
@@ -36,7 +36,7 @@ export default function Bar(
         <box hexpand halign={Gtk.Align.END}>
           <Media index={player_i} />
           <Audio />
-          <Wifi />
+          {/* <Wifi /> */}
           <Battery />
         </box>
       </centerbox>

@@ -7,7 +7,7 @@ import Bar from "./bar";
 import Calendar from "./menus/calendar";
 import Media from "./menus/media";
 import Audio from "./menus/audio";
-import Wifi from "./menus/wifi";
+// import Wifi from "./menus/wifi";
 
 const player_i = Variable(0);
 
@@ -19,7 +19,7 @@ App.start({
     Calendar();
     Media(player_i);
     Audio();
-    Wifi();
+    // Wifi();
   },
   requestHandler(request, respond) {
     if (request.startsWith("media")) {
