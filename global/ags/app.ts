@@ -20,21 +20,22 @@ App.start({
   requestHandler(request, respond) {
     if (request.startsWith("media")) {
       const mpris = Mpris.get_default();
+      const player = mpris.players[player_i.get()];
       switch (request.split(" ")[1]) {
         case "next":
-          mpris.players[player_i.get()].next();
+          player.next();
           break;
         case "previous":
-          mpris.players[player_i.get()].previous();
+          player.previous();
           break;
         case "play":
-          mpris.players[player_i.get()].play_pause();
+          player.play_pause();
+          break;
           break;
         default:
           respond(false);
           return;
       }
-      respond(true);
     } else respond(false);
   },
 });
