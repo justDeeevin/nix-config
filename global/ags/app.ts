@@ -6,6 +6,7 @@ import NotificationPopups from "./notifications/popups";
 import Bar from "./bar/index";
 import Calendar from "./menus/calendar/index";
 import Media from "./menus/media/index";
+import Audio from "./menus/audio/index";
 
 const player_i = Variable(0);
 
@@ -16,6 +17,7 @@ App.start({
     App.get_monitors().map((m) => Bar(m, player_i));
     Calendar();
     Media(player_i);
+    Audio();
   },
   requestHandler(request, respond) {
     if (request.startsWith("media")) {
