@@ -33,7 +33,6 @@ App.start({
         case "play":
           player.play_pause();
           break;
-          break;
         default:
           respond(false);
           return;
