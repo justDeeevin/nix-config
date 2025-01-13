@@ -51,9 +51,10 @@ export default (index: Variable<number>) => {
       <label css="font-weight: bold" halign={CENTER} label={bind(p, "title")} />
       <label
         halign={CENTER}
-        label={bind(p, "album").as(
-          (album) => `${p.artist}${album ? ` - ${album}` : ""}`,
-        )}
+        label={Variable.derive(
+          [bind(p, "album"), bind(p, "artist")],
+          (album, artist) => `${artist}${album ? ` - ${album}` : ""}`,
+        )()}
       />
       <box halign={CENTER} css="margin: 8px 0">
         <button cursor="pointer" onClicked={() => p.previous()}>
