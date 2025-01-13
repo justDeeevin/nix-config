@@ -2,7 +2,7 @@ import { App, Astal, Gtk } from "astal/gtk3";
 import { Variable } from "astal";
 import Month from "./Month";
 
-const { CENTER } = Gtk.Align;
+const { START, CENTER, END, FILL } = Gtk.Align;
 
 export default () => {
   const now = new Date();
@@ -47,11 +47,13 @@ export default () => {
       visible={false}
     >
       <box vertical>
-        <box halign={CENTER}>
+        <box halign={FILL}>
           <button
             onClicked={() => year.set(year.get() - 1)}
             cursor="pointer"
             css="margin-right: 8px"
+            hexpand
+            halign={START}
           >
             {"<"}
           </button>
@@ -60,11 +62,13 @@ export default () => {
             onClicked={() => year.set(year.get() + 1)}
             cursor="pointer"
             css="margin-left: 8px"
+            hexpand
+            halign={END}
           >
             {">"}
           </button>
         </box>
-        <box halign={CENTER}>
+        <box halign={FILL}>
           <button
             onClicked={() => {
               const m = month.get();
@@ -75,6 +79,8 @@ export default () => {
             }}
             cursor="pointer"
             css="margin-right: 8px"
+            hexpand
+            halign={START}
           >
             {"<"}
           </button>
@@ -89,6 +95,8 @@ export default () => {
             }}
             cursor="pointer"
             css="margin-left: 8px"
+            hexpand
+            halign={END}
           >
             {">"}
           </button>

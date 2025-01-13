@@ -16,7 +16,7 @@ export default (index: Variable<number>) => {
       vertical
       css={bind(p, "coverArt").as((c) => `background-image: url('${c}')`)}
     >
-      <box halign={FILL} hexpand>
+      <box halign={FILL}>
         <button
           hexpand
           halign={START}
