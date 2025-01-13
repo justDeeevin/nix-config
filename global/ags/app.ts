@@ -3,10 +3,10 @@ import { Variable } from "astal";
 import style from "./style.scss";
 import Mpris from "gi://AstalMpris";
 import NotificationPopups from "./notifications/popups";
-import Bar from "./bar/index";
-import Calendar from "./menus/calendar/index";
-import Media from "./menus/media/index";
-import Audio from "./menus/audio/index";
+import Bar from "./bar";
+import Calendar from "./menus/calendar";
+import Media from "./menus/media";
+import Audio from "./menus/audio";
 
 const player_i = Variable(0);
 
