@@ -1,5 +1,6 @@
 import Network from "gi://AstalNetwork";
 import { bind } from "astal";
+import { App } from "astal/gtk3";
 
 export default () => {
   const network = Network.get_default();
@@ -10,6 +11,7 @@ export default () => {
       className="wifi"
       cursor="pointer"
       visible={wifi.as((w?) => w?.state === Network.DeviceState.ACTIVATED)}
+      onClicked={() => App.toggle_window("wifi")}
     >
       {wifi.as(
         (wifi) =>
