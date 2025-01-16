@@ -54,7 +54,6 @@
     chromium
     # quickemu
     kdenlive
-    mattermost-desktop
     nh
     hyprpolkitagent
     (inputs.hyprland-qtutils.packages.x86_64-linux.default.override {hyprutils = pkgs.hyprutils;})
