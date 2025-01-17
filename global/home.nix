@@ -256,6 +256,10 @@
 
       $env.config.cursor_shape.emacs = "line"
       $env.config.show_banner = false
+
+      def calc [cmd: string] {
+        ${pkgs.python3.interpreter} -c $"print\(($cmd)\)"
+      }
     '';
     shellAliases = {
       dev = "nix develop . --command nu";
