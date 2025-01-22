@@ -260,9 +260,12 @@
       def calc [cmd: string] {
         ${pkgs.python3.interpreter} -c $"print\(($cmd)\)"
       }
+
+      def dev [path?: string] {
+        nix develop ($path | default '.') --command nu
+      }
     '';
     shellAliases = {
-      dev = "nix develop --command nu";
       cd = "z";
     };
     extraEnv = ''
