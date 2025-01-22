@@ -262,7 +262,7 @@
       }
     '';
     shellAliases = {
-      dev = "nix develop . --command nu";
+      dev = "nix develop --command nu";
       cd = "z";
     };
     extraEnv = ''
