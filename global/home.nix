@@ -257,10 +257,6 @@
       $env.config.cursor_shape.emacs = "line"
       $env.config.show_banner = false
 
-      def calc [cmd: string] {
-        ${pkgs.python3.interpreter} -c $"print\(($cmd)\)"
-      }
-
       def dev [path?: string] {
         nix develop ($path | default '.') --command nu
       }
