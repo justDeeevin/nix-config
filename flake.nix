@@ -50,11 +50,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-qtutils = {
-      url = "github:hyprwm/hyprland-qtutils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nuhxboard = {
       url = "github:justdeeevin/nuhxboard";
       inputs.nixpkgs.follows = "nixpkgs";
