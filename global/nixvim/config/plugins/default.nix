@@ -12,5 +12,7 @@
     crates.enable = true;
     web-devicons.enable = true;
     presence-nvim.enable = true;
+    lsp-lines.enable = true;
+    smear-cursor.enable = true;
   };
 }

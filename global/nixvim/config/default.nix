@@ -6,7 +6,7 @@
     colorschemes.oxocarbon.enable = true;
     highlightOverride = {
       Normal = {bg = "none";};
-      NormalFloat = {bg = "none";};
+      # NormalFloat = {bg = "none";};
       NormalNC = {bg = "none";};
       LineNr = {bg = "none";};
       SignColumn = {bg = "none";};

@@ -6,8 +6,25 @@
   programs.nixvim = {
     plugins.lsp = {
       enable = true;
+
+      inlayHints = true;
+
+      keymaps = {
+        diagnostic."<leader>v" = "open_float";
+        lspBuf = {
+          "gh" = "hover";
+          "<F2>" = "rename";
+        };
+        extra = [
+          {
+            key = "<leader>th";
+            action = {__raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";};
+          }
+        ];
+      };
+
       servers = {
-        nixd.enable = true;
+        nil_ls.enable = true;
         ts_ls = {
           enable = true;
           filetypes = [
@@ -45,29 +62,9 @@
           enable = true;
           rootDir = "require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')";
         };
+        nushell.enable = true;
       };
     };
-
-    keymaps = [
-      {
-        key = "gh";
-        action = "<cmd>lua vim.lsp.buf.hover()<CR>";
-      }
-      {
-        key = "<leader>th";
-        action = "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))<CR>";
-      }
-      {
-        key = "<F2>";
-        action = "<cmd>lua vim.lsp.buf.rename()<CR>";
-        mode = "n";
-      }
-      {
-        key = "<leader>v";
-        action = "<cmd>lua vim.diagnostic.open_float()<CR>";
-        mode = "n";
-      }
-    ];
 
     autoGroups = {
       lsp-highlight = {
