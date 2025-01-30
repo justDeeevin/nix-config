@@ -218,7 +218,7 @@
     extraConfig = let
       gitCompletions = builtins.readFile (pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/git/git-completions.nu";
-        hash = "sha256-R2JtuLAszTPsLMVUhok3x1e+Wyee0CXHazGW8qgXJEM=";
+        hash = "sha256-ll/kDde3s+WF2/uRxnSvBJVEiXfjE+xG6aYF5TyDWyw=";
       });
       justCompletions = builtins.readFile (pkgs.fetchurl {
         url = "https://github.com/nushell/nu_scripts/raw/refs/heads/main/custom-completions/just/just-completions.nu";
