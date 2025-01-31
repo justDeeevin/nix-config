@@ -1,28 +1,27 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
       settings = {
         formatters_by_ft = {
-          lua = [ "stylua" ];
-          python = [ "black" ];
+          css = [ "prettierd" ];
+          html = [ "prettierd" ];
           javascript = [ "prettierd" ];
           javascriptreact = [ "prettierd" ];
-          typescript = [ "prettierd" ];
-          typescriptreact = [ "prettierd" ];
           json = [ "prettierd" ];
-          html = [ "prettierd" ];
-          css = [ "prettierd" ];
+          lua = [ "stylua" ];
           markdown = [ "prettierd" ];
-          yaml = [ "yamlfmt" ];
-          toml = [ "taplo" ];
-          svelte = [ "prettierd" ];
           nix = [ "nixfmt" ];
+          python = [ "black" ];
+          rust = [ "rustfmt" ];
           scss = [ "prettierd" ];
           sh = [ "beautysh" ];
+          svelte = [ "prettierd" ];
           tex = [ "latexindent" ];
-          rust = [ "rustfmt" ];
+          toml = [ "taplo" ];
+          typescript = [ "prettierd" ];
+          typescriptreact = [ "prettierd" ];
+          yaml = [ "yamlfmt" ];
         };
         format_on_save.__raw = ''
           function(bufnr)
@@ -46,14 +45,14 @@
     };
 
     extraPackages = with pkgs; [
-      stylua
-      black
-      prettierd
-      yamlfmt
-      taplo
-      nixfmt
       beautysh
+      black
+      nixfmt
+      prettierd
+      stylua
+      taplo
       texlivePackages.latexindent
+      yamlfmt
     ];
   };
 }
