@@ -35,7 +35,8 @@ let
       end
     '';
   };
-in {
+in
+{
   programs.nvf.settings.vim.statusline.lualine = {
     enable = true;
 
@@ -218,18 +219,18 @@ in {
           }
         ''
       ];
-      a = [""];
-      b = [""];
-      y = [""];
-      z = [""];
+      a = [ "" ];
+      b = [ "" ];
+      y = [ "" ];
+      z = [ "" ];
     };
     inactiveSection = {
-      a = [""];
-      b = [""];
-      c = [""];
-      y = [""];
-      x = [""];
-      z = [""];
+      a = [ "" ];
+      b = [ "" ];
+      c = [ "" ];
+      y = [ "" ];
+      x = [ "" ];
+      z = [ "" ];
     };
   };
 }

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nvf.settings.vim = {
     lazy.plugins."vimplugin-harpoon2" = {
       package = pkgs.vimPlugins.harpoon2;

@@ -42,7 +42,8 @@ let
       '';
     };
   };
-in {
+in
+{
   programs.nixvim.plugins.lualine = {
     enable = true;
     # pulled from evil_lualine example
@@ -68,15 +69,21 @@ in {
       sections = {
         lualine_c = [
           {
-            __unkeyed = {__raw = "function() return '▊' end";};
-            color = {fg = colors.blue;};
+            __unkeyed = {
+              __raw = "function() return '▊' end";
+            };
+            color = {
+              fg = colors.blue;
+            };
             padding = {
               left = 0;
               right = 1;
             };
           }
           {
-            __unkeyed = {__raw = "function() return '󱄅' end";};
+            __unkeyed = {
+              __raw = "function() return '󱄅' end";
+            };
             color = {
               __raw = ''
                 function()
@@ -107,7 +114,9 @@ in {
                 end
               '';
             };
-            padding = {right = 1;};
+            padding = {
+              right = 1;
+            };
           }
           {
             __unkeyed = "filesize";
@@ -121,7 +130,7 @@ in {
               gui = "bold";
             };
           }
-          {__unkeyed = "location";}
+          { __unkeyed = "location"; }
           {
             __unkeyed = "progress";
             color = {
@@ -131,20 +140,28 @@ in {
           }
           {
             __unkeyed = "diagnostics";
-            sources = ["nvim_diagnostic"];
+            sources = [ "nvim_diagnostic" ];
             symbols = {
               error = " ";
               warn = " ";
               info = " ";
             };
             diagnostics_color = {
-              error = {fg = colors.red;};
-              warn = {fg = colors.violet;};
-              info = {fg = colors.cyan;};
+              error = {
+                fg = colors.red;
+              };
+              warn = {
+                fg = colors.violet;
+              };
+              info = {
+                fg = colors.cyan;
+              };
             };
           }
           {
-            __unkeyed = {__raw = "function() return '%=' end";};
+            __unkeyed = {
+              __raw = "function() return '%=' end";
+            };
           }
           {
             __unkeyed = {
@@ -176,7 +193,9 @@ in {
         lualine_x = [
           {
             __unkeyed = "o:encoding";
-            fmt = {__raw = "string.upper";};
+            fmt = {
+              __raw = "string.upper";
+            };
             cond = conditions.hide_in_width;
             color = {
               fg = colors.green;
@@ -185,7 +204,9 @@ in {
           }
           {
             __unkeyed = "fileformat";
-            fmt = {__raw = "string.upper";};
+            fmt = {
+              __raw = "string.upper";
+            };
             cond = conditions.hide_in_width;
             color = {
               fg = colors.green;
@@ -208,31 +229,43 @@ in {
               removed = " ";
             };
             diff_color = {
-              added = {fg = colors.green;};
-              modified = {fg = colors.cyan;};
-              removed = {fg = colors.red;};
+              added = {
+                fg = colors.green;
+              };
+              modified = {
+                fg = colors.cyan;
+              };
+              removed = {
+                fg = colors.red;
+              };
             };
             cond = conditions.hide_in_width;
           }
           {
-            __unkeyed = {__raw = "function() return '▊' end";};
-            color = {fg = colors.blue;};
-            padding = {left = 1;};
+            __unkeyed = {
+              __raw = "function() return '▊' end";
+            };
+            color = {
+              fg = colors.blue;
+            };
+            padding = {
+              left = 1;
+            };
           }
         ];
 
-        lualine_a = [""];
-        lualine_b = [""];
-        lualine_y = [""];
-        lualine_z = [""];
+        lualine_a = [ "" ];
+        lualine_b = [ "" ];
+        lualine_y = [ "" ];
+        lualine_z = [ "" ];
       };
       inactive_sections = {
-        lualine_a = [""];
-        lualine_b = [""];
-        lualine_y = [""];
-        lualine_z = [""];
-        lualine_c = [""];
-        lualine_x = [""];
+        lualine_a = [ "" ];
+        lualine_b = [ "" ];
+        lualine_y = [ "" ];
+        lualine_z = [ "" ];
+        lualine_c = [ "" ];
+        lualine_x = [ "" ];
       };
     };
   };

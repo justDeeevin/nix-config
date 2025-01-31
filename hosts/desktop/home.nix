@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     ntfs3g
   ];
@@ -16,7 +17,8 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions;
+    extensions =
+      with pkgs.vscode-extensions;
       [
         rust-lang.rust-analyzer
         tamasfe.even-better-toml

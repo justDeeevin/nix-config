@@ -5,7 +5,8 @@
   home,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     home
     inputs.posting.modules.homeManager.default
@@ -24,9 +25,7 @@
 
   home.stateVersion = stateVersion;
 
-  home.sessionPath = [
-    "~/.bun/bin"
-  ];
+  home.sessionPath = [ "~/.bun/bin" ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -163,7 +162,13 @@
       default_job = "clippy";
       jobs = {
         clippy = {
-          command = ["cargo" "clippy" "--all-targets" "--color" "always"];
+          command = [
+            "cargo"
+            "clippy"
+            "--all-targets"
+            "--color"
+            "always"
+          ];
         };
       };
     };
@@ -215,51 +220,65 @@
   programs.nushell = {
     enable = true;
     # extraConfig is placed before shellAliases
-    extraConfig = let
-      gitCompletions = builtins.readFile (pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/git/git-completions.nu";
-        hash = "sha256-ll/kDde3s+WF2/uRxnSvBJVEiXfjE+xG6aYF5TyDWyw=";
-      });
-      justCompletions = builtins.readFile (pkgs.fetchurl {
-        url = "https://github.com/nushell/nu_scripts/raw/refs/heads/main/custom-completions/just/just-completions.nu";
-        hash = "sha256-IAdjn93e/IiZmGL1PFPuJ6vTkWREaDfH/gs9L6l46qg=";
-      });
-      nixCompletions = builtins.readFile (pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/nix/nix-completions.nu";
-        hash = "sha256-sKyBJETVwlRBccEbQicoVg/7/hDV9hrT9jT8hlwVWAs=";
-      });
-      cargoCompletions = builtins.readFile (pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/cargo/cargo-completions.nu";
-        hash = "sha256-aGgoPgq4Zaj+eKu67fxnpTMm6lOvaaZ6j6cYxvWJ41M=";
-      });
-      batCompletions = builtins.readFile (pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/bat/bat-completions.nu";
-        hash = "sha256-awl7UD1B8lgYeOZ9Rj9KK4arlpuX5Sx+SanlOM70ZRE=";
-      });
-      ghCompletions = builtins.readFile (pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/gh/gh-completions.nu";
-        hash = "sha256-c2E+XAARdyLtZGhh7Stk6PjUwc77nJdC3q5OTIJjA60=";
-      });
-    in ''
-      ${gitCompletions}
+    extraConfig =
+      let
+        gitCompletions = builtins.readFile (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/git/git-completions.nu";
+            hash = "sha256-ll/kDde3s+WF2/uRxnSvBJVEiXfjE+xG6aYF5TyDWyw=";
+          }
+        );
+        justCompletions = builtins.readFile (
+          pkgs.fetchurl {
+            url = "https://github.com/nushell/nu_scripts/raw/refs/heads/main/custom-completions/just/just-completions.nu";
+            hash = "sha256-IAdjn93e/IiZmGL1PFPuJ6vTkWREaDfH/gs9L6l46qg=";
+          }
+        );
+        nixCompletions = builtins.readFile (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/nix/nix-completions.nu";
+            hash = "sha256-sKyBJETVwlRBccEbQicoVg/7/hDV9hrT9jT8hlwVWAs=";
+          }
+        );
+        cargoCompletions = builtins.readFile (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/cargo/cargo-completions.nu";
+            hash = "sha256-aGgoPgq4Zaj+eKu67fxnpTMm6lOvaaZ6j6cYxvWJ41M=";
+          }
+        );
+        batCompletions = builtins.readFile (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/bat/bat-completions.nu";
+            hash = "sha256-awl7UD1B8lgYeOZ9Rj9KK4arlpuX5Sx+SanlOM70ZRE=";
+          }
+        );
+        ghCompletions = builtins.readFile (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/gh/gh-completions.nu";
+            hash = "sha256-c2E+XAARdyLtZGhh7Stk6PjUwc77nJdC3q5OTIJjA60=";
+          }
+        );
+      in
+      ''
+        ${gitCompletions}
 
-      ${justCompletions}
+        ${justCompletions}
 
-      ${nixCompletions}
+        ${nixCompletions}
 
-      ${cargoCompletions}
+        ${cargoCompletions}
 
-      ${batCompletions}
+        ${batCompletions}
 
-      ${ghCompletions}
+        ${ghCompletions}
 
-      $env.config.cursor_shape.emacs = "line"
-      $env.config.show_banner = false
+        $env.config.cursor_shape.emacs = "line"
+        $env.config.show_banner = false
 
-      def dev [path?: string] {
-        nix develop ($path | default '.') --command nu
-      }
-    '';
+        def dev [path?: string] {
+          nix develop ($path | default '.') --command nu
+        }
+      '';
     shellAliases = {
       cd = "z";
     };

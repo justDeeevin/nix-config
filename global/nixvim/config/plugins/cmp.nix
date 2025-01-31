@@ -4,8 +4,8 @@
     autoEnableSources = true;
     settings = {
       sources = [
-        {name = "nvim_lsp";}
-        {name = "path";}
+        { name = "nvim_lsp"; }
+        { name = "path"; }
       ];
       # This is the default with noselect removed. This change makes it select the first item automatically.
       completion.completeopt = "menu, menuone";

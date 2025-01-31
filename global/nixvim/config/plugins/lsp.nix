@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.nixvim = {
     plugins.lsp = {
       enable = true;
@@ -18,7 +19,9 @@
         extra = [
           {
             key = "<leader>th";
-            action = {__raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";};
+            action = {
+              __raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
+            };
           }
         ];
       };
@@ -41,7 +44,7 @@
                 {
                   name = "@vue/typescript-plugin";
                   location = "${lib.getBin pkgs.vue-language-server}/lib/node_modules/@vue/language-server";
-                  languages = ["vue"];
+                  languages = [ "vue" ];
                 }
               ];
             };

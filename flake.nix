@@ -74,44 +74,48 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    mkSystem = {
-      hostName,
-      stateVersion,
-      config ? {},
-      home ? {},
-    }:
-      nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit stateVersion;
-          inherit home;
+  outputs =
+    { nixpkgs, ... }@inputs:
+    let
+      mkSystem =
+        {
+          hostName,
+          stateVersion,
+          config ? { },
+          home ? { },
+        }:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit stateVersion;
+            inherit home;
+          };
+          modules = [
+            inputs.home-manager.nixosModules.default
+            { networking.hostName = hostName; }
+            ./global
+            config
+          ];
         };
-        modules = [
-          inputs.home-manager.nixosModules.default
-          {networking.hostName = hostName;}
-          ./global
-          config
-        ];
-      };
-    mkSystems = hosts:
-      nixpkgs.lib.mapAttrs' (name: value: {
-        inherit name;
-        value = mkSystem (value // {hostName = name;});
-      })
-      hosts;
-  in {
-    nixosConfigurations = mkSystems {
-      devin-pc = {
-        config = ./hosts/desktop/configuration.nix;
-        stateVersion = "23.11";
-        home = ./hosts/desktop/home.nix;
-      };
-      devin-gram = {
-        config = ./hosts/lg-gram/configuration.nix;
-        stateVersion = "24.05";
-        home = ./hosts/lg-gram/home.nix;
+      mkSystems =
+        hosts:
+        nixpkgs.lib.mapAttrs' (name: value: {
+          inherit name;
+          value = mkSystem (value // { hostName = name; });
+        }) hosts;
+    in
+    {
+      nixosConfigurations = mkSystems {
+        devin-pc = {
+          config = ./hosts/desktop/configuration.nix;
+          stateVersion = "23.11";
+          home = ./hosts/desktop/home.nix;
+        };
+        devin-gram = {
+          config = ./hosts/lg-gram/configuration.nix;
+          stateVersion = "24.05";
+          home = ./hosts/lg-gram/home.nix;
+        };
       };
     };
-  };
 }

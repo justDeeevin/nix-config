@@ -1,27 +1,28 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
       settings = {
         formatters_by_ft = {
-          lua = ["stylua"];
-          python = ["black"];
-          javascript = ["prettierd"];
-          javascriptreact = ["prettierd"];
-          typescript = ["prettierd"];
-          typescriptreact = ["prettierd"];
-          json = ["prettierd"];
-          html = ["prettierd"];
-          css = ["prettierd"];
-          markdown = ["prettierd"];
-          yaml = ["yamlfmt"];
-          toml = ["taplo"];
-          svelte = ["prettierd"];
-          nix = ["alejandra"];
-          scss = ["prettierd"];
-          sh = ["beautysh"];
-          tex = ["latexindent"];
-          rust = ["rustfmt"];
+          lua = [ "stylua" ];
+          python = [ "black" ];
+          javascript = [ "prettierd" ];
+          javascriptreact = [ "prettierd" ];
+          typescript = [ "prettierd" ];
+          typescriptreact = [ "prettierd" ];
+          json = [ "prettierd" ];
+          html = [ "prettierd" ];
+          css = [ "prettierd" ];
+          markdown = [ "prettierd" ];
+          yaml = [ "yamlfmt" ];
+          toml = [ "taplo" ];
+          svelte = [ "prettierd" ];
+          nix = [ "nixfmt" ];
+          scss = [ "prettierd" ];
+          sh = [ "beautysh" ];
+          tex = [ "latexindent" ];
+          rust = [ "rustfmt" ];
         };
         format_on_save.__raw = ''
           function(bufnr)
@@ -50,7 +51,7 @@
       prettierd
       yamlfmt
       taplo
-      alejandra
+      nixfmt
       beautysh
       texlivePackages.latexindent
     ];

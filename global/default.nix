@@ -4,7 +4,8 @@
   stateVersion,
   home,
   ...
-}: {
+}:
+{
   imports = [
     ./nvidia.nix
   ];
@@ -18,7 +19,7 @@
   };
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -97,7 +98,12 @@
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
-    extraGroups = ["networkmanager" "wheel" "adbusers" "input"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+      "input"
+    ];
     shell = pkgs.nushell;
   };
 
@@ -128,7 +134,10 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   hardware.bluetooth.enable = true;
 
@@ -144,7 +153,7 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = ["devin"];
+    polkitPolicyOwners = [ "devin" ];
   };
   environment.etc."1password/custom_allowed_browsers" = {
     text = ''
@@ -154,7 +163,7 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
+  programs.nix-ld.libraries = [ ];
 
   services.flatpak.enable = true;
 

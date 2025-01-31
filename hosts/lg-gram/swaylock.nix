@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;

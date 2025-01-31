@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nvf.settings.vim = {
     lsp.formatOnSave = true;
     languages = {
