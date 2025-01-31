@@ -3,12 +3,10 @@
     plugins.obsidian = {
       enable = true;
       settings = {
-        workspaces = [
-          {
-            name = "Third Brain";
-            path = "~/Documents/Third Brain";
-          }
-        ];
+        workspaces = [{
+          name = "Third Brain";
+          path = "~/Documents/Third Brain";
+        }];
         daily_notes = {
           folder = "Daily";
           template = "Templates/Daily Note Template.md";
@@ -38,9 +36,7 @@
       };
     };
 
-    opts = {
-      conceallevel = 2;
-    };
+    opts = { conceallevel = 2; };
 
     keymaps = [
       {

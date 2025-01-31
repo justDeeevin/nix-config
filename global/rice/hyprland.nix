@@ -1,18 +1,10 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 let
-in
-{
+in {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = with pkgs.hyprlandPlugins; [
-      hypr-dynamic-cursors
-      hyprspace
-    ];
+    plugins = with pkgs.hyprlandPlugins; [ hypr-dynamic-cursors hyprspace ];
 
     settings = {
       decoration.rounding = 8;
@@ -106,13 +98,18 @@ in
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"
         "CTRL SHIFT, BACKSLASH, exec, 1password"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
-        "$mod, v, exec, ghostty --class=ghostty.clipse -e ${lib.getExe pkgs.clipse}"
-        ''$mod, PERIOD, exec, nu ${./scripts/emoji-list.nu} ${lib.getExe pkgs.wtype} ${
+        "$mod, v, exec, ghostty --class=ghostty.clipse -e ${
+          lib.getExe pkgs.clipse
+        }"
+        "$mod, PERIOD, exec, nu ${./scripts/emoji-list.nu} ${
+          lib.getExe pkgs.wtype
+        } ${
           pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/muan/emojilib/v4.0.0/dist/emoji-en-US.json";
+            url =
+              "https://raw.githubusercontent.com/muan/emojilib/v4.0.0/dist/emoji-en-US.json";
             hash = "sha256-IoU9ZPCqvSPX4DmfC+r5MiglhFc41XMRrbJRL9ZNrvs=";
           }
-        }''
+        }"
       ];
 
       binde = [
@@ -120,10 +117,7 @@ in
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
+      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
 
       windowrulev2 = [
         "float, class:(ghostty.clipse)"
@@ -132,7 +126,9 @@ in
 
       exec-once = [
         "${pkgs.playerctl}/bin/playerctld"
-        "${lib.getExe pkgs.swaybg} -i ${./scp_3001_by_sunnyclockwork.jpg} -m center --color 010101"
+        "${lib.getExe pkgs.swaybg} -i ${
+          ./scp_3001_by_sunnyclockwork.jpg
+        } -m center --color 010101"
         "systemctl --user start hyprpolkitagent"
         "${lib.getExe pkgs.clipse} -listen"
         (lib.getExe pkgs.syshud)

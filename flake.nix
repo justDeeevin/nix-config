@@ -74,16 +74,9 @@
     };
   };
 
-  outputs =
-    { nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
-      mkSystem =
-        {
-          hostName,
-          stateVersion,
-          config ? { },
-          home ? { },
-        }:
+      mkSystem = { hostName, stateVersion, config ? { }, home ? { }, }:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
@@ -97,14 +90,12 @@
             config
           ];
         };
-      mkSystems =
-        hosts:
+      mkSystems = hosts:
         nixpkgs.lib.mapAttrs' (name: value: {
           inherit name;
           value = mkSystem (value // { hostName = name; });
         }) hosts;
-    in
-    {
+    in {
       nixosConfigurations = mkSystems {
         devin-pc = {
           config = ./hosts/desktop/configuration.nix;

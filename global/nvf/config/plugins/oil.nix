@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.nvf.settings.vim = {
     lazy.plugins."vimplugin-oil.nvim" = {
       package = pkgs.vimPlugins.oil-nvim;
@@ -17,12 +16,10 @@
       };
     };
 
-    keymaps = [
-      {
-        key = "<leader>e";
-        action = "<cmd>Oil<CR>";
-        mode = "n";
-      }
-    ];
+    keymaps = [{
+      key = "<leader>e";
+      action = "<cmd>Oil<CR>";
+      mode = "n";
+    }];
   };
 }

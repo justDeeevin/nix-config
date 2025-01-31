@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.nvf.settings.vim.lazy.plugins."vimplugin-codesnap.nvim" = {
     package = pkgs.vimPlugins.codesnap-nvim;
     setupModule = "codesnap";

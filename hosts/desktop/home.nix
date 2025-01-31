@@ -1,12 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-{
-  home.packages = with pkgs; [
-    ntfs3g
-  ];
+{ pkgs, lib, ... }: {
+  home.packages = with pkgs; [ ntfs3g ];
 
   wayland.windowManager.hyprland.settings.monitor = [
     "HDMI-A-1, highres@highrr, 0x0, 1, transform, 3"
@@ -17,8 +10,7 @@
 
   programs.vscode = {
     enable = true;
-    extensions =
-      with pkgs.vscode-extensions;
+    extensions = with pkgs.vscode-extensions;
       [
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
@@ -29,8 +21,7 @@
         aaron-bond.better-comments
         irongeek.vscode-env
         supermaven.supermaven
-      ]
-      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "rust-syntax";
           publisher = "dustypomerleau";

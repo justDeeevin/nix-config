@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.nvf.settings.vim = {
     lazy.plugins."vimplugin-harpoon2" = {
       package = pkgs.vimPlugins.harpoon2;
@@ -28,13 +27,11 @@
       vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end)
     '';
 
-    keymaps = [
-      {
-        key = "<leader>a";
-        lua = true;
-        action = "require('harpoon'):list():add()";
-        mode = "n";
-      }
-    ];
+    keymaps = [{
+      key = "<leader>a";
+      lua = true;
+      action = "require('harpoon'):list():add()";
+      mode = "n";
+    }];
   };
 }

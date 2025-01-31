@@ -1,14 +1,5 @@
-{
-  pkgs,
-  inputs,
-  stateVersion,
-  home,
-  ...
-}:
-{
-  imports = [
-    ./nvidia.nix
-  ];
+{ pkgs, inputs, stateVersion, home, ... }: {
+  imports = [ ./nvidia.nix ];
 
   # Bootloader.
   boot.loader.grub = {
@@ -98,12 +89,7 @@
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "adbusers"
-      "input"
-    ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "input" ];
     shell = pkgs.nushell;
   };
 
@@ -116,9 +102,7 @@
       inherit stateVersion;
       inherit home;
     };
-    users = {
-      "devin" = ./home.nix;
-    };
+    users = { "devin" = ./home.nix; };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -134,10 +118,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   hardware.bluetooth.enable = true;
 
@@ -145,10 +126,7 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.symbols-only
-    monaspace
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.symbols-only monaspace ];
 
   programs._1password.enable = true;
   programs._1password-gui = {

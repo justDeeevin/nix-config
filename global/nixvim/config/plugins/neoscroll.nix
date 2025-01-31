@@ -1,9 +1,6 @@
 {
   programs.nixvim.plugins.neoscroll = {
     enable = true;
-    settings.mappings = [
-      "<C-u>"
-      "<C-d>"
-    ];
+    settings.mappings = [ "<C-u>" "<C-d>" ];
   };
 }

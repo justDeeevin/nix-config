@@ -42,8 +42,7 @@ let
       '';
     };
   };
-in
-{
+in {
   programs.nixvim.plugins.lualine = {
     enable = true;
     # pulled from evil_lualine example
@@ -69,21 +68,15 @@ in
       sections = {
         lualine_c = [
           {
-            __unkeyed = {
-              __raw = "function() return '▊' end";
-            };
-            color = {
-              fg = colors.blue;
-            };
+            __unkeyed = { __raw = "function() return '▊' end"; };
+            color = { fg = colors.blue; };
             padding = {
               left = 0;
               right = 1;
             };
           }
           {
-            __unkeyed = {
-              __raw = "function() return '󱄅' end";
-            };
+            __unkeyed = { __raw = "function() return '󱄅' end"; };
             color = {
               __raw = ''
                 function()
@@ -114,9 +107,7 @@ in
                 end
               '';
             };
-            padding = {
-              right = 1;
-            };
+            padding = { right = 1; };
           }
           {
             __unkeyed = "filesize";
@@ -147,22 +138,12 @@ in
               info = " ";
             };
             diagnostics_color = {
-              error = {
-                fg = colors.red;
-              };
-              warn = {
-                fg = colors.violet;
-              };
-              info = {
-                fg = colors.cyan;
-              };
+              error = { fg = colors.red; };
+              warn = { fg = colors.violet; };
+              info = { fg = colors.cyan; };
             };
           }
-          {
-            __unkeyed = {
-              __raw = "function() return '%=' end";
-            };
-          }
+          { __unkeyed = { __raw = "function() return '%=' end"; }; }
           {
             __unkeyed = {
               __raw = ''
@@ -193,9 +174,7 @@ in
         lualine_x = [
           {
             __unkeyed = "o:encoding";
-            fmt = {
-              __raw = "string.upper";
-            };
+            fmt = { __raw = "string.upper"; };
             cond = conditions.hide_in_width;
             color = {
               fg = colors.green;
@@ -204,9 +183,7 @@ in
           }
           {
             __unkeyed = "fileformat";
-            fmt = {
-              __raw = "string.upper";
-            };
+            fmt = { __raw = "string.upper"; };
             cond = conditions.hide_in_width;
             color = {
               fg = colors.green;
@@ -229,28 +206,16 @@ in
               removed = " ";
             };
             diff_color = {
-              added = {
-                fg = colors.green;
-              };
-              modified = {
-                fg = colors.cyan;
-              };
-              removed = {
-                fg = colors.red;
-              };
+              added = { fg = colors.green; };
+              modified = { fg = colors.cyan; };
+              removed = { fg = colors.red; };
             };
             cond = conditions.hide_in_width;
           }
           {
-            __unkeyed = {
-              __raw = "function() return '▊' end";
-            };
-            color = {
-              fg = colors.blue;
-            };
-            padding = {
-              left = 1;
-            };
+            __unkeyed = { __raw = "function() return '▊' end"; };
+            color = { fg = colors.blue; };
+            padding = { left = 1; };
           }
         ];
 

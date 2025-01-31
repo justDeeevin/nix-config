@@ -11,9 +11,7 @@
         allTargets = false;
         command = "clippy";
       };
-      cargo = {
-        features = "all";
-      };
+      cargo = { features = "all"; };
     };
   };
 }

@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./hyprland.nix
-    ./stylix.nix
-  ];
-}
+{ imports = [ ./hyprland.nix ./stylix.nix ]; }

@@ -1,10 +1,7 @@
 {
-  imports =
-    [
-      ./remaps.nix
-      ./opts.nix
-    ]
-    ++ builtins.map (file: ./. + "/plugins/${file}") (builtins.attrNames (builtins.readDir ./plugins));
+  imports = [ ./remaps.nix ./opts.nix ]
+    ++ builtins.map (file: ./. + "/plugins/${file}")
+    (builtins.attrNames (builtins.readDir ./plugins));
 
   programs.nvf.settings.vim = {
     preventJunkFiles = true;

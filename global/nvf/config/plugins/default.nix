@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.nvf.settings.vim = {
     startPlugins = with pkgs.vimPlugins; [
       dressing-nvim

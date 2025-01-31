@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-{
+{ pkgs, lib, ... }: {
   programs.nixvim = {
     plugins.lsp = {
       enable = true;
@@ -16,14 +11,13 @@
           "gh" = "hover";
           "<F2>" = "rename";
         };
-        extra = [
-          {
-            key = "<leader>th";
-            action = {
-              __raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
-            };
-          }
-        ];
+        extra = [{
+          key = "<leader>th";
+          action = {
+            __raw =
+              "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
+          };
+        }];
       };
 
       servers = {
@@ -40,13 +34,13 @@
           rootDir = "require('lspconfig').util.root_pattern('package.json')";
           extraOptions = {
             init_options = {
-              plugins = [
-                {
-                  name = "@vue/typescript-plugin";
-                  location = "${lib.getBin pkgs.vue-language-server}/lib/node_modules/@vue/language-server";
-                  languages = [ "vue" ];
-                }
-              ];
+              plugins = [{
+                name = "@vue/typescript-plugin";
+                location = "${
+                    lib.getBin pkgs.vue-language-server
+                  }/lib/node_modules/@vue/language-server";
+                languages = [ "vue" ];
+              }];
             };
             single_file_support = false;
           };
@@ -63,22 +57,17 @@
         html.enable = true;
         denols = {
           enable = true;
-          rootDir = "require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')";
+          rootDir =
+            "require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')";
         };
         nushell.enable = true;
       };
     };
 
     autoGroups = {
-      lsp-highlight = {
-        clear = false;
-      };
-      lsp-detach = {
-        clear = true;
-      };
-      lsp-attach = {
-        clear = true;
-      };
+      lsp-highlight = { clear = false; };
+      lsp-detach = { clear = true; };
+      lsp-attach = { clear = true; };
     };
 
     autoCmd = [

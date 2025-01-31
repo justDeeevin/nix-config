@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-{
+{ pkgs, lib, ... }: {
   wayland.windowManager.hyprland.settings = {
     exec-once = [ (lib.getExe pkgs.networkmanagerapplet) ];
 
@@ -21,9 +16,7 @@
       clickfinger_behavior = true;
     };
 
-    gestures = {
-      workspace_swipe = true;
-    };
+    gestures = { workspace_swipe = true; };
   };
 
   services.hypridle = {

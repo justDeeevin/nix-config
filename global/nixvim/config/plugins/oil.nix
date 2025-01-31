@@ -14,12 +14,10 @@
       };
     };
 
-    keymaps = [
-      {
-        key = "<leader>e";
-        action = "<cmd>Oil<CR>";
-        mode = "n";
-      }
-    ];
+    keymaps = [{
+      key = "<leader>e";
+      action = "<cmd>Oil<CR>";
+      mode = "n";
+    }];
   };
 }

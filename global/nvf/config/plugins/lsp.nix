@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.nvf.settings.vim = {
     lsp.formatOnSave = true;
     languages = {
@@ -37,9 +36,7 @@
           showCursorDiagnostics = "<leader>v";
         };
       };
-      mappings = {
-        hover = "gh";
-      };
+      mappings = { hover = "gh"; };
     };
 
     luaConfigPost = ''
