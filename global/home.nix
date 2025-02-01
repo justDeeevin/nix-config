@@ -1,7 +1,6 @@
 { pkgs, inputs, stateVersion, home, lib, ... }: {
   imports = [
     home
-    inputs.posting.modules.homeManager.default
     inputs.nix-index-database.hmModules.nix-index
     inputs.syspower.modules.homeManager.default
     ./nixvim
@@ -263,34 +262,6 @@
   programs.zoxide = {
     enable = true;
     enableNushellIntegration = true;
-  };
-
-  programs.posting = {
-    # enable = true;
-    settings = {
-      animation = "full";
-      theme = "oxocarbon";
-    };
-    themes = {
-      oxocarbon = {
-        # base08
-        primary = "#3ddbd9";
-        # base0F
-        secondary = "#82cfff";
-        # base0C
-        accent = "#ff7eb6";
-        # base00
-        background = "#161616";
-        # base02
-        surface = "#393939";
-        # base0A
-        error = "#ee5396";
-        # base0D
-        success = "#42be65";
-        # base0E
-        warning = "#be95ff";
-      };
-    };
   };
 
   programs.nix-index-database.comma.enable = true;

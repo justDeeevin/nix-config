@@ -1,4 +1,1 @@
-{
-  imports = [ ./hypr.nix ./swaylock.nix ];
-
-}
+{ imports = [ ./hypr.nix ./swaylock.nix ]; }
