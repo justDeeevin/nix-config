@@ -1,6 +1,4 @@
-{ pkgs, lib, ... }:
-let
-in {
+{ pkgs, lib, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -23,6 +21,7 @@ in {
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "XCURSOR_SIZE,32"
+        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
       ];
 
       general.gaps_out = "0,20,20,20";
