@@ -30,15 +30,17 @@ in {
         };
       };
     };
-    options.conceeallevel = 2;
+    options.conceallevel = 2;
     keymaps = [
       {
         key = "<leader>ot";
         action = "<cmd>ObsidianToday<CR>";
+        mode = "n";
       }
       {
         key = "<leader>op";
         action = "<cmd>ObsidianPasteImg<CR>";
+        mode = "n";
       }
     ];
   };

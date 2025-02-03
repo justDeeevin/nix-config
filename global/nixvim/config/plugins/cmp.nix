@@ -8,11 +8,7 @@
       completion.completeopt = "menu, menuone";
       mapping = {
         "<CR>" = "require('cmp').mapping.confirm({select = true})";
-        "<C-Space>" = ''
-          function()
-            require("cmp").mapping.complete()
-          end
-        '';
+        "<C-Space>" = "cmp.mapping.complete()";
         "<Down>" = ''
           function(fallback)
             if require("cmp").visible() then

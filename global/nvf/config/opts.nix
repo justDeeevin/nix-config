@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.nvf.settings.vim = {
     searchCase = "smart";
     options = {
@@ -12,7 +12,7 @@
         nbsp = "␣";
         space = "⋅";
         eol = "↴";
-      };
+      } |> lib.mapAttrsToList (name: value: "${name}:${value},") |> lib.concatStrings;
       showmode = false;
       breakindent = true;
       undofile = true;

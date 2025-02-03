@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{
   programs.nvf.settings.vim = {
-    lsp.formatOnSave = true;
+    # TODO: unnecessary?
+    syntaxHighlighting = true;
     languages = {
       enableLSP = true;
       enableTreesitter = true;
@@ -14,7 +15,7 @@
       markdown.enable = true;
       nix = {
         enable = true;
-        lsp.package = pkgs.nixd;
+        format.type = "nixfmt";
       };
       nu.enable = true;
       rust = {
@@ -26,35 +27,26 @@
         # TODO: configure rust-analyzer
       };
       svelte.enable = true;
+      # TODO: deno
       ts.enable = true;
     };
 
     lsp = {
+      # TODO: unnecessary?
+      enable = true;
+      lightbulb.enable = true;
+      formatOnSave = true;
       lspsaga = {
+        enable = true;
         mappings = {
           rename = "<F2>";
           showCursorDiagnostics = "<leader>v";
         };
       };
-      mappings = { hover = "gh"; };
+      mappings = {
+        hover = "gh";
+      };
+      lsplines.enable = true;
     };
-
-    luaConfigPost = ''
-      vim.g.rustaceanvim.server.default_settings.rust-analyzer = vim.list_extend(vim.g.rustaceanvim.server.default_settings.rust-analyzer, {
-        inlayHints = {
-          chainingHints = {
-            enable = true,
-            maxLength = 20,
-            maxItems = 5,
-          },
-          typeHints = {
-            enable = true,
-          },
-          parameterHints = {
-            enable = true,
-          },
-        },
-      })
-    '';
   };
 }

@@ -10,6 +10,7 @@
       enable = true;
       name = "oxocarbon";
       transparent = true;
+      style = "dark";
     };
   };
 }

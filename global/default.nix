@@ -118,7 +118,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
 
   hardware.bluetooth.enable = true;
 

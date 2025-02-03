@@ -5,34 +5,74 @@
       {
         key = "m";
         action = "h";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "n";
         action = "j";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "e";
         action = "k";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "i";
         action = "l";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "k";
         action = "n";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "K";
         action = "N";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "l";
         action = "u";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "u";
         action = "i";
+        mode = [
+          "n"
+          "v"
+          "o"
+        ];
       }
       {
         key = "U";
@@ -58,18 +98,5 @@
         mode = "i";
       }
     ];
-
-    luaConfigPost = ''
-      vim.api.nvim_create_user_command("Wnf", function()
-          if vim.b.disableFormatSave then
-            return
-          end
-
-          vim.b.disableFormatSave = true
-          vim.api.nvim_command("write")
-          vim.b.disableFormatSave = false
-        end
-      )
-    '';
   };
 }

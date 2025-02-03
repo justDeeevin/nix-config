@@ -131,8 +131,8 @@ in {
         ''
         ''
           {
-            'diagnostics'
-            sources = ['nvim_diagnostic'],
+            'diagnostics',
+            sources = {'nvim_diagnostic'},
             symbols = {
               error = ' ',
               warn = ' ',
