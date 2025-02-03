@@ -13,10 +13,8 @@
         };
         extra = [{
           key = "<leader>th";
-          action = {
-            __raw =
-              "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
-          };
+          action.__raw =
+            "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
         }];
       };
 
@@ -74,38 +72,34 @@
       {
         event = "LspAttach";
         group = "lsp-attach";
-        callback = {
-          __raw = ''
-            function(event)
-              local client = vim.lsp.get_client_by_id(event.data.client_id)
-              if client and client.server_capabilities.documentHighlightProvider then
-                vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-                  buffer = event.buf,
-                  group = "lsp-highlight",
-                  callback = vim.lsp.buf.document_highlight,
-                })
+        callback.__raw = ''
+          function(event)
+            local client = vim.lsp.get_client_by_id(event.data.client_id)
+            if client and client.server_capabilities.documentHighlightProvider then
+              vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                buffer = event.buf,
+                group = "lsp-highlight",
+                callback = vim.lsp.buf.document_highlight,
+              })
 
-                vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-                  buffer = event.buf,
-                  group = "lsp-highlight",
-                  callback = vim.lsp.buf.clear_references,
-                })
-              end
+              vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+                buffer = event.buf,
+                group = "lsp-highlight",
+                callback = vim.lsp.buf.clear_references,
+              })
             end
-          '';
-        };
+          end
+        '';
       }
       {
         event = "LspDetach";
         group = "lsp-detach";
-        callback = {
-          __raw = ''
-            function(event)
-              vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds({group = "lsp-highlight"})
-            end
-          '';
-        };
+        callback.__raw = ''
+          function(event)
+            vim.lsp.buf.clear_references()
+            vim.api.nvim_clear_autocmds({group = "lsp-highlight"})
+          end
+        '';
       }
     ];
   };

@@ -34,15 +34,13 @@
       };
     };
 
-    userCommands.Wnf = {
-      command.__raw = ''
-        function(args)
-          vim.b.disable_autoformat = true
-          vim.api.nvim_command("write")
-          vim.b.disable_autoformat = false
-        end
-      '';
-    };
+    userCommands.Wnf.command.__raw = ''
+      function(args)
+        vim.b.disable_autoformat = true
+        vim.api.nvim_command("write")
+        vim.b.disable_autoformat = false
+      end
+    '';
 
     extraPackages = with pkgs; [
       beautysh

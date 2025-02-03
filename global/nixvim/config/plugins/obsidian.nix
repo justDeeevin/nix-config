@@ -16,22 +16,18 @@
         disable_frontmatter = true;
         attachments = {
           img_folder = "Assets";
-          img_name_func = {
-            __raw = ''
-              function()
-                local date = os.date("*t")
-                return string.format("Pasted image %d%d%d%d%d%d", date.year, date.month, date.day, date.hour, date.min, date.sec)
-              end
-            '';
-          };
-          img_text_func = {
-            __raw = ''
-              function(client, path)
-                path = client:vault_relative_path(path) or path
-                return string.format("![[%s]]", path.name)
-              end
-            '';
-          };
+          img_name_func.__raw = ''
+            function()
+              local date = os.date("*t")
+              return string.format("Pasted image %d%d%d%d%d%d", date.year, date.month, date.day, date.hour, date.min, date.sec)
+            end
+          '';
+          img_text_func.__raw = ''
+            function(client, path)
+              path = client:vault_relative_path(path) or path
+              return string.format("![[%s]]", path.name)
+            end
+          '';
         };
       };
     };

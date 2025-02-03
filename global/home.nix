@@ -156,6 +156,7 @@
         clippy = {
           command = [ "cargo" "clippy" "--all-targets" "--color" "always" ];
         };
+        build = { command = [ "cargo" "build" "--color" "always" ]; };
       };
     };
   };

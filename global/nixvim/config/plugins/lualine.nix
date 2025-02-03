@@ -16,31 +16,25 @@ let
   };
 
   conditions = {
-    buffer_not_empty = {
-      __raw = ''
-        function()
-          return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-        end
-      '';
-    };
+    buffer_not_empty.__raw = ''
+      function()
+        return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
+      end
+    '';
 
-    hide_in_width = {
-      __raw = ''
-        function()
-          return vim.fn.winwidth(0) > 80
-        end
-      '';
-    };
+    hide_in_width.__raw = ''
+      function()
+        return vim.fn.winwidth(0) > 80
+      end
+    '';
 
-    check_git_workspace = {
-      __raw = ''
-        function()
-          local filepath = vim.fn.expand("%:p:h")
-          local gitdir = vim.fn.finddir(".git", filepath .. ";")
-          return gitdir and #gitdir > 0 and #gitdir < #filepath
-        end
-      '';
-    };
+    check_git_workspace.__raw = ''
+      function()
+        local filepath = vim.fn.expand("%:p:h")
+        local gitdir = vim.fn.finddir(".git", filepath .. ";")
+        return gitdir and #gitdir > 0 and #gitdir < #filepath
+      end
+    '';
   };
 in {
   programs.nixvim.plugins.lualine = {
@@ -68,7 +62,7 @@ in {
       sections = {
         lualine_c = [
           {
-            __unkeyed = { __raw = "function() return '▊' end"; };
+            __unkeyed.__raw = "function() return '▊' end";
             color = { fg = colors.blue; };
             padding = {
               left = 0;
@@ -76,37 +70,35 @@ in {
             };
           }
           {
-            __unkeyed = { __raw = "function() return '󱄅' end"; };
-            color = {
-              __raw = ''
-                function()
-                  local mode_color = {
-                    n = "${colors.red}",
-                    i = "${colors.green}",
-                    v = "${colors.blue}",
-                    [''] = "${colors.blue}",
-                    V = "${colors.blue}",
-                    c = "${colors.magenta}",
-                    no = "${colors.red}",
-                    -- I would update these to be an oxocarbon color but I have no idea what modes they are
-                    s = "${colors.orange}",
-                    S = "${colors.orange}",
-                    [''] = "${colors.orange}",
-                    ic = "${colors.yellow}",
-                    R = "${colors.violet}",
-                    Rv = "${colors.violet}",
-                    cv = "${colors.red}",
-                    ce = "${colors.red}",
-                    r = "${colors.cyan}",
-                    rm = "${colors.cyan}",
-                    ['r?'] = "${colors.cyan}",
-                    ['!'] = "${colors.red}",
-                    t = "${colors.red}",
-                  }
-                  return { fg = mode_color[vim.fn.mode()] }
-                end
-              '';
-            };
+            __unkeyed.__raw = "function() return '󱄅' end";
+            color.__raw = ''
+              function()
+                local mode_color = {
+                  n = "${colors.red}",
+                  i = "${colors.green}",
+                  v = "${colors.blue}",
+                  [''] = "${colors.blue}",
+                  V = "${colors.blue}",
+                  c = "${colors.magenta}",
+                  no = "${colors.red}",
+                  -- I would update these to be an oxocarbon color but I have no idea what modes they are
+                  s = "${colors.orange}",
+                  S = "${colors.orange}",
+                  [''] = "${colors.orange}",
+                  ic = "${colors.yellow}",
+                  R = "${colors.violet}",
+                  Rv = "${colors.violet}",
+                  cv = "${colors.red}",
+                  ce = "${colors.red}",
+                  r = "${colors.cyan}",
+                  rm = "${colors.cyan}",
+                  ['r?'] = "${colors.cyan}",
+                  ['!'] = "${colors.red}",
+                  t = "${colors.red}",
+                }
+                return { fg = mode_color[vim.fn.mode()] }
+              end
+            '';
             padding = { right = 1; };
           }
           {
@@ -143,27 +135,25 @@ in {
               info = { fg = colors.cyan; };
             };
           }
-          { __unkeyed = { __raw = "function() return '%=' end"; }; }
+          { __unkeyed.__raw = "function() return '%=' end"; }
           {
-            __unkeyed = {
-              __raw = ''
-                function()
-                  local msg = 'No Active Lsp'
-                  local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                  local clients = vim.lsp.get_clients()
-                  if next(clients) == nil then
-                    return msg
-                  end
-                  for _, client in ipairs(clients) do
-                    local filetypes = client.config.filetypes
-                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                      return client.name
-                    end
-                  end
+            __unkeyed.__raw = ''
+              function()
+                local msg = 'No Active Lsp'
+                local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                local clients = vim.lsp.get_clients()
+                if next(clients) == nil then
                   return msg
                 end
-              '';
-            };
+                for _, client in ipairs(clients) do
+                  local filetypes = client.config.filetypes
+                  if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                    return client.name
+                  end
+                end
+                return msg
+              end
+            '';
             icon = " LSP:";
             color = {
               fg = "#ffffff";
@@ -174,7 +164,7 @@ in {
         lualine_x = [
           {
             __unkeyed = "o:encoding";
-            fmt = { __raw = "string.upper"; };
+            fmt.__raw = "string.upper";
             cond = conditions.hide_in_width;
             color = {
               fg = colors.green;
@@ -183,7 +173,7 @@ in {
           }
           {
             __unkeyed = "fileformat";
-            fmt = { __raw = "string.upper"; };
+            fmt.__raw = "string.upper";
             cond = conditions.hide_in_width;
             color = {
               fg = colors.green;
@@ -213,7 +203,7 @@ in {
             cond = conditions.hide_in_width;
           }
           {
-            __unkeyed = { __raw = "function() return '▊' end"; };
+            __unkeyed.__raw = "function() return '▊' end";
             color = { fg = colors.blue; };
             padding = { left = 1; };
           }
