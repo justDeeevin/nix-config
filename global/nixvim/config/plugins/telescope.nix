@@ -10,6 +10,10 @@
 
     keymaps = [
       {
+        key = "<leader>sf";
+        action = "<cmd>lua require('telescope.builtin').find_files()<CR>";
+      }
+      {
         key = "<leader>sg";
         action = "<cmd>lua require('telescope.builtin').live_grep()<CR>";
       }
