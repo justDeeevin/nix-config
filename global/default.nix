@@ -89,7 +89,7 @@
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "libvirtd" ];
     shell = pkgs.nushell;
   };
 
@@ -118,7 +118,8 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
+  nix.settings.experimental-features =
+    [ "nix-command" "flakes" "pipe-operators" ];
 
   hardware.bluetooth.enable = true;
 
@@ -148,4 +149,7 @@
   virtualisation.docker.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 }
