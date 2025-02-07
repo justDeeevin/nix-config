@@ -86,11 +86,11 @@
                 }
               ]
               |> builtins.map builtins.toJSON;
-            dictionary.en-US = [
-              "Deepseek"
-              "LLaMA"
+            dictionary.en-US = import ../dictionary.nix;
+            disabledRules.en-US = [
+              "AI"
+              "EN_UNPAIRED_BRACKETS"
             ];
-            disabledRules.en-US = [ "AI" ];
           };
         };
         volar = {
