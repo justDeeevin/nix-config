@@ -71,6 +71,28 @@
             single_file_support = false;
           };
         };
+        ltex = {
+          enable = true;
+          filetypes = [
+            "markdown"
+            "asciidoc"
+          ];
+          settings = {
+            hiddenFalsePositives.en-US =
+              [
+                {
+                  rule = "MORFOLOGIK_RULE_EN_US";
+                  sentence = ''\w*footnote'';
+                }
+              ]
+              |> builtins.map builtins.toJSON;
+            dictionary.en-US = [
+              "Deepseek"
+              "LLaMA"
+            ];
+            disabledRules.en-US = [ "AI" ];
+          };
+        };
         volar = {
           enable = true;
           package = pkgs.vue-language-server;
