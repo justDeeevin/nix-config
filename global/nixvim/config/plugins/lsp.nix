@@ -84,6 +84,10 @@
                   rule = "MORFOLOGIK_RULE_EN_US";
                   sentence = ''\w*footnote'';
                 }
+                {
+                  rule = "COMMA_COMPOUNT_SENTENCE";
+                  sentence = "_and";
+                }
               ]
               |> builtins.map builtins.toJSON;
             dictionary.en-US = import ../dictionary.nix;
