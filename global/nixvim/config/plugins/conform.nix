@@ -45,7 +45,7 @@
     extraPackages = with pkgs; [
       beautysh
       black
-      nixfmt
+      nixfmt-rfc-style
       prettierd
       stylua
       taplo
