@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.nvf.settings.vim.lazy.plugins."codesnap.nvim" = {
     enabled = true;
     package = pkgs.vimPlugins.codesnap-nvim;

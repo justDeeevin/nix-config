@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   programs.nvf.settings.vim = {
     searchCase = "smart";
     options = {
@@ -6,13 +7,16 @@
       hlsearch = false;
       incsearch = true;
       list = true;
-      listchars = {
-        tab = "» ";
-        trail = "·";
-        nbsp = "␣";
-        space = "⋅";
-        eol = "↴";
-      } |> lib.mapAttrsToList (name: value: "${name}:${value},") |> lib.concatStrings;
+      listchars =
+        {
+          tab = "» ";
+          trail = "·";
+          nbsp = "␣";
+          space = "⋅";
+          eol = "↴";
+        }
+        |> lib.mapAttrsToList (name: value: "${name}:${value},")
+        |> lib.concatStrings;
       showmode = false;
       breakindent = true;
       undofile = true;

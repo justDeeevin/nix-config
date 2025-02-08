@@ -7,6 +7,9 @@
       close = "<Esc>";
     };
     setupOpts.completion.completeopt = "menu, menuone";
-    sourcePlugins = [ "cmp-nvim-lsp" "cmp-path" ];
+    sourcePlugins = [
+      "cmp-nvim-lsp"
+      "cmp-path"
+    ];
   };
 }

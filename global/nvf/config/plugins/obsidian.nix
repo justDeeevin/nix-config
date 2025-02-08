@@ -1,6 +1,8 @@
 { lib, ... }:
-let inherit (lib.generators) mkLuaInline;
-in {
+let
+  inherit (lib.generators) mkLuaInline;
+in
+{
   programs.nvf.settings.vim = {
     notes.obsidian = {
       enable = true;
