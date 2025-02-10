@@ -54,7 +54,6 @@
     kdenlive
     nh
     hyprpolkitagent
-    inputs.nuhxboard.packages.x86_64-linux.default
     ghostty
     telegram-desktop
 

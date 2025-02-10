@@ -5,7 +5,7 @@
 
     plugins = with pkgs.hyprlandPlugins; [
       hypr-dynamic-cursors
-      hyprspace
+      # hyprspace
     ];
 
     settings = {
@@ -80,9 +80,6 @@
         "$mod SHIFT, KP_Insert, movetoworkspace, 10"
         "$mod, KP_Enter, togglespecialworkspace"
         "$mod SHIFT, KP_Enter, movetoworkspace, special"
-
-        "$mod ALT, E, overview:toggle"
-        "$mod ALT, N, overview:close"
 
         ", F10, togglefloating"
         ", F11, fullscreen"
