@@ -28,24 +28,7 @@
         jdtls.enable = true;
         jsonls.enable = true;
         lua_ls.enable = true;
-        nil_ls = {
-          enable = true;
-          package = pkgs.nil.overrideDerivation (old: rec {
-            src = pkgs.fetchFromGitHub {
-              owner = "oxalica";
-              repo = "nil";
-              rev = "52304da8e9748feff559ec90cb1f4873eda5cee1";
-              hash = "sha256-MfSA8T+4q/FzQVg7gSy4AG7EdVgZ1qt11n7Q8o30uWA=";
-            };
-            cargoDeps = old.cargoDeps.overrideAttrs (
-              lib.const {
-                inherit src;
-                name = "${old.pname}-vendor.tar.gz";
-                outputHash = "sha256-RWgknkeGNfP2wH1X6nc+b10Qg1QX3UeewDdeWG0RIE8=";
-              }
-            );
-          });
-        };
+        nil_ls.enable = true;
         nushell.enable = true;
         svelte.enable = true;
         ts_ls = {
