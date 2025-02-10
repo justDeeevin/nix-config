@@ -228,55 +228,22 @@
     # extraConfig is placed before shellAliases
     extraConfig =
       let
-        gitCompletions = builtins.readFile (
-          pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/git/git-completions.nu";
-            hash = "sha256-ll/kDde3s+WF2/uRxnSvBJVEiXfjE+xG6aYF5TyDWyw=";
-          }
-        );
-        justCompletions = builtins.readFile (
-          pkgs.fetchurl {
-            url = "https://github.com/nushell/nu_scripts/raw/refs/heads/main/custom-completions/just/just-completions.nu";
-            hash = "sha256-IAdjn93e/IiZmGL1PFPuJ6vTkWREaDfH/gs9L6l46qg=";
-          }
-        );
-        nixCompletions = builtins.readFile (
-          pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/nix/nix-completions.nu";
-            hash = "sha256-sKyBJETVwlRBccEbQicoVg/7/hDV9hrT9jT8hlwVWAs=";
-          }
-        );
-        cargoCompletions = builtins.readFile (
-          pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/cargo/cargo-completions.nu";
-            hash = "sha256-aGgoPgq4Zaj+eKu67fxnpTMm6lOvaaZ6j6cYxvWJ41M=";
-          }
-        );
-        batCompletions = builtins.readFile (
-          pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/bat/bat-completions.nu";
-            hash = "sha256-awl7UD1B8lgYeOZ9Rj9KK4arlpuX5Sx+SanlOM70ZRE=";
-          }
-        );
-        ghCompletions = builtins.readFile (
-          pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/custom-completions/gh/gh-completions.nu";
-            hash = "sha256-c2E+XAARdyLtZGhh7Stk6PjUwc77nJdC3q5OTIJjA60=";
-          }
-        );
+        nu_scripts = pkgs.fetchFromGitHub {
+          owner = "nushell";
+          repo = "nu_scripts";
+          rev = "5869e0b529affb59b1cf0fcc51d978a3ba993f0d";
+          hash = "sha256-osLSKqfmiApgZdSNvNoenFZlFq3dwzwmoRv39WbMsp8=";
+        };
+        completions = "${nu_scripts}/custom-completions";
+        getCompletions = cmd: "${completions}/${cmd}/${cmd}-completions.nu";
       in
       ''
-        ${gitCompletions}
-
-        ${justCompletions}
-
-        ${nixCompletions}
-
-        ${cargoCompletions}
-
-        ${batCompletions}
-
-        ${ghCompletions}
+        use ${getCompletions "git"}
+        use ${getCompletions "just"}
+        use ${getCompletions "nix"}
+        use ${getCompletions "cargo"}
+        use ${getCompletions "bat"}
+        use ${getCompletions "gh"}
 
         $env.config.cursor_shape.emacs = "line"
         $env.config.show_banner = false
