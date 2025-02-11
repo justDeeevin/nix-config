@@ -57,6 +57,7 @@
     ghostty
     telegram-desktop
     hyprland-qtutils
+    cargo-generate
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
