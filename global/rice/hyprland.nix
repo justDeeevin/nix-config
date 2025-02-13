@@ -35,7 +35,6 @@
       bind = [
         "$mod, T, exec, ghostty"
         "$mod, Q, killactive"
-        "$mod, D, exit"
 
         "$mod, M, movefocus, l"
         "$mod, LEFT, movefocus, l"
