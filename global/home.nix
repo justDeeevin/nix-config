@@ -30,7 +30,7 @@
   # environment.
   home.packages = with pkgs; [
     bat
-    vesktop
+    (vesktop.override { electron = pkgs.electron_33; })
     gh
     youtube-music
     wl-clipboard
