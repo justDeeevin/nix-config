@@ -51,7 +51,7 @@
     obsidian
     chromium
     # quickemu
-    kdenlive
+    kdePackages.kdenlive
     nh
     hyprpolkitagent
     ghostty
