@@ -71,6 +71,10 @@
                   rule = "COMMA_COMPOUNT_SENTENCE";
                   sentence = "_and";
                 }
+                {
+                  rule = "ARROWS";
+                  sentence = "->";
+                }
               ]
               |> builtins.map builtins.toJSON;
             dictionary.en-US = import ../dictionary.nix;
