@@ -75,6 +75,10 @@
                   rule = "ARROWS";
                   sentence = "->";
                 }
+                {
+                  rule = "UPPERCASE_SENTENCE_START";
+                  sentence = "\[*\]";
+                }
               ]
               |> builtins.map builtins.toJSON;
             dictionary.en-US = import ../dictionary.nix;
