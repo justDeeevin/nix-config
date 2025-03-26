@@ -9,7 +9,7 @@
 
   programs.syspower.settings.monitor = 1;
 
-  programs.vscode = {
+  programs.vscode.profiles.default = {
     # enable = true;
     extensions =
       with pkgs.vscode-extensions;
