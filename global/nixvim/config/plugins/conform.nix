@@ -18,7 +18,6 @@
           scss = [ "prettierd" ];
           sh = [ "beautysh" ];
           svelte = [ "prettierd" ];
-          tex = [ "latexindent" ];
           toml = [ "taplo" ];
           typescript = [ "prettierd" ];
           typescriptreact = [ "prettierd" ];
@@ -50,7 +49,6 @@
       prettierd
       stylua
       taplo
-      texlivePackages.latexindent
       yamlfmt
     ];
   };
