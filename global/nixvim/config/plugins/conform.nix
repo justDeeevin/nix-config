@@ -22,6 +22,7 @@
           typescript = [ "prettierd" ];
           typescriptreact = [ "prettierd" ];
           yaml = [ "yamlfmt" ];
+          typst = [ "typstyle" ];
         };
         format_on_save.__raw = ''
           function(bufnr)
@@ -50,6 +51,7 @@
       stylua
       taplo
       yamlfmt
+      typstyle
     ];
   };
 }

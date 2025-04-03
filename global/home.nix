@@ -59,6 +59,7 @@
     hyprland-qtutils
     cargo-generate
     godot_4
+    typst
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
