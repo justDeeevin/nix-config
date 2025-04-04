@@ -1,1 +1,6 @@
-{ programs.nixvim.diagnostics.virtual_lines = true; }
+{
+  programs.nixvim.diagnostics = {
+    virtual_lines.current_line = true;
+    signs = false;
+  };
+}

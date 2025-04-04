@@ -8,21 +8,5 @@
     ]
     ++ builtins.map (file: ./. + "/plugins/${file}") (builtins.attrNames (builtins.readDir ./plugins));
 
-  programs.nixvim = {
-    colorschemes.oxocarbon.enable = true;
-    highlightOverride = {
-      Normal = {
-        bg = "none";
-      };
-      NormalNC = {
-        bg = "none";
-      };
-      LineNr = {
-        bg = "none";
-      };
-      SignColumn = {
-        bg = "none";
-      };
-    };
-  };
+  programs.nixvim.colorschemes.oxocarbon.enable = true;
 }
