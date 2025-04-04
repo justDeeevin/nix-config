@@ -13,7 +13,6 @@
     inputs.syspower.modules.homeManager.default
     ./nixvim
     ./rice
-    ./nvf
     inputs.ags.homeManagerModules.default
   ];
 
