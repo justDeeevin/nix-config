@@ -97,7 +97,6 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.mutableUsers = false;
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
@@ -108,7 +107,6 @@
       "libvirtd"
     ];
     shell = pkgs.nushell;
-    hashedPasswordFile = config.sops.secrets.hashed_password.path;
   };
 
   # Allow unfree packages
