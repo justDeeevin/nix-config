@@ -3,10 +3,14 @@
   inputs,
   stateVersion,
   home,
+  config,
   ...
 }:
 {
-  imports = [ ./nvidia.nix ];
+  imports = [
+    ./nvidia.nix
+    inputs.sops.nixosModules.sops
+  ];
 
   # Bootloader.
   boot.loader.grub = {
@@ -93,6 +97,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.mutableUsers = false;
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
@@ -103,6 +108,7 @@
       "libvirtd"
     ];
     shell = pkgs.nushell;
+    hashedPasswordFile = config.sops.secrets.hashed_password.path;
   };
 
   # Allow unfree packages
@@ -172,4 +178,14 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+
+  environment.sessionVariables.EDITOR = "nvim";
+
+  sops = {
+    age.keyFile = "/home/devin/.config/sops/age/keys.txt";
+    defaultSopsFile = ./secrets.yaml;
+    secrets.hashed_password = {
+      neededForUsers = true;
+    };
+  };
 }

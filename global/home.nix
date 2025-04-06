@@ -4,6 +4,7 @@
   stateVersion,
   home,
   lib,
+  config,
   ...
 }:
 {
@@ -14,6 +15,7 @@
     ./nixvim
     ./rice
     inputs.ags.homeManagerModules.default
+    inputs.sops.homeManagerModules.sops
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -59,6 +61,7 @@
     cargo-generate
     godot_4
     typst
+    sops
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -264,6 +267,8 @@
         sleep 33ms
         fastfetch
       }
+
+      $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
     '';
   };
 
@@ -346,4 +351,12 @@
     enableNushellIntegration = true;
     nix-direnv.enable = true;
   };
+
+  programs.thefuck = {
+    enable = true;
+    enableNushellIntegration = true;
+    enableInstantMode = true;
+  };
+
+  sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
 }

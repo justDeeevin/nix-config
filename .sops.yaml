@@ -1,0 +1,11 @@
+keys:
+  - &lg_gram age1zwsq6rx0ur4nd6lrfnrhqf6afxrnwffzcdwpkrtylgy8smm5mgssymd9hk
+creation_rules:
+  - path_regex: global/secrets.yaml$
+    key_groups:
+      - age:
+          - *lg_gram
+  - path_regex: hosts/lg-gram/secrets.yaml$
+    key_groups:
+      - age:
+          - *lg_gram
