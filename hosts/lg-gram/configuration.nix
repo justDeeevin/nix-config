@@ -33,6 +33,4 @@
   security.pam.services.swaylock = { };
 
   services.upower.enable = true;
-  users.mutableUsers = false;
-  users.users.devin.hashedPasswordFile = config.sops.secrets.hashed_password.path;
 }
