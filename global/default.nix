@@ -3,7 +3,6 @@
   inputs,
   stateVersion,
   home,
-  config,
   ...
 }:
 {
@@ -18,6 +17,11 @@
     device = "nodev";
     useOSProber = true;
     efiSupport = true;
+    extraEntries = ''
+      menuentry "UEFI Firmware Settings" {
+        fwsetup
+      }
+    '';
   };
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
