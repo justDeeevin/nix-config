@@ -44,4 +44,5 @@
       "workbench.colorTheme" = lib.mkForce "oxocarbon";
     };
   };
+  sops.secrets.OPENAI_API_KEY.sopsFile = ./secrets.yaml;
 }

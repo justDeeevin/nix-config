@@ -1,11 +1,17 @@
 keys:
   - &lg_gram age1zwsq6rx0ur4nd6lrfnrhqf6afxrnwffzcdwpkrtylgy8smm5mgssymd9hk
+  - &devin_pc age10jhs53hk0t2g8k4xsa7fsunpzeeuhqlfdcpzg9m6x2dgn8nam95sp8wr0v
 creation_rules:
   - path_regex: global/secrets.yaml$
     key_groups:
       - age:
           - *lg_gram
+          - *devin_pc
   - path_regex: hosts/lg-gram/secrets.yaml$
     key_groups:
       - age:
           - *lg_gram
+  - path_regex: hosts/desktop/secrets.yaml$
+    key_groups:
+      - age:
+        - *devin_pc
