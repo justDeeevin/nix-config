@@ -95,12 +95,12 @@
       nixosConfigurations = mkSystems {
         devin-pc = {
           config = ./hosts/desktop/configuration.nix;
-          stateVersion = "23.11";
+          stateVersion = "24.11";
           home = ./hosts/desktop/home.nix;
         };
         devin-gram = {
           config = ./hosts/lg-gram/configuration.nix;
-          stateVersion = "24.05";
+          stateVersion = "24.11";
           home = ./hosts/lg-gram/home.nix;
         };
       };
