@@ -23,16 +23,8 @@
     };
 
     cursor = {
-      package = pkgs.runCommand "moveUp" { } ''
-        mkdir -p $out/share/icons
-        ln -s ${
-          pkgs.fetchzip {
-            url = "https://github.com/justDeeevin/files/raw/refs/heads/main/posy-s-cursor.tar.xz";
-            hash = "sha256-eeL9+3dcTX99xtUivfYt23R/jh8VIVqtMkoUPmk/12E=";
-          }
-        } $out/share/icons/Posy
-      '';
-      name = "Posy";
+      package = pkgs.posy-cursors;
+      name = "Posy_Cursor";
       size = 32;
     };
 
