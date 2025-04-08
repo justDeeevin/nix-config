@@ -218,6 +218,7 @@
           startInteractiveRebase = "<disabled>";
         };
       };
+      git.overrideGpg = true;
     };
   };
 
