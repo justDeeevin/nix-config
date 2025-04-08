@@ -5,7 +5,6 @@
 
     plugins = with pkgs.hyprlandPlugins; [
       hypr-dynamic-cursors
-      # hyprspace
     ];
 
     settings = {

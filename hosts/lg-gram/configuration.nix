@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -30,7 +30,7 @@
       path = [ pkgs.alsa-tools ];
     };
 
-  security.pam.services.swaylock = { };
+  security.pam.services.hyprlock = { };
 
   services.upower.enable = true;
 }
