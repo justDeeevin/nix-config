@@ -134,6 +134,11 @@
     enable = true;
     userName = "Devin Droddy";
     userEmail = "devin.droddy@gmail.com";
+    signing = {
+      format = "ssh";
+      key = "/home/devin/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = true;
