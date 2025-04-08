@@ -16,5 +16,6 @@
     cord.enable = true;
     transparent.enable = true;
     hardtime.enable = true;
+    octo.enable = true;
   };
 }
