@@ -6,7 +6,6 @@
   ];
   programs.nixvim = {
     enable = true;
-    package = inputs.neovim-nightly.packages.x86_64-linux.default;
     defaultEditor = true;
     nixpkgs.config.allowBroken = true;
   };
