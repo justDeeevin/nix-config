@@ -62,6 +62,7 @@
     godot_4
     typst
     sops
+    sccache
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -107,6 +108,15 @@
         down = "n";
         up = "e";
         nextPage = "i";
+      };
+    };
+    ".cargo/config.toml".source = pkgs.writers.writeTOML "config.toml" {
+      build = {
+        rustflags = [
+          "-Z"
+          "threads=8"
+        ];
+        rustc-wrapper = lib.getExe pkgs.sccache;
       };
     };
   };
