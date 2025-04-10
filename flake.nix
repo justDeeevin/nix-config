@@ -54,6 +54,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    view = {
+      url = "github:justdeeevin/view";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -63,6 +63,7 @@
     typst
     sops
     sccache
+    inputs.view.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -276,6 +277,7 @@
       '';
     shellAliases = {
       cd = "z";
+      imgview = "^view";
     };
     extraEnv = ''
       if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
