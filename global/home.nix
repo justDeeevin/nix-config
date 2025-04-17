@@ -51,7 +51,7 @@
     inputs.zen-browser.packages.x86_64-linux.default
     obsidian
     chromium
-    # quickemu
+    quickemu
     kdePackages.kdenlive
     nh
     hyprpolkitagent
