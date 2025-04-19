@@ -59,7 +59,7 @@
     telegram-desktop
     hyprland-qtutils
     cargo-generate
-    godot_4
+    # godot
     typst
     sops
     sccache
