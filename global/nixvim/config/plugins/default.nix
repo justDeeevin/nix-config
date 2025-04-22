@@ -20,5 +20,6 @@
     transparent.enable = true;
     hardtime.enable = true;
     octo.enable = true;
+    tailwind-tools.enable = true;
   };
 }

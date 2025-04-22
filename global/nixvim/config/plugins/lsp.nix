@@ -92,6 +92,7 @@
           enable = true;
           package = pkgs.vue-language-server;
         };
+        tailwindcss.enable = true;
       };
     };
 
