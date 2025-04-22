@@ -1,7 +1,10 @@
 {
   programs.nixvim.plugins = {
     nvim-autopairs.enable = true;
-    colorizer.enable = true;
+    colorizer = {
+      enable = true;
+      settings.filetypes = [ "css" ];
+    };
     dressing.enable = true;
     gitsigns.enable = true;
     image.enable = true;
