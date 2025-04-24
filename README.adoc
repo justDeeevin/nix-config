@@ -12,4 +12,4 @@ The system is themed mostly via https://github.com/danth/stylix[Stylix], using h
 
 image::media/wallpaper-laptop.png[]
 image::media/terminal-laptop.png[]
-image::media/swaylock-laptop.png[]
+image::media/hyprlock-laptop.png[]
