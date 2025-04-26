@@ -183,11 +183,5 @@
 
   environment.sessionVariables.EDITOR = "nvim";
 
-  sops = {
-    age.keyFile = "/home/devin/.config/sops/age/keys.txt";
-    defaultSopsFile = ./secrets.yaml;
-    secrets.hashed_password = {
-      neededForUsers = true;
-    };
-  };
+  sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
 }
