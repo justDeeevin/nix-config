@@ -32,11 +32,6 @@
       };
     };
 
-    syspower = {
-      url = "github:justdeeevin/syspower-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     astal = {
       url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -12,8 +12,6 @@
       ++ (builtins.map (i: "${builtins.toString i}, monitor:DP-1") (lib.range 4 10));
   };
 
-  programs.syspower.settings.monitor = 1;
-
   programs.vscode.profiles.default = {
     # enable = true;
     extensions =

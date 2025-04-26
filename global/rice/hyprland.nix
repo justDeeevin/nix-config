@@ -91,7 +91,6 @@
         ", XF86Mail, exec, ghostty"
 
         "$mod, SPACE, exec, fuzzel"
-        "$mod, P, exec, syspower"
         ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
         "CTRL SHIFT, SPACE, exec, 1password --quick-access"
         "CTRL SHIFT, BACKSLASH, exec, 1password"

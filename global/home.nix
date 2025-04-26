@@ -11,7 +11,6 @@
   imports = [
     home
     inputs.nix-index-database.hmModules.nix-index
-    inputs.syspower.modules.homeManager.default
     ./nixvim
     ./rice
     inputs.ags.homeManagerModules.default
@@ -308,11 +307,6 @@
       selection-text = "33b1ffff";
       border = "525252ff";
     };
-  };
-
-  programs.syspower = {
-    enable = true;
-    package = inputs.syspower.packages.x86_64-linux.default;
   };
 
   programs.ghostty = {
