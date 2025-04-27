@@ -364,11 +364,5 @@
     nix-direnv.enable = true;
   };
 
-  programs.thefuck = {
-    enable = true;
-    enableNushellIntegration = true;
-    enableInstantMode = true;
-  };
-
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
 }
