@@ -22,7 +22,10 @@
         bashls.enable = true;
         denols = {
           enable = true;
-          rootDir = "require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')";
+          rootMarkers = [
+            "deno.json"
+            "deno.jsonc"
+          ];
         };
         html.enable = true;
         jdtls.enable = true;
@@ -40,7 +43,7 @@
             "javascriptreact"
             "vue"
           ];
-          rootDir = "require('lspconfig').util.root_pattern('package.json')";
+          rootMarkers = [ "package.json" ];
           extraOptions = {
             init_options = {
               plugins = [
