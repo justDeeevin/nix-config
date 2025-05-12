@@ -10,10 +10,7 @@ import Audio from "./Audio";
 // import Wifi from "./Wifi";
 import Battery from "./Battery";
 
-export default function Bar(
-  gdkmonitor: Gdk.Monitor,
-  player_i: Variable<number>,
-) {
+export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
   return (
@@ -34,7 +31,7 @@ export default function Bar(
           <Clock />
         </box>
         <box hexpand halign={Gtk.Align.END}>
-          <Media index={player_i} />
+          <Media />
           <Audio />
           {/* <Wifi /> */}
           <Battery />

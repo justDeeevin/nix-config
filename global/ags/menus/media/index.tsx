@@ -4,85 +4,9 @@ import Mpris from "gi://AstalMpris";
 
 const { START, CENTER, END, FILL } = Gtk.Align;
 
-export default (index: Variable<number>) => {
+export default () => {
   const mpris = Mpris.get_default();
-  const player = Variable.derive(
-    [bind(mpris, "players"), index()],
-    (ps, i) => ps[i],
-  );
-
-  const inner = player().as((p) => (
-    <box
-      vertical
-      css={bind(p, "coverArt").as((c) => `background-image: url('${c}')`)}
-    >
-      <box halign={FILL}>
-        <button
-          hexpand
-          halign={START}
-          onClicked={() => {
-            if (mpris.players[index.get() - 1]) index.set(index.get() - 1);
-          }}
-          cursor="pointer"
-          css="margin: 0 8px"
-        >
-          {"<"}
-        </button>
-        <label
-          css="margin-bottom: 8px"
-          label={bind(p, "identity").as((id) => {
-            if (p.bus_name === "org.mpris.MediaPlayer2.playerctld") {
-              return `Active Player (${id})`;
-            } else return id;
-          })}
-        />
-        <button
-          hexpand
-          halign={END}
-          onClicked={() => {
-            if (mpris.players[index.get() + 1]) index.set(index.get() + 1);
-          }}
-          cursor="pointer"
-          css="margin: 0 8px"
-        >
-          {">"}
-        </button>
-      </box>
-      <label css="font-weight: bold" halign={CENTER} label={bind(p, "title")} />
-      <label
-        halign={CENTER}
-        label={Variable.derive(
-          [bind(p, "album"), bind(p, "artist")],
-          (album, artist) => `${artist}${album ? ` - ${album}` : ""}`,
-        )()}
-      />
-      <box halign={CENTER} css="margin: 8px 0">
-        <button cursor="pointer" onClicked={() => p.previous()}>
-          󰒮
-        </button>
-        <button
-          cursor="pointer"
-          onClicked={() => p.play_pause()}
-          css="margin: 0 8px"
-        >
-          {bind(p, "playback_status").as((status) => {
-            const { PLAYING, PAUSED, STOPPED } = Mpris.PlaybackStatus;
-            switch (status) {
-              case PLAYING:
-                return "󰐊";
-              case PAUSED:
-                return "󰏤";
-              case STOPPED:
-                return "󰓛";
-            }
-          })}
-        </button>
-        <button cursor="pointer" onClicked={() => p.next()}>
-          󰒭
-        </button>
-      </box>
-    </box>
-  ));
+  const p = mpris.players[0];
 
   return (
     <window
@@ -93,7 +17,49 @@ export default (index: Variable<number>) => {
       layer={Astal.Layer.TOP}
       anchor={Astal.WindowAnchor.NONE}
     >
-      {inner}
+      <box
+        vertical
+        css={bind(p, "coverArt").as((c) => `background-image: url('${c}')`)}
+      >
+        <label css="margin-bottom: 8px" label={bind(p, "identity")} />
+        <label
+          css="font-weight: bold"
+          halign={CENTER}
+          label={bind(p, "title")}
+        />
+        <label
+          halign={CENTER}
+          label={Variable.derive(
+            [bind(p, "album"), bind(p, "artist")],
+            (album, artist) => `${artist}${album ? ` - ${album}` : ""}`,
+          )()}
+        />
+        <box halign={CENTER} css="margin: 8px 0">
+          <button cursor="pointer" onClicked={() => p.previous()}>
+            󰒮
+          </button>
+          <button
+            cursor="pointer"
+            onClicked={() => p.play_pause()}
+            css="margin: 0 8px"
+          >
+            {bind(p, "playback_status").as((status) => {
+              const { PLAYING, PAUSED, STOPPED } = Mpris.PlaybackStatus;
+              switch (status) {
+                case PLAYING:
+                  return "󰐊";
+                case PAUSED:
+                  return "󰏤";
+                case STOPPED:
+                  return "󰓛";
+              }
+            })}
+          </button>
+          <button cursor="pointer" onClicked={() => p.next()}>
+            󰒭
+          </button>
+        </box>
+      </box>
     </window>
   );
 };
