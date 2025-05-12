@@ -54,7 +54,6 @@
     kdePackages.kdenlive
     nh
     hyprpolkitagent
-    ghostty
     telegram-desktop
     hyprland-qtutils
     cargo-generate
