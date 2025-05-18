@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -27,12 +26,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/d1de825d-05b0-44ef-bd15-5e950b9eb6ab";
+    device = "/dev/disk/by-uuid/b21ac163-16f0-4373-81c4-5890755feaff";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2DBC-330C";
+    device = "/dev/disk/by-uuid/962C-10C7";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -43,21 +42,6 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/87f8dceb-01a5-480a-903e-1706b00a1d7e";
     fsType = "ext4";
-  };
-
-  fileSystems."/mnt/crucial" = {
-    device = "/dev/disk/by-uuid/F05892C15892864E";
-    fsType = "ntfs";
-  };
-
-  fileSystems."/mnt/wd-black" = {
-    device = "/dev/disk/by-uuid/CC12485A12484C20";
-    fsType = "ntfs";
-  };
-
-  fileSystems."/mnt/win-c" = {
-    device = "/dev/disk/by-uuid/5068ED0668ECEC22";
-    fsType = "ntfs";
   };
 
   swapDevices = [ ];
