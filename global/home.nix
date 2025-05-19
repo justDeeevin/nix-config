@@ -60,7 +60,6 @@
     # godot
     typst
     sops
-    sccache
     inputs.view.packages.x86_64-linux.default
     r2modman
 
