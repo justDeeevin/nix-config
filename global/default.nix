@@ -184,4 +184,6 @@
   environment.sessionVariables.EDITOR = "nvim";
 
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
+
+  programs.steam.enable = true;
 }

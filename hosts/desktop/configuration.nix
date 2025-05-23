@@ -7,7 +7,6 @@
   programs.alvr.enable = true;
   programs.alvr.openFirewall = true;
 
-  programs.steam.enable = true;
   programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
