@@ -62,6 +62,7 @@
     sops
     inputs.view.packages.x86_64-linux.default
     r2modman
+    (lib.hiPrio uutils-coreutils-noprefix)
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
