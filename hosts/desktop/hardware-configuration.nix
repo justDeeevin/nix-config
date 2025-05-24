@@ -39,6 +39,16 @@
     ];
   };
 
+  fileSystems."/mnt/crucial" = {
+    device = "/dev/disk/by-uuid/F05892C15892864E";
+    fsType = "ntfs";
+  };
+
+  fileSystems."/mnt/wd-black" = {
+    device = "/dev/disk/by-uuid/CC12485A12484C20";
+    fsType = "ntfs";
+  };
+
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/87f8dceb-01a5-480a-903e-1706b00a1d7e";
     fsType = "ext4";
