@@ -60,7 +60,7 @@
     # godot
     typst
     sops
-    inputs.view-img.packages.x86_64-linux.default
+    timg
     r2modman
     (lib.hiPrio uutils-coreutils-noprefix)
 
