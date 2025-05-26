@@ -50,8 +50,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    view = {
-      url = "github:justdeeevin/view";
+    view-img = {
+      url = "github:justdeeevin/view-img";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -60,7 +60,7 @@
     # godot
     typst
     sops
-    inputs.view.packages.x86_64-linux.default
+    inputs.view-img.packages.x86_64-linux.default
     r2modman
     (lib.hiPrio uutils-coreutils-noprefix)
 
@@ -276,7 +276,6 @@
       '';
     shellAliases = {
       cd = "z";
-      imgview = "^view";
     };
     extraEnv = ''
       if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
