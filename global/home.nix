@@ -41,7 +41,7 @@
     jdk
     gradle
     prismlauncher
-    wine-wayland
+    wineWowPackages.waylandFull
     unzip
     tree-sitter
     magic-wormhole
