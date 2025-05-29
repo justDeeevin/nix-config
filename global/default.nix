@@ -181,7 +181,10 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
-  environment.sessionVariables.EDITOR = "nvim";
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    PROTON_ENABLE_WAYLAND = 1;
+  };
 
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
 
