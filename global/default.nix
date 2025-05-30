@@ -114,7 +114,10 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
+  };
 
   home-manager = {
     extraSpecialArgs = {
@@ -184,6 +187,7 @@
   environment.sessionVariables = {
     EDITOR = "nvim";
     PROTON_ENABLE_WAYLAND = 1;
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
   };
 
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
