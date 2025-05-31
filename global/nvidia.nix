@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   hardware.graphics = {
     enable = true;
@@ -11,5 +11,7 @@
     powerManagement.enable = true;
 
     open = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }
