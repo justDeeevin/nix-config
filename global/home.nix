@@ -382,4 +382,6 @@
   };
 
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
+
+  services.ollama.enable = true;
 }
