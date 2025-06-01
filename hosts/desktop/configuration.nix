@@ -13,4 +13,6 @@
   services.hardware.openrgb.enable = true;
 
   services.udev.packages = [ pkgs.qmk-udev-rules ];
+
+  services.open-webui.enable = true;
 }
