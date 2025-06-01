@@ -48,4 +48,6 @@
     };
   };
   sops.secrets.OPENAI_API_KEY.sopsFile = ./secrets.yaml;
+
+  programs.obs-studio.package = pkgs.obs-studio.override { cudaSupport = true; };
 }
