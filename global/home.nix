@@ -114,13 +114,7 @@
       };
     };
     ".cargo/config.toml".source = pkgs.writers.writeTOML "config.toml" {
-      build = {
-        rustflags = [
-          "-Z"
-          "threads=8"
-        ];
-        rustc-wrapper = lib.getExe pkgs.sccache;
-      };
+      build.rustc-wrapper = lib.getExe pkgs.sccache;
     };
   };
 
