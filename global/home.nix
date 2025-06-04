@@ -65,6 +65,7 @@
     (lib.hiPrio uutils-coreutils-noprefix)
     tldr
     gimp
+    bluetui
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
