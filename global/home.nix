@@ -7,6 +7,18 @@
   config,
   ...
 }:
+let
+  nixvim = (
+    inputs.self.packages.x86_64-linux.nixvim.extend {
+      plugins.obsidian.settings.workspaces = [
+        {
+          name = "Third Brain";
+          path = "~/Documents/Third Brain";
+        }
+      ];
+    }
+  );
+in
 {
   imports = [
     home
@@ -14,7 +26,6 @@
     ./rice
     inputs.ags.homeManagerModules.default
     inputs.sops.homeManagerModules.sops
-    # inputs.nixvim.homeManagerModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -66,7 +77,7 @@
     tldr
     gimp
     bluetui
-    inputs.self.packages.x86_64-linux.nixvim
+    nixvim
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -118,6 +129,8 @@
       build.rustc-wrapper = lib.getExe pkgs.sccache;
     };
   };
+
+  home.sessionVariables.EDITOR = nixvim;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
