@@ -34,6 +34,9 @@
       ghostty.enable = false;
       mako.enable = false;
     };
-    opacity.desktop = 0.0;
+    opacity = {
+      desktop = 0.0;
+      terminal = 0.5;
+    };
   };
 }
