@@ -118,6 +118,7 @@ in
     gimp
     bluetui
     nixvim
+    rip2
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -343,6 +344,7 @@ in
       '';
     shellAliases = {
       cd = "z";
+      rm = "rip";
     };
     extraEnv = ''
       if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
