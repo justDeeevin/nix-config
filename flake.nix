@@ -82,6 +82,10 @@
         }) hosts;
     in
     {
+      packages.x86_64-linux.nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        module = import ./nixvim;
+      };
       nixosConfigurations = mkSystems {
         devin-pc = {
           config = ./hosts/desktop/configuration.nix;

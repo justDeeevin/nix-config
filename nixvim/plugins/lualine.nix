@@ -38,7 +38,7 @@ let
   };
 in
 {
-  programs.nixvim.plugins.lualine = {
+  plugins.lualine = {
     enable = true;
     # pulled from evil_lualine example
     settings = {

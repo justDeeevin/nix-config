@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins.rustaceanvim = {
+  plugins.rustaceanvim = {
     enable = true;
     settings.server.default_settings.rust-analyzer = {
       inlayHints = {

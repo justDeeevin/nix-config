@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins = {
+  plugins = {
     nvim-autopairs.enable = true;
     colorizer = {
       enable = true;

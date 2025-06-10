@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins.codesnap = {
+  plugins.codesnap = {
     enable = true;
     settings = {
       watermark = "";

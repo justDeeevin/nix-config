@@ -1,5 +1,4 @@
 {
-  # Import all your configuration modules here
   imports =
     [
       ./remaps.nix
@@ -8,5 +7,5 @@
     ]
     ++ builtins.map (file: ./. + "/plugins/${file}") (builtins.attrNames (builtins.readDir ./plugins));
 
-  programs.nixvim.colorschemes.oxocarbon.enable = true;
+  colorschemes.oxocarbon.enable = true;
 }

@@ -11,10 +11,10 @@
   imports = [
     home
     inputs.nix-index-database.hmModules.nix-index
-    ./nixvim
     ./rice
     inputs.ags.homeManagerModules.default
     inputs.sops.homeManagerModules.sops
+    # inputs.nixvim.homeManagerModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -66,6 +66,7 @@
     tldr
     gimp
     bluetui
+    inputs.self.packages.x86_64-linux.nixvim
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
