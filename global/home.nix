@@ -80,7 +80,6 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    bat
     vesktop
     gh
     youtube-music
@@ -442,5 +441,18 @@ in
       color_theme = "oxocarbon";
       theme_background = false;
     };
+  };
+  programs.bat = {
+    enable = true;
+    themes.oxocarbon = {
+      src = pkgs.fetchFromGitLab {
+        owner = "boydkelly";
+        repo = "carbonizer";
+        rev = "09876beded0ff8b2769c86fc9940864e1c3224a5";
+        hash = "sha256-4W6DeF1kAaAmfl5xFg5xBepgXndXKUaImpd3M6I53xk=";
+      };
+      file = "bat/oxocarbon-dark.tmTheme";
+    };
+    config.theme = "oxocarbon";
   };
 }

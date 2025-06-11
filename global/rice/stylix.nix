@@ -34,6 +34,7 @@
       ghostty.enable = false;
       mako.enable = false;
       btop.enable = false;
+      bat.enable = false;
     };
     opacity = {
       desktop = 0.0;
