@@ -96,7 +96,6 @@ in
     unzip
     tree-sitter
     magic-wormhole
-    btop
     libreoffice
     inputs.zen-browser.packages.x86_64-linux.default
     obsidian
@@ -433,4 +432,15 @@ in
   };
 
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
+  programs.btop = {
+    enable = true;
+    themes.oxocarbon = pkgs.fetchurl {
+      url = "https://gist.githubusercontent.com/gideonmt/cf8561cb130e3ca859f8a5471014e933/raw/c9e0f235c4148551f3dcf924d0a0abf6d76a1934/oxocarbon_dark.theme";
+      hash = "sha256-D290uqP4GmM94nXYeoj2mRaXIPoQDoihe4CMeBBHRn0=";
+    };
+    settings = {
+      color_theme = "oxocarbon";
+      theme_background = false;
+    };
+  };
 }
