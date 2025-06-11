@@ -352,6 +352,7 @@ in
       }
 
       $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
+      $env.EDITOR = "${lib.getExe nixvim}"
     '';
   };
 
