@@ -169,8 +169,6 @@ in
     };
   };
 
-  home.sessionVariables.EDITOR = nixvim;
-
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
   # Manager then you have to manually source 'hm-session-vars.sh' located at
@@ -342,7 +340,7 @@ in
       '';
     shellAliases = {
       cd = "z";
-      rm = "rip";
+      rm = "rip --graveyard ${config.home.homeDirectory}/.graveyard";
     };
     extraEnv = ''
       if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
