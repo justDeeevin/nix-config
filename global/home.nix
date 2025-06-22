@@ -249,6 +249,7 @@ in
             "cargo"
             "clippy"
             "--all-targets"
+            "--all-features"
             "--color"
             "always"
           ];
