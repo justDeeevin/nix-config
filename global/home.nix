@@ -191,7 +191,7 @@ in
   programs.git = {
     enable = true;
     userName = "Devin Droddy";
-    userEmail = "devin.droddy@gmail.com";
+    userEmail = "devin@justdeeevin.dev";
     signing = {
       format = "ssh";
       key = "/home/devin/.ssh/id_ed25519.pub";
