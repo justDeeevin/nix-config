@@ -440,6 +440,7 @@ in
     settings = {
       color_theme = "oxocarbon";
       theme_background = false;
+      update_ms = 100;
     };
   };
   programs.bat = {
