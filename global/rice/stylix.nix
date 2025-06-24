@@ -32,7 +32,6 @@
       nixvim.enable = false;
       hyprpaper.enable = lib.mkForce false;
       ghostty.enable = false;
-      mako.enable = false;
       btop.enable = false;
       bat.enable = false;
     };
