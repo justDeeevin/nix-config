@@ -432,6 +432,7 @@ in
   };
 
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
+
   programs.btop = {
     enable = true;
     themes.oxocarbon = pkgs.fetchurl {
@@ -444,6 +445,7 @@ in
       update_ms = 100;
     };
   };
+
   programs.bat = {
     enable = true;
     themes.oxocarbon = {
