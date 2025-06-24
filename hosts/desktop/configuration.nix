@@ -14,5 +14,5 @@
 
   services.udev.packages = [ pkgs.qmk-udev-rules ];
 
-  services.open-webui.enable = true;
+  # services.open-webui.enable = true;
 }

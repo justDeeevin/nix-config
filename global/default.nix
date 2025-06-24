@@ -117,6 +117,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
+    cudaSupport = true;
   };
 
   home-manager = {
@@ -143,10 +144,18 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    substituters = [
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   hardware.bluetooth.enable = true;
 
@@ -189,7 +198,13 @@
     DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
   };
 
+  environment.systemPackages = with pkgs; [
+    quickshell
+  ];
+
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
 
   programs.steam.enable = true;
+
+  qt.enable = true;
 }
