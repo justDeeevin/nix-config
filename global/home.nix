@@ -319,8 +319,8 @@ in
         nu_scripts = pkgs.fetchFromGitHub {
           owner = "nushell";
           repo = "nu_scripts";
-          rev = "5869e0b529affb59b1cf0fcc51d978a3ba993f0d";
-          hash = "sha256-osLSKqfmiApgZdSNvNoenFZlFq3dwzwmoRv39WbMsp8=";
+          rev = "156a0110c724ce3a98327190e8a667657e4ed3c1";
+          hash = "sha256-O/zqhTFzqhFwCD54iXDfe/9WlqMg2PkiO6TLwUyIxmM=";
         };
         completions = "${nu_scripts}/custom-completions";
         getCompletions = cmd: "${completions}/${cmd}/${cmd}-completions.nu";
@@ -332,6 +332,9 @@ in
         use ${getCompletions "cargo"}
         use ${getCompletions "bat"}
         use ${getCompletions "gh"}
+        use ${getCompletions "ssh"}
+        use ${getCompletions "typst"}
+        use ${getCompletions "zoxide"}
 
         $env.config.cursor_shape.emacs = "line"
         $env.config.show_banner = false
