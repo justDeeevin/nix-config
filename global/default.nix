@@ -198,10 +198,6 @@
     DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
   };
 
-  environment.systemPackages = with pkgs; [
-    quickshell
-  ];
-
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
 
   programs.steam.enable = true;
