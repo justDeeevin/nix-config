@@ -346,6 +346,8 @@ in
     shellAliases = {
       cd = "z";
       rm = "rip --graveyard ${config.home.homeDirectory}/.graveyard";
+      suspend = "systemctl suspend";
+      shutdown = "shutdown now";
     };
     extraEnv = ''
       if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
