@@ -342,11 +342,15 @@ in
         def dev [path?: string] {
           nix develop ($path | default '.') --command nu
         }
+
+        def suspend [] {
+          systemctl suspend
+          exit
+        }
       '';
     shellAliases = {
       cd = "z";
       rm = "rip --graveyard ${config.home.homeDirectory}/.graveyard";
-      suspend = "systemctl suspend";
       shutdown = "shutdown now";
     };
     extraEnv = ''
