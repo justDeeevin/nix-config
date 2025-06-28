@@ -463,6 +463,7 @@ in
       ];
       center = [ "Clock" ];
       right = [
+        "MediaPlayer"
         [
           "Privacy"
           "Settings"
