@@ -473,6 +473,7 @@ in
     appearance = {
       font_name = "Monaspace Neon";
     };
+    clock.format = "%a %e %b %I:%M %p";
   };
 
   services.swaync = {
