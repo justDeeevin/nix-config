@@ -32,19 +32,6 @@
       };
     };
 
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ags = {
-      url = "github:aylur/ags";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        astal.follows = "astal";
-      };
-    };
-
     sops = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

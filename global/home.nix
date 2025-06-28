@@ -64,7 +64,6 @@ in
     home
     inputs.nix-index-database.hmModules.nix-index
     ./rice
-    inputs.ags.homeManagerModules.default
     inputs.sops.homeManagerModules.sops
   ];
 
@@ -415,25 +414,6 @@ in
     };
   };
 
-  programs.ags = {
-    enable = true;
-
-    configDir = ./ags;
-
-    systemd.enable = true;
-
-    extraPackages = with inputs.ags.packages.x86_64-linux; [
-      notifd
-      hyprland
-      tray
-      mpris
-      apps
-      wireplumber
-      network
-      battery
-    ];
-  };
-
   programs.direnv = {
     enable = true;
     enableNushellIntegration = true;
@@ -467,5 +447,38 @@ in
       file = "bat/oxocarbon-dark.tmTheme";
     };
     config.theme = "oxocarbon";
+  };
+
+  programs.ashell = {
+    enable = true;
+    systemd.enable = true;
+  };
+
+  xdg.configFile."ashell/config.toml".source = (pkgs.formats.toml { }).generate "ashell-config" {
+    modules = {
+      left = [
+        "Tray"
+        "Workspaces"
+        "WindowTitle"
+      ];
+      center = [ "Clock" ];
+      right = [
+        [
+          "Privacy"
+          "Settings"
+        ]
+      ];
+    };
+    workspaces.visibility_mode = "MonitorSpecific";
+    appearance = {
+      font_name = "Monaspace Neon";
+    };
+  };
+
+  services.swaync = {
+    enable = true;
+    settings = {
+      notification-inline-replies = true;
+    };
   };
 }
