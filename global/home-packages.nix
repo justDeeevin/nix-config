@@ -45,4 +45,5 @@ with pkgs;
   rip2
   equibop
   nautilus
+  osu-lazer-bin
 ]
