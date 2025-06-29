@@ -121,6 +121,7 @@
   };
 
   home-manager = {
+    useGlobalPkgs = true;
     extraSpecialArgs = {
       inherit inputs;
       inherit stateVersion;

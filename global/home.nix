@@ -67,8 +67,6 @@ in
     inputs.sops.homeManagerModules.sops
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home.username = "devin";
   home.homeDirectory = "/home/devin";
 
