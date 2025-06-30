@@ -25,9 +25,6 @@
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
 
-        # firefox x vaapi
-        "MOZ_DISABLE_RDD_SANDBOX,1"
-
         "XCURSOR_SIZE,32"
         "ELECTRON_OZONE_PLATFORM_HINT,wayland"
       ];

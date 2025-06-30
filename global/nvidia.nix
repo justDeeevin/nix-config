@@ -1,9 +1,6 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 {
-  hardware.graphics = {
-    enable = true;
-    extraPackages = [ pkgs.nvidia-vaapi-driver ];
-  };
+  hardware.graphics.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
