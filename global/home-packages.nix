@@ -26,7 +26,6 @@ with pkgs;
   obsidian
   chromium
   quickemu
-  kdePackages.kdenlive
   nh
   hyprpolkitagent
   telegram-desktop
