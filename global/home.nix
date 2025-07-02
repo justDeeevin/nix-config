@@ -400,28 +400,31 @@ in
     systemd.enable = true;
   };
 
-  xdg.configFile."ashell/config.toml".source = (pkgs.formats.toml { }).generate "ashell-config" {
-    modules = {
-      left = [
-        "Tray"
-        "Workspaces"
-        "WindowTitle"
-      ];
-      center = [ "Clock" ];
-      right = [
-        "MediaPlayer"
-        [
-          "Privacy"
-          "Settings"
-        ]
-      ];
-    };
-    workspaces.visibility_mode = "MonitorSpecific";
-    appearance = {
-      font_name = "Monaspace Neon";
-    };
-    clock.format = "%a %e %b %I:%M %p";
-  };
+  xdg.configFile."ashell/config.toml".source = (pkgs.formats.toml { }).generate "ashell-config" (
+    {
+      modules = {
+        left = [
+          "Tray"
+          "Workspaces"
+          "WindowTitle"
+        ];
+        center = [ "Clock" ];
+        right = [
+          "MediaPlayer"
+          [
+            "Privacy"
+            "Settings"
+          ]
+        ];
+      };
+      workspaces.visibility_mode = "MonitorSpecific";
+      appearance = {
+        font_name = "Monaspace Neon";
+      };
+      clock.format = "%a %e %b %I:%M %p";
+    }
+    // config.programs.ashell.settings
+  );
 
   services.swaync = {
     enable = true;
