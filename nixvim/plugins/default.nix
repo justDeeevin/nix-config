@@ -14,7 +14,6 @@
     fidget.enable = true;
     crates.enable = true;
     web-devicons.enable = true;
-    lsp-lines.enable = true;
     smear-cursor.enable = true;
     cord.enable = true;
     transparent.enable = true;
