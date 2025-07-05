@@ -56,38 +56,6 @@
           single_file_support = false;
         };
       };
-      ltex = {
-        enable = true;
-        filetypes = [
-          "markdown"
-          "asciidoc"
-        ];
-        settings = {
-          hiddenFalsePositives.en-US = builtins.map builtins.toJSON [
-            {
-              rule = "MORFOLOGIK_RULE_EN_US";
-              sentence = ''\w*footnote'';
-            }
-            {
-              rule = "COMMA_COMPOUNT_SENTENCE";
-              sentence = "_and";
-            }
-            {
-              rule = "ARROWS";
-              sentence = "->";
-            }
-            {
-              rule = "UPPERCASE_SENTENCE_START";
-              sentence = "\[*\]";
-            }
-          ];
-          dictionary.en-US = import ../dictionary.nix;
-          disabledRules.en-US = [
-            "AI"
-            "EN_UNPAIRED_BRACKETS"
-          ];
-        };
-      };
       volar = {
         enable = true;
         package = pkgs.vue-language-server;
