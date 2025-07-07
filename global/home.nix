@@ -398,10 +398,8 @@ in
   programs.ashell = {
     enable = true;
     systemd.enable = true;
-  };
 
-  xdg.configFile."ashell/config.toml".source = (pkgs.formats.toml { }).generate "ashell-config" (
-    {
+    settings = {
       modules = {
         left = [
           "Tray"
@@ -422,9 +420,8 @@ in
         font_name = "Monaspace Neon";
       };
       clock.format = "%a %e %b %I:%M %p";
-    }
-    // config.programs.ashell.settings
-  );
+    };
+  };
 
   services.swaync = {
     enable = true;
