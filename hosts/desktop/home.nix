@@ -48,6 +48,4 @@
     };
   };
   sops.secrets.OPENAI_API_KEY.sopsFile = ./secrets.yaml;
-
-  services.ollama.enable = true;
 }
