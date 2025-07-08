@@ -142,6 +142,7 @@
       };
 
       misc.focus_on_activate = true;
+      debug.full_cm_proto = true;
     };
   };
 }
