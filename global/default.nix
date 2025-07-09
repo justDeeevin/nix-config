@@ -197,6 +197,7 @@
     EDITOR = "nvim";
     PROTON_ENABLE_WAYLAND = 1;
     DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
+    XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
   };
 
   sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
