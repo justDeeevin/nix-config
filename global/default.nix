@@ -205,4 +205,6 @@
   programs.steam.enable = true;
 
   qt.enable = true;
+
+  services.libinput.mouse.accelProfile = "flat";
 }
