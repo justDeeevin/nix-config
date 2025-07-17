@@ -62,7 +62,7 @@ in
 {
   imports = [
     home
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
     ./rice
     inputs.sops.homeManagerModules.sops
   ];
@@ -362,7 +362,7 @@ in
 
   programs.direnv = {
     enable = true;
-    enableNushellIntegration = true;
+    enableNushellIntegration = false;
     nix-direnv.enable = true;
   };
 

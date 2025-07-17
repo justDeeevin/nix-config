@@ -16,7 +16,7 @@ with pkgs;
   kdePackages.kalk
   jdk
   gradle
-  prismlauncher
+  # prismlauncher
   wineWowPackages.waylandFull
   unzip
   tree-sitter
@@ -38,7 +38,7 @@ with pkgs;
   r2modman
   (lib.hiPrio uutils-coreutils-noprefix)
   tldr
-  gimp
+  # gimp
   bluetui
   nixvim
   rip2
