@@ -175,7 +175,6 @@ in
       };
       cmd_duration.min_time = 0;
     };
-    enableNushellIntegration = true;
   };
 
   programs.bacon = {
@@ -310,10 +309,7 @@ in
     '';
   };
 
-  programs.zoxide = {
-    enable = true;
-    enableNushellIntegration = true;
-  };
+  programs.zoxide.enable = true;
 
   programs.nix-index-database.comma.enable = true;
 
@@ -362,7 +358,6 @@ in
 
   programs.direnv = {
     enable = true;
-    enableNushellIntegration = false;
     nix-direnv.enable = true;
   };
 
