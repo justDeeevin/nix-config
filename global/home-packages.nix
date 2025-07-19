@@ -45,4 +45,5 @@ with pkgs;
   equibop
   nautilus
   osu-lazer-bin
+  slack
 ]
