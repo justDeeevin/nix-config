@@ -25,9 +25,4 @@
     ];
     ensureDefaultPrinter = "Canon";
   };
-
-  hardware.openrazer = {
-    enable = true;
-    users = [ "devin" ];
-  };
 }
