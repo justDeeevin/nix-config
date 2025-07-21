@@ -6,6 +6,7 @@
       formatters_by_ft = {
         css = [ "prettierd" ];
         html = [ "prettierd" ];
+        java = [ "google-java-format" ];
         javascript = [ "prettierd" ];
         javascriptreact = [ "prettierd" ];
         json = [ "prettierd" ];
@@ -51,5 +52,6 @@
     taplo
     yamlfmt
     typstyle
+    google-java-format
   ];
 }
