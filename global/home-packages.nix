@@ -10,7 +10,6 @@ with pkgs;
   gh
   youtube-music
   wl-clipboard
-  just
   vlc
   ffmpeg-full
   kdePackages.kalk

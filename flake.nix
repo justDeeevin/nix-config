@@ -67,10 +67,11 @@
           inherit name;
           value = mkSystem (value // { hostName = name; });
         }) hosts;
+      pkgs = import nixpkgs { system = "x86_64-linux"; };
     in
     {
       packages.x86_64-linux.nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        inherit pkgs;
         module = import ./nixvim;
       };
       nixosConfigurations = mkSystems {
@@ -84,6 +85,11 @@
           stateVersion = "24.11";
           home = ./hosts/lg-gram/home.nix;
         };
+      };
+      devShell.x86_64-linux = pkgs.mkShell {
+        packages = with pkgs; [
+          just
+        ];
       };
     };
 }

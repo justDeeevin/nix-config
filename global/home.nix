@@ -165,10 +165,27 @@ in
     delta.enable = true;
   };
 
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Devin Droddy";
+        email = "devin@justdeeevin.dev";
+      };
+      signing = {
+        behavior = "own";
+        backend = "ssh";
+        key = "/home/devin/.ssh/id_ed25519.pub";
+      };
+      revsets.log = "all()";
+      ui.default-command = "log";
+    };
+  };
+
   programs.starship = {
     enable = true;
     settings = {
-      format = "[┌<$all](bold green)";
+      format = "[┌<$all$line_break](bold green)$character";
       character = {
         success_symbol = "[└>](bold green)";
         error_symbol = "[└>](bold red)";
@@ -290,6 +307,11 @@ in
         def suspend [] {
           systemctl suspend
           exit
+        }
+
+        def "jj push" [] {
+          jj bookmark m (git branch --show-current) --to @
+          jj git push
         }
       '';
     shellAliases = {
@@ -425,6 +447,7 @@ in
     };
   };
 
+  # one day 😢
   programs.qutebrowser = {
     # enable = true;
     keyBindings = {
