@@ -46,4 +46,5 @@ with pkgs;
   osu-lazer-bin
   slack
   lazyjj
+  cargo-seek
 ]
