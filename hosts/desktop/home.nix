@@ -11,7 +11,10 @@
       (builtins.map (i: "${builtins.toString i}, monitor:HDMI-A-1") (lib.range 1 3))
       ++ (builtins.map (i: "${builtins.toString i}, monitor:DP-1") (lib.range 4 10));
     input.sensitivity = -0.4;
-    exec-once = [ "${lib.getExe pkgs.openrgb} -p ${./icy.orp}" ];
+    exec-once = [
+      "${lib.getExe pkgs.openrgb} -p ${./icy.orp}"
+      "slack --startup"
+    ];
   };
 
   programs.vscode.profiles.default = {
