@@ -134,6 +134,37 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.git = {
+    enable = true;
+    userName = "Devin Droddy";
+    userEmail = "devin@justdeeevin.dev";
+    signing = {
+      format = "ssh";
+      key = "/home/devin/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
+    extraConfig = {
+      init.defaultBranch = "main";
+      pull = {
+        rebase = true;
+        default = "current";
+      };
+      push = {
+        autoSetupRemote = true;
+        default = "current";
+        followTags = true;
+      };
+      core = {
+        whitespace = "error";
+      };
+      rebase = {
+        autoStash = true;
+        missingCommitsCheck = "warn";
+      };
+    };
+    delta.enable = true;
+  };
+
   programs.jujutsu = {
     enable = true;
     settings = {
