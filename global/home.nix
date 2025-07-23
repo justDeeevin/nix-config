@@ -134,37 +134,6 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Devin Droddy";
-    userEmail = "devin@justdeeevin.dev";
-    signing = {
-      format = "ssh";
-      key = "/home/devin/.ssh/id_ed25519.pub";
-      signByDefault = true;
-    };
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull = {
-        rebase = true;
-        default = "current";
-      };
-      push = {
-        autoSetupRemote = true;
-        default = "current";
-        followTags = true;
-      };
-      core = {
-        whitespace = "error";
-      };
-      rebase = {
-        autoStash = true;
-        missingCommitsCheck = "warn";
-      };
-    };
-    delta.enable = true;
-  };
-
   programs.jujutsu = {
     enable = true;
     settings = {
@@ -205,12 +174,32 @@ in
   programs.starship = {
     enable = true;
     settings = {
-      format = "[┌<$all$line_break](bold green)$character";
+      format = "[┌<$all](bold green)$line_break$character";
       character = {
         success_symbol = "[└>](bold green)";
         error_symbol = "[└>](bold red)";
       };
+
       cmd_duration.min_time = 0;
+
+      custom.jujutsu = {
+        command = "prompt";
+        format = "$output ";
+        ignore_timeout = true;
+        shell = [
+          (lib.getExe inputs.starship-jj.packages.x86_64-linux.default)
+          "--ignore-working-copy"
+          "starship"
+        ];
+        use_stdin = false;
+        detect_folders = [ ".jj" ];
+      };
+
+      git_branch.disabled = true;
+      git_commit.disabled = true;
+      git_state.disabled = true;
+      git_metrics.disabled = true;
+      git_status.disabled = true;
     };
   };
 
@@ -245,37 +234,6 @@ in
           ];
         };
       };
-    };
-  };
-
-  programs.lazygit = {
-    enable = true;
-    settings = {
-      keybinding = {
-        universal = {
-          prevItem-alt = "e";
-          nextItem-alt = "n";
-          prevBlock-alt = "m";
-          nextBlock-alt = "i";
-          scrollUpMain-alt1 = "E";
-          scrollDownMain-alt1 = "N";
-          scrollLeft = "M";
-          scrollRight = "I";
-        };
-        files = {
-          ignoreFile = "<disabled>";
-        };
-        branches = {
-          viewGitFlowOptions = "<disabled>";
-        };
-        submodules = {
-          init = "<disabled>";
-        };
-        commits = {
-          startInteractiveRebase = "<disabled>";
-        };
-      };
-      git.overrideGpg = true;
     };
   };
 
