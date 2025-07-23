@@ -45,4 +45,5 @@ with pkgs;
   nautilus
   osu-lazer-bin
   slack
+  lazyjj
 ]

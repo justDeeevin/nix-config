@@ -179,6 +179,26 @@ in
       };
       revsets.log = "all()";
       ui.default-command = "log";
+
+      lazyjj.keybinds = {
+        log_tab = {
+          scroll-down = [
+            "n"
+            "down"
+          ];
+          scroll-down-half = "shift+n";
+          scroll-up = [
+            "e"
+            "up"
+          ];
+          scroll-up-half = "shift+e";
+
+          create-new = "ctrl+n";
+          create-new-describe = "ctrl+shift+n";
+          edit-change = "ctrl+e";
+          edit-change-ignore-immutable = "ctrl+shift+e";
+        };
+      };
     };
   };
 
