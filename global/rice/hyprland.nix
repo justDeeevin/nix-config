@@ -139,6 +139,7 @@
         kb_layout = "us";
         kb_variant = "colemak_dh";
         numlock_by_default = true;
+        kb_options = "compose:ralt";
       };
 
       misc.focus_on_activate = true;
