@@ -523,4 +523,9 @@ in
       inputs.gh-jj.packages.x86_64-linux.default
     ];
   };
+
+  home.file.".XCompose".text = ''
+    include "%L"
+    <Multi_key> <e> <h> : "¯\\_(ツ)_/¯" # SHRUG
+  '';
 }
