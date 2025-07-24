@@ -7,7 +7,6 @@
 }:
 with pkgs;
 [
-  gh
   youtube-music
   wl-clipboard
   vlc

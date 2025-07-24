@@ -516,4 +516,11 @@ in
         c.colors.webpage.darkmode.enabled
       '';
   };
+
+  programs.gh = {
+    enable = true;
+    extensions = [
+      inputs.gh-jj.packages.x86_64-linux.default
+    ];
+  };
 }
