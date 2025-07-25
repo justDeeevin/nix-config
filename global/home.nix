@@ -527,5 +527,6 @@ in
   home.file.".XCompose".text = ''
     include "%L"
     <Multi_key> <e> <h> : "¯\\_(ツ)_/¯" # SHRUG
+    <Multi_key> <o> <h> <m> : "Ω" # CAPITAL OMEGA
   '';
 }
