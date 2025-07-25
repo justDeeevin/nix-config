@@ -39,5 +39,7 @@
       desktop = 1.0;
       terminal = 0.5;
     };
+
+    overlays.enable = false;
   };
 }
