@@ -46,4 +46,5 @@ with pkgs;
   slack
   lazyjj
   cargo-seek
+  parsec-bin
 ]
