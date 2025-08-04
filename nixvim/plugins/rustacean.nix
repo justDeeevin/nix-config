@@ -3,9 +3,9 @@
     enable = true;
     settings.server.default_settings.rust-analyzer = {
       inlayHints = {
-        chainingHints.enable = true;
         parameterHints.enable = true;
         typeHints.enable = true;
+        lifetimeElisionHints.enable = "always";
       };
       check = {
         allTargets = false;
