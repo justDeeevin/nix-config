@@ -47,4 +47,5 @@ with pkgs;
   lazyjj
   cargo-seek
   parsec-bin
+  kicad
 ]
