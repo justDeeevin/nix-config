@@ -207,4 +207,7 @@
   qt.enable = true;
 
   services.libinput.mouse.accelProfile = "flat";
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+  '';
 }
