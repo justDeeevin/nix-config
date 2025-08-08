@@ -14,7 +14,6 @@ with pkgs;
   kdePackages.kalk
   jdk
   gradle
-  # prismlauncher
   wineWowPackages.waylandFull
   unzip
   tree-sitter
@@ -29,14 +28,12 @@ with pkgs;
   telegram-desktop
   hyprland-qtutils
   cargo-generate
-  # godot
   typst
   sops
   timg
   r2modman
   (lib.hiPrio uutils-coreutils-noprefix)
   tldr
-  # gimp
   bluetui
   nixvim
   rip2
