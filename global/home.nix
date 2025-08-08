@@ -450,7 +450,7 @@ in
   };
 
   services.swaync = {
-    enable = true;
+    # enable = true;
     settings = {
       notification-inline-replies = true;
     };
@@ -531,4 +531,6 @@ in
     <Multi_key> <o> <h> <m> : "Ω" # CAPITAL OMEGA
     <Multi_key> <p> <i> : "π" # PI
   '';
+
+  services.fnott.enable = true;
 }
