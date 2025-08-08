@@ -457,6 +457,7 @@ in
   };
 
   # one day 😢
+  # i need my extensions!
   programs.qutebrowser = {
     # enable = true;
     keyBindings = {
