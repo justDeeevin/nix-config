@@ -530,6 +530,7 @@ in
     <Multi_key> <e> <h> : "¯\\_(ツ)_/¯" # SHRUG
     <Multi_key> <o> <h> <m> : "Ω" # CAPITAL OMEGA
     <Multi_key> <p> <i> : "π" # PI
+    <Multi_key> <0> <space> : "​" # ZERO WIDTH SPACE
   '';
 
   services.fnott.enable = true;
