@@ -31,9 +31,14 @@
     users = [ "devin" ];
   };
 
-  boot.loader.limine.extraEntries = ''
-    /Windows
-      protocol: efi
-      path: uuid(7b29883e-b185-45c3-96dd-9c9b4f3b85c4):/EFI/Microsoft/Boot/bootmgfw.efi
-  '';
+  boot.loader.limine = {
+    # TODO: enroll keys on laptop
+    secureBoot.enable = true;
+    extraEntries = ''
+      /Windows
+        protocol: efi
+        path: uuid(7b29883e-b185-45c3-96dd-9c9b4f3b85c4):/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+  };
+
 }
