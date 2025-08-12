@@ -48,4 +48,6 @@ in
     '';
   };
 
+  sops.secrets.SONARR_API_KEY.sopsFile = ./secrets.yaml;
+  sops.secrets.RADARR_API_KEY.sopsFile = ./secrets.yaml;
 }

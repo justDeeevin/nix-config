@@ -9,6 +9,7 @@
   imports = [
     ./nvidia.nix
     inputs.sops.nixosModules.sops
+    ./arr.nix
   ];
 
   # Bootloader.
@@ -199,4 +200,9 @@
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
+
+  services.qbittorrent = {
+    enable = true;
+    profileDir = "/mnt/wd-black/";
+  };
 }
