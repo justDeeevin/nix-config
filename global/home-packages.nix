@@ -45,4 +45,5 @@ with pkgs;
   cargo-seek
   parsec-bin
   kicad
+  usbutils
 ]
