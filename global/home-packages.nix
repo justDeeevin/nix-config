@@ -46,4 +46,5 @@ with pkgs;
   parsec-bin
   kicad
   usbutils
+  kodi-wayland
 ]
