@@ -17,7 +17,6 @@
 
   sops.secrets.SONARR_API_KEY.owner = "recyclarr";
   sops.secrets.RADARR_API_KEY.owner = "recyclarr";
-  sops.secrets.AUTOBRR_SESSION_SECRET.sopsFile = ./secrets.yaml;
 
   services.recyclarr =
     let
@@ -110,10 +109,4 @@
           };
       };
     };
-
-  services.autobrr = {
-    enable = true;
-    openFirewall = true;
-    secretFile = config.sops.secrets.AUTOBRR_SESSION_SECRET.path;
-  };
 }
