@@ -43,18 +43,7 @@
           "vue"
         ];
         rootMarkers = [ "package.json" ];
-        extraOptions = {
-          init_options = {
-            plugins = [
-              {
-                name = "@vue/typescript-plugin";
-                location = "${lib.getBin pkgs.vue-language-server}/lib/node_modules/@vue/language-server";
-                languages = [ "vue" ];
-              }
-            ];
-          };
-          single_file_support = false;
-        };
+        extraOptions.single_file_support = false;
       };
       volar = {
         enable = true;
