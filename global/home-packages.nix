@@ -15,7 +15,6 @@ with pkgs;
   jdk
   gradle
   wineWowPackages.waylandFull
-  unzip
   tree-sitter
   magic-wormhole
   libreoffice
@@ -47,4 +46,5 @@ with pkgs;
   kicad
   usbutils
   kodi-wayland
+  ouch
 ]
