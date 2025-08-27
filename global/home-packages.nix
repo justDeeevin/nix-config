@@ -17,16 +17,13 @@ with pkgs;
   wineWowPackages.waylandFull
   tree-sitter
   magic-wormhole
-  libreoffice
   inputs.zen-browser.packages.x86_64-linux.default
   obsidian
   chromium
-  quickemu
   nh
   hyprpolkitagent
   telegram-desktop
   hyprland-qtutils
-  cargo-generate
   typst
   sops
   timg
@@ -42,8 +39,6 @@ with pkgs;
   slack
   lazyjj
   cargo-seek
-  parsec-bin
-  kicad
   usbutils
   kodi-wayland
   ouch
