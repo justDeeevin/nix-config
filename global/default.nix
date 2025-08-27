@@ -197,9 +197,7 @@
   qt.enable = true;
 
   services.libinput.mouse.accelProfile = "flat";
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-  '';
+  services.logind.settings.Login.HandlePowerKey = "suspend";
 
   services.qbittorrent = {
     enable = true;
