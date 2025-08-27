@@ -178,7 +178,25 @@ in
         key = "/home/devin/.ssh/id_ed25519.pub";
       };
       revsets.log = "all()";
-      ui.default-command = "log";
+      ui = {
+        default-command = "log";
+        merge-editor = "diffconflicts";
+      };
+
+      merge-tools.diffconflicts = {
+        program = "nvim";
+        merge-args = [
+          "-c"
+          "let g:jj_diffconflicts_marker_length=$marker_length"
+          "-c"
+          "JJDiffConflicts"
+          "$output"
+          "$base"
+          "$left"
+          "$right"
+        ];
+        merge-tool-edits-conflict-markers = true;
+      };
 
       lazyjj.keybinds = {
         log_tab = {

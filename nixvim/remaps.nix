@@ -58,5 +58,27 @@
       action = "<Esc>";
       mode = "i";
     }
+
+    # Change windows
+    {
+      key = "<A-m>";
+      action = ":wincmd h<CR>";
+      mode = "n";
+    }
+    {
+      key = "<A-n>";
+      action = ":wincmd j<CR>";
+      mode = "n";
+    }
+    {
+      key = "<A-e>";
+      action = "<cmd>wincmd k<CR>";
+      mode = "n";
+    }
+    {
+      key = "<A-i>";
+      action = "<cmd>wincmd l<CR>";
+      mode = "n";
+    }
   ];
 }
