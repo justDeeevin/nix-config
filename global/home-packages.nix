@@ -42,4 +42,5 @@ with pkgs;
   usbutils
   kodi-wayland
   ouch
+  insomnia
 ]
