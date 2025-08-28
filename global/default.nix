@@ -9,7 +9,6 @@
   imports = [
     ./nvidia.nix
     inputs.sops.nixosModules.sops
-    ./arr.nix
   ];
 
   # Bootloader.

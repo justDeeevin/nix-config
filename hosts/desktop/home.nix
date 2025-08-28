@@ -3,13 +3,7 @@
   home.packages = with pkgs; [ ntfs3g ];
 
   wayland.windowManager.hyprland.settings = {
-    monitor = [
-      "HDMI-A-1, highres@highrr, 0x0, 1, transform, 3"
-      "DP-1, highres@highrr, 1080x240, 1"
-    ];
-    workspace =
-      (builtins.map (i: "${builtins.toString i}, monitor:HDMI-A-1") (lib.range 1 3))
-      ++ (builtins.map (i: "${builtins.toString i}, monitor:DP-1") (lib.range 4 10));
+    monitor = [ "DP-1, highres@highrr, 0x0, 1" ];
     input.sensitivity = -0.4;
     exec-once = [
       "${lib.getExe pkgs.openrgb} -p ${./icy.orp}"
