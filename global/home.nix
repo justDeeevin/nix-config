@@ -94,7 +94,7 @@ in
     "Pictures/nixos-logo.png" = {
       source = pkgs.fetchurl {
         url = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Nix_snowflake.svg/1200px-Nix_snowflake.svg.png";
-        hash = "sha256-1LolYJ2W+4SxCXC0O0430nKCbAcsUyaCksRPc3xYWZ0=";
+        hash = "sha256-C/hhLK73t8ee5EXlkhaCU0UNfqBg5l5DD8YZOIu9rrg=";
       };
     };
     ".config/clipse/config.json".text = builtins.toJSON {
