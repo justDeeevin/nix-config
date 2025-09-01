@@ -43,4 +43,5 @@ with pkgs;
   kodi-wayland
   ouch
   insomnia
+  wiremix
 ]
