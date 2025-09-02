@@ -92,7 +92,7 @@
         };
         devin-gram = {
           config = ./hosts/lg-gram/configuration.nix;
-          stateVersion = "24.11";
+          stateVersion = "25.05";
           home = ./hosts/lg-gram/home.nix;
         };
       };
