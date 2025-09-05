@@ -44,4 +44,5 @@ with pkgs;
   ouch
   insomnia
   wiremix
+  unityhub
 ]
