@@ -45,4 +45,6 @@ with pkgs;
   insomnia
   wiremix
   unityhub
+  gpclient
+  eclipses.eclipse-java
 ]
