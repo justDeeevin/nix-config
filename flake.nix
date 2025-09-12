@@ -85,15 +85,17 @@
         module = import ./nixvim;
       };
       nixosConfigurations = mkSystems {
-        devin-pc = {
-          config = ./hosts/desktop/configuration.nix;
+        # Desktop
+        photon = {
+          config = ./hosts/photon/configuration.nix;
           stateVersion = "24.11";
-          home = ./hosts/desktop/home.nix;
+          home = ./hosts/photon/home.nix;
         };
-        devin-gram = {
-          config = ./hosts/lg-gram/configuration.nix;
+        # Laptop
+        higgs = {
+          config = ./hosts/higgs/configuration.nix;
           stateVersion = "25.05";
-          home = ./hosts/lg-gram/home.nix;
+          home = ./hosts/higgs/home.nix;
         };
       };
       devShell.x86_64-linux = pkgs.mkShell {
