@@ -37,7 +37,7 @@ with pkgs;
   nautilus
   osu-lazer-bin
   slack
-  lazyjj
+  # lazyjj
   cargo-seek
   usbutils
   kodi-wayland

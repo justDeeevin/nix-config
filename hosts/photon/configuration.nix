@@ -23,9 +23,6 @@ in
 
   programs.adb.enable = true;
 
-  programs.alvr.enable = true;
-  programs.alvr.openFirewall = true;
-
   programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
