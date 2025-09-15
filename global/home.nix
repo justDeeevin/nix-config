@@ -213,8 +213,8 @@ in
 
           create-new = "ctrl+n";
           create-new-describe = "ctrl+shift+n";
-          edit-change = "ctrl+e";
-          edit-change-ignore-immutable = "ctrl+shift+e";
+          edit-change = "c";
+          edit-change-ignore-immutable = "shift+c";
         };
       };
     };
@@ -402,6 +402,9 @@ in
       background-blur-radius = 20;
 
       auto-update = "off";
+      keybind = [
+        "ctrl+shift+n=unbind"
+      ];
     };
   };
 
