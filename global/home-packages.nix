@@ -47,4 +47,5 @@ with pkgs;
   unityhub
   gpclient
   eclipses.eclipse-java
+  tetrio-desktop
 ]
