@@ -4,20 +4,20 @@
     enable = true;
 
     plugins = with pkgs.hyprlandPlugins; [
-      hypr-dynamic-cursors
+      # hypr-dynamic-cursors
     ];
 
     settings = {
       decoration.rounding = 8;
 
-      plugin = {
-        dynamic-cursors = {
-          enabled = true;
-          shake.enabled = true;
-          mode = "tilt";
-          tilt.limit = 2000;
-        };
-      };
+      # plugin = {
+      #   dynamic-cursors = {
+      #     enabled = true;
+      #     shake.enabled = true;
+      #     mode = "tilt";
+      #     tilt.limit = 2000;
+      #   };
+      # };
 
       cursor.no_hardware_cursors = true;
       env = [
