@@ -15,9 +15,17 @@
       clickfinger_behavior = true;
     };
 
-    gestures = {
-      workspace_swipe = true;
-    };
+    gesture =
+      let
+        playerctl = lib.getExe pkgs.playerctl;
+      in
+      [
+        "3, horizontal, workspace"
+        "4, left, dispatcher, exec, ${playerctl} previous"
+        "4, down, dispatcher, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "4, up, dispatcher, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        "4, right, dispatcher, exec, ${playerctl} next"
+      ];
   };
 
   programs.hyprlock.settings.label = [
