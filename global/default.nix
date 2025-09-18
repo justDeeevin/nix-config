@@ -105,7 +105,7 @@
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
+    # permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
   };
 
   home-manager = {
@@ -182,7 +182,7 @@
   environment.sessionVariables = {
     EDITOR = "nvim";
     PROTON_ENABLE_WAYLAND = 1;
-    DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
+    # DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
     XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
   };
 

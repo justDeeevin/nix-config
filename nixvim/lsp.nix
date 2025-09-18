@@ -1,27 +1,12 @@
-{ pkgs, lib, ... }:
 {
-  plugins.lsp = {
-    enable = true;
+  plugins.lspconfig.enable = true;
 
-    keymaps = {
-      diagnostic."<leader>v" = "open_float";
-      lspBuf = {
-        "gh" = "hover";
-        "<F2>" = "rename";
-      };
-      extra = [
-        {
-          key = "<leader>th";
-          action.__raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
-        }
-      ];
-    };
-
+  lsp = {
     servers = {
       bashls.enable = true;
       denols = {
         enable = true;
-        rootMarkers = [
+        settings.root_markers = [
           "deno.json"
           "deno.jsonc"
         ];
@@ -32,25 +17,60 @@
       lua_ls.enable = true;
       nil_ls.enable = true;
       nushell.enable = true;
+      omnisharp.enable = true;
+      rust_analyzer = {
+        enable = true;
+        settings.settings.rust-analyzer = {
+          inlayHints = {
+            parameterHints.enable = true;
+            typeHints.enable = true;
+            lifetimeElisionHints.enable = "always";
+          };
+          check = {
+            allTargets = false;
+            command = "clippy";
+            features = "all";
+          };
+          cargo = {
+            features = "all";
+          };
+        };
+      };
       svelte.enable = true;
+      tailwindcss.enable = true;
       ts_ls = {
         enable = true;
-        filetypes = [
-          "typescript"
-          "typescriptreact"
-          "javascript"
-          "javascriptreact"
-          "vue"
-        ];
-        rootMarkers = [ "package.json" ];
-        extraOptions.single_file_support = false;
+        # TODO: necessary?
+        # filetypes = [
+        #   "typescript"
+        #   "typescriptreact"
+        #   "javascript"
+        #   "javascriptreact"
+        #   "vue"
+        # ];
+        # single_file_support = false;
+        settings.root_markers = [ "package.json" ];
       };
-      volar = {
-        enable = true;
-        package = pkgs.vue-language-server;
-      };
-      tailwindcss.enable = true;
     };
+
+    keymaps = [
+      {
+        key = "<leader>v";
+        action.__raw = "function() vim.diagnostic.open_float() end";
+      }
+      {
+        key = "gh";
+        lspBufAction = "hover";
+      }
+      {
+        key = "<F2>";
+        lspBufAction = "rename";
+      }
+      {
+        key = "<leader>th";
+        action.__raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
+      }
+    ];
   };
 
   autoGroups = {

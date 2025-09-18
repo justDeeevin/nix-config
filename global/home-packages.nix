@@ -50,4 +50,5 @@ with pkgs;
   gpclient
   eclipses.eclipse-java
   tetrio-desktop
+  vscode
 ]
