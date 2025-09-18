@@ -241,7 +241,7 @@ in
           "starship"
         ];
         use_stdin = false;
-        detect_folders = [ ".jj" ];
+        when = true;
       };
 
       git_branch.disabled = true;
