@@ -7,7 +7,7 @@
       "$mod, L, exec, loginctl lock-session"
     ];
 
-    monitor = ",preferred,auto,1.333333";
+    monitor = ",preferred,auto,1";
 
     input.touchpad = {
       natural_scroll = true;
