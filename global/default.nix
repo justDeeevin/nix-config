@@ -199,4 +199,6 @@
     enable = true;
     profileDir = "/mnt/wd-black/";
   };
+
+  virtualisation.docker.enable = true;
 }
