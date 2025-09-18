@@ -14,7 +14,6 @@
         markdown = [ "prettierd" ];
         nix = [ "nixfmt" ];
         python = [ "black" ];
-        rust = [ "rustfmt" ];
         scss = [ "prettierd" ];
         sh = [ "beautysh" ];
         svelte = [ "prettierd" ];
@@ -29,7 +28,7 @@
           if vim.b[bufnr].disable_autoformat then
             return
           end
-          return { timeout_ms = 1000 }
+          return { timeout_ms = 1000, lsp_format = "fallback" }
         end
       '';
     };
