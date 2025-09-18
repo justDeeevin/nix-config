@@ -44,7 +44,9 @@ with pkgs;
   ouch
   insomnia
   wiremix
-  unityhub
+  (unityhub.override {
+    extraLibs = fhsPkgs: with fhsPkgs; [ sqlite ];
+  })
   gpclient
   eclipses.eclipse-java
   tetrio-desktop
