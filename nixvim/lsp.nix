@@ -6,10 +6,7 @@
       bashls.enable = true;
       denols = {
         enable = true;
-        settings.root_markers = [
-          "deno.json"
-          "deno.jsonc"
-        ];
+        activate = false;
       };
       html.enable = true;
       jdtls.enable = true;
