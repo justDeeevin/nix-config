@@ -82,7 +82,7 @@
         "$mod SHIFT, KP_Enter, movetoworkspace, special"
 
         ", F10, togglefloating"
-        ", F11, fullscreen"
+        "$mod, F11, fullscreen"
 
         ", XF86Calculator, exec, kalk"
         ", XF86Mail, exec, ghostty"
