@@ -51,4 +51,5 @@ with pkgs;
   eclipses.eclipse-java
   tetrio-desktop
   vscode
+  nurl
 ]
