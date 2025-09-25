@@ -52,4 +52,6 @@ with pkgs;
   tetrio-desktop
   vscode
   nurl
+  vscode
+  python314
 ]
