@@ -4,7 +4,7 @@
   lsp = {
     servers = {
       bashls.enable = true;
-      clangd.enable = true;
+      ccls.enable = true;
       denols = {
         enable = true;
         activate = false;
