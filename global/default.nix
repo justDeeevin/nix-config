@@ -195,10 +195,5 @@
   services.libinput.mouse.accelProfile = "flat";
   services.logind.settings.Login.HandlePowerKey = "suspend";
 
-  services.qbittorrent = {
-    enable = true;
-    profileDir = "/mnt/wd-black/";
-  };
-
   virtualisation.docker.enable = true;
 }

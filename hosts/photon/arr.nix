@@ -1,5 +1,10 @@
 { config, ... }:
 {
+  services.qbittorrent = {
+    # enable = true;
+    profileDir = "/mnt/wd-black/";
+  };
+
   services.prowlarr = {
     enable = true;
     openFirewall = true;
