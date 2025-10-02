@@ -41,7 +41,7 @@ with pkgs;
   cargo-seek
   usbutils
   kodi-wayland
-  ouch
+  (ouch.override { enableUnfree = true; })
   insomnia
   wiremix
   (unityhub.override {
@@ -54,4 +54,5 @@ with pkgs;
   nurl
   vscode
   python314
+  sl
 ]
