@@ -1,7 +1,7 @@
 { config, ... }:
 {
   services.qbittorrent = {
-    # enable = true;
+    enable = true;
     profileDir = "/mnt/wd-black/";
   };
 

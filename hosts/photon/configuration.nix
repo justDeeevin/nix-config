@@ -18,7 +18,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./arr.nix
+    # ./arr.nix
   ];
 
   programs.adb.enable = true;
