@@ -18,7 +18,7 @@
       omnisharp.enable = true;
       rust_analyzer = {
         enable = true;
-        settings.settings.rust-analyzer = {
+        config.settings.rust-analyzer = {
           inlayHints = {
             parameterHints.enable = true;
             typeHints.enable = true;
@@ -47,7 +47,7 @@
         #   "vue"
         # ];
         # single_file_support = false;
-        settings.root_markers = [ "package.json" ];
+        config.root_markers = [ "package.json" ];
       };
     };
 

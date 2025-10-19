@@ -136,14 +136,11 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Devin Droddy";
-    userEmail = "devin@justdeeevin.dev";
-    signing = {
-      format = "ssh";
-      key = "/home/devin/.ssh/id_ed25519.pub";
-      signByDefault = true;
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Devin Droddy";
+        email = "devin@justdeeevin.dev";
+      };
       init.defaultBranch = "main";
       pull = {
         rebase = true;
@@ -162,8 +159,14 @@ in
         missingCommitsCheck = "warn";
       };
     };
-    delta.enable = true;
+    signing = {
+      format = "ssh";
+      key = "/home/devin/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
   };
+
+  programs.delta.enable = true;
 
   programs.jujutsu = {
     enable = true;
