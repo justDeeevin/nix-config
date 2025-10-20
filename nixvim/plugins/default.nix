@@ -1,10 +1,6 @@
 {
   plugins = {
     nvim-autopairs.enable = true;
-    colorizer = {
-      enable = true;
-      settings.filetypes = [ "css" ];
-    };
     dressing.enable = true;
     gitsigns.enable = true;
     image.enable = true;
@@ -19,6 +15,5 @@
     transparent.enable = true;
     hardtime.enable = true;
     octo.enable = true;
-    tailwind-tools.enable = true;
   };
 }

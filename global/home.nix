@@ -12,6 +12,7 @@ let
     plugins.obsidian = {
       enable = true;
       settings = {
+        legacy_commands = false;
         workspaces = [
           {
             name = "Third Brain";
@@ -24,7 +25,7 @@ let
           date_format = "%b %-d, %Y";
         };
         templates.subdir = "Templates";
-        disable_frontmatter = true;
+        frontmatter.enable = false;
         attachments = {
           img_folder = "Assets";
           img_name_func.__raw = ''
@@ -50,7 +51,7 @@ let
     keymaps = [
       {
         key = "<leader>ot";
-        action = "<cmd>ObsidianToday<CR>";
+        action = "<cmd>Obsidian today<CR>";
       }
       {
         key = "<leader>op";
