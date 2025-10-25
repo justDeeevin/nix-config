@@ -1,6 +1,9 @@
 { pkgs, lib, ... }:
 {
-  home.packages = with pkgs; [ ntfs3g ];
+  home.packages = with pkgs; [
+    ntfs3g
+    gzdoom
+  ];
 
   wayland.windowManager.hyprland.settings = {
     monitor = [ "DP-1, highres@highrr, 0x0, 1" ];
