@@ -469,6 +469,7 @@ in
       workspaces.visibility_mode = "MonitorSpecific";
       appearance.font_name = "Monaspace Neon";
       clock.format = "%a %e %b %I:%M %p";
+      settings = { };
     };
   };
 
