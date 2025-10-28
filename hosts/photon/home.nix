@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
     ntfs3g
     gzdoom
+    prismlauncher
+    gimp
   ];
 
   wayland.windowManager.hyprland.settings = {
