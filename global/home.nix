@@ -409,6 +409,23 @@ in
       keybind = [
         "ctrl+shift+n=unbind"
       ];
+      custom-shader =
+        let
+          cursor-shaders = pkgs.fetchFromGitHub {
+            owner = "sahaj-b";
+            repo = "ghostty-cursor-shaders";
+            rev = "14f7cd035f1b483dfe46ba11aef7377b6c4c687d";
+            hash = "sha256-ky343PVJklT4MqF5whULGwC5e5YfKF7PRGjB+CoBVUI=";
+          };
+          cursor-shaders-custom = pkgs.applyPatches {
+            src = cursor-shaders;
+            patches = [ ./ghostty-cursor-shaders-custom.patch ];
+          };
+        in
+        [
+          (cursor-shaders-custom + "/cursor_warp.glsl")
+          (cursor-shaders-custom + "/ripple_cursor.glsl")
+        ];
     };
   };
 

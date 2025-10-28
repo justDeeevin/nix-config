@@ -1,0 +1,25 @@
+diff --git a/cursor_warp.glsl b/cursor_warp.glsl
+index 08f3f77..475807b 100644
+--- a/cursor_warp.glsl
++++ b/cursor_warp.glsl
+@@ -2,7 +2,7 @@
+ vec4 TRAIL_COLOR = iCurrentCursorColor; // can change to eg: vec4(0.2, 0.6, 1.0, 0.5);
+ const float DURATION = 0.2; // total animation time
+ const float TRAIL_SIZE = 0.8; // 0.0 = all corners move together. 1.0 = max smear (leading corners jump instantly)
+-const float THRESHOLD_MIN_DISTANCE = 1.5; // min distance to show trail (units of cursor height)
++const float THRESHOLD_MIN_DISTANCE = 1.0; // min distance to show trail (units of cursor height)
+ const float BLUR = 1.0; // blur size in pixels (for antialiasing)
+ const float TRAIL_THICKNESS = 1.0;  // 1.0 = full cursor height, 0.0 = zero height, >1.0 = funky aah
+ const float TRAIL_THICKNESS_X = 0.9;
+diff --git a/ripple_cursor.glsl b/ripple_cursor.glsl
+index 1ca5a7e..5f4cce5 100644
+--- a/ripple_cursor.glsl
++++ b/ripple_cursor.glsl
+@@ -1,6 +1,6 @@
+ // CONFIGURATION
+ const float DURATION = 0.15;               // How long the ripple animates (seconds)
+-const float MAX_RADIUS = 0.05;             // Max radius in normalized coords (0.5 = 1/4 screen height)
++const float MAX_RADIUS = 0.04;             // Max radius in normalized coords (0.5 = 1/4 screen height)
+ const float RING_THICKNESS = 0.02;             // Ring width in normalized coords
+ const float CURSOR_WIDTH_CHANGE_THRESHOLD = 0.5; // Triggers ripple if cursor width changes by this fraction
+ vec4 COLOR = vec4(0.35, 0.36, 0.44, 1.0); // change to iCurrentCursorColor for your cursor's color
