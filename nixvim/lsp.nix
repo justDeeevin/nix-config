@@ -34,19 +34,11 @@
           };
         };
       };
+      slint_lsp.enable = true;
       svelte.enable = true;
       tailwindcss.enable = true;
       ts_ls = {
         enable = true;
-        # TODO: necessary?
-        # filetypes = [
-        #   "typescript"
-        #   "typescriptreact"
-        #   "javascript"
-        #   "javascriptreact"
-        #   "vue"
-        # ];
-        # single_file_support = false;
         config.root_markers = [ "package.json" ];
       };
     };
