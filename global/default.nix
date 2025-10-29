@@ -144,6 +144,7 @@
       "nix-command"
       "flakes"
     ];
+    trusted-users = [ "devin" ];
   };
 
   hardware.bluetooth.enable = true;
