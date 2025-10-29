@@ -426,6 +426,7 @@ in
           (cursor-shaders-custom + "/cursor_warp.glsl")
           (cursor-shaders-custom + "/ripple_cursor.glsl")
         ];
+      custom-shader-animation = "always";
     };
   };
 
