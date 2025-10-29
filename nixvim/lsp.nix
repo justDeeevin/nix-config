@@ -37,6 +37,7 @@
       slint_lsp.enable = true;
       svelte.enable = true;
       tailwindcss.enable = true;
+      taplo.enable = true;
       ts_ls = {
         enable = true;
         config.root_markers = [ "package.json" ];
@@ -108,5 +109,35 @@
         end
       '';
     }
+    {
+      event = "BufWritePre";
+      callback.__raw = ''
+        function(event)
+          if vim.b[event.buf].disable_autoformat then
+            return
+          end
+
+          local original = vim.notify
+          vim.notify = function(msg, level, opts)
+            if msg == "[LSP] Format request failed, no matching language servers." then
+              return
+            end
+            original(msg, level, opts)
+          end
+
+          vim.lsp.buf.format()
+
+          vim.notify = original
+        end
+      '';
+    }
   ];
+
+  userCommands.Wnf.command.__raw = ''
+    function(args)
+      vim.b.disable_autoformat = true
+      vim.api.nvim_command("write")
+      vim.b.disable_autoformat = false
+    end
+  '';
 }
