@@ -66,6 +66,7 @@ in
     inputs.nix-index-database.homeModules.nix-index
     ./rice
     inputs.sops.homeManagerModules.sops
+    inputs.vicinae.homeManagerModules.default
   ];
 
   home.username = "devin";
@@ -96,19 +97,6 @@ in
       source = pkgs.fetchurl {
         url = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Nix_snowflake.svg/1200px-Nix_snowflake.svg.png";
         hash = "sha256-C/hhLK73t8ee5EXlkhaCU0UNfqBg5l5DD8YZOIu9rrg=";
-      };
-    };
-    ".config/clipse/config.json".text = builtins.toJSON {
-      imageDisplay = {
-        type = "kitty";
-        scaleX = 18;
-        scaleY = 20;
-      };
-      keyBindings = {
-        prevPage = "m";
-        down = "n";
-        up = "e";
-        nextPage = "i";
       };
     };
     ".cargo/config.toml".source = pkgs.writers.writeTOML "config.toml" {
@@ -366,19 +354,6 @@ in
 
   programs.nix-index-database.comma.enable = true;
 
-  programs.fuzzel = {
-    enable = true;
-    settings.colors = lib.mkForce rec {
-      background = "161616ff";
-      text = "ffffffff";
-      match = "ee5396ff";
-      selection-match = match;
-      selection = "262626ff";
-      selection-text = "33b1ffff";
-      border = "525252ff";
-    };
-  };
-
   programs.ghostty = {
     enable = true;
     settings = {
@@ -576,4 +551,10 @@ in
   '';
 
   services.fnott.enable = true;
+
+  services.vicinae = {
+    enable = true;
+    package = pkgs.vicinae;
+    autoStart = true;
+  };
 }

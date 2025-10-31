@@ -46,6 +46,11 @@
       url = "github:justdeeevin/gh-jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
