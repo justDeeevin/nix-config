@@ -66,7 +66,6 @@ in
     inputs.nix-index-database.homeModules.nix-index
     ./rice
     inputs.sops.homeManagerModules.sops
-    inputs.vicinae.homeManagerModules.default
   ];
 
   home.username = "devin";
@@ -552,9 +551,8 @@ in
 
   services.fnott.enable = true;
 
-  services.vicinae = {
+  programs.vicinae = {
     enable = true;
-    package = pkgs.vicinae;
-    autoStart = true;
+    systemd.enable = true;
   };
 }
