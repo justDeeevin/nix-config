@@ -46,6 +46,10 @@
       url = "github:justdeeevin/gh-jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixpkgs-new-equibop = {
+      url = "github:rexcrazy804/nixpkgs/update-equibop";
+    };
   };
 
   outputs =

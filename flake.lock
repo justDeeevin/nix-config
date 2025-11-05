@@ -360,6 +360,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-new-equibop": {
+      "locked": {
+        "lastModified": 1762296294,
+        "narHash": "sha256-VJ2Y3yxh21QcFO7b2+lGVbfEWGM5uVp7w2ypjAlKjTY=",
+        "owner": "rexcrazy804",
+        "repo": "nixpkgs",
+        "rev": "6a17da3224cf4ec470727c28d7a9ab295fc68e99",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rexcrazy804",
+        "ref": "update-equibop",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -437,6 +453,7 @@
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-new-equibop": "nixpkgs-new-equibop",
         "nixvim": "nixvim",
         "sops": "sops",
         "starship-jj": "starship-jj",

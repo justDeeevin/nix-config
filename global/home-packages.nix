@@ -33,7 +33,7 @@ with pkgs;
   bluetui
   nixvim
   rip2
-  equibop
+  (import inputs.nixpkgs-new-equibop { system = "x86_64-linux"; }).equibop
   nautilus
   osu-lazer-bin
   slack
