@@ -68,7 +68,6 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
-    openFirewall = true;
   };
 
   # Enable sound with pipewire.
