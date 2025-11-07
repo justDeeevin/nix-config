@@ -3,6 +3,7 @@
   inputs,
   stateVersion,
   home,
+  config,
   ...
 }:
 {
@@ -12,7 +13,14 @@
   ];
 
   # Bootloader.
-  boot.loader.limine.enable = true;
+  boot.loader.limine = {
+    enable = true;
+    style = {
+      wallpapers = [ config.home-manager.users.devin.stylix.image ];
+      wallpaperStyle = "centered";
+      backdrop = "010101";
+    };
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
