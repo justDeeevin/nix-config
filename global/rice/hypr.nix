@@ -34,7 +34,7 @@
       "$mod" = "SUPER";
 
       bind = [
-        "$mod, T, exec, ghostty"
+        "$mod, T, exec, ${lib.getExe pkgs.ghostty}"
         "$mod, Q, killactive"
 
         "$mod, M, movefocus, l"
@@ -84,13 +84,13 @@
         ", F10, togglefloating"
         "$mod, F11, fullscreen"
 
-        ", XF86Calculator, exec, kalk"
-        ", XF86Mail, exec, ghostty"
+        ", XF86Calculator, exec, ${lib.getExe pkgs.kdePackages.kalk}"
+        ", XF86Mail, exec, ${lib.getExe pkgs.ghostty}"
 
         "$mod, SPACE, exec, vicinae open"
         ", Print, exec, ${lib.getExe pkgs.grimblast} copy area"
-        "CTRL SHIFT, SPACE, exec, 1password --quick-access"
-        "CTRL SHIFT, BACKSLASH, exec, 1password"
+        "CTRL SHIFT, SPACE, exec, ${lib.getExe pkgs._1password-gui} --quick-access"
+        "CTRL SHIFT, BACKSLASH, exec, ${lib.getExe pkgs._1password-gui}"
         "$mod, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
         "$mod, v, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
         "$mod, PERIOD, exec, vicinae vicinae://extensions/vicinae/vicinae/search-emojis"

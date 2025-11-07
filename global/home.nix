@@ -438,33 +438,6 @@ in
     config.theme = "oxocarbon";
   };
 
-  programs.ashell = {
-    enable = true;
-    systemd.enable = true;
-
-    settings = {
-      modules = {
-        left = [
-          "Tray"
-          "Workspaces"
-          "WindowTitle"
-        ];
-        center = [ "Clock" ];
-        right = [
-          "MediaPlayer"
-          [
-            "Privacy"
-            "Settings"
-          ]
-        ];
-      };
-      workspaces.visibility_mode = "MonitorSpecific";
-      appearance.font_name = "Monaspace Neon";
-      clock.format = "%a %e %b %I:%M %p";
-      settings = { };
-    };
-  };
-
   services.swaync = {
     # enable = true;
     settings = {
@@ -548,11 +521,4 @@ in
     <Multi_key> <p> <i> : "π" # PI
     <Multi_key> <0> <space> : "​" # ZERO WIDTH SPACE
   '';
-
-  services.fnott.enable = true;
-
-  programs.vicinae = {
-    enable = true;
-    systemd.enable = true;
-  };
 }
