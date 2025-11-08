@@ -149,7 +149,22 @@
         matches = [ { app-id = "1password"; } ];
         block-out-from = "screencast";
       }
+      {
+        matches = [
+          {
+            app-id = "steam";
+            title = "^notificationtoasts";
+          }
+        ];
+        open-focused = false;
+        default-floating-position = {
+          x = 0;
+          y = 0;
+          relative-to = "bottom-right";
+        };
+      }
     ];
     debug.honor-xdg-activation-with-invalid-serial = [ ];
+    xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
   };
 }

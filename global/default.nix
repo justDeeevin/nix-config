@@ -63,7 +63,10 @@
     enable = true;
     wayland = true;
   };
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
