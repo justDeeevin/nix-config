@@ -4,10 +4,6 @@
     ./niri.nix
     ./stylix.nix
     ./noctalia.nix
+    ./vicinae.nix
   ];
-
-  programs.vicinae = {
-    enable = true;
-    systemd.enable = true;
-  };
 }
