@@ -7,12 +7,21 @@
     gimp
   ];
 
-  wayland.windowManager.hyprland.settings = {
-    monitor = [ "DP-1, highres@highrr, 0x0, 1" ];
-    input.sensitivity = -0.4;
-    exec-once = [
-      "${lib.getExe pkgs.openrgb} -p ${./icy.orp}"
-      "slack --startup"
+  programs.niri.settings = {
+    spawn-at-startup = [
+      {
+        argv = [
+          (lib.getExe pkgs.openrgb)
+          "-p"
+          (builtins.toString ./icy.orp)
+        ];
+      }
+      {
+        argv = [
+          "slack"
+          "--startup"
+        ];
+      }
     ];
   };
 

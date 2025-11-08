@@ -34,6 +34,7 @@
       in
       {
         bar = {
+          # position = "left";
           outerCorners = false;
           widgets = {
             left = widgets [

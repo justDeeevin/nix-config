@@ -1,8 +1,9 @@
 {
   imports = [
     ./hypr.nix
+    ./niri.nix
     ./stylix.nix
-    ./shell.nix
+    ./noctalia.nix
   ];
 
   programs.vicinae = {
@@ -10,4 +11,17 @@
     systemd.enable = true;
   };
 
+  services.swayidle = {
+    enable = true;
+    events = [
+      {
+        event = "lock";
+        command = "hyprlock";
+      }
+      {
+        event = "before-sleep";
+        command = "loginctl lock-session";
+      }
+    ];
+  };
 }

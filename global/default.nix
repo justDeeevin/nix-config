@@ -63,7 +63,7 @@
     enable = true;
     wayland = true;
   };
-  programs.hyprland.enable = true;
+  programs.niri.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -202,7 +202,9 @@
   qt.enable = true;
 
   services.libinput.mouse.accelProfile = "flat";
-  services.logind.settings.Login.HandlePowerKey = "suspend";
 
   virtualisation.docker.enable = true;
+  services.playerctld.enable = true;
+
+  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
 }
