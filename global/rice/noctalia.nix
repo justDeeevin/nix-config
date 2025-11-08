@@ -13,9 +13,9 @@
       rec {
         mSurface = colors.base00;
         mOnSurface = colors.base06;
-        mPrimary = colors.blue;
+        mPrimary = colors.orange;
         mOnPrimary = mOnSurface;
-        mSecondary = colors.green;
+        mSecondary = colors.blue;
         mOnSecondary = mOnSurface;
         mTertiary = colors.yellow;
         mOnTertiary = mOnSurface;
