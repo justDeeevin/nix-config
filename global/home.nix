@@ -298,22 +298,25 @@ in
         nu_scripts = pkgs.fetchFromGitHub {
           owner = "nushell";
           repo = "nu_scripts";
-          rev = "156a0110c724ce3a98327190e8a667657e4ed3c1";
-          hash = "sha256-O/zqhTFzqhFwCD54iXDfe/9WlqMg2PkiO6TLwUyIxmM=";
+          rev = "449dd3d06598714c2ba0ee3fa3556e24d034c624";
+          hash = "sha256-4ibgz7y1fsBn2aDuptqpdLd4Wdfx2sKGs7wVRJxCWW0=";
         };
         completions = "${nu_scripts}/custom-completions";
         getCompletions = cmd: "${completions}/${cmd}/${cmd}-completions.nu";
       in
+      # nu
       ''
-        use ${getCompletions "git"}
-        use ${getCompletions "just"}
-        use ${getCompletions "nix"}
-        use ${getCompletions "cargo"}
-        use ${getCompletions "bat"}
-        use ${getCompletions "gh"}
-        use ${getCompletions "ssh"}
-        use ${getCompletions "typst"}
-        use ${getCompletions "zoxide"}
+        use ${getCompletions "git"} *
+        use ${getCompletions "just"} *
+        use ${getCompletions "nix"} *
+        use ${getCompletions "cargo"} *
+        use ${getCompletions "bat"} *
+        use ${getCompletions "gh"} *
+        use ${getCompletions "ssh"} *
+        use ${getCompletions "typst"} *
+        use ${getCompletions "zoxide"} *
+        use ${getCompletions "jj"} *
+        use ${./to_nix.nu} *
 
         $env.config.cursor_shape.emacs = "line"
         $env.config.show_banner = false
@@ -326,27 +329,25 @@ in
           systemctl suspend
           exit
         }
-
-        def "jj push" [] {
-          jj bookmark m (git branch --show-current) --to @
-          jj git push
-        }
       '';
     shellAliases = {
       cd = "z";
       rm = "rip --graveyard ${config.home.homeDirectory}/.graveyard";
       shutdown = "shutdown now";
+      "to nix" = "to nix -f ${lib.getExe pkgs.nixfmt}";
     };
-    extraEnv = ''
-      if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
-        # allows the window to get properly sized before the fastfetch image is rendered
-        sleep 33ms
-        fastfetch
-      }
+    extraEnv =
+      #nu
+      ''
+        if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
+          # allows the window to get properly sized before the fastfetch image is rendered
+          sleep 33ms
+          fastfetch
+        }
 
-      $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
-      $env.EDITOR = "${lib.getExe nixvim}"
-    '';
+        $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
+        $env.EDITOR = "${lib.getExe nixvim}"
+      '';
   };
 
   programs.zoxide.enable = true;
