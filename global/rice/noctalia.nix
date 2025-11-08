@@ -77,7 +77,11 @@
           weatherEnabled = false;
           use12hourFormat = true;
         };
-        wallpaper.enabled = false; # handled by swaybg
+        wallpaper = {
+          fillColor = "#010101";
+          fillMode = "center";
+          defaultWallpaper = ./scp_3001_by_sunnyclockwork.jpg;
+        };
         controlCenter = {
           shortcuts = {
             left = widgets [

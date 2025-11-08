@@ -7,19 +7,6 @@
 {
   programs.niri.settings = {
     prefer-no-csd = true;
-    spawn-at-startup = [
-      {
-        argv = [
-          (lib.getExe pkgs.swaybg)
-          "-i"
-          (builtins.toString ./scp_3001_by_sunnyclockwork.jpg)
-          "-m"
-          "center"
-          "--color"
-          "010101"
-        ];
-      }
-    ];
     input = {
       focus-follows-mouse.enable = true;
       keyboard = {
@@ -150,8 +137,7 @@
             colors = (config.stylix.base16.mkSchemeAttrs config.stylix.base16Scheme).withHashtag;
           in
           {
-            active.color = colors.red;
-            inactive.color = colors.base07;
+            active.color = colors.green;
             urgent.color = colors.base0F;
           };
       }
