@@ -7,6 +7,18 @@
 {
   programs.niri.settings = {
     prefer-no-csd = true;
+    spawn-at-startup = [
+      {
+        argv = [
+          (lib.getExe pkgs.swayidle)
+          "-w"
+          "lock"
+          "hyprlock"
+          "before-sleep"
+          "loginctl lock-session"
+        ];
+      }
+    ];
     input = {
       focus-follows-mouse.enable = true;
       keyboard = {

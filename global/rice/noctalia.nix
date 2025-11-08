@@ -66,7 +66,7 @@
         };
         general = {
           avatarImage = ./devin.jpg;
-          lockOnSuspend = false; # handled by hypridle
+          lockOnSuspend = false; # handled by swayidle
           enableShadows = false;
         };
         ui = rec {
