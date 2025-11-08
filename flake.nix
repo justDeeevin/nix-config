@@ -55,6 +55,11 @@
       url = "github:noctalia-dev/noctalia-shell/v3.0.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

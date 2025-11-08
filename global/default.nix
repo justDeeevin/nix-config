@@ -10,6 +10,7 @@
   imports = [
     ./nvidia.nix
     inputs.sops.nixosModules.sops
+    inputs.niri-flake.nixosModules.niri
   ];
 
   # Bootloader.
