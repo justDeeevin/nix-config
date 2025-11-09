@@ -178,5 +178,9 @@
     ];
     debug.honor-xdg-activation-with-invalid-serial = [ ];
     xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
+    hotkey-overlay = {
+      skip-at-startup = true;
+      hide-not-bound = true;
+    };
   };
 }
