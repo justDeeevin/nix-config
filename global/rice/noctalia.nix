@@ -51,12 +51,15 @@
                 formatHorizontal = "h:mm a ddd, MMM dd";
               }
             ];
-            right = widgets [
+            right = [
               {
                 id = "MediaMini";
                 showAlbumArt = true;
               }
-              "NotificationHistory"
+              {
+                id = "NotificationHistory";
+                showUnreadBadge = false;
+              }
               {
                 id = "ControlCenter";
                 useDistroLogo = true;
