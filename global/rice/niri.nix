@@ -30,7 +30,10 @@
         };
       };
       mouse.accel-profile = "flat";
-      touchpad.accel-profile = "flat";
+      touchpad = {
+        accel-profile = "flat";
+        click-method = "clickfinger";
+      };
       warp-mouse-to-focus.enable = true;
     };
     outputs.DP-1 = {
