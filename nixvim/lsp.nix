@@ -15,7 +15,10 @@
       lua_ls.enable = true;
       nil_ls.enable = true;
       nushell.enable = true;
-      omnisharp.enable = true;
+      omnisharp = {
+        enable = true;
+        config.filetypes = [ "cs" ];
+      };
       rust_analyzer = {
         enable = true;
         config.settings.rust-analyzer = {
