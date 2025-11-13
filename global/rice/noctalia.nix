@@ -51,11 +51,12 @@
                 formatHorizontal = "h:mm a ddd, MMM dd";
               }
             ];
-            right = [
+            right = widgets [
               {
                 id = "MediaMini";
                 showAlbumArt = true;
               }
+              "Battery"
               {
                 id = "NotificationHistory";
                 showUnreadBadge = false;
