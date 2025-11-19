@@ -8,6 +8,15 @@
   ];
 
   programs.niri.settings = {
+    outputs.DP-1 = {
+      backdrop-color = "010101";
+      variable-refresh-rate = true;
+      mode = {
+        height = 1440;
+        width = 2560;
+        refresh = 239.999;
+      };
+    };
     spawn-at-startup = [
       {
         argv = [
