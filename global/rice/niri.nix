@@ -36,10 +36,6 @@
       };
       warp-mouse-to-focus.enable = true;
     };
-    outputs.DP-1 = {
-      backdrop-color = "010101";
-      variable-refresh-rate = true;
-    };
     cursor.size = 32;
     layout = {
       default-column-width.proportion = 0.5;
