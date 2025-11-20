@@ -2,14 +2,14 @@
 
 == Introduction
 
-This repo contains the NixOS system configurations for my desktop and laptop NixOS computers. The grand majority of configuration is shared between the two systems, located in `global`. The repo also contains my Hyprland rice and other app configuration.
+This repo contains the NixOS system configurations for my desktop and laptop NixOS computers. The grand majority of configuration is shared between the two systems, located in `global`. The repo also contains my Niri rice and other app configuration.
 
 == The Rice
 
-The system is themed mostly via https://github.com/danth/stylix[Stylix], using https://github.com/nyoom-engineering/base16-oxocarbon[Oxocarbon] for colors, https://www.michieldb.nl/other/cursors/[Posy's cursor], https://monaspace.githubnext.com/[GitHub Monaspace] Neon for monospace text, and https://www.deviantart.com/sunnyclockwork/art/SCP-3001-678884225[this piece by SunnyClockwork] for the wallpaper. It uses AGS for a top bar and notifications, `swaybg`, and `hyprlock` (on the laptop only).
+The system is themed mostly via https://github.com/danth/stylix[Stylix], using https://github.com/nyoom-engineering/base16-oxocarbon[Oxocarbon] for colors, https://www.michieldb.nl/other/cursors/[Posy's cursor], https://monaspace.githubnext.com/[GitHub Monaspace] Neon for monospace text, and https://www.deviantart.com/sunnyclockwork/art/SCP-3001-678884225[this piece by SunnyClockwork] for the wallpaper. It uses https://github.com/noctalia-dev/noctalia-shell[Noctalia shell] for a top bar, notifications, and wallpaper.
 
 == Screenshots
 
-image::media/wallpaper-laptop.png[]
-image::media/terminal-laptop.png[]
-image::media/hyprlock-laptop.png[]
+image::media/wallpaper.png[A screnshot of the wallpaper]
+image::media/terminal.png[A screenshot of the terminal]
+image::media/hyprlock.png[A screenshot of the lock screen]
