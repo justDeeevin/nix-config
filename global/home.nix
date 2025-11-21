@@ -383,6 +383,7 @@ in
       auto-update = "off";
       keybind = [
         "ctrl+shift+n=unbind"
+        "ctrl+enter=unbind"
       ];
       custom-shader =
         let
