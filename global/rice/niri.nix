@@ -54,6 +54,7 @@
 
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
     };
+    screenshot-path = null;
     binds =
       with config.lib.niri.actions;
       let
@@ -103,7 +104,11 @@
         "XF86Mail".action = spawn (lib.getExe pkgs.ghostty);
 
         "Mod+Space".action = spawn "vicinae" "open";
+
         "Print".action.screenshot.show-pointer = false;
+        "Shift+Print".action.screenshot-window = { };
+        "Ctrl+Print".action.screenshot-screen.show-pointer = false;
+
         "Ctrl+Shift+Space".action = spawn (lib.getExe pkgs._1password-gui) "--quick-access";
         "Ctrl+Shift+Backslash".action = spawn (lib.getExe pkgs._1password-gui);
         "Mod+C".action = spawn (lib.getExe pkgs.hyprpicker) "-a";
