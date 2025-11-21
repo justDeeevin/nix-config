@@ -222,19 +222,19 @@ in
 
       cmd_duration.min_time = 0;
 
-      # custom.jujutsu = {
-      #   command = "prompt";
-      #   format = "$output ";
-      #   ignore_timeout = true;
-      #   shell = [
-      #     (lib.getExe inputs.starship-jj.packages.x86_64-linux.default)
-      #     "--ignore-working-copy"
-      #     "starship"
-      #   ];
-      #   use_stdin = false;
-      #   when = true;
-      # };
-      #
+      custom.jujutsu = {
+        command = "prompt";
+        format = "$output ";
+        ignore_timeout = true;
+        shell = [
+          (lib.getExe inputs.starship-jj.packages.x86_64-linux.default)
+          "--ignore-working-copy"
+          "starship"
+        ];
+        use_stdin = false;
+        when = true;
+      };
+
       git_branch.disabled = true;
       git_commit.disabled = true;
       git_state.disabled = true;
