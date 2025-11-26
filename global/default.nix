@@ -1,29 +1,45 @@
 {
   pkgs,
+  lib,
   inputs,
   stateVersion,
-  home,
-  config,
+  graphical,
   ...
 }:
 {
   imports = [
-    ./nvidia.nix
     inputs.sops.nixosModules.sops
-    inputs.niri-flake.nixosModules.niri
-  ];
+  ]
+  ++ lib.optional graphical ./graphical;
 
   # Bootloader.
-  boot.loader.limine = {
-    enable = true;
-    style = {
-      wallpapers = [ config.home-manager.users.devin.stylix.image ];
-      wallpaperStyle = "centered";
-      backdrop = "010101";
-    };
-  };
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+  }
+  // (
+    if graphical then
+      { limine.enable = true; }
+    else
+      {
+        grub = {
+          enable = true;
+          device = "/dev/sda";
+        };
+      }
+  );
   boot.supportedFilesystems = [ "ntfs" ];
+
+  users.users.admin = lib.mkIf (!graphical) {
+    isNormalUser = true;
+    description = "Administrator";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+      "libvirtd"
+    ];
+    shell = pkgs.nushell;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -58,16 +74,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # services.desktopManager.plasma6.enable = true;
-  services.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-  programs.niri = {
-    enable = true;
-    package = pkgs.niri-unstable;
-  };
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -100,35 +106,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.devin = {
-    isNormalUser = true;
-    description = "Devin Droddy";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "adbusers"
-      "libvirtd"
-    ];
-    shell = pkgs.nushell;
-  };
-
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
     # permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    extraSpecialArgs = {
-      inherit inputs;
-      inherit stateVersion;
-      inherit home;
-    };
-    users = {
-      "devin" = ./home.nix;
-    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -155,59 +136,16 @@
       "nix-command"
       "flakes"
     ];
-    trusted-users = [ "devin" ];
+    trusted-users = [ (if graphical then "devin" else "admin") ];
   };
 
-  hardware.bluetooth.enable = true;
+  environment.systemPackages = lib.optional (!graphical) inputs.self.packages.x86_64-linux.nixvim;
 
-  hardware.xpadneo.enable = true;
+  services.openssh.enable = !graphical;
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.symbols-only
-    monaspace
-  ];
-
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "devin" ];
-  };
-  environment.etc."1password/custom_allowed_browsers" = {
-    text = ''
-      zen
-    '';
-    mode = "0755";
-  };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [ ];
-
-  services.flatpak.enable = true;
-
-  security.sudo.extraConfig = "Defaults pwfeedback";
-
-  services.gnome.gnome-keyring.enable = true;
-
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-    PROTON_ENABLE_WAYLAND = 1;
-    # DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
-    XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
-  };
-
-  sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
-
-  programs.steam.enable = true;
-
-  qt.enable = true;
-
-  services.libinput.mouse.accelProfile = "flat";
-
-  virtualisation.docker.enable = true;
-  services.playerctld.enable = true;
-
-  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
+  sops.age.keyFile =
+    let
+      user = if graphical then "devin" else "admin";
+    in
+    "/home/${user}/.config/sops/age/keys.txt";
 }

@@ -65,25 +65,30 @@
   outputs =
     { nixpkgs, ... }@inputs:
     let
+      lib = nixpkgs.lib;
       mkSystem =
         {
           hostName,
           stateVersion,
           config ? { },
           home ? { },
+          graphical ? true,
         }:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
-            inherit stateVersion;
-            inherit home;
+            inherit
+              inputs
+              stateVersion
+              home
+              graphical
+              ;
           };
           modules = [
-            inputs.home-manager.nixosModules.default
             { networking.hostName = hostName; }
             ./global
             config
-          ];
+          ]
+          ++ lib.optional graphical inputs.home-manager.nixosModules.default;
         };
       mkSystems =
         hosts:
@@ -110,6 +115,12 @@
           config = ./hosts/higgs/configuration.nix;
           stateVersion = "25.05";
           home = ./hosts/higgs/home.nix;
+        };
+        # Homelab VPN VM
+        field = {
+          config = ./hosts/field/configuration.nix;
+          stateVersion = "25.05";
+          graphical = false;
         };
       };
       devShell.x86_64-linux = pkgs.mkShell {
