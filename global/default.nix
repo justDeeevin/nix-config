@@ -139,7 +139,13 @@
     trusted-users = [ (if graphical then "devin" else "admin") ];
   };
 
-  environment.systemPackages = lib.optional (!graphical) inputs.self.packages.x86_64-linux.nixvim;
+  environment.systemPackages =
+    with pkgs;
+    lib.optionals (!graphical) [
+      inputs.self.packages.x86_64-linux.nixvim
+      jujutsu
+      git
+    ];
 
   services.openssh.enable = !graphical;
 
