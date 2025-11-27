@@ -42,14 +42,4 @@
   users.groups.cloudflared = { };
 
   environment.systemPackages = [ pkgs.cloudflared ];
-
-  networking.interfaces.ens18 = {
-    ipv4.addresses = [
-      {
-        address = "192.168.86.44";
-        prefixLength = 24;
-      }
-    ];
-    useDHCP = false;
-  };
 }
