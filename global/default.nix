@@ -145,6 +145,7 @@
       inputs.self.packages.x86_64-linux.nixvim
       jujutsu
       git
+      sops
     ];
 
   services.openssh.enable = !graphical;
