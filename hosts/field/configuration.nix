@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -35,4 +40,6 @@
     group = "cloudflared";
   };
   users.groups.cloudflared = { };
+
+  environment.systemPackages = [ pkgs.cloudflared ];
 }
