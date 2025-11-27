@@ -30,7 +30,5 @@
       path = [ pkgs.alsa-tools ];
     };
 
-  security.pam.services.hyprlock = { };
-
   services.upower.enable = true;
 }
