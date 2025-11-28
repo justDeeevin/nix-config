@@ -5,6 +5,7 @@
     enable = true;
     profileDir = "/mnt/downloads/";
     openFirewall = true;
+    group = "media";
   };
 
   users.groups.media.gid = 600;
