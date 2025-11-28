@@ -55,4 +55,5 @@ with pkgs;
   vscode
   python314
   sl
+  tsukimi
 ]
