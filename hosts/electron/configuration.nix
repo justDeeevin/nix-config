@@ -6,15 +6,17 @@
     openFirewall = true;
   };
 
+  users.groups.media.gid = 600;
+
   services.sonarr = {
     enable = true;
     openFirewall = true;
-    group = "servarr";
+    group = "media";
   };
 
   services.radarr = {
     enable = true;
     openFirewall = true;
-    group = "servarr";
+    group = "media";
   };
 }

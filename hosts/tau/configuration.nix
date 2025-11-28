@@ -6,4 +6,6 @@
     profileDir = "/mnt/downloads/";
     openFirewall = true;
   };
+
+  users.groups.media.gid = 600;
 }
