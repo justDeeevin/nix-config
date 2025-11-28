@@ -105,10 +105,10 @@
       };
       nixosConfigurations = mkSystems {
         # Desktop
-        photon = {
-          config = ./hosts/photon/configuration.nix;
+        graviton = {
+          config = ./hosts/graviton/configuration.nix;
           stateVersion = "24.11";
-          home = ./hosts/photon/home.nix;
+          home = ./hosts/graviton/home.nix;
         };
         # Laptop
         higgs = {
