@@ -128,6 +128,12 @@
           stateVersion = "25.05";
           graphical = false;
         };
+	# Homelab Servarr VM
+        electron = {
+          config = ./hosts/electron/configuration.nix;
+          stateVersion = "25.05";
+          graphical = false;
+        };
       };
       devShell.x86_64-linux = pkgs.mkShell {
         packages = with pkgs; [
