@@ -1,6 +1,6 @@
 keys:
   - &higgs age1zwsq6rx0ur4nd6lrfnrhqf6afxrnwffzcdwpkrtylgy8smm5mgssymd9hk
-  - &photon age10jhs53hk0t2g8k4xsa7fsunpzeeuhqlfdcpzg9m6x2dgn8nam95sp8wr0v
+  - &graviton age10jhs53hk0t2g8k4xsa7fsunpzeeuhqlfdcpzg9m6x2dgn8nam95sp8wr0v
   - &field age1vnp5gdjh3rvdl2c64znmj90h7x7dmjz32rcnf0fqyuw5vsy3neeqn40me7
   - &electron age10czp3260pmjwktggstarpfvx97m36dmhn0fqmcxc342nemwjeq0q9n4hd4
 creation_rules:
@@ -8,13 +8,13 @@ creation_rules:
     key_groups:
       - age:
           - *higgs
-          - *photon
+          - *graviton
           - *field
           - *electron
   - path_regex: hosts/.*/secrets.yaml$
     key_groups:
       - age:
           - *higgs
-          - *photon
+          - *graviton
           - *field
           - *electron
