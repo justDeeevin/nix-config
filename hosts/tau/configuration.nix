@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -9,4 +10,6 @@
   };
 
   users.groups.media.gid = 600;
+
+  environment.systemPackages = [ (pkgs.ouch.override { enableUnfree = true; }) ];
 }
