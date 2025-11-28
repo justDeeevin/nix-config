@@ -134,6 +134,12 @@
           stateVersion = "25.05";
           graphical = false;
         };
+        # Homelab Jellyfin VM
+        photon = {
+          config = ./hosts/photon/configuration.nix;
+          stateVersion = "25.05";
+          graphical = false;
+        };
       };
       devShell.x86_64-linux = pkgs.mkShell {
         packages = with pkgs; [
