@@ -19,4 +19,21 @@
     openFirewall = true;
     group = "media";
   };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts.":80".extraConfig = ''
+      handle /sonarr* {
+        reverse_proxy :8989
+      }
+      handle /radarr* {
+        reverse_proxy :7878
+      }
+      handle /prowlarr* {
+        reverse_proxy :9696
+      }
+    '';
+  };
+
+  networking.firewall.allowedTCPPorts = [ 80 ];
 }
