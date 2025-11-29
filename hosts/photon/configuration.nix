@@ -11,7 +11,11 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts.":80".extraConfig = "reverse_proxy :8096";
+    virtualHosts.":80".extraConfig = ''
+      reverse_proxy :8096 {
+        flush_interval -1
+      }
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [ 80 ];
