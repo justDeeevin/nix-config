@@ -8,4 +8,9 @@
     openFirewall = true;
     group = "media";
   };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."photon.lan".extraConfig = "reverse_proxy :8096";
+  };
 }
