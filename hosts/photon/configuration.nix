@@ -11,6 +11,8 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts."photon.lan".extraConfig = "reverse_proxy :8096";
+    virtualHosts.":80".extraConfig = "reverse_proxy :8096";
   };
+
+  networking.firewall.allowedTCPPorts = [ 80 ];
 }
