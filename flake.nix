@@ -140,6 +140,12 @@
           stateVersion = "25.05";
           graphical = false;
         };
+        # Homelab Caddy VM
+        charm = {
+          config = ./hosts/charm/configuration.nix;
+          stateVersion = "25.05";
+          graphical = false;
+        };
       };
       devShell.x86_64-linux = pkgs.mkShell {
         packages = with pkgs; [
