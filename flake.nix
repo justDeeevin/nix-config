@@ -122,13 +122,13 @@
           stateVersion = "25.05";
           graphical = false;
         };
-        # Homelab NAS VM
+        # Homelab qBittorrent VM
         tau = {
           config = ./hosts/tau/configuration.nix;
           stateVersion = "25.05";
           graphical = false;
         };
-	# Homelab Servarr VM
+        # Homelab Servarr VM
         electron = {
           config = ./hosts/electron/configuration.nix;
           stateVersion = "25.05";
