@@ -9,6 +9,8 @@
     group = "media";
   };
 
+  nixpkgs.config.cudaSupport = true;
+
   services.caddy = {
     enable = true;
     virtualHosts.":80".extraConfig = ''
@@ -19,4 +21,8 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 ];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics.enable = true;
+  hardware.nvidia.open = false;
 }
