@@ -104,4 +104,10 @@
   nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
 
   services.cloudflare-warp.enable = true;
+
+  networking.hosts = {
+    "192.168.86.48" = [ "electron.lan" ];
+    "192.168.86.41" = [ "tau.lan" ];
+    "192.168.86.34" = [ "photon.lan" ];
+  };
 }
