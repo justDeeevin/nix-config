@@ -102,4 +102,6 @@
   services.playerctld.enable = true;
 
   nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
+
+  services.cloudflare-warp.enable = true;
 }
