@@ -14,7 +14,6 @@ with pkgs;
   kdePackages.kalk
   jdk
   gradle
-  wineWowPackages.waylandFull
   tree-sitter
   magic-wormhole
   inputs.zen-browser.packages.x86_64-linux.default
