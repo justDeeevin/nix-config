@@ -523,4 +523,6 @@ in
     <Multi_key> <p> <i> : "π" # PI
     <Multi_key> <0> <space> : "​" # ZERO WIDTH SPACE
   '';
+
+  programs.nushell.shellAliases.warp = "warp-cli";
 }
