@@ -146,6 +146,12 @@
           stateVersion = "25.05";
           graphical = false;
         };
+        # Homelab Copyparty VM
+        down = {
+          config = ./hosts/down/configuration.nix;
+          stateVersion = "25.05";
+          graphical = false;
+        };
       };
       devShell.x86_64-linux = pkgs.mkShell {
         packages = with pkgs; [
