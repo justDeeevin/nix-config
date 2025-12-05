@@ -5,6 +5,7 @@
     gzdoom
     prismlauncher
     gimp
+    reaper
   ];
 
   programs.niri.settings = {
