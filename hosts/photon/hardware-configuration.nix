@@ -29,8 +29,13 @@
     fsType = "ext4";
   };
 
-  fileSystems."/media" = {
-    device = "media";
+  fileSystems."/media/movies" = {
+    device = "movies";
+    fsType = "virtiofs";
+  };
+
+  fileSystems."/media/tv" = {
+    device = "tv";
     fsType = "virtiofs";
   };
 
