@@ -29,15 +29,10 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/tv" = {
-    device = "tv";
-    fsType = "virtiofs";
-  };
-
-  fileSystems."/mnt/movies" = {
-    device = "movies";
-    fsType = "virtiofs";
-  };
+  # fileSystems."/media" = {
+  #   device = "media";
+  #   fsType = "virtiofs";
+  # };
 
   swapDevices = [ ];
 
