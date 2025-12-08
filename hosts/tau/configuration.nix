@@ -4,7 +4,6 @@
 
   services.qbittorrent = {
     enable = true;
-    profileDir = "/mnt/downloads/";
     openFirewall = true;
     group = "media";
   };
