@@ -15,7 +15,7 @@
     group = "media";
 
     volumes."/" = {
-      path = "/mnt/downloads";
+      path = "/media";
       access = {
         r = "*";
       };
