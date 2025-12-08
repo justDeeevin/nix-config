@@ -33,7 +33,6 @@ with pkgs;
   bluetui
   nixvim
   rip2
-  (import inputs.nixpkgs-new-equibop { system = "x86_64-linux"; }).equibop
   nautilus
   osu-lazer-bin
   slack
@@ -57,4 +56,5 @@ with pkgs;
   sl
   tsukimi
   deadlock-mod-manager
+  equibop
 ]

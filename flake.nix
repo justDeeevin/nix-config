@@ -47,10 +47,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-new-equibop = {
-      url = "github:rexcrazy804/nixpkgs/update-equibop";
-    };
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell/v3.0.2";
       inputs.nixpkgs.follows = "nixpkgs";

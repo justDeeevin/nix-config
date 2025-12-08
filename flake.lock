@@ -456,22 +456,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-new-equibop": {
-      "locked": {
-        "lastModified": 1763839941,
-        "narHash": "sha256-LIoEQm2pLyC/Mw3us9edOBLjyFrdZULtqfYM5dX0PDc=",
-        "owner": "rexcrazy804",
-        "repo": "nixpkgs",
-        "rev": "db8b654baccea1d38e22927224e77e432637f02a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rexcrazy804",
-        "ref": "update-equibop",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1764316264,
@@ -611,7 +595,6 @@
         "niri-flake": "niri-flake",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-new-equibop": "nixpkgs-new-equibop",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
         "sops": "sops",
