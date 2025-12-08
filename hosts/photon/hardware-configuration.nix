@@ -29,10 +29,10 @@
     fsType = "ext4";
   };
 
-  # fileSystems."/media" = {
-  #   device = "media";
-  #   fsType = "virtiofs";
-  # };
+  fileSystems."/media" = {
+    device = "media";
+    fsType = "virtiofs";
+  };
 
   swapDevices = [ ];
 
