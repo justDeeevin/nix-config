@@ -57,4 +57,5 @@ with pkgs;
   tsukimi
   deadlock-mod-manager
   equibop
+  zoom-us
 ]
