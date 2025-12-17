@@ -101,6 +101,32 @@
           ];
         };
         dock.enabled = false;
+        sessionMenu.powerOptions =
+          let
+            powerOptions =
+              options:
+              builtins.map (
+                option:
+                if builtins.isAttrs option then
+                  option
+                else
+                  {
+                    action = option;
+                    enabled = true;
+                  }
+              ) options;
+          in
+          powerOptions [
+            {
+              action = "lock";
+              enabled = true;
+              command = "loginctl lock-session";
+            }
+            "logout"
+            "suspend"
+            "reboot"
+            "shutdown"
+          ];
       };
   };
 
