@@ -155,4 +155,15 @@
       user = if graphical then "devin" else "admin";
     in
     "/home/${user}/.config/sops/age/keys.txt";
+
+  services.kmscon = {
+    enable = true;
+    useXkbConfig = true;
+    fonts = [
+      {
+        name = "Monaspace Krypton";
+        package = pkgs.monaspace;
+      }
+    ];
+  };
 }

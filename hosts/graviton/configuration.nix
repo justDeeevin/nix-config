@@ -49,4 +49,6 @@ in
   };
 
   nixpkgs.config.cudaSupport = true;
+
+  services.kmscon.hwRender = true;
 }
