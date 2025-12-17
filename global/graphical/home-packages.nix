@@ -54,7 +54,6 @@ with pkgs;
   python314
   sl
   tsukimi
-  deadlock-mod-manager
   equibop
   zoom-us
 ]
