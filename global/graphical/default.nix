@@ -30,6 +30,8 @@
       clear_password = true;
       default_input = "password";
       animation = "colormix";
+      colormix_col2 = "0xFF0000";
+      colormix_col1 = "0x0000FF";
     };
   };
   programs.niri = {
