@@ -34,7 +34,6 @@
       in
       {
         bar = {
-          # position = "left";
           outerCorners = false;
           widgets = {
             left = widgets [
@@ -52,6 +51,7 @@
               }
             ];
             right = widgets [
+              "plugin:privacy-indicator"
               {
                 id = "MediaMini";
                 showAlbumArt = true;
@@ -102,6 +102,24 @@
         };
         dock.enabled = false;
       };
+  };
+
+  xdg.configFile."noctalia/plugins.json".text = builtins.toJSON {
+    sources = [
+      {
+        enabled = true;
+        name = "Official Noctalia Plugins";
+        url = "https://github.com/noctalia-dev/noctalia-plugins";
+      }
+    ];
+    states.privacy-indicator.enabled = true;
+    version = 1;
+  };
+
+  xdg.configFile."noctalia/plugins/privacy-indicator/settings.json".text = builtins.toJSON {
+    hideInactive = true;
+    iconSpacing = 4;
+    removeMargins = false;
   };
 
   xdg.cacheFile."noctalia/wallpapers.json".text = builtins.toJSON {
