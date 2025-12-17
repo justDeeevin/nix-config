@@ -34,6 +34,7 @@
       ghostty.enable = false;
       btop.enable = false;
       bat.enable = false;
+      noctalia-shell.enable = false;
     };
     opacity = {
       desktop = 1.0;

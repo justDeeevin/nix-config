@@ -84,7 +84,6 @@
         wallpaper = {
           fillColor = "#010101";
           fillMode = "center";
-          defaultWallpaper = ./scp_3001_by_sunnyclockwork.jpg;
         };
         controlCenter = {
           shortcuts = {
@@ -103,5 +102,9 @@
         };
         dock.enabled = false;
       };
+  };
+
+  xdg.cacheFile."noctalia/wallpapers.json".text = builtins.toJSON {
+    defaultWallpaper = ./scp_3001_by_sunnyclockwork.jpg;
   };
 }
