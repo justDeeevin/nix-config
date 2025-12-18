@@ -43,42 +43,18 @@
       "compose2nix.settings.sops.secrets" = "homarr.env";
     };
     log-driver = "journald";
-    extraOptions = [
-      "--network-alias=homarr"
-      "--network=homarr_default"
-    ];
+    extraOptions = [ "--network=host" ];
   };
   systemd.services."podman-homarr" = {
     serviceConfig = {
       Restart = lib.mkOverride 90 "always";
     };
-    after = [
-      "podman-network-homarr_default.service"
-    ];
-    requires = [
-      "podman-network-homarr_default.service"
-    ];
     partOf = [
       "podman-compose-homarr-root.target"
     ];
     wantedBy = [
       "podman-compose-homarr-root.target"
     ];
-  };
-
-  # Networks
-  systemd.services."podman-network-homarr_default" = {
-    path = [ pkgs.podman ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStop = "podman network rm -f homarr_default";
-    };
-    script = ''
-      podman network inspect homarr_default || podman network create homarr_default
-    '';
-    partOf = [ "podman-compose-homarr-root.target" ];
-    wantedBy = [ "podman-compose-homarr-root.target" ];
   };
 
   # Root service
