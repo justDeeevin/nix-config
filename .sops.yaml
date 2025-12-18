@@ -3,6 +3,7 @@ keys:
   - &graviton age10jhs53hk0t2g8k4xsa7fsunpzeeuhqlfdcpzg9m6x2dgn8nam95sp8wr0v
   - &field age1vnp5gdjh3rvdl2c64znmj90h7x7dmjz32rcnf0fqyuw5vsy3neeqn40me7
   - &electron age10czp3260pmjwktggstarpfvx97m36dmhn0fqmcxc342nemwjeq0q9n4hd4
+  - &charm age1tr5emf3g5z5vvk2tyfgpg8ykmzvvfe3rsrzl0wwtxu9a27dp5guqldv8kx
 creation_rules:
   - path_regex: global/secrets.yaml$
     key_groups:
@@ -11,6 +12,7 @@ creation_rules:
           - *graviton
           - *field
           - *electron
+          - *charm
   - path_regex: hosts/.*/secrets.yaml$
     key_groups:
       - age:
@@ -18,3 +20,4 @@ creation_rules:
           - *graviton
           - *field
           - *electron
+          - *charm
