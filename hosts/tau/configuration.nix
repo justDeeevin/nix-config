@@ -5,10 +5,15 @@
   services.qbittorrent = {
     enable = true;
     openFirewall = true;
-    group = "media";
+    user = "media";
   };
 
   users.groups.media.gid = 600;
+  users.users.media = {
+    uid = 600;
+    isSystemUser = true;
+    group = "media";
+  };
 
   environment.systemPackages = [ (pkgs.ouch.override { enableUnfree = true; }) ];
 

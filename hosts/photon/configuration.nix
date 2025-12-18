@@ -2,11 +2,16 @@
   imports = [ ./hardware-configuration.nix ];
 
   users.groups.media.gid = 600;
+  users.users.media = {
+    uid = 600;
+    isSystemUser = true;
+    group = "media";
+  };
 
   services.jellyfin = {
     enable = true;
     openFirewall = true;
-    group = "media";
+    user = "media";
   };
 
   nixpkgs.config.cudaSupport = true;

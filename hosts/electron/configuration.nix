@@ -7,17 +7,22 @@
   };
 
   users.groups.media.gid = 600;
+  users.users.media = {
+    uid = 600;
+    isSystemUser = true;
+    group = "media";
+  };
 
   services.sonarr = {
     enable = true;
     openFirewall = true;
-    group = "media";
+    user = "media";
   };
 
   services.radarr = {
     enable = true;
     openFirewall = true;
-    group = "media";
+    user = "media";
   };
 
   services.caddy = {
