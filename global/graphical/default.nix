@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   inputs,
   stateVersion,
@@ -123,5 +124,25 @@
     "192.168.86.34" = [ "photon.lan" ];
     "192.168.86.39" = [ "down.lan" ];
     "192.168.86.40" = [ "charm.lan" ];
+  };
+
+  xdg.portal = {
+    extraPortals =
+      with pkgs;
+      lib.mkForce [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        gnome-keyring
+      ];
+
+    config.niri = {
+      default = [
+        "gnome"
+        "gtk"
+      ];
+      "org.freedesktop.impl.portal.Access" = "gtk";
+      "org.freedesktop.impl.portal.Notification" = "gtk";
+      "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+    };
   };
 }

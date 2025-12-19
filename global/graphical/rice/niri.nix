@@ -18,6 +18,22 @@
           "loginctl lock-session"
         ];
       }
+      {
+        argv = [
+          "systemctl"
+          "--user"
+          "restart"
+          "xdg-desktop-portal-gnome"
+        ];
+      }
+      {
+        argv = [
+          "systemctl"
+          "--user"
+          "restart"
+          "xdg-desktop-portal-gtk"
+        ];
+      }
     ];
     input = {
       focus-follows-mouse.enable = true;
