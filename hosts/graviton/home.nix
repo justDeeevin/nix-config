@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   home.packages = with pkgs; [
     ntfs3g
@@ -17,6 +22,18 @@
         width = 2560;
         refresh = 239.999;
       };
+      position = {
+        x = 1080;
+        y = (1920 - 1440) / 2;
+      };
+    };
+    outputs.HDMI-A-1 = {
+      backdrop-color = "010101";
+      position = {
+        x = 0;
+        y = 0;
+      };
+      transform.rotation = 270;
     };
     spawn-at-startup = [
       {
@@ -33,6 +50,17 @@
         ];
       }
     ];
+    window-rules = [
+      {
+        matches = [ { app-id = "equibop"; } ];
+        open-maximized = true;
+      }
+    ];
+
+    binds = with config.lib.niri.actions; {
+      "Mod+Ctrl+M".action = focus-monitor-left;
+      "Mod+Ctrl+I".action = focus-monitor-right;
+    };
   };
 
   programs.vscode.profiles.default = {
