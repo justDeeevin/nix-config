@@ -90,8 +90,8 @@
         "Mod+Shift+S".action = set-dynamic-cast-monitor;
         "Ctrl+Mod+S".action = clear-dynamic-cast-target;
 
-        "Mod+M".action = focus-column-left;
-        "Mod+Left".action = focus-column-left;
+        "Mod+M".action = focus-column-or-monitor-left;
+        "Mod+Left".action = focus-column-or-monitor-left;
         "Mod+Shift+M".action = swap-window-left;
         "Mod+Shift+Left".action = swap-window-left;
 
@@ -105,8 +105,8 @@
         "Mod+Shift+E".action = move-window-to-workspace-up;
         "Mod+Shift+Up".action = move-window-to-workspace-up;
 
-        "Mod+I".action = focus-column-right;
-        "Mod+Right".action = focus-column-right;
+        "Mod+I".action = focus-column-or-monitor-right;
+        "Mod+Right".action = focus-column-or-monitor-right;
         "Mod+Shift+I".action = swap-window-right;
         "Mod+Shift+Right".action = swap-window-right;
 

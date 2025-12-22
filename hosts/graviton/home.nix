@@ -56,11 +56,6 @@
         open-maximized = true;
       }
     ];
-
-    binds = with config.lib.niri.actions; {
-      "Mod+Ctrl+M".action = focus-monitor-left;
-      "Mod+Ctrl+I".action = focus-monitor-right;
-    };
   };
 
   programs.vscode.profiles.default = {
