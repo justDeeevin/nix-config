@@ -56,4 +56,5 @@ with pkgs;
   tsukimi
   equibop
   zoom-us
+  gnome-boxes
 ]
