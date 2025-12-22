@@ -2,9 +2,29 @@
 {
   plugins.treesitter = {
     enable = true;
-    settings.auto_install = true;
     settings.highlight.enable = true;
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      bash
+      css
+      dockerfile
+      dot
+      html
+      java
+      javadoc
+      javascript
+      json
+      lua
+      markdown
+      nix
+      nu
+      regex
+      rust
+      svelte
+      toml
+      tsx
+      typescript
+      typst
+      xml
+    ];
   };
-
-  extraPackages = with pkgs; [ clang ];
 }
