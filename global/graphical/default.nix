@@ -19,21 +19,9 @@
     backdrop = "010101";
   };
 
-  services.displayManager.ly = {
-    x11Support = false;
+  services.displayManager.gdm = {
     enable = true;
-    settings = {
-      asterisk = 8226;
-      bigclock = "en";
-      bigclock_12hr = true;
-      brightness_down_key = null;
-      brightness_up_key = null;
-      clear_password = true;
-      default_input = "password";
-      animation = "colormix";
-      colormix_col2 = "0xFF0000";
-      colormix_col1 = "0x0000FF";
-    };
+    wayland = true;
   };
   programs.niri = {
     enable = true;
