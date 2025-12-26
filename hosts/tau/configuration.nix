@@ -15,7 +15,7 @@
     group = "media";
   };
 
-  environment.systemPackages = [ (pkgs.ouch.override { enableUnfree = true; }) ];
+  environment.systemPackages = [ pkgs.unrar ];
 
   services.caddy = {
     enable = true;
