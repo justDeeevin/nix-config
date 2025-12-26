@@ -29,8 +29,8 @@
     fsType = "ext4";
   };
 
-  fileSystems."/media" = {
-    device = "media";
+  fileSystems."/media/downloads" = {
+    device = "downloads";
     fsType = "virtiofs";
   };
 
