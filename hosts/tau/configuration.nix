@@ -6,6 +6,7 @@
     enable = true;
     openFirewall = true;
     user = "media";
+    group = "media";
   };
 
   users.groups.media.gid = 600;
