@@ -7,7 +7,7 @@
 }:
 with pkgs;
 [
-  youtube-music
+  pear-desktop
   wl-clipboard
   vlc
   ffmpeg-full
