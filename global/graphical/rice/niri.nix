@@ -129,7 +129,7 @@
         "Ctrl+Shift+Backslash".action = spawn (lib.getExe pkgs._1password-gui);
         "Mod+C".action = spawn (lib.getExe pkgs.hyprpicker) "-a";
         "Mod+v".action = spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";
-        "Mod+Period".action = spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis";
+        "Mod+Period".action = spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis";
 
         "XF86AudioRaiseVolume" = {
           action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
