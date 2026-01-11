@@ -88,7 +88,7 @@
         controlCenter = {
           shortcuts = {
             left = widgets [
-              "WiFi"
+              "Network"
               "Bluetooth"
             ];
             right = [ ];

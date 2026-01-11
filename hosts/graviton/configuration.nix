@@ -21,8 +21,6 @@ in
     # ./arr.nix
   ];
 
-  programs.adb.enable = true;
-
   programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
