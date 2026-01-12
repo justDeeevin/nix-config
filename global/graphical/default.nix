@@ -5,9 +5,45 @@
   inputs,
   stateVersion,
   home,
+  isDarwin,
   ...
 }:
 {
+  users.users.devin = {
+    description = "Devin Droddy";
+    shell = pkgs.nushell;
+    home = if isDarwin then "/Users/devin" else "/home/devin";
+  };
+  environment.shells = [ pkgs.nushell ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    extraSpecialArgs = {
+      inherit
+        inputs
+        stateVersion
+        home
+        isDarwin
+        ;
+    };
+    users = {
+      "devin" = ./home.nix;
+    };
+  };
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.symbols-only
+    monaspace
+  ];
+
+  programs._1password.enable = true;
+  programs._1password-gui.enable = true;
+
+  security.sudo.extraConfig = "Defaults pwfeedback";
+
+  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
+}
+// lib.optionalAttrs (!isDarwin) {
   imports = [
     ./nvidia.nix
     inputs.niri-flake.nixosModules.niri
@@ -28,70 +64,16 @@
     package = pkgs.niri-unstable;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.devin = {
-    isNormalUser = true;
-    description = "Devin Droddy";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "adbusers"
-      "libvirtd"
-    ];
-    shell = pkgs.nushell;
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    extraSpecialArgs = {
-      inherit inputs;
-      inherit stateVersion;
-      inherit home;
-    };
-    users = {
-      "devin" = ./home.nix;
-    };
-  };
-
   hardware.bluetooth.enable = true;
 
   hardware.xpadneo.enable = true;
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.symbols-only
-    monaspace
-  ];
-
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "devin" ];
-  };
-  environment.etc."1password/custom_allowed_browsers" = {
-    text = ''
-      zen
-    '';
-    mode = "0755";
-  };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [ ];
-
   services.flatpak.enable = true;
-
-  security.sudo.extraConfig = "Defaults pwfeedback";
 
   services.gnome.gnome-keyring.enable = true;
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-    PROTON_ENABLE_WAYLAND = 1;
-    # DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
-    XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
-  };
 
   programs.steam.enable = true;
 
@@ -102,17 +84,7 @@
   virtualisation.docker.enable = true;
   services.playerctld.enable = true;
 
-  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
-
   services.cloudflare-warp.enable = true;
-
-  networking.hosts = {
-    "192.168.86.48" = [ "electron.lan" ];
-    "192.168.86.41" = [ "tau.lan" ];
-    "192.168.86.34" = [ "photon.lan" ];
-    "192.168.86.39" = [ "down.lan" ];
-    "192.168.86.40" = [ "charm.lan" ];
-  };
 
   xdg.portal = {
     extraPortals =
@@ -132,5 +104,40 @@
       "org.freedesktop.impl.portal.Notification" = "gtk";
       "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
     };
+  };
+
+  networking.hosts = {
+    "192.168.86.48" = [ "electron.lan" ];
+    "192.168.86.41" = [ "tau.lan" ];
+    "192.168.86.34" = [ "photon.lan" ];
+    "192.168.86.39" = [ "down.lan" ];
+    "192.168.86.40" = [ "charm.lan" ];
+  };
+
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    PROTON_ENABLE_WAYLAND = 1;
+    # DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
+    XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
+  };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [ ];
+  programs._1password-gui.polkitPolicyOwners = [ "devin" ];
+  users.users.devin = {
+    isNormalUser = true;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+      "libvirtd"
+    ];
+  };
+
+  environment.etc."1password/custom_allowed_browsers" = {
+    text = ''
+      zen
+    '';
+    mode = "0755";
   };
 }

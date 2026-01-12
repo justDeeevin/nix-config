@@ -61,6 +61,11 @@
       url = "github:9001/copyparty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -74,14 +79,21 @@
           config ? { },
           home ? { },
           graphical ? true,
+          darwinStateVersion ? null,
         }:
-        nixpkgs.lib.nixosSystem {
+        let
+          isDarwin = darwinStateVersion != null;
+          mkSystem = if isDarwin then inputs.nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
+        in
+        mkSystem {
           specialArgs = {
             inherit
               inputs
               stateVersion
               home
               graphical
+              isDarwin
+              darwinStateVersion
               ;
           };
           modules = [
@@ -89,7 +101,12 @@
             ./global
             config
           ]
-          ++ lib.optional graphical inputs.home-manager.nixosModules.default;
+          ++ lib.optional graphical (
+            if isDarwin then
+              inputs.home-manager.darwinModules.default
+            else
+              inputs.home-manager.nixosModules.default
+          );
         };
       mkSystems =
         hosts:
@@ -100,9 +117,15 @@
       pkgs = import nixpkgs { system = "x86_64-linux"; };
     in
     {
-      packages.x86_64-linux.nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-        inherit pkgs;
-        module = import ./nixvim;
+      packages = {
+        x86_64-linux.nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+          inherit pkgs;
+          module = import ./nixvim;
+        };
+        aarch64-darwin.nixvim = inputs.nixvim.legacyPackages.aarch64-darwin.makeNixvimWithModule {
+          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          module = import ./nixvim;
+        };
       };
       nixosConfigurations = mkSystems {
         # Desktop
@@ -154,10 +177,28 @@
           graphical = false;
         };
       };
-      devShell.x86_64-linux = pkgs.mkShell {
-        packages = with pkgs; [
-          just
-        ];
+      darwinConfigurations.strange = mkSystem {
+        hostName = "strange";
+        stateVersion = "26.05";
+        darwinStateVersion = 6;
+        config = ./hosts/strange/configuration.nix;
+        home = ./hosts/strange/home.nix;
+      };
+      devShell = {
+        x86_64-linux = pkgs.mkShell {
+          packages = with pkgs; [
+            just
+          ];
+        };
+        aarch64-darwin =
+          let
+            pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          in
+          pkgs.mkShell {
+            packages = with pkgs; [
+              just
+            ];
+          };
       };
     };
 }

@@ -5,10 +5,12 @@
   home,
   lib,
   config,
+  isDarwin,
   ...
 }:
 let
-  nixvim = inputs.self.packages.x86_64-linux.nixvim.extend {
+  system = pkgs.stdenv.hostPlatform.system;
+  nixvim = inputs.self.packages.${system}.nixvim.extend {
     plugins.obsidian = {
       enable = true;
       settings = {
@@ -59,39 +61,33 @@ let
       }
     ];
   };
+
+  homeDir = if isDarwin then "/Users/devin" else "/home/devin";
 in
 {
   imports = [
     home
     inputs.nix-index-database.homeModules.nix-index
+  ]
+  ++ lib.optionals (!isDarwin) [
     ./rice
     inputs.sops.homeManagerModules.sops
   ];
 
   home.username = "devin";
-  home.homeDirectory = "/home/devin";
 
   home.stateVersion = stateVersion;
 
   home.sessionPath = [ "~/.bun/bin" ];
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = pkgs.callPackage ./home-packages.nix { inherit inputs nixvim; };
+  home.packages = pkgs.callPackage ./home-packages.nix { inherit inputs nixvim isDarwin; };
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
+  home.keyboard = {
+    layout = "us";
+    variant = "colemak_dh";
+  };
+
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
     "Pictures/nixos-logo.png" = {
       source = pkgs.fetchurl {
         url = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Nix_snowflake.svg/1200px-Nix_snowflake.svg.png";
@@ -103,23 +99,6 @@ in
     };
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/devin/etc/profile.d/hm-session-vars.sh
-  #
-
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   programs.git = {
@@ -149,7 +128,7 @@ in
     };
     signing = {
       format = "ssh";
-      key = "/home/devin/.ssh/id_ed25519.pub";
+      key = "${homeDir}/.ssh/id_ed25519.pub";
       signByDefault = true;
     };
   };
@@ -166,7 +145,7 @@ in
       signing = {
         behavior = "own";
         backend = "ssh";
-        key = "/home/devin/.ssh/id_ed25519.pub";
+        key = "${homeDir}/.ssh/id_ed25519.pub";
       };
       revsets.log = "all()";
       ui = {
@@ -227,7 +206,7 @@ in
         format = "$output ";
         ignore_timeout = true;
         shell = [
-          (lib.getExe inputs.starship-jj.packages.x86_64-linux.default)
+          (lib.getExe inputs.starship-jj.packages.${system}.default)
           "--ignore-working-copy"
           "starship"
         ];
@@ -282,14 +261,6 @@ in
     settings = builtins.fromJSON (builtins.readFile ./fastfetch.json);
   };
 
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-pipewire-audio-capture
-    ];
-  };
-
   programs.nushell = {
     enable = true;
     # extraConfig is placed before shellAliases
@@ -332,12 +303,12 @@ in
       '';
     shellAliases = {
       cd = "z";
-      rm = "rip --graveyard ${config.home.homeDirectory}/.graveyard";
+      rm = "rip --graveyard ${homeDir}/.graveyard";
       shutdown = "shutdown now";
       "to nix" = "to nix -f ${lib.getExe pkgs.nixfmt}";
     };
     extraEnv =
-      #nu
+      # nu
       ''
         if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
           # allows the window to get properly sized before the fastfetch image is rendered
@@ -345,7 +316,7 @@ in
           fastfetch
         }
 
-        $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
+        ${if isDarwin then "" else "$env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}"}
         $env.EDITOR = "${lib.getExe nixvim}"
       '';
   };
@@ -373,7 +344,7 @@ in
         "liga"
       ];
 
-      window-decoration = false;
+      window-decoration = "none";
 
       mouse-hide-while-typing = true;
 
@@ -411,8 +382,6 @@ in
     nix-direnv.enable = true;
   };
 
-  sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
-
   programs.btop = {
     enable = true;
     themes.oxocarbon = pkgs.fetchurl {
@@ -438,13 +407,6 @@ in
       file = "bat/oxocarbon-dark.tmTheme";
     };
     config.theme = "oxocarbon";
-  };
-
-  services.swaync = {
-    # enable = true;
-    settings = {
-      notification-inline-replies = true;
-    };
   };
 
   # one day 😢
@@ -512,10 +474,11 @@ in
   programs.gh = {
     enable = true;
     extensions = [
-      inputs.gh-jj.packages.x86_64-linux.default
+      inputs.gh-jj.packages.${system}.default
     ];
   };
-
+}
+// lib.optionalAttrs (!isDarwin) {
   home.file.".XCompose".text = ''
     include "%L"
     <Multi_key> <e> <h> : "¯\\_(ツ)_/¯" # SHRUG
@@ -525,4 +488,6 @@ in
   '';
 
   programs.nushell.shellAliases.warp = "warp-cli";
+
+  sops.age.keyFile = "${homeDir}/.config/sops/age/keys.txt";
 }

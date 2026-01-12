@@ -93,4 +93,12 @@
     };
   };
   sops.secrets.OPENAI_API_KEY.sopsFile = ./secrets.yaml;
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-pipewire-audio-capture
+    ];
+  };
 }

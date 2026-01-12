@@ -37,7 +37,6 @@ in
   };
 
   boot.loader.limine = {
-    # TODO: enroll keys on laptop
     secureBoot.enable = true;
     extraEntries = ''
       /Windows

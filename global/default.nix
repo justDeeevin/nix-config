@@ -4,30 +4,13 @@
   inputs,
   stateVersion,
   graphical,
+  isDarwin,
+  darwinStateVersion,
   ...
 }:
 {
-  imports = [
-    inputs.sops.nixosModules.sops
-  ]
-  ++ lib.optional graphical ./graphical;
-
-  # Bootloader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-  }
-  // (
-    if graphical then
-      { limine.enable = true; }
-    else
-      {
-        grub = {
-          enable = true;
-          device = "/dev/sda";
-        };
-      }
-  );
-  boot.supportedFilesystems = [ "ntfs" ];
+  imports =
+    (lib.optional (!isDarwin) inputs.sops.nixosModules.sops) ++ (lib.optional graphical ./graphical);
 
   users.users.admin = lib.mkIf (!graphical) {
     isNormalUser = true;
@@ -47,83 +30,11 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = stateVersion; # Did you read the comment?
+  system.stateVersion = if isDarwin then darwinStateVersion else stateVersion; # Did you read the comment?
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak_dh";
-  };
-  console.useXkbConfig = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-  };
-
-  # Enable sound with pipewire.
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    # permittedInsecurePackages = [ "dotnet-sdk-6.0.428" ];
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings = {
     substituters = [
@@ -144,19 +55,30 @@
   environment.systemPackages =
     with pkgs;
     lib.optionals (!graphical) [
-      inputs.self.packages.x86_64-linux.nixvim
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nixvim
       jujutsu
       git
       sops
     ];
 
   services.openssh.enable = !graphical;
-
-  sops.age.keyFile =
-    let
-      user = if graphical then "devin" else "admin";
-    in
-    "/home/${user}/.config/sops/age/keys.txt";
+}
+// lib.optionalAttrs (!isDarwin) {
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+  }
+  // (
+    if graphical then
+      { limine.enable = true; }
+    else
+      {
+        grub = {
+          enable = true;
+          device = "/dev/sda";
+        };
+      }
+  );
+  boot.supportedFilesystems = [ "ntfs" ];
 
   services.kmscon = {
     enable = true;
@@ -168,4 +90,51 @@
       }
     ];
   };
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "colemak_dh";
+  };
+  console.useXkbConfig = true;
+
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+    wireplumber.enable = true;
+  };
+
+  networking.networkmanager.enable = true;
+
+  sops.age.keyFile =
+    let
+      user = if graphical then "devin" else "admin";
+    in
+    "/home/${user}/.config/sops/age/keys.txt";
+}
+// lib.optionalAttrs isDarwin {
+  nixpkgs.hostPlatform = "aarch64-darwin";
 }
