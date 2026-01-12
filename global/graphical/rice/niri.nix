@@ -34,6 +34,13 @@
           "xdg-desktop-portal-gtk"
         ];
       }
+      {
+        argv = [
+          (lib.getExe pkgs.wl-clip-persist)
+          "--clipboard"
+          "regular"
+        ];
+      }
     ];
     input = {
       focus-follows-mouse.enable = true;
