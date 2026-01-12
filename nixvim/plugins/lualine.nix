@@ -77,13 +77,13 @@ in
             color.__raw = ''
               function()
                 local mode_color = {
-                  n = "${colors.red}",
-                  i = "${colors.green}",
-                  v = "${colors.blue}",
-                  [''] = "${colors.blue}",
-                  V = "${colors.blue}",
-                  c = "${colors.magenta}",
-                  no = "${colors.red}",
+                  n = "${colors.darkblue}",
+                  i = "${colors.magenta}",
+                  v = "${colors.violet}",
+                  [''] = "${colors.violet}",
+                  V = "${colors.violet}",
+                  c = "${colors.green}",
+                  no = "${colors.darkblue}",
                   -- I would update these to be an oxocarbon color but I have no idea what modes they are
                   s = "${colors.orange}",
                   S = "${colors.orange}",

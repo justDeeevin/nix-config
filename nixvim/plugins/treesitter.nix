@@ -14,6 +14,7 @@
       javascript
       json
       lua
+      latex
       markdown
       markdown_inline
       nix

@@ -21,5 +21,6 @@
     scrolloff = 8;
     updatetime = 250;
     timeoutlen = 300;
+    signcolumn = "yes";
   };
 }

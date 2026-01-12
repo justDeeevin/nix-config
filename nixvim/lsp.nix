@@ -9,6 +9,14 @@
         enable = true;
         activate = false;
       };
+      emmet_language_server = {
+        enable = true;
+        config.filetypes = [
+          "html"
+          "svelte"
+          "typescriptreact"
+        ];
+      };
       html.enable = true;
       jdtls.enable = true;
       jsonls.enable = true;
