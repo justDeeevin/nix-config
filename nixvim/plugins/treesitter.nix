@@ -2,7 +2,7 @@
 {
   plugins.treesitter = {
     enable = true;
-    settings.highlight.enable = true;
+    highlight.enable = true;
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       bash
       css
@@ -15,6 +15,7 @@
       json
       lua
       markdown
+      markdown_inline
       nix
       nu
       regex
@@ -24,6 +25,7 @@
       tsx
       typescript
       typst
+      vim
       xml
     ];
   };
