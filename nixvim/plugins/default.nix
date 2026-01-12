@@ -13,5 +13,6 @@
     cord.enable = true;
     transparent.enable = true;
     octo.enable = true;
+    supermaven.enable = true;
   };
 }
