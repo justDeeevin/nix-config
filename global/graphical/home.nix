@@ -27,7 +27,7 @@ let
         templates.subdir = "Templates";
         frontmatter.enable = false;
         attachments = {
-          img_folder = "Assets";
+          folder = "Assets";
           img_name_func.__raw = ''
             function()
               local date = os.date("*t")
