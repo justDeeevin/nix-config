@@ -26,7 +26,7 @@
         y = (1920 - 1440) / 2;
       };
     };
-    outputs.DP-2 = {
+    outputs.HDMI-A-1 = {
       backdrop-color = "010101";
       position = {
         x = 0;
