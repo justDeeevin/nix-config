@@ -76,7 +76,7 @@
   };
 
   autoGroups = {
-    lsp-highlight = {
+    lsp-buf = {
       clear = false;
     };
     lsp-detach = {
@@ -94,17 +94,29 @@
       callback.__raw = ''
         function(event)
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.server_capabilities.documentHighlightProvider then
+          if not client then return end
+
+          if client.server_capabilities.documentHighlightProvider then
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
-              group = "lsp-highlight",
+              group = "lsp-buf",
               callback = vim.lsp.buf.document_highlight,
             })
 
             vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
               buffer = event.buf,
-              group = "lsp-highlight",
+              group = "lsp-buf",
               callback = vim.lsp.buf.clear_references,
+            })
+          end
+
+          if client.server_capabilities.documentFormattingProvider then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = event.buf,
+              group = "lsp-buf",
+              callback = function()
+                vim.lsp.buf.format({ bufnr = event.buf })
+              end,
             })
           end
         end
@@ -116,29 +128,7 @@
       callback.__raw = ''
         function(event)
           vim.lsp.buf.clear_references()
-          vim.api.nvim_clear_autocmds({group = "lsp-highlight"})
-        end
-      '';
-    }
-    {
-      event = "BufWritePre";
-      callback.__raw = ''
-        function(event)
-          if vim.b[event.buf].disable_autoformat then
-            return
-          end
-
-          local original = vim.notify
-          vim.notify = function(msg, level, opts)
-            if msg == "[LSP] Format request failed, no matching language servers." then
-              return
-            end
-            original(msg, level, opts)
-          end
-
-          vim.lsp.buf.format()
-
-          vim.notify = original
+          vim.api.nvim_clear_autocmds({group = "lsp-buf"})
         end
       '';
     }
