@@ -35,7 +35,9 @@
       btop.enable = false;
       bat.enable = false;
       noctalia-shell.enable = false;
+      nushell.enable = false;
       vicinae.enable = false;
+      starship.enable = false;
     };
     opacity = {
       desktop = 1.0;
