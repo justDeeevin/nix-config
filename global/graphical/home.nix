@@ -332,7 +332,7 @@ in
       '';
     shellAliases = {
       cd = "z";
-      rm = "rip --graveyard ${config.home.homeDirectory}/.graveyard";
+      rm = "${lib.getExe pkgs.rip2} --graveyard ${config.home.homeDirectory}/.graveyard";
       shutdown = "shutdown now";
       "to nix" = "to nix -f ${lib.getExe pkgs.nixfmt}";
     };

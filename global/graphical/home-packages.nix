@@ -12,49 +12,36 @@ with pkgs;
   vlc
   ffmpeg-full
   kdePackages.kalk
-  jdk
-  gradle
-  tree-sitter
   magic-wormhole
   inputs.zen-browser.packages.x86_64-linux.default
   obsidian
   chromium
   nh
-  hyprpolkitagent
   telegram-desktop
-  hyprland-qtutils
   typst
-  sops
   timg
   r2modman
   (lib.hiPrio uutils-coreutils-noprefix)
   tldr
   bluetui
   nixvim
-  rip2
   nautilus
   osu-lazer-bin
   slack
   lazyjj
-  cargo-seek
   usbutils
-  kodi-wayland
   (ouch.override { enableUnfree = true; })
-  insomnia
   wiremix
   (unityhub.override {
     extraLibs = fhsPkgs: with fhsPkgs; [ sqlite ];
   })
   gpclient
   eclipses.eclipse-java
-  tetrio-desktop
   vscode
   nurl
   vscode
-  python314
   sl
   tsukimi
   equibop
   zoom-us
-  gnome-boxes
 ]

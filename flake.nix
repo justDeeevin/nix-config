@@ -157,6 +157,7 @@
       devShell.x86_64-linux = pkgs.mkShell {
         packages = with pkgs; [
           just
+          sops
         ];
       };
     };
