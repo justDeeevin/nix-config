@@ -1,23 +1,22 @@
 {
   plugins.comment = {
     enable = true;
-    settings.toggler = {
-      line = "<C-/>";
-    };
-  };
-
-  keymaps = [
-    {
-      key = "<C-/>";
-      action = {
-        __raw = ''
-          function()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, false, true), "nx", false)
-            require("Comment.api").toggle.linewise(vim.fn.visualmode())
+    settings = {
+      pre_hook.__raw =
+        # lua
+        ''
+          function(ctx)
+            if vim.bo.filetype ~= "c" then
+              return
+            end
+            return "/* %s */"
           end
         '';
+      toggler.line = "<C-/>";
+      opleader = {
+        line = "<C-/>";
+        block = "<C-/>";
       };
-      mode = "v";
-    }
-  ];
+    };
+  };
 }
