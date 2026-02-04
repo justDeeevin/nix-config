@@ -9,6 +9,7 @@
         config.init_options.fallbackFlags = [
           "-std=c90"
           "-pedantic-errors"
+          "-Wall"
         ];
       };
       denols = {
