@@ -10,6 +10,9 @@
           "-std=c90"
           "-pedantic-errors"
           "-Wall"
+          "-Wextra"
+          "-fstack-protector-all"
+          "-Werror"
         ];
       };
       denols = {
