@@ -125,6 +125,7 @@
               buffer = event.buf,
               group = "lsp-buf",
               callback = function()
+                if vim.b.disable_autoformat then return end
                 vim.lsp.buf.format({ bufnr = event.buf })
               end,
             })
