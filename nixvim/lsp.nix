@@ -4,17 +4,7 @@
   lsp = {
     servers = {
       bashls.enable = true;
-      clangd = {
-        enable = true;
-        config.init_options.fallbackFlags = [
-          "-std=c90"
-          "-pedantic-errors"
-          "-Wall"
-          "-Wextra"
-          "-fstack-protector-all"
-          "-Werror"
-        ];
-      };
+      clangd.enable = true;
       denols = {
         enable = true;
         activate = false;
