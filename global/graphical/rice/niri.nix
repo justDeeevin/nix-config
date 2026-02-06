@@ -2,9 +2,13 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 {
+  imports = [
+    inputs.niri-flake.homeModules.niri
+  ];
   programs.niri.settings = {
     prefer-no-csd = true;
     spawn-at-startup = [

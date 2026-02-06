@@ -10,7 +10,6 @@
 {
   imports = [
     ./nvidia.nix
-    inputs.niri-flake.nixosModules.niri
   ];
 
   boot.loader.limine.style = {
@@ -23,10 +22,13 @@
     enable = true;
     wayland = true;
   };
+
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
   };
+
+  security.soteria.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.devin = {
@@ -115,13 +117,11 @@
   };
 
   xdg.portal = {
-    extraPortals =
-      with pkgs;
-      lib.mkForce [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        gnome-keyring
-      ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+      gnome-keyring
+    ];
 
     config.niri = {
       default = [
