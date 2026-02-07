@@ -27,6 +27,7 @@
         enable = true;
         config.filetypes = [ "cs" ];
       };
+      pyright.enable = true;
       rust_analyzer = {
         enable = true;
         config.settings.rust-analyzer = {

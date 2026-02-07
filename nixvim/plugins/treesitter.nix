@@ -19,6 +19,7 @@
       markdown_inline
       nix
       nu
+      python
       regex
       rust
       svelte
