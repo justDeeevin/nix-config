@@ -5,6 +5,9 @@
   inputs,
   ...
 }:
+let
+  onepass = lib.getExe pkgs._1password-gui;
+in
 {
   imports = [
     inputs.niri-flake.homeModules.niri
@@ -44,6 +47,12 @@
           (lib.getExe pkgs.wl-clip-persist)
           "--clipboard"
           "regular"
+        ];
+      }
+      {
+        argv = [
+          onepass
+          "--silent"
         ];
       }
     ];
@@ -137,8 +146,8 @@
         "Shift+Print".action.screenshot-window = { };
         "Ctrl+Print".action.screenshot-screen.show-pointer = false;
 
-        "Ctrl+Shift+Space".action = spawn (lib.getExe pkgs._1password-gui) "--quick-access";
-        "Ctrl+Shift+Backslash".action = spawn (lib.getExe pkgs._1password-gui);
+        "Ctrl+Shift+Space".action = spawn onepass "--quick-access";
+        "Ctrl+Shift+Backslash".action = spawn onepass;
         "Mod+C".action = spawn (lib.getExe pkgs.hyprpicker) "-a";
         "Mod+v".action = spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";
         "Mod+Period".action = spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis";
