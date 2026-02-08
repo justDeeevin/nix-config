@@ -110,17 +110,6 @@
               callback = vim.lsp.buf.clear_references,
             })
           end
-
-          if client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = event.buf,
-              group = "lsp-buf",
-              callback = function()
-                if vim.b.disable_autoformat then return end
-                vim.lsp.buf.format({ bufnr = event.buf })
-              end,
-            })
-          end
         end
       '';
     }
