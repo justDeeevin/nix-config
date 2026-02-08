@@ -9,6 +9,7 @@
   imports = [
     inputs.niri-flake.homeModules.niri
   ];
+  programs.niri.package = pkgs.niri;
   programs.niri.settings = {
     prefer-no-csd = true;
     spawn-at-startup = [
@@ -208,7 +209,7 @@
       }
     ];
     debug.honor-xdg-activation-with-invalid-serial = [ ];
-    xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
+    xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
     hotkey-overlay = {
       skip-at-startup = true;
       hide-not-bound = true;

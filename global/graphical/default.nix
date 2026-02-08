@@ -23,10 +23,7 @@
     wayland = true;
   };
 
-  programs.niri = {
-    enable = true;
-    package = pkgs.niri-unstable;
-  };
+  programs.niri.enable = true;
 
   security.soteria.enable = true;
 
@@ -103,8 +100,6 @@
 
   virtualisation.docker.enable = true;
   services.playerctld.enable = true;
-
-  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
 
   services.cloudflare-warp.enable = true;
 
