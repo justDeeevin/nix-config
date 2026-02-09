@@ -56,7 +56,10 @@
                 id = "MediaMini";
                 showAlbumArt = true;
               }
-              "Battery"
+              {
+                id = "Battery";
+                displayMode = "graphic";
+              }
               {
                 id = "NotificationHistory";
                 showUnreadBadge = false;
