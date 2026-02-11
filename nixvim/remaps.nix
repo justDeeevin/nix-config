@@ -44,12 +44,12 @@
     # Move selected lines up and down
     {
       key = "E";
-      action = ":m '<-2<CR>gv=gv";
+      action = "<cmd>m '<-2<CR>gv=gv";
       mode = "v";
     }
     {
       key = "N";
-      action = ":m '>+1<CR>gv=gv";
+      action = "<cmd>m '>+1<CR>gv=gv";
       mode = "v";
     }
 
@@ -62,12 +62,12 @@
     # Change windows
     {
       key = "<A-m>";
-      action = ":wincmd h<CR>";
+      action = "<cmd>wincmd h<CR>";
       mode = "n";
     }
     {
       key = "<A-n>";
-      action = ":wincmd j<CR>";
+      action = "<cmd>wincmd j<CR>";
       mode = "n";
     }
     {
