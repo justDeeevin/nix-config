@@ -4,6 +4,5 @@
     ./niri.nix
     ./stylix.nix
     ./noctalia.nix
-    ./vicinae.nix
   ];
 }

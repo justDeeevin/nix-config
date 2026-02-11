@@ -140,7 +140,7 @@ in
         "XF86Calculator".action = spawn (lib.getExe pkgs.kdePackages.kalk);
         "XF86Mail".action = spawn (lib.getExe pkgs.ghostty);
 
-        "Mod+Space".action = spawn "vicinae" "open";
+        "Mod+Space".action = spawn "noctalia-shell" "ipc" "call" "launcher" "toggle";
 
         "Print".action.screenshot.show-pointer = false;
         "Shift+Print".action.screenshot-window = { };
@@ -149,8 +149,10 @@ in
         "Ctrl+Shift+Space".action = spawn onepass "--quick-access";
         "Ctrl+Shift+Backslash".action = spawn onepass;
         "Mod+C".action = spawn (lib.getExe pkgs.hyprpicker) "-a";
-        "Mod+v".action = spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";
-        "Mod+Period".action = spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis";
+        "Mod+v".action = spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard";
+        "Mod+Period".action = spawn "noctalia-shell" "ipc" "call" "launcher" "emoji";
+        "Mod+u".action = spawn "noctalia-shell" "ipc" "call" "plugin:unicode" "toggle";
+        "Mod+k".action = spawn "noctalia-shell" "ipc" "call" "plugin:kaomoji" "toggle";
 
         "XF86AudioRaiseVolume" = {
           action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";

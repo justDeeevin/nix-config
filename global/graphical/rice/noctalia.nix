@@ -1,4 +1,9 @@
-{ inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 {
   imports = [ inputs.noctalia.homeModules.default ];
 
@@ -130,6 +135,10 @@
             "reboot"
             "shutdown"
           ];
+        appLauncher = {
+          enableClipboardHistory = true;
+          autoPasteClipboard = builtins.elem pkgs.wtype config.home.packages;
+        };
       };
   };
 
@@ -141,7 +150,18 @@
         url = "https://github.com/noctalia-dev/noctalia-plugins";
       }
     ];
-    states.privacy-indicator.enabled = true;
+    states = builtins.listToAttrs (
+      builtins.map
+        (plugin: {
+          name = plugin;
+          value.enabled = true;
+        })
+        [
+          "privacy-indicator"
+          "kaomoji-provider"
+          "unicode-picker"
+        ]
+    );
     version = 1;
   };
 

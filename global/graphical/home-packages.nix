@@ -44,4 +44,5 @@ with pkgs;
   tsukimi
   equibop
   zoom-us
+  wtype
 ]
