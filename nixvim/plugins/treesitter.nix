@@ -13,6 +13,7 @@
       javadoc
       javascript
       json
+      just
       lua
       latex
       markdown
