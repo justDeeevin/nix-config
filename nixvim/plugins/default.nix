@@ -19,7 +19,6 @@
         "transparent"
         "octo"
         "supermaven"
-        "guess-indent"
         "todo-comments"
         "modicator"
         "helpview"
