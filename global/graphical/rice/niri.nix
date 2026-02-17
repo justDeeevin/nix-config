@@ -169,15 +169,15 @@ in
           allow-when-locked = true;
         };
         "XF86AudioPlay" = {
-          action = spawn playerctl "play-pause";
+          action = spawn (lib.getExe pkgs.nushell) "${./scripts/play-pause.nu}" playerctl;
           allow-when-locked = true;
         };
         "XF86AudioNext" = {
-          action = spawn playerctl "next";
+          action = spawn playerctl "--player" "YoutubeMusic,%any" "next";
           allow-when-locked = true;
         };
         "XF86AudioPrev" = {
-          action = spawn playerctl "previous";
+          action = spawn playerctl "--player" "YoutubeMusic,%any" "previous";
           allow-when-locked = true;
         };
       };

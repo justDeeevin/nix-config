@@ -96,7 +96,6 @@
   services.libinput.mouse.accelProfile = "flat";
 
   virtualisation.docker.enable = true;
-  services.playerctld.enable = true;
 
   services.cloudflare-warp.enable = true;
 
