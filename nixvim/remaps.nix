@@ -44,12 +44,12 @@
     # Move selected lines up and down
     {
       key = "E";
-      action = "<cmd>m '<-2<CR>gv=gv";
+      action = ":m '<-2<CR>gv=gv";
       mode = "v";
     }
     {
       key = "N";
-      action = "<cmd>m '>+1<CR>gv=gv";
+      action = ":m '>+1<CR>gv=gv";
       mode = "v";
     }
 
