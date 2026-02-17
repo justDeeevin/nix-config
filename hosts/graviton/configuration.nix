@@ -18,7 +18,6 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    # ./arr.nix
   ];
 
   programs.gamescope.enable = true;

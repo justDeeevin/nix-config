@@ -26,7 +26,6 @@
 
   security.soteria.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
@@ -87,7 +86,6 @@
   environment.sessionVariables = {
     EDITOR = "nvim";
     PROTON_ENABLE_WAYLAND = 1;
-    # DOTNET_ROOT = "${pkgs.dotnet-sdk_6}/share/dotnet";
     XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
   };
 
