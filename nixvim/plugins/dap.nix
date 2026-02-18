@@ -125,6 +125,10 @@
       action = "<cmd>DapContinue<CR>";
     }
     {
+      key = "<F12>";
+      action = "<cmd>DapNew<CR>";
+    }
+    {
       key = "<leader>E";
       action.__raw = "require('dap.ui.widgets').hover";
     }
