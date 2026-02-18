@@ -123,19 +123,5 @@
         end
       '';
     }
-    {
-    event = "VimLeavePre";
-    callback.__raw = ''
-      function()
-        for _, client in ipairs(vim.lsp.get_active_clients()) do
-          -- workaround for https://github.com/tamasfe/taplo/issues/845
-          -- fixed by #844, not yet released
-          if client.name == "taplo" then
-            client.stop(true)
-          end
-        end
-      end
-    '';
-    }
   ];
 }
