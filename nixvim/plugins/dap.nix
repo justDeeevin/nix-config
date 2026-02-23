@@ -1,11 +1,14 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   plugins.dap-virtual-text.enable = true;
+
+  extraPackages = [ pkgs.gdb ];
+
   plugins.dap = {
     enable = true;
     adapters.executables = {
       gdb = {
-        command = lib.getExe pkgs.gdb;
+        command = "gdb";
         args = [
           "--interpreter=dap"
           "--eval-command"
