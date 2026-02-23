@@ -7,6 +7,7 @@
       bash
       css
       c
+      cpp
       dockerfile
       dot
       html
