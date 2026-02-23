@@ -6,8 +6,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "rafikdraoui";
         repo = "jj-diffconflicts";
-        rev = "8140e5295ef2008a947f1f374c2d71a5bc7e38a0";
-        hash = "sha256-LM2eP29yK+lIlWzJiIKIRcbVjNhyjV2unE4GJDTLKXQ=";
+        rev = "6d9eedadf1fab87bccb0a4a7ceda829da8023efb";
+        hash = "sha256-hvMXpslucywVYA9Sdxx6IcXQXYcYNWK8s9jr+KtStdI=";
       };
     })
   ];
