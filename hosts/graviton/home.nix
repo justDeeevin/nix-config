@@ -10,6 +10,7 @@
     prismlauncher
     gimp
     reaper
+    kicad
   ];
 
   programs.niri.settings = {
