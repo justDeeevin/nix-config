@@ -55,6 +55,9 @@ in
           "--silent"
         ];
       }
+      {
+        sh = "noctalia-shell";
+      }
     ];
     input = {
       focus-follows-mouse.enable = true;
