@@ -76,6 +76,8 @@
 
   services.flatpak.enable = true;
 
+  security.sudo.extraConfig = "Defaults pwfeedback";
+
   services.gnome.gnome-keyring.enable = true;
 
   virtualisation.libvirtd.enable = true;
