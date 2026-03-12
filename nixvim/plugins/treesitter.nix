@@ -18,6 +18,7 @@
       just
       lua
       latex
+      make
       markdown
       markdown_inline
       nix
