@@ -58,6 +58,21 @@ in
       {
         sh = "noctalia-shell";
       }
+      {
+        # urgent window focus
+        argv = [
+          (lib.getExe pkgs.nushell)
+          "-c"
+          # nu
+          ''
+            niri msg -j event-stream
+              | ${lib.getExe pkgs.jq} --unbuffered -c .
+              | from json -o
+              | where ($it | get -o "WindowUrgencyChanged") != null and $it.WindowUrgencyChanged.urgent
+              | each {niri msg action focus-window --id $in.WindowUrgencyChanged.id}
+          ''
+        ];
+      }
     ];
     input = {
       focus-follows-mouse = {
