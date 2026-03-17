@@ -60,7 +60,10 @@ in
       }
     ];
     input = {
-      focus-follows-mouse.enable = true;
+      focus-follows-mouse = {
+        enable = true;
+        max-scroll-amount = "99%";
+      };
       keyboard = {
         numlock = true;
         xkb = {
