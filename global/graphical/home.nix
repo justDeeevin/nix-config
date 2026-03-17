@@ -302,6 +302,10 @@ in
         def photo [] {
           ffmpeg -v quiet -f v4l2 -video_size 1920x1080 -i /dev/video0 -vframes 1 -f image2pipe pipe:1 | tee {wl-copy} | timg -
         }
+
+        def has [name: string] {
+          ($in | get -o $name) != null
+        }
       '';
     shellAliases = {
       cd = "z";
