@@ -17,7 +17,6 @@
         "web-devicons"
         "cord"
         "transparent"
-        "octo"
         "supermaven"
         "todo-comments"
         "modicator"
