@@ -33,4 +33,13 @@
   services.upower.enable = true;
 
   services.displayManager.ly.settings.battery_id = "BAT0";
+
+  boot.loader.limine = {
+    secureBoot.enable = true;
+    extraEntries = ''
+      /Windows
+        protocol: efi
+        path: uuid(0572654a-1ae9-44b8-9759-6244a2d84931):/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+  };
 }
