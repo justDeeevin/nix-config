@@ -66,6 +66,7 @@ in
     inputs.nix-index-database.homeModules.nix-index
     ./rice
     inputs.sops.homeManagerModules.sops
+    ./discord.nix
   ];
 
   home.username = "devin";

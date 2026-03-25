@@ -42,7 +42,6 @@ with pkgs;
   vscode
   sl
   tsukimi
-  equibop
   zoom-us
   wtype
 ]

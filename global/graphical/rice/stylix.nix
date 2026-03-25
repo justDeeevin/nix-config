@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
   ...
 }:
 {
@@ -28,17 +27,24 @@
       size = 32;
     };
 
-    targets = {
-      nixvim.enable = false;
-      hyprpaper.enable = lib.mkForce false;
-      ghostty.enable = false;
-      btop.enable = false;
-      bat.enable = false;
-      noctalia-shell.enable = false;
-      nushell.enable = false;
-      vicinae.enable = false;
-      starship.enable = false;
-    };
+    targets = builtins.listToAttrs (
+      builtins.map
+        (target: {
+          name = target;
+          value.enable = false;
+        })
+        [
+          "nixvim"
+          "ghostty"
+          "btop"
+          "bat"
+          "noctalia-shell"
+          "nushell"
+          "vicinae"
+          "starship"
+          "nixcord"
+        ]
+    );
     opacity = {
       desktop = 1.0;
       terminal = 0.5;
