@@ -5,6 +5,7 @@
     servers = {
       bashls.enable = true;
       clangd.enable = true;
+      cssls.enable = true;
       denols = {
         enable = true;
         activate = false;
