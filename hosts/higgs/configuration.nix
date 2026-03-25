@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -32,7 +32,17 @@
 
   services.upower.enable = true;
 
-  services.displayManager.ly.settings.battery_id = "BAT0";
+  services.displayManager.ly.settings =
+    let
+      brightnessctl = lib.getExe pkgs.brightnessctl;
+    in
+    {
+      battery_id = "BAT0";
+      brightness_down_cmd = "${brightnessctl} set 5%-";
+      brightness_down_key = "F2";
+      brightness_up_cmd = "${brightnessctl} set +5%";
+      brightness_up_key = "F3";
+    };
 
   boot.loader.limine = {
     secureBoot.enable = true;
