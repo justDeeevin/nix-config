@@ -42,6 +42,8 @@
       brightness_down_key = "F2";
       brightness_up_cmd = "${brightnessctl} set +5%";
       brightness_up_key = "F3";
+      shutdown_key = "F4";
+      restart_key = "F5";
     };
 
   boot.loader.limine = {
