@@ -39,9 +39,9 @@
     {
       battery_id = "BAT0";
       brightness_down_cmd = "${brightnessctl} set 5%-";
-      brightness_down_key = "F2";
+      brightness_down_key = lib.mkForce "F2";
       brightness_up_cmd = "${brightnessctl} set +5%";
-      brightness_up_key = "F3";
+      brightness_up_key = lib.mkForce "F3";
       shutdown_key = "F4";
       restart_key = "F5";
     };
