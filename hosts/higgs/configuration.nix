@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./nvidia-prime.nix
+    ./howdy.nix
   ];
 
   # Fix for internal speakers. See https://forums.fedoraforum.org/showthread.php?331130-Fixing-ALC298-audio-(no-sound-from-speakers)

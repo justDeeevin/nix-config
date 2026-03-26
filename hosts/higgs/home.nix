@@ -28,4 +28,17 @@
         };
       };
   };
+
+  programs.hyprlock.settings = {
+    general.ignore_empty_input = lib.mkForce false;
+    input-field = lib.mkForce null;
+    label = lib.mkForce [
+      {
+        text = "<b>$TIME12</b>";
+        halign = "center";
+        font_size = 50;
+        font_family = "Monaspace Neon";
+      }
+    ];
+  };
 }
