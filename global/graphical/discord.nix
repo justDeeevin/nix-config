@@ -17,7 +17,7 @@ in
     quickCss =
       # css
       ''
-        :root {
+        body {
           --font: "Monaspace Neon";
           --code-font: "Monaspace Krypton";
         }
