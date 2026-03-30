@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   services.howdy = {
     enable = true;
