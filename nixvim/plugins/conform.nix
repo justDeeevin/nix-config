@@ -6,13 +6,19 @@
       formatters_by_ft = {
         nu = [ "nufmt" ];
         python = [ "black" ];
+        typescript = [ "prettier" ];
       };
       format_on_save.__raw =
         # lua
         ''
           function()
             if not vim.b.disable_autoformat then
-              return { lsp_format = "prefer" }
+              local ft = vim.bo.filetype
+              if ft == "typescript" or ft == "javascript" or ft == "json" then
+                return {}
+              else
+                return { lsp_format = "prefer" }
+              end
             end
           end
         '';
