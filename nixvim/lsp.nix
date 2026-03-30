@@ -49,7 +49,14 @@
       };
       slint_lsp.enable = true;
       svelte.enable = true;
-      tailwindcss.enable = true;
+      tailwindcss = {
+        enable = true;
+        config.filetypes = [
+          "html"
+          "svelte"
+          "typescriptreact"
+        ];
+      };
       taplo.enable = true;
       ts_ls = {
         enable = true;
