@@ -105,6 +105,14 @@
         flake-utils.follows = "flake-utils";
       };
     };
+
+    nightly-nvim = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
   };
 
   outputs =
@@ -147,6 +155,7 @@
       packages.x86_64-linux.nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
         inherit pkgs;
         module = import ./nixvim;
+        extraSpecialArgs = { inherit inputs; };
       };
       nixosConfigurations = mkSystems {
         # Desktop
