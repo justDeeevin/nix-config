@@ -87,6 +87,7 @@ in
           "unindent"
           "userMessagesPronouns"
           "userVoiceShow"
+          "voiceChatDoubleClick"
           "voiceMessages"
           "volumeBooster"
         ];
