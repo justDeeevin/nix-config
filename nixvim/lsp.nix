@@ -84,6 +84,8 @@
     ];
   };
 
+  filetype.extension.webc = "html";
+
   autoGroups = {
     lsp-buf = {
       clear = false;
