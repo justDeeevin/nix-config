@@ -7,6 +7,7 @@
         nu = [ "nufmt" ];
         python = [ "black" ];
         typescript = [ "prettier" ];
+        javascript = [ "prettier" ];
       };
       format_on_save.__raw =
         # lua
