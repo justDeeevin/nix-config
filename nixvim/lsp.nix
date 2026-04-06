@@ -6,10 +6,6 @@
       bashls.enable = true;
       clangd.enable = true;
       cssls.enable = true;
-      denols = {
-        enable = true;
-        activate = false;
-      };
       emmet_language_server = {
         enable = true;
         config.filetypes = [
@@ -47,7 +43,6 @@
           };
         };
       };
-      slint_lsp.enable = true;
       svelte.enable = true;
       tailwindcss = {
         enable = true;
