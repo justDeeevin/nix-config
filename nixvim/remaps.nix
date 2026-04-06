@@ -81,4 +81,7 @@
       mode = "n";
     }
   ];
+
+  # weird built-in treesitter-related keymap that collides with my colemak navigation keymaps
+  extraConfigLuaPost = "vim.keymap.del({'x', 'o'}, 'in')";
 }
