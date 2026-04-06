@@ -1,13 +1,14 @@
 {
   plugins.nerdy = {
     enable = true;
-    enableTelescope = true;
   };
-
   keymaps = [
     {
       key = "<leader>d";
-      action.__raw = "require('telescope').extensions.nerdy.nerdy";
+      action = "<cmd>Nerdy list<CR>";
     }
   ];
+  extraConfigLua = ''
+    require("nerdy").setup()
+  '';
 }

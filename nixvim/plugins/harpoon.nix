@@ -1,8 +1,8 @@
 {
   plugins.harpoon = {
     enable = true;
-    enableTelescope = true;
   };
+
   keymaps = [
     {
       key = "<leader>a";

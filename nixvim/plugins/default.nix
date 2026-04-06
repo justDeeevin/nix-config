@@ -7,10 +7,7 @@
       })
       [
         "nvim-autopairs"
-        "dressing"
         "gitsigns"
-        "image"
-        "indent-blankline"
         "rainbow-delimiters"
         "fidget"
         "crates"
