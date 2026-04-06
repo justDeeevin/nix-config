@@ -95,6 +95,6 @@ in
       themes.system24-oxocarbon = builtins.readFile "${system24-oxocarbon}/system24-oxocarbon.theme.css";
       enabledThemes = [ "system24-oxocarbon.css" ];
     };
-    openASAR.enable = true;
+    discord.openASAR.enable = true;
   };
 }
