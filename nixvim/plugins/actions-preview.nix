@@ -13,7 +13,7 @@
   keymaps = [
     {
       key = "<leader>ca";
-      action = "<cmd>lua require('actions-preview').code_actions()<CR>";
+      action.__raw = "require('actions-preview').code_actions";
     }
   ];
 }

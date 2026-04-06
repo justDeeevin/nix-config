@@ -62,7 +62,7 @@
     keymaps = [
       {
         key = "<leader>v";
-        action.__raw = "function() vim.diagnostic.open_float() end";
+        action.__raw = "vim.diagnostic.open_float";
       }
       {
         key = "gh";
