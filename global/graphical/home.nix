@@ -496,4 +496,6 @@ in
   '';
 
   programs.nushell.shellAliases.warp = "warp-cli";
+
+  gtk.gtk4.theme = config.gtk.theme;
 }
