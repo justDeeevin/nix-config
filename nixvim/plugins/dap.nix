@@ -2,6 +2,22 @@
 {
   plugins.dap-virtual-text.enable = true;
 
+  plugins.dap-ui = {
+    enable = true;
+    settings.layouts = [
+      {
+        elements = [
+          {
+            id = "scopes";
+            size = 1;
+          }
+        ];
+        position = "left";
+        size = 40;
+      }
+    ];
+  };
+
   extraPackages = [ pkgs.gdb ];
 
   plugins.dap = {
@@ -144,4 +160,21 @@
       options.desc = "Dap: hover";
     }
   ];
+
+  # Automatically open the dapui sidebar
+  extraConfigLuaPost = ''
+    local dap = require("dap")
+    local dapui = require("dapui")
+    dap.listeners.after.event_initialized["dapui_config"] = function()
+      dapui.open()
+    end
+
+    dap.listeners.before.event_terminated["dapui_config"] = function()
+      dapui.close()
+    end
+
+    dap.listeners.before.event_exited["dapui_config"] = function()
+      dapui.close()
+    end
+  '';
 }
