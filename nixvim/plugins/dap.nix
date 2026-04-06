@@ -106,34 +106,42 @@
     {
       key = "<leader>bp";
       action = "<cmd>DapToggleBreakpoint<CR>";
+      options.desc = "Toggle breakpoint";
     }
     {
       key = "<leader><left>";
       action = "<cmd<DapStepOut<CR>";
+      options.desc = "Dap: step out";
     }
     {
       key = "<leader><down>";
       action = "<cmd>DapStepOver<CR>";
+      options.desc = "Dap: step over";
     }
     {
       key = "<leader><up>";
       action = "<cmd>DapRestartFrame<CR>";
+      options.desc = "Dap: restart frame";
     }
     {
       key = "<leader><right>";
       action = "<cmd>DapStepInto<CR>";
+      options.desc = "Dap: step into";
     }
     {
       key = "<F1>";
       action = "<cmd>DapContinue<CR>";
+      options.desc = "Dap: continue";
     }
     {
       key = "<F12>";
       action = "<cmd>DapNew<CR>";
+      options.desc = "Start new debug session";
     }
     {
       key = "<leader>E";
       action.__raw = "require('dap.ui.widgets').hover";
+      options.desc = "Dap: hover";
     }
   ];
 }

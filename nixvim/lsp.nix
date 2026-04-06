@@ -63,18 +63,22 @@
       {
         key = "<leader>v";
         action.__raw = "vim.diagnostic.open_float";
+        options.desc = "Show diagnostics for this line";
       }
       {
         key = "gh";
         lspBufAction = "hover";
+        options.desc = "Hover";
       }
       {
         key = "<F2>";
         lspBufAction = "rename";
+        options.desc = "Rename";
       }
       {
         key = "<leader>th";
         action.__raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end";
+        options.desc = "Toggle inlay hints";
       }
     ];
   };

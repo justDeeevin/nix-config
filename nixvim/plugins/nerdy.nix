@@ -6,6 +6,7 @@
     {
       key = "<leader>d";
       action = "<cmd>Nerdy list<CR>";
+      options.desc = "Nerd icons";
     }
   ];
   extraConfigLua = ''
