@@ -22,5 +22,6 @@
     updatetime = 250;
     timeoutlen = 300;
     signcolumn = "yes";
+    virtualedit = "all";
   };
 }
