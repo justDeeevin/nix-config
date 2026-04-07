@@ -34,6 +34,7 @@
       typst
       vim
       xml
+      diff
     ];
   };
 }
