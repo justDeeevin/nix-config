@@ -16,7 +16,6 @@
         "transparent"
         "supermaven"
         "todo-comments"
-        "modicator"
         "helpview"
       ]
   );

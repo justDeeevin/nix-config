@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   imports = [
     ./remaps.nix
@@ -6,7 +6,9 @@
     ./diagnostics.nix
     ./lsp.nix
   ]
-  ++ builtins.map (file: ./. + "/plugins/${file}") (builtins.attrNames (builtins.readDir ./plugins));
+  ++ builtins.map (file: ./. + "/plugins/${file}") (
+    builtins.filter (lib.hasSuffix ".nix") (builtins.attrNames (builtins.readDir ./plugins))
+  );
 
   colorschemes.oxocarbon.enable = true;
   highlightOverride.FloatBorder.link = "@boolean";
