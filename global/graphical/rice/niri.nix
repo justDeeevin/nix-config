@@ -50,13 +50,13 @@ in
         ];
       }
       {
+        sh = "noctalia-shell";
+      }
+      {
         argv = [
           onepass
           "--silent"
         ];
-      }
-      {
-        sh = "noctalia-shell";
       }
       {
         # urgent window focus
