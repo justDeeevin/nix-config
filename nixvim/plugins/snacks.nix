@@ -28,6 +28,7 @@
         "scroll"
         "words"
         "image"
+        "notifier"
       ];
     };
 
