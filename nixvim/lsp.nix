@@ -53,6 +53,7 @@
         ];
       };
       taplo.enable = true;
+      tinymist.enable = true;
       ts_ls = {
         enable = true;
         config.root_markers = [ "package.json" ];
