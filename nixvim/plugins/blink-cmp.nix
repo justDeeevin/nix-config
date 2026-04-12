@@ -4,6 +4,11 @@
     settings = {
       keymap.preset = "enter";
       fuzzy.implementation = "lua";
+      sources.default = [
+        "lsp"
+        "path"
+        "snippets"
+      ];
     };
   };
 }
