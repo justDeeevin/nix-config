@@ -58,12 +58,8 @@
     };
 
     configurations = rec {
-      c = [
-        {
-          name = "Launch";
-          type = "gdb";
-          request = "launch";
-
+      c =
+        let
           program.__raw =
             # lua
             ''
@@ -72,46 +68,53 @@
               end
             '';
           cwd = "\${workspaceFolder}";
-          stopAtBeginningOfMainSubprogram = false;
-        }
-        {
-          name = "Select and attach to process";
           type = "gdb";
-          request = "attach";
-
-          program.__raw =
-            # lua
-            ''
-              function()
-                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
-              end
-            '';
-          pid.__raw =
-            # lua
-            ''
-              function()
-                local name = vim.fn.input("Executable name (filter): ")
-                return require("dap.utils").pick_process({ filter = name })
-              end
-            '';
-          cwd = "\${workspaceFolder}";
-        }
-        {
-          name = "Attach to gdbserver :1234";
-          type = "gdb";
-          request = "attach";
-
-          target = "localhost:1234";
-          program.__raw =
-            # lua
-            ''
-              function()
-                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
-              end
-            '';
-          cwd = "\${workspaceFolder}";
-        }
-      ];
+        in
+        [
+          {
+            name = "Launch";
+            request = "launch";
+            inherit
+              program
+              cwd
+              type
+              ;
+            args.__raw =
+              # lua
+              ''
+                function()
+                  return vim.fn.input("Arguments: ")
+                end
+              '';
+            stopAtBeginningOfMainSubprogram = false;
+          }
+          {
+            name = "Select and attach to process";
+            request = "attach";
+            inherit
+              program
+              cwd
+              type
+              ;
+            pid.__raw =
+              # lua
+              ''
+                function()
+                  return tonumber(vim.fn.input("PID: "))
+                end
+              '';
+          }
+          {
+            name = "Attach to gdbserver :1234";
+            request = "attach";
+            inherit
+              program
+              cwd
+              type
+              ;
+            target = "localhost:1234";
+          }
+        ];
 
       cpp = c;
       rust = builtins.map (config: config // { type = "rust-gdb"; }) c;
