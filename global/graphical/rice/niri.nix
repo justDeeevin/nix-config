@@ -18,6 +18,14 @@ in
     spawn-at-startup = [
       {
         argv = [
+          "systemctl"
+          "--user"
+          "start"
+          "my-graphical-session.target"
+        ];
+      }
+      {
+        argv = [
           (lib.getExe pkgs.swayidle)
           "-w"
           "lock"
