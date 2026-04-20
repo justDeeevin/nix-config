@@ -53,10 +53,7 @@ in
         sh = "noctalia-shell";
       }
       {
-        argv = [
-          onepass
-          "--silent"
-        ];
+        sh = ''sleep 2 && "${onepass}" --silent'';
       }
       {
         # urgent window focus
