@@ -6,9 +6,10 @@
     indent.enable = true;
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       bash
-      css
       c
       cpp
+      css
+      diff
       dockerfile
       dot
       html
@@ -17,8 +18,8 @@
       javascript
       json
       just
-      lua
       latex
+      lua
       make
       markdown
       markdown_inline
@@ -34,7 +35,6 @@
       typst
       vim
       xml
-      diff
     ];
   };
 }

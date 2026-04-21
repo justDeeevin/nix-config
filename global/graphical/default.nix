@@ -42,10 +42,10 @@
     isNormalUser = true;
     description = "Devin Droddy";
     extraGroups = [
-      "networkmanager"
-      "wheel"
       "adbusers"
       "libvirtd"
+      "networkmanager"
+      "wheel"
     ];
     shell = pkgs.nushell;
   };

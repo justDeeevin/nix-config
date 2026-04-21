@@ -34,15 +34,15 @@
           value.enable = false;
         })
         [
-          "nixvim"
-          "ghostty"
-          "btop"
           "bat"
+          "btop"
+          "ghostty"
+          "nixcord"
+          "nixvim"
           "noctalia-shell"
           "nushell"
-          "vicinae"
           "starship"
-          "nixcord"
+          "vicinae"
         ]
     );
     opacity = {

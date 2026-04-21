@@ -6,18 +6,18 @@
         value.enable = true;
       })
       [
-        "nvim-autopairs"
-        "gitsigns"
-        "rainbow-delimiters"
-        "fidget"
-        "crates"
-        "web-devicons"
         "cord"
-        "transparent"
+        "crates"
+        "fidget"
+        "gitsigns"
+        "helpview"
+        "modicator"
+        "nvim-autopairs"
+        "rainbow-delimiters"
         "supermaven"
         "todo-comments"
-        "modicator"
-        "helpview"
+        "transparent"
+        "web-devicons"
       ]
   );
 }

@@ -23,12 +23,12 @@
     {
       enable = true;
       settings = mkEnabled [
+        "image"
         "indent"
+        "notifier"
         "picker"
         "scroll"
         "words"
-        "image"
-        "notifier"
       ];
     };
 

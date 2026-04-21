@@ -33,10 +33,10 @@
     isNormalUser = true;
     description = "Administrator";
     extraGroups = [
-      "networkmanager"
-      "wheel"
       "adbusers"
       "libvirtd"
+      "networkmanager"
+      "wheel"
     ];
     shell = pkgs.nushell;
   };

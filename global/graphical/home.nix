@@ -276,16 +276,16 @@ in
       in
       # nu
       ''
+        use ${getCompletions "bat"} *
+        use ${getCompletions "cargo"} *
+        use ${getCompletions "gh"} *
         use ${getCompletions "git"} *
+        use ${getCompletions "jj"} *
         use ${getCompletions "just"} *
         use ${getCompletions "nix"} *
-        use ${getCompletions "cargo"} *
-        use ${getCompletions "bat"} *
-        use ${getCompletions "gh"} *
         use ${getCompletions "ssh"} *
         use ${getCompletions "typst"} *
         use ${getCompletions "zoxide"} *
-        use ${getCompletions "jj"} *
         use ${./to_nix.nu} *
 
         $env.config.cursor_shape.emacs = "line"

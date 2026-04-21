@@ -7,41 +7,41 @@
 }:
 with pkgs;
 [
-  pear-desktop
-  wl-clipboard
-  vlc
-  ffmpeg-full
-  kdePackages.kalk
-  magic-wormhole
-  inputs.zen-browser.packages.x86_64-linux.default
-  obsidian
-  chromium
-  nh
-  telegram-desktop
-  typst
-  timg
-  r2modman
   (lib.hiPrio uutils-coreutils-noprefix)
-  tldr
-  bluetui
-  nixvim
-  nautilus
-  osu-lazer-bin
-  slack
-  lazyjj
-  usbutils
   (ouch.override { enableUnfree = true; })
-  wiremix
+  bluetui
+  chromium
+  eclipses.eclipse-java
+  ffmpeg-full
+  gpclient
+  inputs.zen-browser.packages.x86_64-linux.default
+  kdePackages.kalk
+  lazyjj
+  magic-wormhole
+  nautilus
+  nh
+  nixvim
+  nurl
+  obsidian
+  osu-lazer-bin
+  pear-desktop
+  r2modman
+  sl
+  slack
+  telegram-desktop
+  timg
+  tldr
+  tsukimi
+  typst
   (unityhub.override {
     extraLibs = fhsPkgs: with fhsPkgs; [ sqlite ];
   })
-  gpclient
-  eclipses.eclipse-java
+  usbutils
+  vlc
   vscode
-  nurl
   vscode
-  sl
-  tsukimi
-  zoom-us
+  wiremix
+  wl-clipboard
   wtype
+  zoom-us
 ]
