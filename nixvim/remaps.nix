@@ -18,6 +18,7 @@
     {
       key = "i";
       action = "l";
+      options.nowait = true;
     }
     {
       key = "k";
@@ -87,7 +88,4 @@
       options.desc = "Switch to right pane";
     }
   ];
-
-  # weird built-in treesitter-related keymap that collides with my colemak navigation keymaps
-  extraConfigLuaPost = "vim.keymap.del({'x', 'o'}, 'in')";
 }
