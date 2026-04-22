@@ -14,6 +14,12 @@ let
       install -D $src $out/lib/udev/rules.d/69-probe-rs.rules
     '';
   };
+  steam-wire = pkgs.fetchFromGitHub {
+    owner = "Widowan";
+    repo = "steam-wire";
+    rev = "e31ba1cd4053673a22df70bb65a85d866e9f5840";
+    hash = "sha256-jbsngsVGIvm/m9FAq6CeXw47J7t2Q+RGg4ZFnXTtzdE=";
+  };
 in
 {
   imports = [
@@ -47,4 +53,17 @@ in
   nixpkgs.config.cudaSupport = true;
 
   services.kmscon.hwRender = true;
+
+  services.pipewire.wireplumber = {
+    configPackages = [
+      (pkgs.stdenv.mkDerivation {
+        name = "90-steam-wire.conf";
+        src = steam-wire;
+        phases = [ "installPhase" ];
+        installPhase = "install -D $src/90-steam-wire.conf $out/share/wireplumber/wireplumber.conf.d/90-steam-wire.conf";
+      })
+    ];
+
+    extraScripts."steam-wire.lua" = builtins.readFile "${steam-wire}/steam-wire.lua";
+  };
 }

@@ -11,6 +11,7 @@
     gimp
     reaper
     kicad
+    coppwr
   ];
 
   programs.niri.settings = {
