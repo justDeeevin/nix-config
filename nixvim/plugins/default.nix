@@ -11,6 +11,7 @@
         "fidget"
         "gitsigns"
         "helpview"
+        "hex"
         "modicator"
         "nvim-autopairs"
         "rainbow-delimiters"
