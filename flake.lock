@@ -540,15 +540,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1777167795,
-        "narHash": "sha256-VHdtmxVX7oF2+FxYQQPARQmtaHw23FoTBiTaH6ucOEg=",
-        "owner": "noctalia-dev",
+        "lastModified": 1776888514,
+        "narHash": "sha256-60Y7T+vSDbnWQFDUEcpPuv79xphCZC7vRuStpNRjUuk=",
+        "owner": "mic92",
         "repo": "noctalia-qs",
-        "rev": "697db4c14e27d841956ff76887fc312443e6fb17",
+        "rev": "3f2f20077ede5303cadb82a5b53157f4c80dde3d",
         "type": "github"
       },
       "original": {
-        "owner": "noctalia-dev",
+        "owner": "mic92",
+        "ref": "objectmodel-diffupdate-reorder",
         "repo": "noctalia-qs",
         "type": "github"
       }
