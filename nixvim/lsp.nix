@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   plugins.lspconfig.enable = true;
 
@@ -14,6 +15,7 @@
           "typescriptreact"
         ];
       };
+      hls.enable = true;
       html.enable = true;
       jdtls.enable = true;
       jsonls.enable = true;
@@ -85,4 +87,6 @@
   };
 
   filetype.extension.webc = "html";
+
+  extraPackages = [ pkgs.haskellPackages.ghc ];
 }

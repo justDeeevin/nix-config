@@ -12,6 +12,7 @@
       diff
       dockerfile
       dot
+      haskell
       html
       java
       javadoc
