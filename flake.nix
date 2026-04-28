@@ -79,7 +79,7 @@
     };
 
     noctalia-qs = {
-      url = "github:mic92/noctalia-qs/objectmodel-diffupdate-reorder";
+      url = "github:noctalia-dev/noctalia-qs";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
