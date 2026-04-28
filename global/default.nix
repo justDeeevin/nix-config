@@ -149,7 +149,7 @@
   environment.systemPackages =
     with pkgs;
     lib.optionals (!graphical) [
-      inputs.self.packages.x86_64-linux.nixvim
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nixvim
       jujutsu
       git
       sops

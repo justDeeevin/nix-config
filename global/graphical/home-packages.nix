@@ -14,7 +14,7 @@ with pkgs;
   eclipses.eclipse-java
   ffmpeg-full
   gpclient
-  inputs.zen-browser.packages.x86_64-linux.default
+  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   kdePackages.kalk
   lazyjj
   magic-wormhole

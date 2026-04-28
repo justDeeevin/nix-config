@@ -8,7 +8,8 @@
   ...
 }:
 let
-  nixvim = inputs.self.packages.x86_64-linux.nixvim.extend {
+  system = pkgs.stdenv.hostPlatform.system;
+  nixvim = inputs.self.packages.${system}.nixvim.extend {
     plugins.obsidian = {
       enable = true;
       settings = {
@@ -483,7 +484,7 @@ in
   programs.gh = {
     enable = true;
     extensions = [
-      inputs.gh-jj.packages.x86_64-linux.default
+      inputs.gh-jj.packages.${system}.default
     ];
   };
 

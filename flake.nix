@@ -118,6 +118,7 @@
   outputs =
     { nixpkgs, ... }@inputs:
     let
+      system = "x86_64-linux";
       lib = nixpkgs.lib;
       mkSystem =
         {
@@ -152,7 +153,7 @@
       pkgs = import nixpkgs { system = "x86_64-linux"; };
     in
     {
-      packages.x86_64-linux.nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+      packages.${system}.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
         inherit pkgs;
         module = import ./nixvim;
         extraSpecialArgs = { inherit inputs; };
@@ -207,7 +208,7 @@
           graphical = false;
         };
       };
-      devShell.x86_64-linux = pkgs.mkShell {
+      devShell.${system} = pkgs.mkShell {
         packages = with pkgs; [
           just
           sops
