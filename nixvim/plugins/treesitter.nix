@@ -5,6 +5,7 @@
     highlight.enable = true;
     indent.enable = true;
     grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
+      asm
       bash
       c
       cpp
