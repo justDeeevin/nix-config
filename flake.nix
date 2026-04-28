@@ -149,16 +149,7 @@
           inherit name;
           value = mkSystem (value // { hostName = name; });
         }) hosts;
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        overlays = [
-          (final: prev: {
-            vimPlugins = prev.vimPlugins // {
-              nvim-treesitter-legacy = prev.runCommand "nvim-treesitter-legacy-dummy" { } "mkdir -p $out";
-            };
-          })
-        ];
-      };
+      pkgs = import nixpkgs { system = "x86_64-linux"; };
     in
     {
       packages.x86_64-linux.nixvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
