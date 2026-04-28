@@ -12,6 +12,7 @@
     reaper
     kicad
     coppwr
+    kdePackages.kdenlive
   ];
 
   programs.niri.settings = {
