@@ -288,6 +288,7 @@ in
         use ${getCompletions "typst"} *
         use ${getCompletions "zoxide"} *
         use ${./scripts/to_nix.nu} *
+        use ${./scripts/drill.nu}
 
         $env.config.cursor_shape.emacs = "line"
         $env.config.show_banner = false
