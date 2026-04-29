@@ -287,7 +287,7 @@ in
         use ${getCompletions "ssh"} *
         use ${getCompletions "typst"} *
         use ${getCompletions "zoxide"} *
-        use ${./to_nix.nu} *
+        use ${./scripts/to_nix.nu} *
 
         $env.config.cursor_shape.emacs = "line"
         $env.config.show_banner = false
@@ -299,10 +299,6 @@ in
         def suspend [] {
           systemctl suspend
           exit
-        }
-
-        def photo [] {
-          ffmpeg -v quiet -f v4l2 -video_size 1920x1080 -i /dev/video0 -vframes 1 -f image2pipe pipe:1 | tee {wl-copy} | timg -
         }
 
         def has [name: string] {
