@@ -143,6 +143,12 @@ in
       ui = {
         default-command = "log";
         merge-editor = "diffconflicts";
+        diff-editor = [
+          "nvim"
+          "-c"
+          "DiffEditor $left $right $output"
+        ];
+        diff-instructions = false;
       };
 
       merge-tools.diffconflicts = {
