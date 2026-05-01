@@ -296,9 +296,6 @@ in
         use ${./scripts/to_nix.nu} *
         use ${./scripts/drill.nu}
 
-        $env.config.cursor_shape.emacs = "line"
-        $env.config.show_banner = false
-
         def dev [path?: string] {
           nix develop ($path | default '.') --command nu
         }
@@ -311,6 +308,10 @@ in
         def has [name: string] {
           ($in | get -o $name) != null
         }
+
+        if not ($env | has IN_NIX_SHELL) and $nu.is-interactive {
+          fastfetch
+        }
       '';
     shellAliases = {
       cd = "z";
@@ -321,14 +322,10 @@ in
     extraEnv =
       # nu
       ''
-        if not (try {$env.IN_NIX_SHELL; true} catch {false}) {
-          # allows the window to get properly sized before the fastfetch image is rendered
-          sleep 33ms
-          fastfetch
-        }
-
         $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
         $env.EDITOR = "${lib.getExe nixvim}"
+        $env.config.cursor_shape.emacs = "line"
+        $env.config.show_banner = false
       '';
   };
 
