@@ -29,7 +29,7 @@ in
           (lib.getExe pkgs.swayidle)
           "-w"
           "lock"
-          "hyprlock"
+          "pgrep hyprlock || hyprlock"
           "before-sleep"
           "loginctl lock-session"
         ];
