@@ -11,6 +11,12 @@
   );
 
   colorschemes.oxocarbon.enable = true;
-  highlightOverride.FloatBorder.link = "@boolean";
+  highlightOverride = {
+    FloatBorder.link = "@boolean";
+    Normal.bg = "none";
+    LineNr.bg = "none";
+    FoldColumn.bg = "none";
+    SignColumn.bg = "none";
+  };
   package = inputs.nightly-nvim.packages.x86_64-linux.default;
 }

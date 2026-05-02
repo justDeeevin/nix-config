@@ -1,26 +1,27 @@
 {
   opts = {
-    number = true;
-    relativenumber = true;
-    ignorecase = true;
-    smartcase = true;
+    breakindent = true;
+    cursorline = false;
     hlsearch = false;
+    ignorecase = true;
     incsearch = true;
     list = true;
     listchars = {
-      tab = "» ";
-      trail = "·";
+      eol = "↴";
       nbsp = "␣";
       space = "⋅";
-      eol = "↴";
+      tab = "» ";
+      trail = "·";
     };
-    showmode = false;
-    breakindent = true;
-    undofile = true;
-    termguicolors = true;
+    number = true;
+    relativenumber = true;
     scrolloff = 8;
-    updatetime = 250;
-    timeoutlen = 300;
+    showmode = false;
     signcolumn = "yes";
+    smartcase = true;
+    termguicolors = true;
+    timeoutlen = 300;
+    undofile = true;
+    updatetime = 250;
   };
 }

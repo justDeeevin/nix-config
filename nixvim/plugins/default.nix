@@ -17,7 +17,6 @@
         "rainbow-delimiters"
         "supermaven"
         "todo-comments"
-        "transparent"
         "web-devicons"
       ]
   );
