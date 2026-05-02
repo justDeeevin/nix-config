@@ -60,6 +60,7 @@
         enable = true;
         config.root_markers = [ "package.json" ];
       };
+      yamlls.enable = true;
     };
 
     keymaps = [

@@ -37,6 +37,7 @@
       typst
       vim
       xml
+      yaml
     ];
   };
 }
