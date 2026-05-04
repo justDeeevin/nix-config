@@ -101,7 +101,11 @@
     XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
   };
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
+    gamescopeSession.enable = true;
+  };
 
   qt.enable = true;
 

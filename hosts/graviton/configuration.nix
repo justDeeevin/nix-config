@@ -27,7 +27,7 @@ in
   ];
 
   programs.gamescope.enable = true;
-  programs.gamemode.enable = true;
+  environment.systemPackages = [ pkgs.gamescope-wsi ];
 
   services.hardware.openrgb.enable = true;
 
