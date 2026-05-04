@@ -7,14 +7,11 @@
 }:
 with pkgs;
 [
-  (lib.hiPrio uutils-coreutils-noprefix)
-  (ouch.override { enableUnfree = true; })
   bluetui
   chromium
   eclipses.eclipse-java
   ffmpeg-full
   gpclient
-  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   kdePackages.kalk
   lazyjj
   magic-wormhole
@@ -24,6 +21,7 @@ with pkgs;
   nurl
   obsidian
   osu-lazer-bin
+  (ouch.override { enableUnfree = true; })
   pear-desktop
   r2modman
   sl
@@ -37,11 +35,13 @@ with pkgs;
     extraLibs = fhsPkgs: with fhsPkgs; [ sqlite ];
   })
   usbutils
+  (lib.hiPrio uutils-coreutils-noprefix)
   vlc
   vscode
   vscode
   wiremix
   wl-clipboard
   wtype
+  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   zoom-us
 ]
