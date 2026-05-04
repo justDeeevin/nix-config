@@ -294,7 +294,7 @@ in
         use ${getCompletions "typst"} *
         use ${getCompletions "zoxide"} *
         use ${./scripts/to_nix.nu} *
-        use ${./scripts/drill.nu}
+        use ${./scripts/drill-path.nu} *
 
         def dev [path?: string] {
           nix develop ($path | default '.') --command nu

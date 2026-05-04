@@ -1,5 +1,5 @@
 # Finds the destination of a sequence of symlinks given a command or path
-export def main [
+export def drill [
     link: string # The command name or path to follow
     --long(-l) # Get all available columns for listed files
     --which(-w) # Interpret `link` as a command name and use `which` to find the path
@@ -23,8 +23,9 @@ export def main [
     } else { $link }
     mut paths = [$path]
     while (ls $path | get type.0) == "symlink" {
-        $path = ls -l $path | get target.0
-        if $trace { $paths = $paths | append $path }
+        $path = (ls -l $path | get target.0)
+        if $trace { $paths = ($paths | append $path) }
     }
+    if not $trace { $paths = [$path] }
     if $long { ls -l ...$paths } else { ls ...$paths }
 }
