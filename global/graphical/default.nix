@@ -136,10 +136,4 @@
       "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
     };
   };
-
-  systemd.user.targets.my-graphical-session = {
-    description = "Manually start the graphical session target";
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session-pre.target" ];
-  };
 }
