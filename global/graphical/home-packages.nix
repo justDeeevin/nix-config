@@ -14,7 +14,6 @@ with pkgs;
   gpclient
   kdePackages.kalk
   lazyjj
-  mars-mips
   magic-wormhole
   nautilus
   nh
