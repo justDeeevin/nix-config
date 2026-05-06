@@ -13,6 +13,7 @@
     imageScalingMode = "center";
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+    polarity = "dark";
 
     fonts = {
       monospace = {
@@ -42,7 +43,6 @@
           "noctalia-shell"
           "nushell"
           "starship"
-          "vicinae"
         ]
     );
     opacity = {
