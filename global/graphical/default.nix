@@ -64,8 +64,6 @@
 
   hardware.bluetooth.enable = true;
 
-  hardware.xpadneo.enable = true;
-
   fonts.packages = with pkgs; [
     nerd-fonts.symbols-only
     monaspace
