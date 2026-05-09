@@ -101,9 +101,12 @@
 
   programs.steam = {
     enable = true;
+    extraPackages = [ pkgs.hidapi ];
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     gamescopeSession.enable = true;
+    extest.enable = true;
   };
+  hardware.steam-hardware.enable = true;
 
   qt.enable = true;
 
