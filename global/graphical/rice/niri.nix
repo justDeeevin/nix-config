@@ -236,6 +236,15 @@ in
           relative-to = "bottom-right";
         };
       }
+      {
+        matches = [
+          {
+            app-id = "steam";
+            title = "Steam Big Picture Mode";
+          }
+        ];
+        open-fullscreen = true;
+      }
     ];
     debug.honor-xdg-activation-with-invalid-serial = [ ];
     xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
