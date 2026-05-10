@@ -106,6 +106,7 @@
     gamescopeSession.enable = true;
     extest.enable = true;
   };
+  programs.gamescope.enable = true;
   hardware.steam-hardware.enable = true;
 
   qt.enable = true;

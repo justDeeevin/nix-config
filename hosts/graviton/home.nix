@@ -5,7 +5,6 @@
 }:
 {
   home.packages = with pkgs; [
-    ntfs3g
     gzdoom
     prismlauncher
     gimp
@@ -43,12 +42,6 @@
           (lib.getExe pkgs.openrgb)
           "-p"
           (builtins.toString ./icy.orp)
-        ];
-      }
-      {
-        argv = [
-          "slack"
-          "--startup"
         ];
       }
     ];

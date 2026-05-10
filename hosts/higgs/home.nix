@@ -28,9 +28,4 @@
         };
       };
   };
-
-  programs.hyprlock.settings = {
-    general.ignore_empty_input = lib.mkForce false;
-    input-field = lib.mkForce null;
-  };
 }

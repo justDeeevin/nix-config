@@ -26,7 +26,6 @@ in
     ./hardware-configuration.nix
   ];
 
-  programs.gamescope.enable = true;
   environment.systemPackages = [ pkgs.gamescope-wsi ];
 
   services.hardware.openrgb.enable = true;
