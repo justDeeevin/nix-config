@@ -275,8 +275,8 @@ in
         nu_scripts = pkgs.fetchFromGitHub {
           owner = "nushell";
           repo = "nu_scripts";
-          rev = "449dd3d06598714c2ba0ee3fa3556e24d034c624";
-          hash = "sha256-4ibgz7y1fsBn2aDuptqpdLd4Wdfx2sKGs7wVRJxCWW0=";
+          rev = "32cd1d53649bc024edd65326a5b988cd7bcf4810";
+          hash = "sha256-t8OCSDI7MqA9Q9Tv4mjd/yRac2SZvhX2x8rfcbIUT9o=";
         };
         completions = "${nu_scripts}/custom-completions";
         getCompletions = cmd: "${completions}/${cmd}/${cmd}-completions.nu";
