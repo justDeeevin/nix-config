@@ -37,8 +37,6 @@ with pkgs;
   usbutils
   (lib.hiPrio uutils-coreutils-noprefix)
   vlc
-  vscode
-  vscode
   wiremix
   wl-clipboard
   wtype
