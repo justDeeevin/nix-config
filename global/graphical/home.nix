@@ -293,8 +293,9 @@ in
         use ${getCompletions "ssh"} *
         use ${getCompletions "typst"} *
         use ${getCompletions "zoxide"} *
-        use ${./scripts/to_nix.nu} *
+        use ${./scripts/to-nix.nu} *
         use ${./scripts/drill-path.nu} *
+        use ${./scripts/get-env.nu} *
 
         def dev [path?: string] {
           nix develop ($path | default '.') --command nu
