@@ -102,13 +102,6 @@ in
         { proportion = 2. / 3.; }
       ];
     };
-    environment = {
-      # NVIDIA stuff
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    };
     screenshot-path = null;
     binds =
       with config.lib.niri.actions;

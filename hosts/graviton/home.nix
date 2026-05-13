@@ -12,6 +12,7 @@
     kicad
     coppwr
     kdePackages.kdenlive
+    (pkgs.callPackage ./grimoire.nix { })
   ];
 
   programs.niri.settings = {
