@@ -104,7 +104,11 @@
     extraPackages = [ pkgs.hidapi ];
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     gamescopeSession.enable = true;
-    extest.enable = true;
+    package = pkgs.steam.override (prev: {
+      extraEnv = (prev.extraEnv or { }) // {
+        LD_PRELOAD = "${pkgs.extest}/lib/libextest.so:" + (prev.extraEnv.LD_PRELOAD or "");
+      };
+    });
   };
   programs.gamescope.enable = true;
   hardware.steam-hardware.enable = true;
