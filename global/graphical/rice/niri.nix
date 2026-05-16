@@ -28,22 +28,6 @@ in
       }
       {
         argv = [
-          "systemctl"
-          "--user"
-          "restart"
-          "xdg-desktop-portal-gnome"
-        ];
-      }
-      {
-        argv = [
-          "systemctl"
-          "--user"
-          "restart"
-          "xdg-desktop-portal-gtk"
-        ];
-      }
-      {
-        argv = [
           (lib.getExe pkgs.wl-clip-persist)
           "--clipboard"
           "regular"
