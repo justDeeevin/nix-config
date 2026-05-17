@@ -42,6 +42,6 @@ with pkgs;
   wiremix
   wl-clipboard
   wtype
-  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
   zoom-us
 ]

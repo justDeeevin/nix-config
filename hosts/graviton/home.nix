@@ -5,14 +5,14 @@
 }:
 {
   home.packages = with pkgs; [
-    gzdoom
-    prismlauncher
-    gimp
-    reaper
-    kicad
     coppwr
+    gimp
+    (callPackage ./grimoire.nix { })
+    gzdoom
     kdePackages.kdenlive
-    (pkgs.callPackage ./grimoire.nix { })
+    kicad
+    prismlauncher
+    reaper
   ];
 
   programs.niri.settings = {
