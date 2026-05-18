@@ -22,6 +22,7 @@ with pkgs;
   obsidian
   osu-lazer-bin
   (ouch.override { enableUnfree = true; })
+  pan
   pear-desktop
   r2modman
   sl
