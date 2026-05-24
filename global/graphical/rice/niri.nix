@@ -20,10 +20,8 @@ in
         argv = [
           (lib.getExe pkgs.swayidle)
           "-w"
-          "lock"
-          "hyprlock"
           "before-sleep"
-          "loginctl lock-session"
+          "hyprlock"
         ];
       }
       {

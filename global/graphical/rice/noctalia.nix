@@ -128,7 +128,7 @@
             {
               action = "lock";
               enabled = true;
-              command = "loginctl lock-session";
+              command = "hyprlock";
             }
             "logout"
             "suspend"
