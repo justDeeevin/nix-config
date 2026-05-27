@@ -57,6 +57,7 @@ in
           "callTimer"
           "consoleJanitor"
           "crashHandler"
+          "customSounds"
           "disableCallIdle"
           "experiments"
           "favoriteGifSearch"
@@ -95,6 +96,5 @@ in
       themes.system24-oxocarbon = builtins.readFile "${system24-oxocarbon}/system24-oxocarbon.theme.css";
       enabledThemes = [ "system24-oxocarbon.css" ];
     };
-    discord.openASAR.enable = true;
   };
 }
