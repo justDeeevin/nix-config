@@ -8,6 +8,7 @@
 with pkgs;
 [
   bluetui
+  (callPackage ./BrickVault { })
   chromium
   eclipses.eclipse-java
   ffmpeg-full
