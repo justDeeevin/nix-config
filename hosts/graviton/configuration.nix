@@ -60,4 +60,6 @@ in
 
     extraScripts."steam-wire.lua" = builtins.readFile "${steam-wire}/steam-wire.lua";
   };
+
+  programs.gamemode.enable = true;
 }
