@@ -35,11 +35,6 @@ in
     probe-rs-udev-rules
   ];
 
-  hardware.openrazer = {
-    enable = true;
-    users = [ "devin" ];
-  };
-
   boot.loader.limine = {
     secureBoot.enable = true;
     extraEntries = ''
