@@ -12,7 +12,6 @@
     kdePackages.kdenlive
     kicad
     prismlauncher
-    reaper
   ];
 
   programs.niri.settings = {
