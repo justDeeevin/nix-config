@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  myLib,
   config,
   ...
 }:
@@ -150,18 +151,11 @@
         url = "https://github.com/noctalia-dev/noctalia-plugins";
       }
     ];
-    states = builtins.listToAttrs (
-      builtins.map
-        (plugin: {
-          name = plugin;
-          value.enabled = true;
-        })
-        [
-          "privacy-indicator"
-          "kaomoji-provider"
-          "unicode-picker"
-        ]
-    );
+    states = myLib.mkEnableList [
+      "privacy-indicator"
+      "kaomoji-provider"
+      "unicode-picker"
+    ];
     version = 1;
   };
 

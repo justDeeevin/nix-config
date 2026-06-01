@@ -1,34 +1,35 @@
-{ pkgs, ... }:
+{ pkgs, myLib, ... }:
 {
   plugins.lspconfig.enable = true;
 
   lsp = {
-    servers = {
-      bashls.enable = true;
-      clangd.enable = true;
-      cssls.enable = true;
-      emmet_language_server = {
-        enable = true;
+    servers = myLib.mkEnableList [
+      "bashls"
+      "clangd"
+      "cssls"
+      {
+        name = "emmet_language_server";
         config.filetypes = [
           "html"
           "svelte"
           "typescriptreact"
         ];
-      };
-      hls.enable = true;
-      html.enable = true;
-      jdtls.enable = true;
-      jsonls.enable = true;
-      lua_ls.enable = true;
-      nil_ls.enable = true;
-      nushell.enable = true;
-      omnisharp = {
-        enable = true;
+      }
+      "hls"
+      "html"
+      "jdtls"
+      "jsonls"
+      "lua_ls"
+      "nil_ls"
+      "nushell"
+      "ocamllsp"
+      {
+        name = "omnisharp";
         config.filetypes = [ "cs" ];
-      };
-      pyright.enable = true;
-      rust_analyzer = {
-        enable = true;
+      }
+      "pyright"
+      {
+        name = "rust_analyzer";
         config.settings.rust-analyzer = {
           inlayHints = {
             parameterHints.enable = true;
@@ -44,24 +45,24 @@
             features = "all";
           };
         };
-      };
-      svelte.enable = true;
-      tailwindcss = {
-        enable = true;
+      }
+      "svelte"
+      {
+        name = "tailwindcss";
         config.filetypes = [
           "html"
           "svelte"
           "typescriptreact"
         ];
-      };
-      taplo.enable = true;
-      tinymist.enable = true;
-      ts_ls = {
-        enable = true;
+      }
+      "taplo"
+      "tinymist"
+      {
+        name = "ts_ls";
         config.root_markers = [ "package.json" ];
-      };
-      yamlls.enable = true;
-    };
+      }
+      "yamlls"
+    ];
 
     keymaps = [
       {

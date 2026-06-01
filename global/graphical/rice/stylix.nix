@@ -30,8 +30,8 @@
 
     targets = builtins.listToAttrs (
       builtins.map
-        (target: {
-          name = target;
+        (name: {
+          inherit name;
           value.enable = false;
         })
         [

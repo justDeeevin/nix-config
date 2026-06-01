@@ -119,7 +119,28 @@
     { nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
+      pkgs = import nixpkgs { inherit system; };
+      myLib.mkEnableList =
+        list:
+        builtins.listToAttrs (
+          builtins.map (
+            x:
+            if builtins.isAttrs x then
+              {
+                inherit (x) name;
+                value = (builtins.removeAttrs x [ "name" ]) // {
+                  enable = true;
+                };
+              }
+            else
+              {
+                name = x;
+                value.enable = true;
+              }
+          ) list
+        );
+      inherit (pkgs) lib;
+
       mkSystem =
         {
           hostName,
@@ -135,10 +156,11 @@
               stateVersion
               home
               graphical
+              myLib
               ;
           };
           modules = [
-            { networking.hostName = hostName; }
+            { networking = { inherit hostName; }; }
             ./global
             config
           ]
@@ -146,17 +168,18 @@
         };
       mkSystems =
         hosts:
-        nixpkgs.lib.mapAttrs' (name: value: {
+        lib.mapAttrs' (name: value: {
           inherit name;
           value = mkSystem (value // { hostName = name; });
         }) hosts;
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
     in
     {
       packages.${system}.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
         inherit pkgs;
         module = import ./nixvim;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = {
+          inherit inputs myLib;
+        };
       };
       nixosConfigurations = mkSystems {
         # Desktop

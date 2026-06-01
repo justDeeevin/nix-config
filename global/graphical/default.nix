@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  myLib,
   config,
   stateVersion,
   home,
@@ -53,9 +54,12 @@
   home-manager = {
     useGlobalPkgs = true;
     extraSpecialArgs = {
-      inherit inputs;
-      inherit stateVersion;
-      inherit home;
+      inherit
+        inputs
+        myLib
+        stateVersion
+        home
+        ;
     };
     users = {
       "devin" = ./home.nix;

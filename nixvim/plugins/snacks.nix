@@ -1,28 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, myLib, ... }:
 {
   plugins.snacks =
-    let
-      mkEnabled =
-        snacks:
-        builtins.listToAttrs (
-          builtins.map (
-            snack:
-            if builtins.isAttrs snack then
-              {
-                inherit (snack) name;
-                value = builtins.removeAttrs snack [ "name" ];
-              }
-            else
-              {
-                name = snack;
-                value.enabled = true;
-              }
-          ) snacks
-        );
-    in
+
     {
       enable = true;
-      settings = mkEnabled [
+      settings = myLib.mkEnableList [
         "image"
         "indent"
         "notifier"
