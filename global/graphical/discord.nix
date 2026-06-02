@@ -19,17 +19,7 @@ in
     enable = true;
 
     equibop.enable = true;
-    quickCss =
-      # css
-      ''
-        body {
-          --font: "Monaspace Neon";
-          --code-font: "Monaspace Krypton";
-        }
-      '';
     config = {
-      disableMinSize = true;
-      frameless = true;
       plugins = myLib.mkEnableList [
         {
           name = "autoZipper";
@@ -76,9 +66,17 @@ in
         "voiceMessages"
         "volumeBooster"
       ];
+
+      frameless = true;
       useQuickCss = true;
-      themes.system24-oxocarbon = builtins.readFile "${system24-oxocarbon}/system24-oxocarbon.theme.css";
-      enabledThemes = [ "system24-oxocarbon.css" ];
+      disableMinSize = true;
     };
+
+    quickCss =
+      builtins.replaceStrings
+        [ ''--font: "DM Mono"'' ''--code-font: "DM Mono"'' ]
+        [ ''--font: "Monaspace Neon"'' ''--code-font: "Monaspace Krypton"'' ]
+        (builtins.readFile "${system24-oxocarbon}/system24-oxocarbon.theme.css");
+
   };
 }
