@@ -166,11 +166,6 @@
   services.kmscon = {
     enable = true;
     useXkbConfig = true;
-    fonts = [
-      {
-        name = "Monaspace Krypton";
-        package = pkgs.monaspace;
-      }
-    ];
+    config.font-name = "Monaspace Krypton";
   };
 }

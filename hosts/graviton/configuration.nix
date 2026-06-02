@@ -46,7 +46,7 @@ in
 
   nixpkgs.config.cudaSupport = true;
 
-  services.kmscon.hwRender = true;
+  services.kmscon.config.hwaccel = true;
 
   services.pipewire.wireplumber = {
     configPackages = [
