@@ -6,10 +6,10 @@
 }:
 let
   pname = "grimoire";
-  version = "1.7.2";
+  version = "1.15.2";
   src = fetchurl {
     url = "https://github.com/Slush97/grimoire/releases/download/v${version}/Grimoire-${version}.AppImage";
-    hash = "sha256-rfo+CzZ35yCAer/2jdB3MqdNjQn1PC0X1zR/OjOoUus=";
+    hash = "sha256-FLOn9m8lzJ26oua4uh8j/i83DZIHC7loJvoTuoTlZWk=";
   };
   desktopItem = makeDesktopItem {
     name = "grimoire";
@@ -28,7 +28,7 @@ let
     ];
     startupWMClass = "grimoire";
   };
-  contents = appimageTools.extract { inherit pname version src; };
+  contents = appimageTools.extract { inherit src pname version; };
 in
 (appimageTools.wrapType2 {
   inherit pname version src;
@@ -36,10 +36,9 @@ in
   executableName = "grimoire";
 
   extraInstallCommands = ''
-    mkdir $out/share
+    mkdir -p $out/share
     ln -s ${desktopItem}/share/applications $out/share/applications
-
-    cp -r ${contents}/usr/share/icons $out/share
+    ln -s ${contents}/usr/share/icons $out/share/icons
   '';
 
   meta = with lib; {
