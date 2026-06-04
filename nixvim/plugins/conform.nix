@@ -5,6 +5,7 @@
     settings = {
       formatters_by_ft = {
         nu = [ "nufmt" ];
+        ocaml = [ "ocamlformat" ];
         python = [ "black" ];
         typescript = [ "prettier" ];
         javascript = [ "prettier" ];
@@ -15,7 +16,8 @@
           function()
             if not vim.b.disable_autoformat then
               local ft = vim.bo.filetype
-              if ft == "typescript" or ft == "javascript" or ft == "json" then
+              local never_ls = {"typescript", "javascript", "json", "ocaml"}
+              if vim.tbl_contains(never_ls, ft) then
                 return {}
               else
                 return { lsp_format = "prefer" }

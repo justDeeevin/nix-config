@@ -27,6 +27,7 @@
       markdown_inline
       nix
       nu
+      ocaml
       python
       regex
       rust
