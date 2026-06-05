@@ -70,11 +70,14 @@
       };
     };
 
+    crane.url = "github:ipetkov/crane";
+
     gh-jj = {
       url = "github:justdeeevin/gh-jj";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        crane.follows = "crane";
       };
     };
 
@@ -111,6 +114,15 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
+      };
+    };
+
+    deadlock-webhook = {
+      url = "github:justdeeevin/deadlock-webhook";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        crane.follows = "crane";
       };
     };
   };

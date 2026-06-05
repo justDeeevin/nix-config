@@ -93,16 +93,42 @@
     },
     "crane": {
       "locked": {
-        "lastModified": 1752946753,
-        "narHash": "sha256-g5uP3jIj+STUcfTJDKYopxnSijs2agRg13H0SGL5iE4=",
+        "lastModified": 1780532242,
+        "narHash": "sha256-D+BsdpxmtUwtqGoY0IXPhHgTlmqgcZKCEo1oMyn7ep0=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "544d09fecc8c2338542c57f3f742f1a0c8c71e13",
+        "rev": "59a82a1222dd3b2080b5cc52a1a2e8d5f1b77f37",
         "type": "github"
       },
       "original": {
         "owner": "ipetkov",
         "repo": "crane",
+        "type": "github"
+      }
+    },
+    "deadlock-webhook": {
+      "inputs": {
+        "crane": [
+          "crane"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780699356,
+        "narHash": "sha256-X/KFUzlJFwIo0Sx65zfXMwFg4Z5GE6RL6SEb+P3u8Ss=",
+        "owner": "justdeeevin",
+        "repo": "deadlock-webhook",
+        "rev": "62d52e619088000c4c4aaf92df00e02bdfd3da42",
+        "type": "github"
+      },
+      "original": {
+        "owner": "justdeeevin",
+        "repo": "deadlock-webhook",
         "type": "github"
       }
     },
@@ -214,7 +240,9 @@
     },
     "gh-jj": {
       "inputs": {
-        "crane": "crane",
+        "crane": [
+          "crane"
+        ],
         "flake-utils": [
           "flake-utils"
         ],
@@ -580,6 +608,8 @@
     "root": {
       "inputs": {
         "copyparty": "copyparty",
+        "crane": "crane",
+        "deadlock-webhook": "deadlock-webhook",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "gh-jj": "gh-jj",
