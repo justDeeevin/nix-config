@@ -26,8 +26,6 @@ in
     ./hardware-configuration.nix
   ];
 
-  environment.systemPackages = [ pkgs.gamescope-wsi ];
-
   services.hardware.openrgb.enable = true;
 
   services.udev.packages = [
@@ -62,4 +60,5 @@ in
   };
 
   programs.gamemode.enable = true;
+  programs.gamescope.enableWsi = true;
 }
