@@ -144,8 +144,6 @@ in
         "Mod+C".action = spawn (lib.getExe pkgs.hyprpicker) "-a";
         "Mod+v".action = spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard";
         "Mod+Period".action = spawn "noctalia-shell" "ipc" "call" "launcher" "emoji";
-        "Mod+u".action = spawn "noctalia-shell" "ipc" "call" "plugin:unicode" "toggle";
-        "Mod+k".action = spawn "noctalia-shell" "ipc" "call" "plugin:kaomoji" "toggle";
 
         "XF86AudioRaiseVolume" = {
           action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
