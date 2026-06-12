@@ -119,11 +119,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780714222,
-        "narHash": "sha256-dWCvINfH4YVZm7qoXnQBdqyShmmyvo5HTwcY8KnWjvo=",
+        "lastModified": 1781230688,
+        "narHash": "sha256-agkGU46ThGbfK/sKKfxiWRagimeyktyeb2ROimtJx4s=",
         "owner": "justdeeevin",
         "repo": "deadlock-webhook",
-        "rev": "6280acb7c84173ce90b4de29eed461bfcce2bae0",
+        "rev": "96617fda1f016512e157873ac63b5796a5a9b4ad",
         "type": "github"
       },
       "original": {

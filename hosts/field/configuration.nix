@@ -36,6 +36,7 @@
   services.deadlock-webhook = {
     enable = true;
     webhook_url_file = config.sops.secrets.webhook_url.path;
+    role_id = 1426210333630136531;
   };
 
   systemd.services.cloudflared-tunnel-field.serviceConfig = {
