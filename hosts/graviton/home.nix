@@ -54,4 +54,15 @@
   };
 
   sops.secrets.OPENAI_API_KEY.sopsFile = ./secrets.yaml;
+
+  programs.nushell.extraConfig =
+    # nu
+    ''
+      def headphones [] {
+        pw-dump | from json | where info?.props."node.description"? == "Arctis Nova Pro Wireless Analog Stereo" | get id.0 | wpctl set-default $in
+      }
+      def speakers [] {
+        pw-dump | from json | where info?.props."node.description"? == "Built-in Audio Analog Stereo" | get id.0 | wpctl set-default $in
+      }
+    '';
 }
