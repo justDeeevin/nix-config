@@ -306,11 +306,7 @@ in
           exit
         }
 
-        def has [name: string] {
-          ($in | get -o $name) != null
-        }
-
-        if not ($env | has IN_NIX_SHELL) and $nu.is-interactive {
+        if ($env.IN_NIX_SHELL? == null) and $nu.is-interactive {
           fastfetch
         }
       '';

@@ -47,7 +47,7 @@ in
             niri msg -j event-stream
               | ${lib.getExe pkgs.jq} --unbuffered -c .
               | from json -o
-              | where ($it | get -o "WindowUrgencyChanged") != null and $it.WindowUrgencyChanged.urgent
+              | where $it.WindowUrgencyChanged?.urgent == true
               | each {niri msg action focus-window --id $in.WindowUrgencyChanged.id}
           ''
         ];
