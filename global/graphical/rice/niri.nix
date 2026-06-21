@@ -162,7 +162,7 @@ in
           allow-when-locked = true;
         };
         "XF86AudioPlay" = {
-          action = spawn (lib.getExe pkgs.nushell) "${./scripts/play-pause.nu}" playerctl;
+          action = spawn (lib.getExe pkgs.nushell) "${../scripts/play-pause.nu}" playerctl;
           allow-when-locked = true;
         };
         "XF86AudioNext" = {
