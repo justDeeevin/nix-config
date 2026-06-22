@@ -7,4 +7,4 @@ switch-bell:
     just switch | ignore; print "\a"
 
 clean:
-    nh clean all
+    nh clean all --no-direnv
