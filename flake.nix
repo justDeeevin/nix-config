@@ -72,15 +72,6 @@
 
     crane.url = "github:ipetkov/crane";
 
-    gh-jj = {
-      url = "github:justdeeevin/gh-jj";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        crane.follows = "crane";
-      };
-    };
-
     noctalia-qs = {
       url = "github:noctalia-dev/noctalia-qs/v0.0.12";
       inputs = {

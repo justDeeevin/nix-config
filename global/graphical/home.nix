@@ -479,12 +479,7 @@ in
       '';
   };
 
-  programs.gh = {
-    enable = true;
-    extensions = [
-      inputs.gh-jj.packages.${system}.default
-    ];
-  };
+  programs.gh.enable = true;
 
   home.file.".XCompose".text = ''
     include "%L"
