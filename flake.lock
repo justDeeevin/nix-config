@@ -238,32 +238,6 @@
         "type": "github"
       }
     },
-    "gh-jj": {
-      "inputs": {
-        "crane": [
-          "crane"
-        ],
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1753495938,
-        "narHash": "sha256-Dg2HZSIlDxLgd+eOdvWl8tLoUeb0gT5vuGyrfX4UXS0=",
-        "owner": "justdeeevin",
-        "repo": "gh-jj",
-        "rev": "18c30358db396b0cf1a26f365354a5bf7042910e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "justdeeevin",
-        "repo": "gh-jj",
-        "type": "github"
-      }
-    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -614,7 +588,6 @@
         "deadlock-webhook": "deadlock-webhook",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
-        "gh-jj": "gh-jj",
         "home-manager": "home-manager",
         "nightly-nvim": "nightly-nvim",
         "niri-flake": "niri-flake",
