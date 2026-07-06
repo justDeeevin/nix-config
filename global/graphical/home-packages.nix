@@ -15,6 +15,7 @@ with pkgs;
   kdePackages.kalk
   lazyjj
   magic-wormhole
+  musescore
   nautilus
   nh
   nixvim
