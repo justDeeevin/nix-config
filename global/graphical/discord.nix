@@ -19,6 +19,7 @@ in
     enable = true;
 
     equibop.enable = true;
+    discord.enable = false;
     quickCss =
       # css
       ''
