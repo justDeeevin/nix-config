@@ -15,6 +15,7 @@ with pkgs;
   kdePackages.kalk
   lazyjj
   magic-wormhole
+  muse-sounds-manager
   nautilus
   nh
   nixvim
