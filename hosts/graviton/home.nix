@@ -8,9 +8,7 @@
     coppwr
     gimp
     (callPackage ./grimoire.nix { })
-    gzdoom
     kdePackages.kdenlive
-    kicad
     prismlauncher
   ];
 

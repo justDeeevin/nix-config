@@ -9,9 +9,7 @@ with pkgs;
 [
   bluetui
   chromium
-  eclipses.eclipse-java
   ffmpeg-full
-  gpclient
   kdePackages.kalk
   lazyjj
   magic-wormhole
@@ -20,22 +18,15 @@ with pkgs;
   nh
   nixvim
   nurl
-  obsidian
   osu-lazer-bin
   (ouch.override { enableUnfree = true; })
-  pan
   pear-desktop
   r2modman
   sl
-  slack
-  telegram-desktop
   timg
   tldr
   tsukimi
   typst
-  (unityhub.override {
-    extraLibs = fhsPkgs: with fhsPkgs; [ sqlite ];
-  })
   usbutils
   (lib.hiPrio uutils-coreutils-noprefix)
   vlc
