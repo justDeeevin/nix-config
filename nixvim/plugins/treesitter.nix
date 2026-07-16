@@ -13,6 +13,7 @@
       diff
       dockerfile
       dot
+      dart
       haskell
       html
       java

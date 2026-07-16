@@ -15,6 +15,7 @@
           "typescriptreact"
         ];
       }
+      "dartls"
       "hls"
       "html"
       "jdtls"
