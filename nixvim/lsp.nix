@@ -16,7 +16,11 @@
         ];
       }
       "dartls"
-      "hls"
+      {
+        name = "hls";
+        package = pkgs.haskellPackages.haskell-language-server;
+        packageFallback = true;
+      }
       "html"
       "jdtls"
       "jsonls"
