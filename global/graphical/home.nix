@@ -296,6 +296,7 @@ in
         use ${./scripts/to-nix.nu} *
         use ${./scripts/drill-path.nu} *
         use ${./scripts/get-env.nu} *
+        use ${./scripts/update.nu} *
 
         def dev [path?: string] {
           nix develop ($path | default '.') --command nu
