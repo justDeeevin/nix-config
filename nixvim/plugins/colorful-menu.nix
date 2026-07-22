@@ -10,20 +10,8 @@
       }
     ];
     components.label = {
-      text.__raw =
-        # lua
-        ''
-          function(ctx)
-            return require('colorful-menu').blink_components_text(ctx)
-          end
-        '';
-      highlight.__raw =
-        # lua
-        ''
-          function(ctx)
-            return require('colorful-menu').blink_components_highlight(ctx)
-          end
-        '';
+      text.__raw = "function(ctx) return require('colorful-menu').blink_components_text(ctx) end";
+      highlight.__raw = "function(ctx) return require('colorful-menu').blink_components_highlight(ctx) end";
     };
   };
 }

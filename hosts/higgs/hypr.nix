@@ -12,9 +12,7 @@
         font_family = "Monaspace Neon";
       }
       {
-        text = ''
-          cmd[update:1000] echo "󰁹 $(cat /sys/class/power_supply/BAT0/capacity)%"
-        '';
+        text = ''cmd[update:1000] echo "󰁹 $(cat /sys/class/power_supply/BAT0/capacity)%"'';
         font_size = 35;
         font_family = "Monaspace neon";
         halign = "center";

@@ -10,9 +10,7 @@ let
 
     phases = [ "installPhase" ];
 
-    installPhase = ''
-      install -D $src $out/lib/udev/rules.d/69-probe-rs.rules
-    '';
+    installPhase = "install -D $src $out/lib/udev/rules.d/69-probe-rs.rules";
   };
   steam-wire = pkgs.fetchFromGitHub {
     owner = "Widowan";

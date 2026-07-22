@@ -60,13 +60,7 @@
     configurations = rec {
       c =
         let
-          program.__raw =
-            # lua
-            ''
-              function()
-                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
-              end
-            '';
+          program.__raw = "function() return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')end";
           cwd = "\${workspaceFolder}";
           type = "gdb";
         in
@@ -79,13 +73,7 @@
               cwd
               type
               ;
-            args.__raw =
-              # lua
-              ''
-                function()
-                  return vim.fn.input("Arguments: ")
-                end
-              '';
+            args.__raw = "function() return vim.fn.input('Arguments: ') end";
             stopAtBeginningOfMainSubprogram = false;
           }
           {
@@ -96,13 +84,7 @@
               cwd
               type
               ;
-            pid.__raw =
-              # lua
-              ''
-                function()
-                  return tonumber(vim.fn.input("PID: "))
-                end
-              '';
+            pid.__raw = "function() return tonumber(vim.fn.input('PID: ')) end";
           }
           {
             name = "Attach to gdbserver :1234";

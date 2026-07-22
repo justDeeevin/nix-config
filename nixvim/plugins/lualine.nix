@@ -16,18 +16,8 @@ let
   };
 
   conditions = {
-    buffer_not_empty.__raw = ''
-      function()
-        return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-      end
-    '';
-
-    hide_in_width.__raw = ''
-      function()
-        return vim.fn.winwidth(0) > 80
-      end
-    '';
-
+    buffer_not_empty.__raw = "function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end";
+    hide_in_width.__raw = "function() return vim.fn.winwidth(0) > 80 end";
     check_git_workspace.__raw = ''
       function()
         local filepath = vim.fn.expand("%:p:h")

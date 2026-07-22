@@ -9,7 +9,5 @@
       options.desc = "Nerd icons";
     }
   ];
-  extraConfigLua = ''
-    require("nerdy").setup()
-  '';
+  extraConfigLua = ''require("nerdy").setup()'';
 }
