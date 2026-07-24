@@ -10,6 +10,7 @@
     (callPackage ./grimoire.nix { })
     kdePackages.kdenlive
     prismlauncher
+    bs-manager
   ];
 
   programs.niri.settings = {
