@@ -59,4 +59,9 @@ in
 
   programs.gamemode.enable = true;
   programs.gamescope.enableWsi = true;
+
+  networking.firewall.allowedTCPPorts = [
+    10400
+    10401
+  ];
 }

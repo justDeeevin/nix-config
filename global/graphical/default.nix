@@ -110,6 +110,7 @@
         LD_PRELOAD = "${pkgs.extest}/lib/libextest.so:" + (prev.extraEnv.LD_PRELOAD or "");
       };
     });
+    remotePlay.openFirewall = true;
   };
   programs.gamescope.enable = true;
   hardware.steam-hardware.enable = true;
