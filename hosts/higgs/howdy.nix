@@ -6,7 +6,7 @@
 
   services.linux-enable-ir-emitter.enable = true;
 
-  security.pam.services.ly.howdy.enable = false;
+  security.pam.services.login.howdy.enable = false;
 
   systemd.services."polkit-agent-helper@".serviceConfig = {
     DeviceAllow = "char-video4linux rw";
