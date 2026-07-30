@@ -9,6 +9,7 @@
         python = [ "black" ];
         typescript = [ "prettier" ];
         javascript = [ "prettier" ];
+        bib = [ "bibtex-tidy" ];
       };
       format_on_save.__raw = ''
         function()
