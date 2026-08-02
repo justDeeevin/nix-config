@@ -45,7 +45,6 @@ in
         "customSounds"
         "disableCallIdle"
         "experiments"
-        "favoriteGifSearch"
         "fixCodeblockGap"
         "forceOwnerCrown"
         "imageZoom"
