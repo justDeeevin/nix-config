@@ -148,4 +148,13 @@
       "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
     };
   };
+
+  networking.firewall = {
+    allowedUDPPorts = [
+      5000
+    ];
+    allowedTCPPorts = [
+      4000
+    ];
+  };
 }
