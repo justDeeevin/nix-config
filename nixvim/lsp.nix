@@ -66,6 +66,13 @@
         name = "ts_ls";
         config.root_markers = [ "package.json" ];
       }
+      {
+        name = "wgsl_analyzer";
+        config.filetypes = [
+          "wgsl"
+          "wesl"
+        ];
+      }
       "yamlls"
     ];
 
@@ -93,7 +100,10 @@
     ];
   };
 
-  filetype.extension.webc = "html";
+  filetype.extension = {
+    webc = "html";
+    wesl = "wesl";
+  };
 
   extraPackages = [ pkgs.haskellPackages.ghc ];
 }

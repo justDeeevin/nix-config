@@ -39,8 +39,11 @@
       typescript
       typst
       vim
+      wgsl
       xml
       yaml
     ];
+
+    languageRegister.wgsl = [ "wesl" ];
   };
 }
