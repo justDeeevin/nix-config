@@ -103,6 +103,7 @@
   filetype.extension = {
     webc = "html";
     wesl = "wesl";
+    meta = "ron";
   };
 
   extraPackages = [ pkgs.haskellPackages.ghc ];

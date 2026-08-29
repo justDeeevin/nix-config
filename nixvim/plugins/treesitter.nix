@@ -32,6 +32,7 @@
       ocaml
       python
       regex
+      ron
       rust
       svelte
       toml
