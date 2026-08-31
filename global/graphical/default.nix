@@ -124,11 +124,11 @@
   services.cloudflare-warp.enable = true;
 
   networking.hosts = {
+    "192.168.86.44" = [ "field.lan" ];
     "192.168.86.48" = [ "electron.lan" ];
     "192.168.86.41" = [ "tau.lan" ];
     "192.168.86.34" = [ "photon.lan" ];
     "192.168.86.39" = [ "down.lan" ];
-    "192.168.86.40" = [ "charm.lan" ];
   };
 
   xdg.portal = {
