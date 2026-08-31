@@ -1,8 +1,9 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
     inputs.copyparty.nixosModules.default
+    inputs.deadlock-webhook.nixosModules.default
   ];
 
   nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
@@ -31,4 +32,12 @@
     80
     3923
   ];
+
+  sops.secrets.webhook_url.sopsFile = ./secrets.yaml;
+
+  services.deadlock-webhook = {
+    enable = true;
+    webhook_url_file = config.sops.secrets.webhook_url.path;
+    role_id = 1426210333630136531;
+  };
 }

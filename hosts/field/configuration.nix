@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -8,7 +7,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.deadlock-webhook.nixosModules.default
   ];
 
   sops.secrets =
@@ -20,7 +18,6 @@
     {
       tunnel_creds = { inherit owner group sopsFile; };
       tunnel_cert = { inherit owner group sopsFile; };
-      webhook_url = { inherit owner group sopsFile; };
     };
 
   services.cloudflared = {
@@ -31,12 +28,6 @@
       default = "http_status:404";
       warp-routing.enabled = true;
     };
-  };
-
-  services.deadlock-webhook = {
-    enable = true;
-    webhook_url_file = config.sops.secrets.webhook_url.path;
-    role_id = 1426210333630136531;
   };
 
   systemd.services.cloudflared-tunnel-field.serviceConfig = {
