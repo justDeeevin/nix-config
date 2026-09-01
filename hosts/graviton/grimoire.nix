@@ -6,10 +6,10 @@
 }:
 let
   pname = "grimoire";
-  version = "1.23.0";
+  version = "1.28.1";
   src = fetchurl {
     url = "https://github.com/Slush97/grimoire/releases/download/v${version}/Grimoire-${version}.AppImage";
-    hash = "sha256-4xmUFardeV/oig2uonRA27WRKysVIOVdjp4NRMTkNEk=";
+    hash = "sha256-q+QnLo1aaZ3bWSbEjGC+yITh4IthgyUeAJ0tcurbWhk=";
   };
   desktopItem = makeDesktopItem {
     name = "grimoire";
