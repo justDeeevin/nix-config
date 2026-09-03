@@ -28,10 +28,7 @@
 
     nixcord = {
       url = "github:flameflag/nixcord";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
