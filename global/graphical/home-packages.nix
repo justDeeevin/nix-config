@@ -18,6 +18,7 @@ with pkgs;
   nh
   nixvim
   nurl
+  obsidian
   osu-lazer-bin
   (ouch.override { enableUnfree = true; })
   pear-desktop
