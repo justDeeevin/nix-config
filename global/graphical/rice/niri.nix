@@ -32,7 +32,7 @@ in
         ];
       }
       {
-        sh = "noctalia-shell";
+        sh = "noctalia";
       }
       {
         sh = ''sleep 2 && "${onepass}" --silent'';
@@ -133,7 +133,7 @@ in
         "XF86Calculator".action = spawn (lib.getExe pkgs.kdePackages.kalk);
         "XF86Mail".action = spawn (lib.getExe pkgs.ghostty);
 
-        "Mod+Space".action = spawn "noctalia-shell" "ipc" "call" "launcher" "toggle";
+        "Mod+Space".action = spawn "noctalia" "msg" "panel-toggle" "launcher";
 
         "Print".action.screenshot.show-pointer = false;
         "Shift+Print".action.screenshot-window = { };
@@ -142,10 +142,8 @@ in
         "Ctrl+Shift+Space".action = spawn onepass "--quick-access";
         "Ctrl+Shift+Backslash".action = spawn onepass;
         "Mod+C".action = spawn (lib.getExe pkgs.hyprpicker) "-a";
-        "Mod+v".action = spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard";
-        "Mod+Period".action = spawn "noctalia-shell" "ipc" "call" "launcher" "emoji";
-        "Mod+u".action = spawn "noctalia-shell" "ipc" "call" "plugin:unicode" "toggle";
-        "Mod+k".action = spawn "noctalia-shell" "ipc" "call" "plugin:kaomoji" "toggle";
+        "Mod+v".action = spawn "noctalia" "msg" "panel-toggle" "clipboard";
+        "Mod+Period".action = spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo";
 
         "XF86AudioRaiseVolume" = {
           action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";

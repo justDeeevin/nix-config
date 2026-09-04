@@ -40,7 +40,7 @@
           "ghostty"
           "nixcord"
           "nixvim"
-          "noctalia-shell"
+          "noctalia"
           "nushell"
           "starship"
         ]

@@ -1,171 +1,90 @@
 {
   inputs,
-  pkgs,
-  myLib,
-  config,
   ...
 }:
 {
   imports = [ inputs.noctalia.homeModules.default ];
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
-    package = pkgs.noctalia-shell;
-
-    colors =
-      let
-        colors = (config.stylix.base16.mkSchemeAttrs config.stylix.base16Scheme).withHashtag;
-      in
-      rec {
-        mSurface = colors.base00;
-        mOnSurface = colors.base06;
-        mPrimary = colors.orange;
-        mOnPrimary = mOnSurface;
-        mSecondary = colors.blue;
-        mOnSecondary = mOnSurface;
-        mTertiary = colors.yellow;
-        mOnTertiary = mOnSurface;
-        mSurfaceVariant = colors.base01;
-        mOnSurfaceVariant = mOnSurface;
-        mOutline = colors.base03;
-        mShadow = colors.base01;
-        mError = colors.red;
-        mOnError = mOnSurface;
+    settings = rec {
+      shell = {
+        time_format = "%l:%M %P";
+        date_format = "%a, %b %e";
+        show_location = false;
+        corner_radius_scale = 0;
+        setup_wizard_enabled = false;
+        polkit_agent = true;
+        avatar_path = ./devin.jpg;
+        session.actions = [
+          {
+            action = "lock";
+            command = "hyprlock";
+          }
+          {
+            action = "logout";
+          }
+          {
+            action = "suspend";
+          }
+          {
+            action = "reboot";
+          }
+          {
+            action = "shutdown";
+          }
+        ];
       };
 
-    settings =
-      let
-        widgetsFn = widget: if builtins.isAttrs widget then widget else { id = widget; };
-        widgets = list: builtins.map widgetsFn list;
-      in
-      {
-        bar = {
-          outerCorners = false;
-          widgets = {
-            left = widgets [
-              {
-                id = "Tray";
-                drawerEnabled = false;
-              }
-              "Workspace"
-              "ActiveWindow"
-            ];
-            center = [
-              {
-                id = "Clock";
-                formatHorizontal = "h:mm a ddd, MMM dd";
-              }
-            ];
-            right = widgets [
-              "plugin:privacy-indicator"
-              {
-                id = "MediaMini";
-                showAlbumArt = true;
-              }
-              {
-                id = "Battery";
-                displayMode = "graphic";
-              }
-              {
-                id = "NotificationHistory";
-                showUnreadBadge = false;
-              }
-              {
-                id = "ControlCenter";
-                useDistroLogo = true;
-              }
-            ];
-          };
-        };
-        general = {
-          avatarImage = ./devin.jpg;
-          lockOnSuspend = false; # handled by swayidle
-          enableShadows = false;
-        };
-        ui = rec {
-          fontDefault = "Monaspace Neon";
-          fontFixed = fontDefault;
-        };
-        location = {
-          weatherEnabled = false;
-          use12hourFormat = true;
-        };
-        wallpaper = {
-          fillColor = "#010101";
-          fillMode = "center";
-        };
-        controlCenter = {
-          shortcuts = {
-            left = widgets [
-              "Network"
-              "Bluetooth"
-            ];
-            right = [ ];
-          };
-          cards = builtins.map (card-id: (widgetsFn card-id) // { enabled = true; }) [
-            "profile-card"
-            "shortcuts-card"
-            "audio-card"
-            "media-sysmon-card"
-          ];
-        };
-        dock.enabled = false;
-        sessionMenu.powerOptions =
-          let
-            powerOptions =
-              options:
-              builtins.map (
-                option:
-                if builtins.isAttrs option then
-                  option
-                else
-                  {
-                    action = option;
-                    enabled = true;
-                  }
-              ) options;
-          in
-          powerOptions [
-            {
-              action = "lock";
-              enabled = true;
-              command = "hyprlock";
-            }
-            "logout"
-            "suspend"
-            "reboot"
-            "shutdown"
-          ];
-        appLauncher = {
-          enableClipboardHistory = true;
-          autoPasteClipboard = builtins.elem pkgs.wtype config.home.packages;
-        };
+      lockscreen.enabled = false;
+
+      bar.default = {
+        radius = 0;
+        margin_ends = 0;
+        capsule_radius = 0;
+        widget_spacing = 15;
+        start = [
+          "tray"
+          "workspaces"
+          "active_window"
+        ];
+        center = [ "clock" ];
+        end = [
+          "privacy"
+          "battery"
+          "notifications"
+          "media"
+          "control-center"
+        ];
       };
-  };
 
-  xdg.configFile."noctalia/plugins.json".text = builtins.toJSON {
-    sources = [
-      {
-        enabled = true;
-        name = "Official Noctalia Plugins";
-        url = "https://github.com/noctalia-dev/noctalia-plugins";
-      }
-    ];
-    states = myLib.mkEnableList [
-      "privacy-indicator"
-      "kaomoji-provider"
-      "unicode-picker"
-    ];
-    version = 1;
-  };
+      widget = {
+        battery.display_mode = "graphic";
+        control-center.custom_image = "~/Pictures/nixos-logo.png";
+        privacy.hide_inactive = true;
+        clock.format = "${shell.time_format} ${shell.date_format}";
+      };
 
-  xdg.configFile."noctalia/plugins/privacy-indicator/settings.json".text = builtins.toJSON {
-    hideInactive = true;
-    iconSpacing = 4;
-    removeMargins = false;
-  };
+      wallpaper = {
+        fill_mode = "center";
+        fill_color = "#010101";
+        default.path = ./scp_3001_by_sunnyclockwork.jpg;
+      };
 
-  xdg.cacheFile."noctalia/wallpapers.json".text = builtins.toJSON {
-    defaultWallpaper = ./scp_3001_by_sunnyclockwork.jpg;
+      weather.enabled = false;
+
+      control_center = {
+        hidden_tabs = [ "system" ];
+        shortcuts = builtins.map (x: { type = x; }) [
+          "wifi"
+          "bluetooth"
+        ];
+      };
+
+      theme = {
+        source = "community";
+        custom_palette = "Oxocarbon";
+      };
+    };
   };
 }
