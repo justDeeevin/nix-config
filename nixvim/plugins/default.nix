@@ -7,7 +7,6 @@
     "gitsigns"
     "helpview"
     "hex"
-    "lean"
     "modicator"
     "nvim-autopairs"
     "rainbow-delimiters"
