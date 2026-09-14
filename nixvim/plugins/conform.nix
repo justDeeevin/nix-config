@@ -9,13 +9,23 @@
         python = [ "black" ];
         typescript = [ "prettier" ];
         javascript = [ "prettier" ];
+        json = [ "prettier" ];
+        html = [ "prettier" ];
+        svelte = [ "prettier" ];
         bib = [ "bibtex-tidy" ];
       };
       format_on_save.__raw = ''
         function()
           if not vim.b.disable_autoformat then
             local ft = vim.bo.filetype
-            local never_ls = {"typescript", "javascript", "json", "ocaml"}
+            local never_ls = {
+              "typescript",
+              "javascript",
+              "json",
+              "html",
+              "svelte",
+              "ocaml",
+            }
             if vim.tbl_contains(never_ls, ft) then
               return {}
             else
