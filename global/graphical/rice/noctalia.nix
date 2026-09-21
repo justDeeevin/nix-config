@@ -62,6 +62,7 @@
         battery.display_mode = "graphic";
         control-center.custom_image = "~/Pictures/nixos-logo.png";
         privacy.hide_inactive = true;
+        notifications.keep_dismissed_in_history = false;
         clock.format = "${shell.time_format} ${shell.date_format}";
       };
 
