@@ -24,6 +24,7 @@
       "html"
       "jdtls"
       "jsonls"
+      "kotlin_language_server"
       "lua_ls"
       "nil_ls"
       "nushell"

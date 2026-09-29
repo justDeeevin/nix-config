@@ -22,6 +22,7 @@
       javascript
       json
       just
+      kotlin
       latex
       lua
       make
