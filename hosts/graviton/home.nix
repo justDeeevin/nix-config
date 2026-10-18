@@ -1,13 +1,14 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }:
 {
   home.packages = with pkgs; [
     coppwr
     gimp
-    (callPackage ./grimoire.nix { })
+    inputs.grimoire.packages.${pkgs.stdenv.hostPlatform.system}.default
     kdePackages.kdenlive
     prismlauncher
     bs-manager

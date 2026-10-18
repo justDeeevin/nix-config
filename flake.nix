@@ -100,6 +100,11 @@
         crane.follows = "crane";
       };
     };
+
+    grimoire = {
+      url = "github:slush97/grimoire";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

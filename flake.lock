@@ -243,6 +243,44 @@
         "type": "gitlab"
       }
     },
+    "grimoire": {
+      "inputs": {
+        "grimoire-social": "grimoire-social",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "vpkmerge": "vpkmerge"
+      },
+      "locked": {
+        "lastModified": 1792542794,
+        "narHash": "sha256-rpiNSX4nXZsi5WaWp1tbhmEyGPK9Dc6Of8dCDcqfDow=",
+        "owner": "slush97",
+        "repo": "grimoire",
+        "rev": "af2641f825253fb4772aeaf17eadf0501fece5bc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "slush97",
+        "repo": "grimoire",
+        "type": "github"
+      }
+    },
+    "grimoire-social": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790726909,
+        "narHash": "sha256-D69CEBrGshmGTyoYA8d0CYTdTtmY0xIrpFHDnI2vNdY=",
+        "owner": "Slush97",
+        "repo": "grimoire-social",
+        "rev": "b5811d361450ebe8d863276392ad387a31d8295b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "repo": "grimoire-social",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -613,6 +651,7 @@
         "deadlock-webhook": "deadlock-webhook",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
+        "grimoire": "grimoire",
         "home-manager": "home-manager",
         "nightly-nvim": "nightly-nvim",
         "niri-flake": "niri-flake",
@@ -826,6 +865,23 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vpkmerge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792541404,
+        "narHash": "sha256-nEu23Aauxq8iqW5ePg5kK7rSqQduHM6jC9qxQPOhw6Q=",
+        "owner": "Slush97",
+        "repo": "vpkmerge",
+        "rev": "18c44548cd9c02da3706b22d3b4f6b421b589ae9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "ref": "v0.24.0",
+        "repo": "vpkmerge",
         "type": "github"
       }
     },
