@@ -168,4 +168,6 @@
     useXkbConfig = true;
     config.font-name = "Monaspace Krypton";
   };
+
+  services.earlyoom.enable = true;
 }
