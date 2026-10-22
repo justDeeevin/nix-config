@@ -59,4 +59,6 @@ in
 
   programs.gamemode.enable = true;
   programs.gamescope.enableWsi = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 }
