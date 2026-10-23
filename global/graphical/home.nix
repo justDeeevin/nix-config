@@ -191,25 +191,10 @@ in
   programs.starship = {
     enable = true;
     settings = {
-      format = "[┌<$all](bold green)$line_break$character";
+      format = "[┌<$all$jj_bookmark$jj_change$jj_metrics$jj_status](bold green)$line_break$character";
       character = {
         success_symbol = "[└>](bold green)";
         error_symbol = "[└>](bold red)";
-      };
-
-      cmd_duration.min_time = 0;
-
-      custom.jujutsu = {
-        command = "prompt";
-        format = "$output ";
-        ignore_timeout = true;
-        shell = [
-          (lib.getExe inputs.starship-jj.packages.x86_64-linux.default)
-          "--ignore-working-copy"
-          "starship"
-        ];
-        use_stdin = false;
-        when = true;
       };
 
       git_branch.disabled = true;
