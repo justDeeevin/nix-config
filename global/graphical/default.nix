@@ -37,8 +37,6 @@
 
   programs.niri.enable = true;
 
-  # security.soteria.enable = true;
-
   users.users.devin = {
     isNormalUser = true;
     description = "Devin Droddy";
@@ -82,9 +80,6 @@
     text = "zen";
     mode = "0755";
   };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [ ];
 
   services.flatpak.enable = true;
 

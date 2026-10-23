@@ -35,7 +35,6 @@
           value.enable = false;
         })
         [
-          "bat"
           "btop"
           "ghostty"
           "nixcord"

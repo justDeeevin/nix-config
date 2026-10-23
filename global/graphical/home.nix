@@ -9,57 +9,7 @@
 }:
 let
   system = pkgs.stdenv.hostPlatform.system;
-  nixvim = inputs.self.packages.${system}.nixvim.extend {
-    plugins.obsidian = {
-      enable = true;
-      settings = {
-        legacy_commands = false;
-        workspaces = [
-          {
-            name = "Third Brain";
-            path = "~/Documents/Third Brain";
-          }
-        ];
-        daily_notes = {
-          folder = "Daily";
-          template = "Templates/Daily Note Template.md";
-          date_format = "%b %-d, %Y";
-        };
-        templates.subdir = "Templates";
-        frontmatter.enable = false;
-        attachments = {
-          folder = "Assets";
-          img_name_func.__raw = ''
-            function()
-              local date = os.date("*t")
-              return string.format("Pasted image %d%d%d%d%d%d", date.year, date.month, date.day, date.hour, date.min, date.sec)
-            end
-          '';
-          img_text_func.__raw = ''
-            function(client, path)
-              path = client:vault_relative_path(path) or path
-              return string.format("![[%s]]", path.name)
-            end
-          '';
-        };
-      };
-    };
-
-    opts = {
-      conceallevel = 2;
-    };
-
-    keymaps = [
-      {
-        key = "<leader>ot";
-        action = "<cmd>Obsidian today<CR>";
-      }
-      {
-        key = "<leader>op";
-        action = "<cmd>ObsidianPasteImg<CR>";
-      }
-    ];
-  };
+  nixvim = inputs.self.packages.${system}.nixvim.extend (import ./nixvim.nix);
 in
 {
   imports = [
@@ -86,7 +36,7 @@ in
         hash = "sha256-C/hhLK73t8ee5EXlkhaCU0UNfqBg5l5DD8YZOIu9rrg=";
       };
     };
-    ".cargo/config.toml".source = pkgs.writers.writeTOML "config.toml" {
+    ".cargo/config.toml".source = pkgs.writers.writeTOML "cargo-config.toml" {
       build.rustc-wrapper = lib.getExe pkgs.sccache;
     };
   };
@@ -260,8 +210,8 @@ in
         nu_scripts = pkgs.fetchFromGitHub {
           owner = "nushell";
           repo = "nu_scripts";
-          rev = "32cd1d53649bc024edd65326a5b988cd7bcf4810";
-          hash = "sha256-t8OCSDI7MqA9Q9Tv4mjd/yRac2SZvhX2x8rfcbIUT9o=";
+          rev = "ce434708a3d55a2ee0112330a191dec83a35d617";
+          hash = "sha256-uFddCJp620/9cKDvm6okTke5KSs6VwgduGuk1THNksA=";
         };
         completions = "${nu_scripts}/custom-completions";
         getCompletions = cmd: "${completions}/${cmd}/${cmd}-completions.nu";
@@ -277,7 +227,9 @@ in
         use ${getCompletions "nix"} *
         use ${getCompletions "ssh"} *
         use ${getCompletions "typst"} *
+        use ${getCompletions "typst"} *
         use ${getCompletions "zoxide"} *
+
         use ${./scripts/to-nix.nu} *
         use ${./scripts/drill-path.nu} *
         use ${./scripts/get-env.nu} *
@@ -302,6 +254,7 @@ in
       shutdown = "shutdown now";
       "to nix" = "to nix -f ${lib.getExe pkgs.nixfmt}";
       jji = "jj --ignore-immutable";
+      warp = "warp-cli";
     };
     extraEnv =
       # nu
@@ -352,18 +305,18 @@ in
         let
           cursor-shaders = pkgs.fetchFromGitHub {
             owner = "sahaj-b";
-            repo = "ghostty-cursor-shaders";
-            rev = "14f7cd035f1b483dfe46ba11aef7377b6c4c687d";
-            hash = "sha256-ky343PVJklT4MqF5whULGwC5e5YfKF7PRGjB+CoBVUI=";
+            repo = "cursor-shaders";
+            rev = "9ad9158a93c0de0c045e1c6b27df37da698bc8af";
+            hash = "sha256-TnoQvptwjs6P5/JfJO1CR3yhCfCcaw5wvPr5oEhn4Ho=";
           };
           cursor-shaders-custom = pkgs.applyPatches {
             src = cursor-shaders;
-            patches = [ ./ghostty-cursor-shaders-custom.patch ];
+            patches = [ ./cursor-shaders-custom.patch ];
           };
         in
         [
-          (cursor-shaders-custom + "/cursor_warp.glsl")
-          (cursor-shaders-custom + "/ripple_cursor.glsl")
+          (cursor-shaders-custom + "/ghostty/cursor_warp.glsl")
+          (cursor-shaders-custom + "/ghostty/ripple_cursor.glsl")
         ];
       custom-shader-animation = "always";
     };
@@ -379,7 +332,7 @@ in
   programs.btop = {
     enable = true;
     themes.oxocarbon = pkgs.fetchurl {
-      url = "https://gist.githubusercontent.com/gideonmt/cf8561cb130e3ca859f8a5471014e933/raw/c9e0f235c4148551f3dcf924d0a0abf6d76a1934/oxocarbon_dark.theme";
+      url = "https://gist.githubusercontent.com/skym-t/cf8561cb130e3ca859f8a5471014e933/raw/c9e0f235c4148551f3dcf924d0a0abf6d76a1934/oxocarbon_dark.theme";
       hash = "sha256-D290uqP4GmM94nXYeoj2mRaXIPoQDoihe4CMeBBHRn0=";
     };
     settings = {
@@ -389,19 +342,7 @@ in
     };
   };
 
-  programs.bat = {
-    enable = true;
-    themes.oxocarbon = {
-      src = pkgs.fetchFromGitLab {
-        owner = "boydkelly";
-        repo = "carbonizer";
-        rev = "09876beded0ff8b2769c86fc9940864e1c3224a5";
-        hash = "sha256-4W6DeF1kAaAmfl5xFg5xBepgXndXKUaImpd3M6I53xk=";
-      };
-      file = "bat/oxocarbon-dark.tmTheme";
-    };
-    config.theme = "oxocarbon";
-  };
+  programs.bat.enable = true;
 
   # one day 😢
   # i need my extensions!
@@ -474,6 +415,4 @@ in
     <Multi_key> <p> <i> : "π" # PI
     <Multi_key> <0> <space> : "​" # ZERO WIDTH SPACE
   '';
-
-  programs.nushell.shellAliases.warp = "warp-cli";
 }

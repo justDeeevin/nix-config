@@ -3,7 +3,7 @@
 
   keymaps = [
     {
-      # Colemak rebinding
+      # Colemak DH rebinding
       key = "m";
       action = "h";
     }
