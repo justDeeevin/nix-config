@@ -1,37 +1,33 @@
 export def "to nix" [--formatter(-f): path]: any -> string {
     if $formatter != null {
-        to_nix_inner (metadata $in).span | ^$formatter
+        to_nix_inner (metadata $in).span | ^$formatter -
     } else {
         to_nix_inner (metadata $in).span
     }
 }
-def to_nix_inner [span: record]: any -> string { let value = $in
-let labels = [
-    {
-        text: "input"
-        span: $span
-    }
-]
-match ($value | describe -d).type {
-    "bool" => {
-        if $value { "true" } else { "false" }
-    }
-    "binary" => {
-        $value | format bits | parse -r `(\d{8})*` | get capture0 | each {into int} | to_nix_inner $span
-    }
-    "cell-path" => { error make {
-        msg: "Cannot convert cell path to Nix"
-        labels: $labels
-    } }
-    "closure" => { error make {
-        msg: "Cannot convert closure to Nix"
-        labels: $labels
-    } }
-    "datetime" => {
-        $value | format date "%+" | to_nix_inner $span
-    }
-    "duration" => {
-        (if $value < 1us {
+def to_nix_inner [span: record]: any -> string {
+    let value = $in
+    let labels = [
+        {text: "input", span: $span}
+    ]
+    match ($value | describe -d).type {
+        "bool" => {
+            if $value { "true" } else { "false" }
+        }
+        "binary" => {
+            $value | format bits | parse -r `(\d{8})*` | get capture0 | each {into int} | to_nix_inner $span
+        }
+        "cell-path" => {
+            error make {msg: "Cannot convert cell path to Nix", labels: $labels}
+        }
+        "closure" => {
+            error make {msg: "Cannot convert closure to Nix", labels: $labels}
+        }
+        "datetime" => {
+            $value | format date "%+" | to_nix_inner $span
+        }
+        "duration" => {
+            (if $value < 1us {
             $value | format duration ns
         } else if $value < 1ms {
             $value | format duration us
@@ -48,9 +44,9 @@ match ($value | describe -d).type {
         } else {
             $value | format duration wk
         }) | to_nix_inner $span
-    }
-    "filesize" => {
-        (if $value < 1kb {
+        }
+        "filesize" => {
+            (if $value < 1kb {
             $value | format filesize B
         } else if $value < 1mb {
             $value | format filesize KB
@@ -65,33 +61,30 @@ match ($value | describe -d).type {
         } else {
             $value | format filesize EB
         }) | to_nix_inner $span
-    }
-    "float" => {
-        $value | into string
-    }
-    "glob" => { error make {
-        msg: "Cannot convert glob to Nix"
-        labels: $labels
-    } }
-    "int" => {
-        $value | into string
-    }
-    "list" => { $"[($value | each {to_nix_inner $span} | str join ' ')]" }
-    "nothing" => "null"
-    "range" => {
-        let start = $value | first
-        if $value == $start.. {
-            error make {
-                msg: "Cannot convert infinite range to Nix"
-                labels: $labels
+        }
+        "float" => {
+            $value | into string
+        }
+        "glob" => {
+            error make {msg: "Cannot convert glob to Nix", labels: $labels}
+        }
+        "int" => {
+            $value | into string
+        }
+        "list" => { $"[($value | each {to_nix_inner $span} | str join ' ')]" }
+        nothing => "null"
+        "range" => {
+            let start = $value | first
+            if $value == $start.. {
+                error make {msg: "Cannot convert infinite range to Nix", labels: $labels}
+            } else {
+                $value | each {||} | to_nix_inner $span
             }
-        } else {
-            $value | each {||} | to_nix_inner $span
+        }
+        "record" => { $'{($value | items {|name, value| $"($name) = ($value | to_nix_inner $span);"} | str join " ")}' }
+        "string" => { $'"($value)"' }
+        "table" => {
+            $value | each {to_nix_inner $span} | to_nix_inner $span
         }
     }
-    "record" => { $'{($value | items {|name, value| $"($name) = ($value | to_nix_inner $span);"} | str join " ")}' }
-    "string" => { $'"($value)"' }
-    "table" => {
-        $value | each {to_nix_inner $span} | to_nix_inner $span
-    }
-} }
+}
