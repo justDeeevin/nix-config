@@ -260,11 +260,13 @@ in
       # nu
       ''
         $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
-        $env.EDITOR = "${lib.getExe nixvim}"
         $env.config.cursor_shape.emacs = "line"
         $env.config.show_banner = false
       '';
+    loadSessionVariables = true;
   };
+
+  home.sessionVariables.EDITOR = lib.getExe nixvim;
 
   programs.zoxide.enable = true;
 
