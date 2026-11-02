@@ -83,7 +83,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
     wireplumber.enable = true;
   };
 
@@ -113,7 +112,10 @@
       git
       sops
     ])
-    ++ [ dust ];
+    ++ [
+      dust
+      pipewire.jack
+    ];
 
   services.openssh.enable = !graphical;
 

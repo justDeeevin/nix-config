@@ -26,7 +26,9 @@ with pkgs;
   sl
   timg
   tldr
-  tsukimi
+  (tsukimi.overrideAttrs (prev: {
+    buildInputs = prev.buildInputs ++ [ aws-lc ];
+  }))
   typst
   usbutils
   (lib.hiPrio uutils-coreutils-noprefix)
