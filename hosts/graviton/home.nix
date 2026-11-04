@@ -6,12 +6,13 @@
 }:
 {
   home.packages = with pkgs; [
+    bs-manager
     coppwr
     gimp
     inputs.grimoire.packages.${pkgs.stdenv.hostPlatform.system}.default
     kdePackages.kdenlive
+    lutris
     prismlauncher
-    bs-manager
   ];
 
   programs.niri.settings = {
