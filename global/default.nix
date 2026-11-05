@@ -107,12 +107,13 @@
 
   environment.systemPackages =
     with pkgs;
-    lib.optionals (!graphical) [
+    (lib.optionals (!graphical) [
       inputs.self.packages.${stdenv.hostPlatform.system}.nixvim
       jujutsu
       git
       sops
-    ];
+    ])
+    ++ [ dust ];
 
   services.openssh.enable = !graphical;
 
