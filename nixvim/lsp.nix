@@ -52,6 +52,13 @@
           };
         };
       }
+      {
+        name = "slint_lsp";
+        package = pkgs.slint-lsp.overrideAttrs (prev: {
+          buildInputs = prev.buildInputs ++ [ pkgs.rust-jemalloc-sys ];
+          rpathLibs = prev.rpathLibs ++ [ pkgs.rust-jemalloc-sys ];
+        });
+      }
       "svelte"
       {
         name = "tailwindcss";

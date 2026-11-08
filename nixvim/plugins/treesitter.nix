@@ -35,6 +35,7 @@
       regex
       ron
       rust
+      slint
       svelte
       toml
       tsx
