@@ -8,6 +8,7 @@
 with pkgs;
 [
   bluetui
+  cargo-expand
   chromium
   ffmpeg-full
   kdePackages.kalk
@@ -26,9 +27,7 @@ with pkgs;
   sl
   timg
   tldr
-  (tsukimi.overrideAttrs (prev: {
-    buildInputs = prev.buildInputs ++ [ aws-lc ];
-  }))
+  tsukimi
   typst
   usbutils
   (lib.hiPrio uutils-coreutils-noprefix)
