@@ -9,6 +9,7 @@
 {
   imports = [
     inputs.sops.nixosModules.sops
+    ./nixvim.nix
   ]
   ++ lib.optional graphical ./graphical;
 
@@ -104,18 +105,13 @@
     trusted-users = [ (if graphical then "devin" else "admin") ];
   };
 
-  environment.systemPackages =
-    with pkgs;
-    (lib.optionals (!graphical) [
-      inputs.self.packages.${stdenv.hostPlatform.system}.nixvim
-      jujutsu
-      git
-      sops
-    ])
-    ++ [
-      dust
-      pipewire.jack
-    ];
+  environment.systemPackages = with pkgs; [
+    jujutsu
+    git
+    sops
+    dust
+    pipewire.jack
+  ];
 
   services.openssh.enable = !graphical;
 
@@ -132,4 +128,5 @@
   };
 
   services.earlyoom.enable = true;
+  environment.sessionVariables.EDITOR = "nvim";
 }

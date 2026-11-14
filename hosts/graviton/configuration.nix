@@ -22,6 +22,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./llama.nix
   ];
 
   services.hardware.openrgb.enable = true;
@@ -61,4 +62,6 @@ in
   programs.gamescope.enableWsi = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  programs.nixvim.extraModules = [ ./minuet.nix ];
 }

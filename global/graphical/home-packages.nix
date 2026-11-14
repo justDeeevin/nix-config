@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   lib,
-  nixvim,
   ...
 }:
 with pkgs;
@@ -17,7 +16,6 @@ with pkgs;
   muse-sounds-manager
   nautilus
   nh
-  nixvim
   nurl
   obsidian
   osu-lazer-bin
@@ -36,6 +34,6 @@ with pkgs;
   wiremix
   wl-clipboard
   wtype
-  inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
+  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   zoom-us
 ]

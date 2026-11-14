@@ -7,10 +7,6 @@
   config,
   ...
 }:
-let
-  system = pkgs.stdenv.hostPlatform.system;
-  nixvim = inputs.self.packages.${system}.nixvim.extend (import ./nixvim.nix);
-in
 {
   imports = [
     home
@@ -27,7 +23,7 @@ in
 
   home.sessionPath = [ "~/.bun/bin" ];
 
-  home.packages = pkgs.callPackage ./home-packages.nix { inherit inputs nixvim; };
+  home.packages = pkgs.callPackage ./home-packages.nix { inherit inputs; };
 
   home.file = {
     "Pictures/nixos-logo.png" = {
@@ -265,8 +261,6 @@ in
       '';
     loadSessionVariables = true;
   };
-
-  home.sessionVariables.EDITOR = lib.getExe nixvim;
 
   programs.zoxide.enable = true;
 

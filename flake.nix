@@ -166,13 +166,17 @@
         }) hosts;
     in
     {
-      packages.${system}.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
-        inherit pkgs;
-        module = import ./nixvim;
-        extraSpecialArgs = {
-          inherit inputs myLib;
+      nixvimConfig =
+        system:
+        inputs.nixvim.lib.evalNixvim {
+          inherit system;
+          modules = [
+            { nixpkgs.source = nixpkgs; }
+            ./nixvim
+          ];
+          extraSpecialArgs = { inherit inputs myLib; };
         };
-      };
+      packages.${system}.nixvim = inputs.self.nixvimConfig.build.package;
       nixosConfigurations = mkSystems {
         # Desktop
         graviton = {

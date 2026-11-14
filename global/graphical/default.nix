@@ -91,7 +91,6 @@
   programs.virt-manager.enable = true;
 
   environment.sessionVariables = {
-    EDITOR = "nvim";
     PROTON_ENABLE_WAYLAND = 1;
     XKB_DEFAULT_LAYOUT = "us(colemak_dh)";
   };
@@ -161,4 +160,6 @@
 
   services.systembus-notify.enable = true;
   services.earlyoom.enableNotifications = true;
+
+  programs.nixvim.extraModules = [ ./nixvim.nix ];
 }
