@@ -32,6 +32,7 @@ with pkgs;
   usbutils
   (lib.hiPrio uutils-coreutils-noprefix)
   vlc
+  wowup-cf
   wiremix
   wl-clipboard
   wtype
