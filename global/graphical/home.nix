@@ -12,7 +12,6 @@
     home
     inputs.nix-index-database.homeModules.nix-index
     ./rice
-    inputs.sops.homeManagerModules.sops
     ./discord.nix
   ];
 
@@ -255,7 +254,6 @@
     extraEnv =
       # nu
       ''
-        $env.OPENAI_API_KEY = ^cat ${config.sops.secrets.OPENAI_API_KEY.path}
         $env.config.cursor_shape.emacs = "line"
         $env.config.show_banner = false
       '';
@@ -322,8 +320,6 @@
     enable = true;
     nix-direnv.enable = true;
   };
-
-  sops.age.keyFile = "/home/devin/.config/sops/age/keys.txt";
 
   programs.btop = {
     enable = true;

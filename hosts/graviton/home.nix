@@ -54,8 +54,6 @@
     ];
   };
 
-  sops.secrets.OPENAI_API_KEY.sopsFile = ./secrets.yaml;
-
   programs.nushell.extraConfig =
     # nu
     ''

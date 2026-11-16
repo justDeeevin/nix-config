@@ -6,6 +6,9 @@
   graphical,
   ...
 }:
+let
+  user = if graphical then "devin" else "admin";
+in
 {
   imports = [
     inputs.sops.nixosModules.sops
@@ -102,7 +105,7 @@
       "nix-command"
       "flakes"
     ];
-    trusted-users = [ (if graphical then "devin" else "admin") ];
+    trusted-users = [ user ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -115,11 +118,7 @@
 
   services.openssh.enable = !graphical;
 
-  sops.age.keyFile =
-    let
-      user = if graphical then "devin" else "admin";
-    in
-    "/home/${user}/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
 
   services.kmscon = {
     enable = true;

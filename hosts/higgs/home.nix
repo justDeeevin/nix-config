@@ -8,7 +8,6 @@
   imports = [
     ./hypr.nix
   ];
-  sops.secrets.OPENAI_API_KEY.sopsFile = ./secrets.yaml;
 
   programs.niri.settings = {
     outputs.eDP-1.backdrop-color = "010101";
