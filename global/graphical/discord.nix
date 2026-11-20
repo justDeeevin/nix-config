@@ -62,7 +62,6 @@ in
         "secretRingToneEnabler"
         "shikiCodeblocks"
         "showBadgesInChat"
-        "showHiddenChannels"
         "silentMessageToggle"
         "typingIndicator"
         {
