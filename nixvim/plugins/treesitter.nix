@@ -5,16 +5,11 @@
     highlight.enable = true;
     indent.enable = true;
     grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
-      asm
       bash
-      bibtex
       c
       cpp
       css
       diff
-      dockerfile
-      dot
-      dart
       haskell
       html
       java
@@ -22,7 +17,6 @@
       javascript
       json
       just
-      kotlin
       latex
       lua
       make
@@ -30,10 +24,8 @@
       markdown_inline
       nix
       nu
-      ocaml
       python
       regex
-      ron
       rust
       slint
       svelte
@@ -42,11 +34,8 @@
       typescript
       typst
       vim
-      wgsl
       xml
       yaml
     ];
-
-    languageRegister.wgsl = [ "wesl" ];
   };
 }

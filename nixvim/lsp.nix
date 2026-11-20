@@ -15,7 +15,6 @@
           "typescriptreact"
         ];
       }
-      "dartls"
       {
         name = "hls";
         package = pkgs.haskellPackages.haskell-language-server;
@@ -24,15 +23,9 @@
       "html"
       "jdtls"
       "jsonls"
-      "kotlin_language_server"
       "lua_ls"
       "nil_ls"
       "nushell"
-      "ocamllsp"
-      {
-        name = "omnisharp";
-        config.filetypes = [ "cs" ];
-      }
       "pyright"
       {
         name = "rust_analyzer";
@@ -68,13 +61,6 @@
         name = "ts_ls";
         config.root_markers = [ "package.json" ];
       }
-      {
-        name = "wgsl_analyzer";
-        config.filetypes = [
-          "wgsl"
-          "wesl"
-        ];
-      }
       "yamlls"
     ];
 
@@ -100,12 +86,6 @@
         options.desc = "Toggle inlay hints";
       }
     ];
-  };
-
-  filetype.extension = {
-    webc = "html";
-    wesl = "wesl";
-    meta = "ron";
   };
 
   extraPackages = [ pkgs.haskellPackages.ghc ];
