@@ -1,17 +1,8 @@
 {
   inputs,
-  pkgs,
   myLib,
   ...
 }:
-let
-  system24-oxocarbon = pkgs.fetchFromGitHub {
-    owner = "justDeeevin";
-    repo = "system24-oxocarbon";
-    rev = "main";
-    hash = "sha256-chDAyTsLJKv+kXGv2hs506xTSuUFvsgG6TzEOY1mTck=";
-  };
-in
 {
   imports = [ inputs.nixcord.homeModules.default ];
 
@@ -30,21 +21,15 @@ in
       '';
     config = {
       disableMinSize = true;
+      enabledThemeLinks = [
+        "https://raw.githubusercontent.com/justDeeevin/system24-oxocarbon/refs/heads/main/system24-oxocarbon.theme.css"
+      ];
       frameless = true;
+      useQuickCss = true;
       plugins = myLib.mkEnableList [
-        {
-          name = "autoZipper";
-          extensions = "";
-        }
+        "addAttachments"
         "betterSettings"
         "betterUploadButton"
-        "bypassPinPrompt"
-        "callTimer"
-        "consoleJanitor"
-        "crashHandler"
-        "customSounds"
-        "disableCallIdle"
-        "experiments"
         "fixCodeblockGap"
         "forceOwnerCrown"
         "imageZoom"
@@ -52,32 +37,43 @@ in
         "mentionAvatars"
         "messageLatency"
         "messageLinkEmbeds"
-        "messageLoggerEnhanced"
-        "moyai"
-        "noDevtoolsWarning"
         "noF1"
-        "permissionsViewer"
-        "platformIndicators"
+        "noUnblockToJump"
         "roleColorEverywhere"
         "secretRingToneEnabler"
-        "shikiCodeblocks"
-        "showBadgesInChat"
-        "silentMessageToggle"
-        "typingIndicator"
-        {
-          name = "typingTweaks";
-          amITyping = true;
-        }
         "unindent"
         "userMessagesPronouns"
         "userVoiceShow"
         "voiceChatDoubleClick"
-        "voiceMessages"
         "volumeBooster"
+
+        # equicord-only
+        "alwaysTrust"
+        {
+          name = "autoZipper";
+          extensions = "";
+        }
+        "bypassPinPrompt"
+        "callTimer"
+        "disableCallIdle"
+        # TODO: tune?
+        "equibopStreamFixes"
+        "experiments"
+        "messageLoggerEnhanced"
+        "moyai"
+        "platformIndicators"
+        "shikiCodeblocks"
+        "showAllMessageButtons"
+        "showBadgesInChat"
+        "typingIndicator"
+        {
+          name = "typingTweaks";
+          # TODO:
+          # alternativeFormatting = false;
+          amITyping = true;
+        }
+        "voiceMessages"
       ];
-      useQuickCss = true;
-      themes.system24-oxocarbon = builtins.readFile "${system24-oxocarbon}/system24-oxocarbon.theme.css";
-      enabledThemes = [ "system24-oxocarbon.css" ];
     };
   };
 }
