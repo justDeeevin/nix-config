@@ -192,7 +192,7 @@ in
         draw-border-with-background = false;
       }
       {
-        matches = [ { app-id = "1password"; } ];
+        matches = [ { app-id = "com.onepassword.OnePassword"; } ];
         block-out-from = "screencast";
       }
       {

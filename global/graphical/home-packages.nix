@@ -6,10 +6,12 @@
 }:
 with pkgs;
 [
+  bat
   bluetui
   cargo-expand
   chromium
   ffmpeg-full
+  gh
   kdePackages.kalk
   lazyjj
   magic-wormhole

@@ -91,7 +91,7 @@
         diff-editor = [
           "nvim"
           "-c"
-          "DiffEditor $left $right $output"
+          "HunkDiffEditor $left $right $output"
         ];
         diff-instructions = false;
       };
@@ -199,7 +199,6 @@
 
   programs.nushell = {
     enable = true;
-    # extraConfig is placed before shellAliases
     extraConfig =
       let
         nu_scripts = pkgs.fetchFromGitHub {
@@ -239,6 +238,9 @@
           exit
         }
 
+        $env.config.cursor_shape.emacs = "line"
+        $env.config.show_banner = false
+
         if ($env.IN_NIX_SHELL? == null) and $nu.is-interactive {
           fastfetch
         }
@@ -251,12 +253,6 @@
       jji = "jj --ignore-immutable";
       warp = "warp-cli";
     };
-    extraEnv =
-      # nu
-      ''
-        $env.config.cursor_shape.emacs = "line"
-        $env.config.show_banner = false
-      '';
     loadSessionVariables = true;
   };
 
@@ -333,72 +329,6 @@
       update_ms = 100;
     };
   };
-
-  programs.bat.enable = true;
-
-  # one day 😢
-  # i need my extensions!
-  programs.qutebrowser = {
-    # enable = true;
-    keyBindings = {
-      caret = {
-        M = "scroll left";
-        m = "move-to-prev-char";
-        N = "scroll down";
-        n = "move-to-next-line";
-        E = "scroll up";
-        e = "move-to-prev-line";
-        I = "scroll right";
-        i = "move-to-next-char";
-      };
-
-      normal = {
-        M = "back";
-        m = "scroll left";
-        N = "tab-next";
-        n = "scroll down";
-        E = "tab-prev";
-        e = "scroll up";
-        I = "forward";
-        i = "scroll right";
-
-        u = "mode-enter insert";
-
-        L = "undo -w";
-        l = "undo";
-
-        H = "bookmark-add";
-        h = "quickmark-save";
-
-        k = "search-next";
-        K = "search-prev";
-      };
-
-      insert.en = "mode-leave";
-
-    };
-    extraConfig =
-      # python
-      ''
-        c.url.searchengines = {
-          'DEFAULT': 'https://google.com/search?hl=en&q={}',
-          '!n': 'https://search.nixos.org/packages?channel=unstable&query={}',
-          '!no': 'https://search.nixos.org/options?channel=unstable&query={}',
-          '!hm': 'https://home-manager-options.extranix.com?release=master&query={}'
-        }
-
-        c.auto_save.session = True
-
-        c.keyhint.blacklist = ['en']
-
-        c.scrolling.smooth = True
-        c.tabs.favicons.show = 'always'
-
-        c.colors.webpage.darkmode.enabled
-      '';
-  };
-
-  programs.gh.enable = true;
 
   home.file.".XCompose".text = ''
     include "%L"
